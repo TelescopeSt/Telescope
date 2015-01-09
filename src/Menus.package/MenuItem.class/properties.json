@@ -1,0 +1,20 @@
+{
+	"commentStamp" : "",
+	"super" : "AbstractMenuElement",
+	"category" : "Menus",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"action",
+		"checked",
+		"enabled",
+		"separator",
+		"subMenu",
+		"icon",
+		"enabledBlock",
+		"keyText"
+	],
+	"name" : "MenuItem",
+	"type" : "normal"
+}

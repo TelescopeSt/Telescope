@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "",
+	"super" : "AbstractMenuElement",
+	"category" : "Menus",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"items",
+		"parentMenu"
+	],
+	"name" : "MenuGroup",
+	"type" : "normal"
+}
