@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "RTNest",
+	"category" : "Telescope-RoassalElements",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "TLNest",
+	"type" : "normal"
+}

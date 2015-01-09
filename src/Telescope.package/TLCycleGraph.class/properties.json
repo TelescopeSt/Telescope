@@ -1,0 +1,16 @@
+{
+	"commentStamp" : "LeoPerard 8/20/2014 15:07",
+	"super" : "TLVisualization",
+	"category" : "Telescope-Visualizations",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"data",
+		"nextProperty",
+		"rank",
+		"objectAdded"
+	],
+	"name" : "TLCycleGraph",
+	"type" : "normal"
+}

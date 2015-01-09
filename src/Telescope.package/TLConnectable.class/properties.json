@@ -1,0 +1,15 @@
+{
+	"classtraitcomposition" : "TTLConnectable classTrait",
+	"classvars" : [ ],
+	"instvars" : [
+		"edgeBuilder"
+	],
+	"name" : "TLConnectable",
+	"commentStamp" : "GuillaumeLarcheveque 1/5/2015 15:33",
+	"super" : "TLDrawable",
+	"traitcomposition" : "TTLConnectable",
+	"type" : "normal",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"category" : "Telescope-Model"
+}

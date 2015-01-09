@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "",
+	"super" : "TLObject",
+	"category" : "Telescope-Helper",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"pred",
+		"next",
+		"title"
+	],
+	"name" : "TLBasicBlock",
+	"type" : "normal"
+}

@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "GuillaumeLarcheveque 7/7/2014 17:40",
+	"super" : "TLVisualization",
+	"category" : "Telescope-Visualizations",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"mainEntity",
+		"leftEntities",
+		"rightEntities"
+	],
+	"name" : "TLButterfly",
+	"type" : "normal"
+}

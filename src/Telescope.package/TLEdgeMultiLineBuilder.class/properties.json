@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "",
+	"super" : "TLEdgeBuilder",
+	"category" : "Telescope-Builder",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"direction"
+	],
+	"name" : "TLEdgeMultiLineBuilder",
+	"type" : "normal"
+}

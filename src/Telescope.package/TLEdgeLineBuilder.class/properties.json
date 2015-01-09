@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "GuillaumeLarcheveque 6/24/2014 13:33",
+	"super" : "TLEdgeBuilder",
+	"category" : "Telescope-Builder",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "TLEdgeLineBuilder",
+	"type" : "normal"
+}

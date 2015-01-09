@@ -1,0 +1,11 @@
+SystemOrganization addCategory: #Telescope!
+SystemOrganization addCategory: 'Telescope-Builder'!
+SystemOrganization addCategory: 'Telescope-Core'!
+SystemOrganization addCategory: 'Telescope-Demos'!
+SystemOrganization addCategory: 'Telescope-Exceptions'!
+SystemOrganization addCategory: 'Telescope-Helper'!
+SystemOrganization addCategory: 'Telescope-Interactions'!
+SystemOrganization addCategory: 'Telescope-Model'!
+SystemOrganization addCategory: 'Telescope-RoassalElements'!
+SystemOrganization addCategory: 'Telescope-Shape'!
+SystemOrganization addCategory: 'Telescope-Visualizations'!

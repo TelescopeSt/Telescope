@@ -1,0 +1,17 @@
+{
+	"commentStamp" : "GuillaumeLarcheveque 7/3/2014 10:36",
+	"super" : "TLObject",
+	"category" : "Telescope-Model",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"parent",
+		"interactions",
+		"generator",
+		"isUpdateRequired",
+		"isLayoutApplicationRequired"
+	],
+	"name" : "TLDrawable",
+	"type" : "normal"
+}

@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "ub 8/1/2014 17:22",
+	"super" : "TLVisualization",
+	"category" : "Telescope-Visualizations",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"entity",
+		"titleToProperty"
+	],
+	"name" : "TLUMLClassElement",
+	"type" : "normal"
+}

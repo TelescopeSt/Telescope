@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "LeoPerard 4/25/2014 13:18",
+	"super" : "TLAbstractNode",
+	"category" : "Telescope-Model",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "TLSimpleNode",
+	"type" : "normal"
+}

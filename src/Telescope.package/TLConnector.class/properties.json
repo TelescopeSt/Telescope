@@ -1,0 +1,18 @@
+{
+	"commentStamp" : "GuillaumeLarcheveque 9/16/2014 11:21",
+	"super" : "TLObject",
+	"category" : "Telescope-Core",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"view",
+		"viewMorph",
+		"shapeByDrawable",
+		"menuInteractionByDrawable",
+		"shapeInteractionByDrawable",
+		"nestByParent"
+	],
+	"name" : "TLConnector",
+	"type" : "normal"
+}

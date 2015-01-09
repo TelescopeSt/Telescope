@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "GuillaumeLarcheveque 8/6/2014 11:17",
+	"super" : "TLObject",
+	"category" : "Telescope-Interactions",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"action"
+	],
+	"name" : "TLInteraction",
+	"type" : "normal"
+}

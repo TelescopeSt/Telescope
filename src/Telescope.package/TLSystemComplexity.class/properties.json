@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "ub 8/1/2014 17:57",
+	"super" : "TLVisualization",
+	"category" : "Telescope-Visualizations",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"root",
+		"property"
+	],
+	"name" : "TLSystemComplexity",
+	"type" : "normal"
+}

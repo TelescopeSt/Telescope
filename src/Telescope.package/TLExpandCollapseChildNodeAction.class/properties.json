@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "GuillaumeLarcheveque 8/6/2014 11:10",
+	"super" : "TLNodeAction",
+	"category" : "Telescope-Interactions",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"parentToChildren",
+		"property"
+	],
+	"name" : "TLExpandCollapseChildNodeAction",
+	"type" : "normal"
+}

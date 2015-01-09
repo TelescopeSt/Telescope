@@ -1,0 +1,3 @@
+generation - interaction
+generateDoubleClickInteraction: aDoubleClickInteraction onDrawable: aTLDrawable
+	self subclassResponsibility

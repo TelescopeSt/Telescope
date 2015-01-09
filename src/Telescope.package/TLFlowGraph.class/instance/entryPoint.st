@@ -1,0 +1,3 @@
+accessing
+entryPoint
+	^ entryPoint

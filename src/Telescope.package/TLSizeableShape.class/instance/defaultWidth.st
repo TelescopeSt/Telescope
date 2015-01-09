@@ -1,0 +1,3 @@
+default
+defaultWidth
+	^ 15

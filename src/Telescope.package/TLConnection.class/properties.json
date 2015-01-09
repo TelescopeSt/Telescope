@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "GuillaumeLarcheveque 7/4/2014 15:25",
+	"super" : "TLDrawable",
+	"category" : "Telescope-Model",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"fromNode",
+		"toNode",
+		"edgeBuilder"
+	],
+	"name" : "TLConnection",
+	"type" : "normal"
+}

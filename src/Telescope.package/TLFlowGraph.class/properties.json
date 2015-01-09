@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "LeoPerard 8/19/2014 11:13",
+	"super" : "TLVisualization",
+	"category" : "Telescope-Visualizations",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"entryPoint",
+		"nextProperty",
+		"rank"
+	],
+	"name" : "TLFlowGraph",
+	"type" : "normal"
+}

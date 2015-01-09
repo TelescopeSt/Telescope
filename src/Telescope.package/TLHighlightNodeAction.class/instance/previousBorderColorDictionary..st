@@ -1,0 +1,3 @@
+accessing
+previousBorderColorDictionary: anObject
+	previousBorderColorDictionary := anObject

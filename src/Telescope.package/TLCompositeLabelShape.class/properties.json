@@ -1,0 +1,17 @@
+{
+	"commentStamp" : "",
+	"super" : "TLSizeableShape",
+	"category" : "Telescope-Shape",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"label",
+		"shape",
+		"labelPosition",
+		"labelColor",
+		"labelFontSize"
+	],
+	"name" : "TLCompositeLabelShape",
+	"type" : "normal"
+}

@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "LeoPerard 7/23/2014 11:22",
+	"super" : "TLVisualization",
+	"category" : "Telescope-Visualizations",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"root",
+		"property"
+	],
+	"name" : "TLTreeExplorer",
+	"type" : "normal"
+}

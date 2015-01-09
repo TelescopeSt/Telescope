@@ -1,0 +1,3 @@
+*Telescope
+isComposite
+	^ false

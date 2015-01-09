@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "GuillaumeLarcheveque 7/7/2014 17:39",
+	"super" : "TLEntitiesGroup",
+	"category" : "Telescope-Visualizations",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"title",
+		"legend"
+	],
+	"name" : "TLVisualization",
+	"type" : "normal"
+}

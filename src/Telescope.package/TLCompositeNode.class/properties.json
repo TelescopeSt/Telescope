@@ -1,0 +1,18 @@
+{
+	"commentStamp" : "GuillaumeLarcheveque 1/5/2015 16:13",
+	"super" : "TLAbstractNode",
+	"category" : "Telescope-Model",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"childrenNodes",
+		"property",
+		"expanded",
+		"childrenLayout",
+		"childrenNodeBuilder",
+		"childrenConnectingProperty"
+	],
+	"name" : "TLCompositeNode",
+	"type" : "normal"
+}

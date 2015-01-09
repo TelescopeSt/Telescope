@@ -1,0 +1,13 @@
+{
+	"classtraitcomposition" : "TTLConnectable classTrait",
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "TLDrawableCollection",
+	"commentStamp" : "GuillaumeLarcheveque 1/5/2015 16:24",
+	"super" : "OrderedCollection",
+	"traitcomposition" : "TTLConnectable",
+	"type" : "normal",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"category" : "Telescope-Model"
+}

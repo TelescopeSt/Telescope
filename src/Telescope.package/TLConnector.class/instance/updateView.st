@@ -1,0 +1,3 @@
+view
+updateView
+	self subclassResponsibility

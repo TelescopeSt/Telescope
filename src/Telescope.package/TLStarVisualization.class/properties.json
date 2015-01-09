@@ -1,0 +1,16 @@
+{
+	"commentStamp" : "usmanbhatti 8/26/2014 17:40",
+	"super" : "TLVisualization",
+	"category" : "Telescope-Visualizations",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"centerNode",
+		"aroundNodes",
+		"userBlock",
+		"defaultInteraction"
+	],
+	"name" : "TLStarVisualization",
+	"type" : "normal"
+}

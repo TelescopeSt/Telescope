@@ -1,0 +1,16 @@
+{
+	"commentStamp" : "GuillaumeLarcheveque 7/3/2014 10:34",
+	"super" : "TLConnectable",
+	"category" : "Telescope-Model",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"telescopeEntities",
+		"subGroupsDictionary",
+		"layout",
+		"nodeBuilder"
+	],
+	"name" : "TLEntitiesGroup",
+	"type" : "normal"
+}

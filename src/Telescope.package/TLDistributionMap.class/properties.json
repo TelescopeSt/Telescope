@@ -1,0 +1,16 @@
+{
+	"commentStamp" : "GuillaumeLarcheveque 7/21/2014 15:17",
+	"super" : "TLVisualization",
+	"category" : "Telescope-Visualizations",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"containerEntities",
+		"innerEntities",
+		"property",
+		"colorToProperty"
+	],
+	"name" : "TLDistributionMap",
+	"type" : "normal"
+}

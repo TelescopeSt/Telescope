@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "GuillaumeLarcheveque 6/30/2014 15:15",
+	"super" : "TLConnector",
+	"category" : "Telescope-Core",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "TLRoassal2Connector",
+	"type" : "normal"
+}

@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "",
+	"super" : "TLObject",
+	"category" : "Telescope-Shape",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"color",
+		"interactions",
+		"stateUpdate"
+	],
+	"name" : "TLShape",
+	"type" : "normal"
+}

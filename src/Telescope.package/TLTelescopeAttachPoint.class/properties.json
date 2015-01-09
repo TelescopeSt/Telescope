@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "RTAttachPoint",
+	"category" : "Telescope-RoassalElements",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "TLTelescopeAttachPoint",
+	"type" : "normal"
+}

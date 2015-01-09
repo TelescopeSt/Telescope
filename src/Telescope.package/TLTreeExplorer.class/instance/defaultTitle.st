@@ -1,0 +1,3 @@
+default
+defaultTitle
+	^ 'Tree Explorer'

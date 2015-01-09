@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "GuillaumeLarcheveque 8/7/2014 15:44",
+	"super" : "TLDrawableParametrizedAction",
+	"category" : "Telescope-Interactions",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"actionBlock"
+	],
+	"name" : "TLCustomParametrizedAction",
+	"type" : "normal"
+}

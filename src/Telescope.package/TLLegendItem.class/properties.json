@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "",
+	"super" : "TLDrawable",
+	"category" : "Telescope-Model",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"title",
+		"shape"
+	],
+	"name" : "TLLegendItem",
+	"type" : "normal"
+}

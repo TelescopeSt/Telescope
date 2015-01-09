@@ -1,0 +1,3 @@
+accessing
+defaultItemBuilder
+	^ TLLegendItemBuilder new

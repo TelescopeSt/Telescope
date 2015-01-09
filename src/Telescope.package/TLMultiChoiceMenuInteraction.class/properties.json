@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "",
+	"super" : "TLMenuInteraction",
+	"category" : "Telescope-Interactions",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"choicesBlock",
+		"displayBlock"
+	],
+	"name" : "TLMultiChoiceMenuInteraction",
+	"type" : "normal"
+}

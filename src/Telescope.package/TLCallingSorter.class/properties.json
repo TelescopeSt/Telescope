@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "",
+	"super" : "TLSorter",
+	"category" : "Telescope-Helper",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"entryPoint",
+		"copy",
+		"methods"
+	],
+	"name" : "TLCallingSorter",
+	"type" : "normal"
+}

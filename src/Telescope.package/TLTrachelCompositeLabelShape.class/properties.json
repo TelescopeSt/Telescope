@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "TRCompositeShape",
+	"category" : "Telescope-RoassalElements",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "TLTrachelCompositeLabelShape",
+	"type" : "normal"
+}

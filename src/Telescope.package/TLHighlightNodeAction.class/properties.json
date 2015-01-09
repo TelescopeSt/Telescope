@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "",
+	"super" : "TLNodeAction",
+	"category" : "Telescope-Interactions",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"previousBorderColorDictionary"
+	],
+	"name" : "TLHighlightNodeAction",
+	"type" : "normal"
+}

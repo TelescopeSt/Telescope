@@ -1,0 +1,3 @@
+view
+removeElementNodeFromView: element
+	self subclassResponsibility

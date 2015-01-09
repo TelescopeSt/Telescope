@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "",
+	"super" : "TLObject",
+	"category" : "Telescope-Helper",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"state"
+	],
+	"name" : "TLSorter",
+	"type" : "normal"
+}

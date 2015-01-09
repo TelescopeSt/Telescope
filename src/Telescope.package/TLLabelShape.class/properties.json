@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "",
+	"super" : "TLShape",
+	"category" : "Telescope-Shape",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"text"
+	],
+	"name" : "TLLabelShape",
+	"type" : "normal"
+}

@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "",
+	"super" : "TLShape",
+	"category" : "Telescope-Shape",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"borderColor",
+		"borderWidth"
+	],
+	"name" : "TLBorderedShape",
+	"type" : "normal"
+}

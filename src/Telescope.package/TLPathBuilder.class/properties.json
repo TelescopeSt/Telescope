@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "GuillaumeLarcheveque 12/3/2014 15:49",
+	"super" : "TLVisualization",
+	"category" : "Telescope-Visualizations",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"origin",
+		"incomingBlock",
+		"outgoingBlock"
+	],
+	"name" : "TLPathBuilder",
+	"type" : "normal"
+}

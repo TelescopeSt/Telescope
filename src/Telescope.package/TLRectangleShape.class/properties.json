@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "TLSizeableShape",
+	"category" : "Telescope-Shape",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "TLRectangleShape",
+	"type" : "normal"
+}

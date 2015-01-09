@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "LeoPerard 4/30/2014 13:53",
+	"super" : "TLBuilder",
+	"category" : "Telescope-Builder",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"itemBuilder"
+	],
+	"name" : "TLLegendBuilder",
+	"type" : "normal"
+}

@@ -1,0 +1,18 @@
+{
+	"commentStamp" : "",
+	"super" : "TLNodeBuilder",
+	"category" : "Telescope-Builder",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"childrenProperty",
+		"childrenNodeBuilder",
+		"colorChildren",
+		"expandedByDefault",
+		"childrenLayout",
+		"childrenConnectingProperty"
+	],
+	"name" : "TLCompositeNodeBuilder",
+	"type" : "normal"
+}
