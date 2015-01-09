@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "RTLayout",
+	"category" : "GraphLayout-Core",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "TLDirectedGraphLayout",
+	"type" : "normal"
+}
