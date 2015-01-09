@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "",
+	"super" : "BabyMock2TestCase",
+	"category" : "Telescope-Tests",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"connector",
+		"view"
+	],
+	"name" : "TLRoassal2ConnectorTests",
+	"type" : "normal"
+}

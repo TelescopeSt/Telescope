@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "",
+	"super" : "BabyMock2TestCase",
+	"category" : "Telescope-Tests",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"tlGroup",
+		"parentMock",
+		"generatorMock"
+	],
+	"name" : "TLEntitiesGroupTests",
+	"type" : "normal"
+}
