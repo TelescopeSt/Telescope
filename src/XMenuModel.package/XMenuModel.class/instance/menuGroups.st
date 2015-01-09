@@ -1,0 +1,4 @@
+protocol
+menuGroups
+
+	^ groups value

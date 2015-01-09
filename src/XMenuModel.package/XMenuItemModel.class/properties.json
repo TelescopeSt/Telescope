@@ -1,0 +1,21 @@
+{
+	"commentStamp" : "<historical>",
+	"super" : "AbstractWidgetModel",
+	"category" : "XMenuModel",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"action",
+		"name",
+		"shortcut",
+		"subMenu",
+		"icon",
+		"description",
+		"state",
+		"enabled",
+		"autoRefresh"
+	],
+	"name" : "XMenuItemModel",
+	"type" : "normal"
+}

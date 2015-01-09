@@ -1,0 +1,4 @@
+protocol
+shortcut
+
+	^ shortcut value
