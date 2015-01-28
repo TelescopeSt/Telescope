@@ -5,14 +5,12 @@ baseline07: spec
 		for: #common
 		do: [ 
 			spec blessing: #baseline.
-			spec repository: 'http://smalltalkhub.com/mc/Moose/Telescope/main/'.
-			spec
-				project: 'Roassal2'
-					with: [ 
-							spec repository: 'http://smalltalkhub.com/mc/ObjectProfile/Roassal2/main/'.
+			spec repository: 'http://smalltalkhub.com/mc/ObjectProfile/Roassal2/main/'.
 							spec
 								package: 'Trachel' with: 'Trachel-akevalion.253';
-								package: 'Roassal2' with: 'Roassal2-AlexandreBergel.705' ];
+								package: 'Roassal2' with: 'Roassal2-AlexandreBergel.705'.
+			spec repository: 'http://smalltalkhub.com/mc/Moose/Telescope/main/'.
+			spec
 				project: 'BabyMock2'
 					with: [ 
 							spec
