@@ -1,4 +1,4 @@
 accessing
 removed
-	self incomingConnections do: #removed.
-	self outgoingConnections do: #removed.
+	self incomingConnections copy do: #removed.
+	self outgoingConnections copy do: #removed.
