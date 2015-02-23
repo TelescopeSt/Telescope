@@ -7,7 +7,7 @@ buildTheFlowFrom: aCollectionOfObjects currentRank: anIntegerRank
 				layout: (RTVerticalLineLayout new gapSize: 30).
 			self
 				buildTheFlowFrom:
-					((self removeDuplicatesIn: (aCollectionOfObjects flatCollect: [ :anObject | anObject perform: self nextProperty ]))
+					((self removeDuplicatesIn: (aCollectionOfObjects flatCollect: [ :anObject | self nextProperty cull: anObject]))
 						reject: [ :anEntity | 
 							[ 
 							self nodeForEntity: anEntity.
@@ -16,4 +16,4 @@ buildTheFlowFrom: aCollectionOfObjects currentRank: anIntegerRank
 								do: [ false ] ])
 				currentRank: anIntegerRank + 1.
 			(self > anIntegerRank) nodes
-				do: [ :aNode | (aNode entity perform: self nextProperty) do: [ :anEntity | aNode connectTo: (self nodeForEntity: anEntity) ] ] ]
+				do: [ :aNode | (self nextProperty cull: aNode entity ) do: [ :anEntity | aNode connectTo: (self nodeForEntity: anEntity) ] ] ]
