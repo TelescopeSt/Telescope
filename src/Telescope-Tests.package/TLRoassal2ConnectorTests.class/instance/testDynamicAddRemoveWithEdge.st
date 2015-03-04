@@ -1,7 +1,7 @@
 as yet unclassified
 testDynamicAddRemoveWithEdge
 	| visu nodeBuilder interaction node |
-	interaction := ((TLExpandCollapseChildNodeAction new property: #subclasses)
+	interaction := ((TLExpandCollapseNodesAction new property: #subclasses)
 		withShape: (TLEllipseShape new color: Color red)).
 	nodeBuilder := TLNodeBuilder ellipse.
 	nodeBuilder addInteraction: interaction.
