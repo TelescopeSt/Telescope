@@ -1,5 +1,5 @@
 {
-	"commentStamp" : "GuillaumeLarcheveque 8/6/2014 11:10",
+	"commentStamp" : "GuillaumeLarcheveque 3/4/2015 14:17",
 	"super" : "TLNodeAction",
 	"category" : "Telescope-Interactions",
 	"classinstvars" : [ ],
@@ -7,8 +7,9 @@
 	"classvars" : [ ],
 	"instvars" : [
 		"parentToChildren",
-		"property"
+		"property",
+		"destinationGroup"
 	],
-	"name" : "TLExpandCollapseChildNodeAction",
+	"name" : "TLExpandCollapseNodesAction",
 	"type" : "normal"
 }
