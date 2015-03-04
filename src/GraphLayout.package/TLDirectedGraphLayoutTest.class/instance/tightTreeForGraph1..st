@@ -11,5 +11,5 @@ tightTreeForGraph1: theGraph1
 	($g -> $h)}.
 	^ tightTreeConnections
 		collect: [ :aLink | 
-			(theGraph1 nodeFromEntity: aLink key) outgoingConnections
-				detect: [ :aConnection | aConnection toNode = (theGraph1 nodeFromEntity: aLink value) ] ]
+			(theGraph1 nodeForEntity: aLink key) outgoingConnections
+				detect: [ :aConnection | aConnection toNode = (theGraph1 nodeForEntity: aLink value) ] ]

@@ -7,5 +7,5 @@ createTelescopeGraphFrom: aCollectionOfAssociations
 	nodesGroup addAbsentNodesInVisualizationFromEntities: (aCollectionOfAssociations collect: #key) asSet.
 	nodesGroup addAbsentNodesInVisualizationFromEntities: (aCollectionOfAssociations collect: #value) asSet.
 	aCollectionOfAssociations
-		do: [ :assoc | (nodesGroup nodeFromEntity: assoc key) connectTo: (nodesGroup nodeFromEntity: assoc value) ].
+		do: [ :assoc | (nodesGroup nodeForEntity: assoc key) connectTo: (nodesGroup nodeForEntity: assoc value) ].
 	^ nodesGroup
