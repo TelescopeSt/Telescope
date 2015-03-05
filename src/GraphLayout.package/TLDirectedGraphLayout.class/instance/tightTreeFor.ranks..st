@@ -4,7 +4,7 @@ tightTreeFor: aGraph ranks: aRankDictionary
 	self flag: 'Does not return exactly the same tree than in paper'.
 	tightTree := OrderedCollection new.
 	tightTreeConnections := OrderedCollection new.
-	tightTree add: aGraph nodes atRandom.
+	tightTree add: aGraph nodes first.
 	[ tightTree size < aGraph nodes size ]
 		whileTrue: [ 
 			| connection nodeToAdd delta |
