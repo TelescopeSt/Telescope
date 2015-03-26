@@ -1,3 +1,3 @@
-as yet unclassified
+enumerating
 collect: aBlockClosure 
 	^ self telescopeEntities collect: aBlockClosure 

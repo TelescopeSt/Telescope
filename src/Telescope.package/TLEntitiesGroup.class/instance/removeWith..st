@@ -1,3 +1,3 @@
-as yet unclassified
+generation
 removeWith: aTLConnector
 	aTLConnector removeGroup: self

@@ -1,3 +1,3 @@
-as yet unclassified
+enumerating
 flatCollect: aBlock
 	^ self telescopeEntities flatCollect: aBlock
