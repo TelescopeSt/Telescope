@@ -1,9 +1,16 @@
 public - hooks
 startingPointOf: anEdge
-	| element shape |
-	element := anEdge from.
-	shape := element shape isComposite
-		ifTrue: [ element trachelShape shape2 ]
-		ifFalse: [ element trachelShape ].
-	^ shape encompassingRectangle rightCenter
-	"^ anEdge from position asIntegerPoint"
+	| shapeFrom shapeTo segment |
+	shapeFrom := anEdge from shape isComposite
+		ifTrue: [ anEdge from trachelShape shape2 ]
+		ifFalse: [ anEdge from trachelShape ].
+	shapeTo := anEdge to shape isComposite
+		ifTrue: [ anEdge to trachelShape shape2 ]
+		ifFalse: [ anEdge to trachelShape ].
+	^ shapeFrom class = TRBoxShape
+		ifFalse: [ shapeFrom encompassingRectangle rightCenter ]
+		ifTrue: [ 
+			segment := GSegment with: shapeFrom center with: shapeTo center.
+			(shapeFrom encompassingRectangle edges collect: [ :e | e intersectionPointWithSegment: segment ])
+				detect: #notNil
+				ifNone: [ shapeFrom encompassingRectangle rightCenter ] ]
