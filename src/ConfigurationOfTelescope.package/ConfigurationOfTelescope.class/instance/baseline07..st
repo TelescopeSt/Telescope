@@ -4,7 +4,10 @@ baseline07: spec
 
 	spec for: #'common' do: [
 		spec blessing: #'baseline'.
-		spec repository: 'http://smalltalkhub.com/mc/ObjectProfile/Roassal2/main/'.
+			spec repository: 'http://smalltalkhub.com/mc/ObjectProfile/Roassal2/main/'.
+							spec
+								package: 'Trachel' with: 'Trachel-akevalion.253';
+								package: 'Roassal2' with: 'Roassal2-AlexandreBergel.705'.
 		spec 
 			project: 'BabyMock2' with: [
 				spec
@@ -17,8 +20,6 @@ baseline07: spec
 					versionString: #'development';
 					repository: 'http://smalltalkhub.com/mc/NataliaTymchuk/Geometry/main/' ].
 		spec 
-			package: 'Trachel';
-			package: 'Roassal2';
 			package: 'Telescope';
 			package: 'XMenuModel';
 			package: 'Telescope-Tests'. ].
