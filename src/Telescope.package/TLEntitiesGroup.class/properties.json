@@ -1,9 +1,5 @@
 {
-	"commentStamp" : "GuillaumeLarcheveque 7/3/2014 10:34",
-	"super" : "TLConnectable",
-	"category" : "Telescope-Model",
-	"classinstvars" : [ ],
-	"pools" : [ ],
+	"classtraitcomposition" : "TTLDrawableCollection classTrait",
 	"classvars" : [ ],
 	"instvars" : [
 		"telescopeEntities",
@@ -12,5 +8,11 @@
 		"nodeBuilder"
 	],
 	"name" : "TLEntitiesGroup",
-	"type" : "normal"
+	"commentStamp" : "GuillaumeLarcheveque 7/3/2014 10:34",
+	"super" : "TLConnectable",
+	"traitcomposition" : "TTLDrawableCollection",
+	"type" : "normal",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"category" : "Telescope-Model"
 }

@@ -3,7 +3,6 @@ createLegendFrom: legendItems
 	| background legend |
 	legendItems ifEmpty: [ ^#() ].
 	background := RTBox new color: Color white; borderColor: Color black; element.
-	background @ RTDraggable.
 	legend := RTGroup newFrom: legendItems.
 	RTNest new layout: (RTVerticalLineLayout new alignRight);
 		on: background nest: legend.

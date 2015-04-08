@@ -1,3 +1,3 @@
-as yet unclassified
+interactions
 allInteractions
 	^ self interactions

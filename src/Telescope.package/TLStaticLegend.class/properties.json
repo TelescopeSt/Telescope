@@ -1,14 +1,14 @@
 {
-	"commentStamp" : "GuillaumeLarcheveque 4/8/2015 11:24",
+	"commentStamp" : "",
 	"super" : "TLDrawable",
 	"category" : "Telescope-Model",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"contextBlock",
-		"labelBlock"
+		"items",
+		"layout"
 	],
-	"name" : "TLLegend",
+	"name" : "TLStaticLegend",
 	"type" : "normal"
 }

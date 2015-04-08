@@ -1,0 +1,3 @@
+view
+removeElementLegendItemFromView: element
+	self subclassResponsibility

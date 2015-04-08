@@ -1,4 +1,4 @@
 enumerating
 nodesCollect: aBlock
-	^ self telescopeEntities
+	^ self collection
 		nodesCollect: aBlock

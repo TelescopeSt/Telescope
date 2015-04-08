@@ -1,3 +1,3 @@
 updating - legend
-updateLegend: aTLLegend 
-	self shouldBeImplemented.
+updateLegend: aTLLegend
+	self subclassResponsibility 

@@ -1,3 +1,3 @@
 generation
 updateWith: aGenerator
-	self subclassResponsibility 
+	aGenerator updateLegend: self

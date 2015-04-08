@@ -1,4 +1,4 @@
 accessing
 legend
-	legend ifNil: [ self legend: (TLLegend new parent: self) ].
+	legend ifNil: [ self legend: (TLStaticLegend new parent: self) ].
 	^ legend
