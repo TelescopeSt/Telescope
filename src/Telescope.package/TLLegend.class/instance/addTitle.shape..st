@@ -1,5 +1,6 @@
 as yet unclassified
 addTitle: aTitle shape: aTLShape
+	self requireUpdate.
 	(self items contains: [ :item | item title text = aTitle ])
 		ifFalse: [ 
 			self items

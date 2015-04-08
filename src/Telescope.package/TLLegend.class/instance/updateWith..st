@@ -1,3 +1,3 @@
 generation
 updateWith: aGenerator
-	self shouldBeImplemented
+	aGenerator updateLegend: self

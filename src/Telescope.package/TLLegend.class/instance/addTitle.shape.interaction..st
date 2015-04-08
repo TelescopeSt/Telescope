@@ -1,5 +1,6 @@
 as yet unclassified
 addTitle: aTitle shape: aTLShape interaction: aTLInteraction
+	self requireUpdate.
 	(self items contains: [ :item | item title text = aTitle ])
 		ifFalse: [ 
 			self items
