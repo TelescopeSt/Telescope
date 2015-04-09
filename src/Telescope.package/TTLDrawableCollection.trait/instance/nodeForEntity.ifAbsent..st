@@ -1,5 +1,5 @@
-private
-nodeForEntity: anEntity
+nodes-entity
+nodeForEntity: anEntity ifAbsent: aBlock
 	^ self nodes
 		detect: [ :aTLEntity | aTLEntity entity = anEntity ]
 		ifNone: [ 
@@ -8,4 +8,4 @@ nodeForEntity: anEntity
 					[ ^ aSubgroup nodeForEntity: anEntity ]
 						on: NotFound
 						do: [  ] ].
-			NotFound signal ]
+			aBlock value ]

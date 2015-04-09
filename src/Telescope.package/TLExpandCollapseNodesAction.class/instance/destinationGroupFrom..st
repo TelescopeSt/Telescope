@@ -1,3 +1,3 @@
 as yet unclassified
 destinationGroupFrom: node
-	^ self destinationGroup ifNil: [ node parent ]
+	^ self destinationGroup ifNotNil: [ self destinationGroup rtValue: node ] ifNil: [ node parent ]

@@ -1,4 +1,4 @@
 accessing
 nodes
-	^ self telescopeEntities
+	^ self collection
 		select: #isNode

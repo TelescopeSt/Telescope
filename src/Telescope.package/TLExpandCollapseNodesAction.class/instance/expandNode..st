@@ -1,19 +1,18 @@
 as yet unclassified
 expandNode: aNode
-	| children newNodes existingNodes |
+	| children newNodes  targetNodes |
 	children := self property rtValue: aNode entity.
-	newNodes := self parentToChildren
+	newNodes := TLDrawableCollection new.
+	self parentToChildren
 		at: aNode
 		put:
 			(children
 				ifNotNil: [ 
-					existingNodes := (self destinationGroupFrom: aNode) nodesForEntities: children.
-					(self destinationGroupFrom: aNode) addAbsentNodesInVisualizationFromEntities: children ]).
+					targetNodes := children collect: [:aChild | (self destinationGroupFrom: aChild) nodeForEntity: aChild ifAbsent: [newNodes add: ((self destinationGroupFrom: aChild) addNodeFromEntity: aChild) ]] as: TLDrawableCollection.
+				newNodes	]).
 	expandToOrigin
 		ifFalse: [ 
-			aNode connectToAll: newNodes.
-			aNode connectToAll: existingNodes ]
+			aNode connectToAll: targetNodes ]
 		ifTrue: [ 
-			newNodes connectTo: aNode.
-			existingNodes connectTo: aNode ].
+			targetNodes connectTo: aNode ].
 	aNode state at: #expanded put: true
