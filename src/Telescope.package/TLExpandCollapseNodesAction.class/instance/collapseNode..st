@@ -1,4 +1,4 @@
-as yet unclassified
+action
 collapseNode: aNode
 	[(self parentToChildren at: aNode)
 		do: [ :node | 
