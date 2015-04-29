@@ -1,0 +1,3 @@
+generation - interaction
+generateMouseOverInteraction: aTLMouseOverInteraction onDrawable: aTLDrawable 
+	self subclassResponsibility

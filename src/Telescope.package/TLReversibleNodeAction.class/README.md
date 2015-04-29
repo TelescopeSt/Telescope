@@ -1,0 +1,1 @@
+A TLReversibleNodeAction is an action that can be done and undone by calling a second time #actionOn:. It can be used like any action but is also sometime required for specific interation (like mooseOver)

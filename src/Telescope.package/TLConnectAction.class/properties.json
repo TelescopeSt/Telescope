@@ -1,13 +1,16 @@
 {
-	"commentStamp" : "GuillaumeLarcheveque 4/10/2015 09:54",
+	"commentStamp" : "GuillaumeLarcheveque 4/29/2015 11:54",
 	"super" : "TLReversibleNodeAction",
 	"category" : "Telescope-Interactions",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"previousBorderColorDictionary"
+		"connectionsByNode",
+		"property",
+		"context",
+		"connectToOrigin"
 	],
-	"name" : "TLHighlightNodeAction",
+	"name" : "TLConnectAction",
 	"type" : "normal"
 }

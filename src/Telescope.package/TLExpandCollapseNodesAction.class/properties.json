@@ -1,6 +1,6 @@
 {
 	"commentStamp" : "GuillaumeLarcheveque 3/4/2015 14:17",
-	"super" : "TLNodeAction",
+	"super" : "TLReversibleNodeAction",
 	"category" : "Telescope-Interactions",
 	"classinstvars" : [ ],
 	"pools" : [ ],
