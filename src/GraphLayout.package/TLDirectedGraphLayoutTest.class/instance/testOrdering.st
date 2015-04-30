@@ -1,5 +1,5 @@
 as yet unclassified
-testRankTightTree
+testOrdering
 	| graph1 |
 	graph1 := (self createTelescopeGraphFrom: self graph1).
-	(layout rankTightTree: (layout rankGraph: graph1) inspect) inspect
+	layout ordering: (layout rankTightTree: (layout rankGraph: graph1) ) 

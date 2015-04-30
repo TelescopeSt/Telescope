@@ -1,5 +1,6 @@
 accessing
 rankTightTree: aTightTree
+"A technique for Drawing Directed Graph page 8 without normalize and balance"
 	| rankDictionary remainingConnections currentRank |
 	remainingConnections := aTightTree copy.
 	rankDictionary := Dictionary new.
