@@ -1,3 +1,3 @@
 accessing
-nodeBuilder: anObject
-	nodeBuilder := anObject
+nodeBuilder: aNodeBuilder
+	self styleSheet nodeBuilder: aNodeBuilder

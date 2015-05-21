@@ -1,8 +1,5 @@
 generation - shape
 generateLabelShape: aLabelShape
-	| shape |
-	shape := RTLabel new.
-	shape
+	^ RTLabel new
 		text: aLabelShape text;
-		color: aLabelShape color.
-	^ shape
+		yourself

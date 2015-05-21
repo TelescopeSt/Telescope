@@ -1,4 +1,3 @@
 accessing
 childrenNodes
-	childrenNodes telescopeEntities ifEmpty: [ self createChildrenNodes ].
-	^ childrenNodes
+	^ self childrenGroup nodes

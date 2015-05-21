@@ -6,4 +6,5 @@ generateSimpleNode: aSimpleNode
 	self shapeByDrawable at: aSimpleNode put: element.
 	self generateInteractionsOf: aSimpleNode.
 	self generateIfNecessaryConnectionsOf: aSimpleNode.
+	element update.
 	^ element

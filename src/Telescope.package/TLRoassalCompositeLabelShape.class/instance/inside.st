@@ -1,7 +1,7 @@
 accessing
 inside
-	^ [ :label :shape | | max |
-			max := (label encompassingRectangle extent + (self padding*2)) max: (shape encompassingRectangle extent).
+	^ [ :label :aShape | | max |
+			max := (label encompassingRectangle extent + (self padding*2)) max: (aShape encompassingRectangle extent).
 			label extent: max.
-			shape extent: max.
-			TRConstraint stick: label onTheTopLeftOf: shape withPadding: self padding ]
+			aShape extent: max.
+			TRConstraint stick: label onTheTopLeftOf: aShape withPadding: self padding ]

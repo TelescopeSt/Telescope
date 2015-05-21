@@ -1,5 +1,5 @@
 initialization
 initialize
 	super initialize.
-	connections := OrderedCollection new.
+	self styleSheet: TLStyleSheet default.
 	self configLayout

@@ -1,3 +1,0 @@
-shape customization
-borderWidth: aValueOrAOneArgBlock
-	self shapeBuilder borderWidth: aValueOrAOneArgBlock

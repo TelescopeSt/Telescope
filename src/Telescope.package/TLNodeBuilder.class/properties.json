@@ -6,7 +6,6 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"shapeBuilder",
 		"visualization"
 	],
 	"name" : "TLNodeBuilder",

@@ -1,17 +1,21 @@
 {
-	"commentStamp" : "GuillaumeLarcheveque 7/3/2014 10:36",
-	"super" : "TLObject",
-	"category" : "Telescope-Model",
-	"classinstvars" : [ ],
-	"pools" : [ ],
+	"classtraitcomposition" : "TStyledElement classTrait",
 	"classvars" : [ ],
 	"instvars" : [
 		"parent",
 		"interactions",
 		"generator",
 		"isUpdateRequired",
-		"isLayoutApplicationRequired"
+		"isLayoutApplicationRequired",
+		"styles",
+		"styleSheet"
 	],
 	"name" : "TLDrawable",
-	"type" : "normal"
+	"commentStamp" : "GuillaumeLarcheveque 7/3/2014 10:36",
+	"super" : "TLObject",
+	"traitcomposition" : "TStyledElement",
+	"type" : "normal",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"category" : "Telescope-Model"
 }

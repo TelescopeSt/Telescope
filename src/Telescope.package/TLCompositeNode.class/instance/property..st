@@ -1,3 +1,3 @@
 accessing
 property: aBlockOrProperty
-	property := aBlockOrProperty.
+	self styleSheet childrenProperty: aBlockOrProperty.

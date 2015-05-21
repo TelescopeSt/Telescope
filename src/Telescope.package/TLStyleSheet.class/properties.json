@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "GuillaumeLarcheveque 4/1/2015 15:13",
+	"super" : "StyleSheet",
+	"category" : "Telescope-Style",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "TLStyleSheet",
+	"type" : "normal"
+}

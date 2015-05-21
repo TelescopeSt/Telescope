@@ -1,7 +1,7 @@
 building
 buildVisualization
 	|  leftEntitiesValues rightEntitiesValues |
-	self nodeBuilder nodeLabel: #name.
+	self styleSheet nodeLabel: #name.
 	leftEntitiesValues := (self leftEntities rtValue: self mainEntity) asOrderedCollection.
 	rightEntitiesValues := (self rightEntities rtValue: self mainEntity) asOrderedCollection.
 	self > #left addNodesFromEntities: leftEntitiesValues.

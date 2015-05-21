@@ -4,5 +4,5 @@ actionOn: aNode
 		ifTrue: [ self collapseNode: aNode ]
 		ifFalse: [ self expandNode: aNode ].
 	aNode requireUpdateAndLayoutApplication.
-	aNode childrenNodes requireUpdateAndLayoutApplication.
+	aNode childrenGroup do: #requireUpdateAndLayoutApplication.
 	aNode visualization update

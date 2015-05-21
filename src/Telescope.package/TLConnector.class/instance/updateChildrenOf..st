@@ -1,8 +1,8 @@
 updating - node
 updateChildrenOf: aCompositeNode
-	[ aCompositeNode childrenNodes update ]
+	[ aCompositeNode childrenGroup update ]
 		on: KeyNotFound
 		do: [ ^ self generateAndNestChildrenOf: aCompositeNode ].
 	self
 		updateNestOnNode: aCompositeNode
-		nestNodes: aCompositeNode childrenNodes
+		nestNodes: aCompositeNode childrenGroup

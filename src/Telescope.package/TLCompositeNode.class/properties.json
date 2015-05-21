@@ -6,12 +6,9 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"childrenNodes",
-		"property",
+		"childrenGroup",
 		"expanded",
-		"childrenLayout",
-		"childrenNodeBuilder",
-		"childrenConnectingProperty"
+		"childrenNodeBuilder"
 	],
 	"name" : "TLCompositeNode",
 	"type" : "normal"

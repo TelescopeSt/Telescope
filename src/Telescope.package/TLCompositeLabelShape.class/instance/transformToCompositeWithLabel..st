@@ -1,3 +1,3 @@
 as yet unclassified
 transformToCompositeWithLabel: aString
-	^ self text: aString; yourself 
+	self error: 'Should never be transformed into composite'

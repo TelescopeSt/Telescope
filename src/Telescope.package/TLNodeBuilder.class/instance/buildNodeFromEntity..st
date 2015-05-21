@@ -1,3 +1,3 @@
 building
 buildNodeFromEntity: anEntity
-	^ self nodeClass new shape: (self shapeBuilder copy); entity: anEntity; addAllInteractions: self interactions
+	^ self nodeClass new entity: anEntity; addAllInteractions: self interactions

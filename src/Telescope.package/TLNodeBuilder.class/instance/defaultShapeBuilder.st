@@ -1,3 +1,0 @@
-accessing
-defaultShapeBuilder
-	^ TLRectangleShape new

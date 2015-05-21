@@ -7,7 +7,6 @@
 	"classvars" : [ ],
 	"instvars" : [
 		"entity",
-		"shape",
 		"label",
 		"incomingConnections",
 		"outgoingConnections",

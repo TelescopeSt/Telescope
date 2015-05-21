@@ -1,4 +1,4 @@
 removing - node
 removeChildrenAndResize: aCompositeNode
-	aCompositeNode childrenNodes removeWith: self.
+	aCompositeNode childrenGroup removeWith: self.
 	self onNode: aCompositeNode nestNodes: #().

@@ -1,3 +1,3 @@
 accessing
 padding
-	^ padding ifNil: [ padding := 5. padding ]
+	^ padding ifNil: [ padding := 10. padding ]

@@ -1,0 +1,3 @@
+style
+defaultStyle
+	^ #compositeNode

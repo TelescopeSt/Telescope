@@ -1,3 +1,3 @@
 accessing
 property
-	^ property
+	^ self effectiveStyleSheet childrenProperty
