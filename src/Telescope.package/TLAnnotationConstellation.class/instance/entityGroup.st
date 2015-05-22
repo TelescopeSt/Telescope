@@ -1,0 +1,3 @@
+accessing
+entityGroup
+	^ entityGroup asOrderedCollection 

@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "GustavoSantos 5/22/2015 15:56",
+	"super" : "TLVisualization",
+	"category" : "Telescope-Visualizations",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"packageEntities"
+	],
+	"name" : "TLPackageHierarchy",
+	"type" : "normal"
+}

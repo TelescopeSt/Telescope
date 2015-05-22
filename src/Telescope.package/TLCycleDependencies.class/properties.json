@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "GustavoSantos 5/22/2015 14:07",
+	"super" : "TLVisualization",
+	"category" : "Telescope-Visualizations",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"packageEntities"
+	],
+	"name" : "TLCycleDependencies",
+	"type" : "normal"
+}
