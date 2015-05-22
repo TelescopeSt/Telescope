@@ -8,4 +8,5 @@ SystemOrganization addCategory: 'Telescope-Interactions'!
 SystemOrganization addCategory: 'Telescope-Model'!
 SystemOrganization addCategory: 'Telescope-RoassalElements'!
 SystemOrganization addCategory: 'Telescope-Shape'!
+SystemOrganization addCategory: 'Telescope-Style'!
 SystemOrganization addCategory: 'Telescope-Visualizations'!
