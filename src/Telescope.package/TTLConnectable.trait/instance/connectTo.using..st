@@ -1,3 +1,3 @@
 connect
 connectTo: aTLEntity using: anEdgeBuilder
-	self subclassResponsibility
+	self explicitRequirement
