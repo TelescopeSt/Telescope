@@ -6,11 +6,6 @@ baseline08: spec
 		spec blessing: #'baseline'.
 		spec repository: 'http://smalltalkhub.com/mc/Moose/Telescope/main/'.
 		spec 
-			project: 'Roassal2' with: [
-				spec
-					className: #ConfigurationOfRoassalForTelescope;
-					versionString: #'stable';
-					repository: 'http://smalltalkhub.com/mc/Moose/Telescope/main/' ];
 			project: 'BabyMock2' with: [
 				spec
 					className: #ConfigurationOfBabyMock2;
@@ -25,10 +20,15 @@ baseline08: spec
 				spec
 					className: #ConfigurationOfStylesheet;
 					versionString: #'development';
-					repository: 'http://smalltalkhub.com/mc/RMoD/Stylesheet/main/' ].
+					repository: 'http://smalltalkhub.com/mc/RMoD/Stylesheet/main/' ];
+			project: 'RoassalForTelescope' with: [
+				spec
+					className: #ConfigurationOfRoassalForTelescope;
+					versionString: #'stable';
+					repository: 'http://smalltalkhub.com/mc/Moose/Telescope/main/' ].
 		spec 
-			package: 'Telescope' with: [
-				spec requires: #('Stylesheet' 'Geometry' 'RoassalForTelescope' 'XMenuModel' ). ];
 			package: 'XMenuModel';
+			package: 'Telescope' with: [
+				spec requires: #('Stylesheet' 'Geometry' 'XMenuModel' 'RoassalForTelescope' ). ];
 			package: 'Telescope-Tests' with: [
 				spec requires: #('Telescope' 'BabyMock2' ). ]. ].
