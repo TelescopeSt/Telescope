@@ -1,17 +1,9 @@
 as yet unclassified
 testAddNodeFromEntity
-	| entityMock nodeBuilderMock nodeMock |
-	nodeBuilderMock := protocol mock: 'nodeBuilder'.
-	nodeMock := protocol mock: 'node'.
+	| entityMock node |
 	entityMock := protocol mock: 'entity'.
-	protocol describe
-		once: nodeBuilderMock recv: #buildNodeFromEntity:;
-		with: entityMock;
-		=> nodeMock.
-	protocol describe
-		once: nodeMock recv: #parent:;
-		with: tlGroup.
 	protocol describe once: parentMock recv: #requireUpdate.
-		protocol describe once: parentMock recv: #requireLayoutApplication.
-	tlGroup nodeBuilder: nodeBuilderMock.
-	tlGroup addNodeFromEntity: entityMock
+	protocol describe once: parentMock recv: #requireLayoutApplication.
+	node := tlGroup addNodeFromEntity: entityMock.
+	self assert: node class equals: TLSimpleNode.
+	self assert: tlGroup size equals: 1

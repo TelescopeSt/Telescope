@@ -5,7 +5,6 @@ testConnectionCreation
 	visualization addDrawable: node.
 	anotherNode := TLSimpleNode new.
 	visualization addDrawable: anotherNode.
-	node shape: TLRectangleShape new.
 	node connectTo: anotherNode.
 	self assert: node outgoingConnections size equals: 1.
 	self assert: anotherNode incomingConnections size equals: 1.
