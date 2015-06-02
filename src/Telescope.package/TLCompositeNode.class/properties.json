@@ -7,8 +7,7 @@
 	"classvars" : [ ],
 	"instvars" : [
 		"childrenGroup",
-		"expanded",
-		"childrenNodeBuilder"
+		"expanded"
 	],
 	"name" : "TLCompositeNode",
 	"type" : "normal"

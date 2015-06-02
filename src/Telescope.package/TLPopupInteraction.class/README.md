@@ -1,0 +1,1 @@
+I represent a popup interaction that displays a text when the mouse go over a drawable. The text is provided by ==textValuable==, a block that takes a connection as argument and must return a string.

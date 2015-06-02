@@ -1,3 +1,3 @@
-accessing
+children
 childrenLayout
 	^ self get: #childrenLayout

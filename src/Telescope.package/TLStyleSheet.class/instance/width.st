@@ -1,3 +1,3 @@
-accessing
+shape
 width
 	^ self get: #width

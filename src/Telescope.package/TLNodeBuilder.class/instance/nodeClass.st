@@ -1,3 +1,0 @@
-building
-nodeClass
-	^ TLSimpleNode

@@ -1,8 +1,11 @@
 demos
 exampleCycleDependencies
+	"self exampleCycleDependencies"
 	"to use with Moose Package collection"
 
-	| tarjan cycleDependencies |
+	self flag: 'Invalid demo; cannot run like this'
+
+	"| tarjan cycleDependencies |
 	tarjan := MalTarjan new.
 	tarjan nodes: self.
 	tarjan edges: self from: #yourself toAll: #providerNamespaces.
@@ -16,4 +19,4 @@ exampleCycleDependencies
 					(tarjan findNode: namespace) isInCycle
 						ifTrue: [ Color red ]
 						ifFalse: [ Color white ] ].
-	cycleDependencies open
+	cycleDependencies open"

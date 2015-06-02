@@ -1,12 +1,18 @@
 initialize-release
 default
-	^ self new
-		nodeBuilder: TLNodeBuilder new;
+	| defaultStyleSheet |
+	defaultStyleSheet := self new
+		layout: RTGridLayout;
 		backgroundColor: Color orange;
 		borderColor: Color black;
+		textColor: Color black;
 		borderWidth: 1;
 		width: 15;
 		height: 15;
-		shape: TLRectangleShape new;
+		shape: TLRectangle;
+		nodeLabelPosition: #inside;
 		childrenProperty: nil;
-		yourself
+		childrenLayout: RTGridLayout;
+		yourself.	"Centered"
+	defaultStyleSheet > #children nodeClass: TLSimpleNode.
+	^ defaultStyleSheet

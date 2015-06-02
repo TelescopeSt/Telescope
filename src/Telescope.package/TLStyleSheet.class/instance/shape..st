@@ -1,3 +1,4 @@
-accessing
+shape
 shape: aShape
-	self at: #shape put: (aShape isClass ifFalse: [ aShape ] ifTrue: [ aShape new ])
+	self assert: (aShape inheritsFrom: TLSimpleShape) description: 'You must provide a subclass of TLSimpleShape'.
+	self at: #shape put: aShape

@@ -1,7 +1,10 @@
 demos
 exampleNameCloud
+	"self exampleNameCloud"
 	"to execute with a Moose Package collection"
 	
-	TLNameCloud new
+		self flag: 'Invalid demo; cannot run like this'.
+		
+	"TLNameCloud new
 		entityGroup: self;
-		open
+		open"

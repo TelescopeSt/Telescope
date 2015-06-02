@@ -1,3 +1,0 @@
-default
-defaultHeight
-	^ 15

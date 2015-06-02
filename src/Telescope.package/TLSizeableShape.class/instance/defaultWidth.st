@@ -1,3 +1,0 @@
-default
-defaultWidth
-	^ 15

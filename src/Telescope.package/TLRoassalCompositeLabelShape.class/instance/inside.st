@@ -1,4 +1,4 @@
-accessing
+placing
 inside
 	^ [ :label :aShape | | max |
 			max := (label encompassingRectangle extent + (self padding*2)) max: (aShape encompassingRectangle extent).

@@ -1,3 +1,3 @@
-accessing
+shape
 backgroundColor
 	^ self get: #backGroundColor

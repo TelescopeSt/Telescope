@@ -1,4 +1,4 @@
 accessing
-layout: anObject
+layout: aLayout
 	self requireLayoutApplication.
-	layout := anObject
+	self styleSheet layout: aLayout

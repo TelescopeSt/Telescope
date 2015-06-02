@@ -8,7 +8,8 @@ buildVisualization
 		asOrderedCollection.
 	
 	( self > #names ) styleSheet
-		shape: ( TLLabelShape new text: #key );
+			onlyLabelForNodes;
+			nodeLabel: #key;
 		color: [ :each | Color black ];
 		height: [ :e | ((RTNFontLinearNormalizer 
 			inContext: objects 

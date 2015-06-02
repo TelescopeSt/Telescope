@@ -6,7 +6,7 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"shape"
+		"shapeTrigger"
 	],
 	"name" : "TLShapeInteraction",
 	"type" : "normal"

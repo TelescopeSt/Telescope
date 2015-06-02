@@ -1,3 +1,3 @@
-accessing
+children
 childrenProperty
 	^ self get: #childrenProperty

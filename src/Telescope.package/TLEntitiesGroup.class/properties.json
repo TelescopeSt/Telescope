@@ -4,7 +4,6 @@
 	"instvars" : [
 		"telescopeEntities",
 		"subGroupsDictionary",
-		"layout",
 		"nodeBuilder"
 	],
 	"name" : "TLEntitiesGroup",

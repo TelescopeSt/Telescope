@@ -2,6 +2,9 @@ demos
 examplePackageHierarchy
 	"to execute with a Moose Package collection"
 	
-	TLPackageHierarchy new
+	
+		self flag: 'Invalid demo; cannot run like this'.
+		
+	"TLPackageHierarchy new
 		packageEntities: self;
-		open
+		open"

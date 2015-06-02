@@ -1,3 +1,0 @@
-generation
-generateWith: aGenerator
-	self subclassResponsibility

@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "DamienCassou 5/22/2015 16:39",
+	"super" : "TLInteraction",
+	"category" : "Telescope-Interactions",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"textValuable",
+		"condition"
+	],
+	"name" : "TLPopupInteraction",
+	"type" : "normal"
+}

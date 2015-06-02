@@ -1,3 +1,3 @@
-accessing
+shape
 borderColor
 	^ self get: #borderColor

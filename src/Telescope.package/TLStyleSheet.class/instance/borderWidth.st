@@ -1,3 +1,3 @@
-accessing
+shape
 borderWidth
 	^ self get: #borderWidth
