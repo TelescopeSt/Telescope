@@ -2,9 +2,10 @@ running
 testAddNodeInView
 	| node group |
 	group := protocol mock: 'group'.
+	protocol describe allow: group recv: #effectiveStyleSheet; => TLStyleSheet default.
 	protocol describe once: group recv: #isNode; => false.
 	protocol describe once: group recv: #allInteractions; => #().
-	node := TLNodeBuilder new buildNodeFromEntity: 42.
+	node := TLSimpleNode withEntity: 42.
 	node parent: group.
 	self assert: connector shapeByDrawable isEmpty.
 	protocol describe once: view recv: #add:.
