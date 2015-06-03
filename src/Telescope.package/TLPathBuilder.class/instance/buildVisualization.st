@@ -4,7 +4,7 @@ buildVisualization
 	self title: 'Synectique Functional Sequencing'.
 	self defineStructure.
 	
-	self nodeBuilder
+	self styleSheet
 		nodeLabel: #name position: #top.
 	self edgeBuilder: (TLEdgeArrowedLineBuilder new attachPoint: RTShorterDistanceAttachPointAndCompositeShape).
 	self > #callNodes addNodeFromEntity: self origin.
