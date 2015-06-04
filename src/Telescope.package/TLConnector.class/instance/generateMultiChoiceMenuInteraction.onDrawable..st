@@ -1,7 +1,7 @@
 generation - interaction
 generateMultiChoiceMenuInteraction: aTLMultiChoiceMenuInteraction onDrawable: aTLDrawable
 	| menu subMenu |
-	self flag: 'lack of consistency because actionOn: do not get a TLDrawable bur the entity'.
+	self flag: 'lack of consistency because actionOn: do not get a TLDrawable but the entity'.
 	menu := self menuInteractionByDrawable at: aTLDrawable ifAbsentPut: [ self createMenuFor: aTLDrawable ].
 	subMenu := TLLazyMenuMorph new.
 	subMenu

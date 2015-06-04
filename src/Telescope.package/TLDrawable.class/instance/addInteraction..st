@@ -1,3 +1,4 @@
 accessing
-addInteraction: aTLNodeInteraction
-	self interactions addLast: aTLNodeInteraction.
+addInteraction: aTLInteraction
+	self interactions addLast: aTLInteraction.
+	aTLInteraction container: self

@@ -10,7 +10,7 @@
 		"viewMorph",
 		"shapeByDrawable",
 		"menuInteractionByDrawable",
-		"shapeInteractionByDrawable",
+		"interactionsByDrawable",
 		"nestByParent"
 	],
 	"name" : "TLConnector",

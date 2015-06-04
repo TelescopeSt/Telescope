@@ -1,8 +1,6 @@
 removing - interaction
-removeInteractionsOf: aNode
-	self menuInteractionByDrawable removeKey: aNode ifAbsent: [  ].
-	[ 
-	(self shapeInteractionByDrawable at: aNode) do: [ :shape | self removeElementnteractionFromView: shape ].
-	self shapeInteractionByDrawable removeKey: aNode ]
-		on: KeyNotFound
-		do: [  ]
+removeInteractionsOf: aDrawable
+	self menuInteractionByDrawable removeKey: aDrawable ifAbsent: [  ].
+	
+	aDrawable allInteractions do: [ :shapeInteraction | shapeInteraction removeWith: self ].
+	self unregisterAllInteractionsForDrawable: aDrawable.

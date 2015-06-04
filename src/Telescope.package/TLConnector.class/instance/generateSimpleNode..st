@@ -4,7 +4,7 @@ generateSimpleNode: aSimpleNode
 	element := self createElementNodeFromNode: aSimpleNode.
 	self addElementNodeInView: element.
 	self shapeByDrawable at: aSimpleNode put: element.
-	self generateInteractionsOf: aSimpleNode.
+	self generateInteractionsOf: aSimpleNode targetingDrawable: aSimpleNode.
 	self generateIfNecessaryConnectionsOf: aSimpleNode.
 	element update.
 	^ element

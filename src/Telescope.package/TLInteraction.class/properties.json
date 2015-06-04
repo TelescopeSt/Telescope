@@ -6,7 +6,8 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"action"
+		"action",
+		"container"
 	],
 	"name" : "TLInteraction",
 	"type" : "normal"

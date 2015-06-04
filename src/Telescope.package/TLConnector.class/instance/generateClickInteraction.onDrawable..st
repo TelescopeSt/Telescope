@@ -1,3 +1,0 @@
-generation - interaction
-generateClickInteraction: aClickInteraction onDrawable: aTLDrawable
-	self subclassResponsibility

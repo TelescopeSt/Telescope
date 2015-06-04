@@ -4,5 +4,5 @@ generateLegendItem: aTLLegendItem
 	legendItem := self createElementLegendItemFrom: aTLLegendItem.
 	self addElementLegendItemInView: legendItem.
 	self shapeByDrawable at: aTLLegendItem put: legendItem.
-	self generateInteractionsOf: aTLLegendItem.
+	self generateInteractionsOf: aTLLegendItem targetingDrawable: aTLLegendItem.
 	^ legendItem
