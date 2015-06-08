@@ -4,4 +4,4 @@ testAllShapesAreCustomizableWithDefaultStyleSheet
 		do: [ :aSubclass | 
 			| shape |
 			shape := connector generateShapeCorrespondingTo: aSubclass.
-			connector customizeShape: shape withStyleSheet: TLStyleSheet default ]
+			connector customizeShape: shape withStyleSheet: (TLStyleSheet default nodeLabel: 'test') ]
