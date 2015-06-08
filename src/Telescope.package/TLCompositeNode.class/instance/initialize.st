@@ -9,12 +9,14 @@ initialize
 				style: #children).
 	self
 		addInteraction:
-			(TLExpandCollapseCompositeNodeAction
-				withTriggerStyled: [ :collapsedStyleSheet | 
-					collapsedStyleSheet
-						shape: TLEllipse;
-						width: 3;
-						height: 3;
-						nodeLabel: '+';
-						backgroundColor: Color red ]
-				thatBecome: [ :expandedStyleSheet | expandedStyleSheet backgroundColor: Color green ]) onClick
+			((TLExpandCollapseCompositeNodeAction
+				withTriggerStyle: [ :triggerStyle :compositeNode | 
+					triggerStyle
+						onlyLabelForNodes.
+					compositeNode expanded
+						ifFalse: [ 
+							triggerStyle
+								nodeLabel: '+']
+						ifTrue: [ 
+							triggerStyle
+								nodeLabel: '-' ] ]) condition: #hasChildren; onClick)

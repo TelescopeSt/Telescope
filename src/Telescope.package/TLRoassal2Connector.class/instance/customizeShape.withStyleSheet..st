@@ -14,5 +14,6 @@ customizeShape: aShape withStyleSheet: aStyleSheet
 					aShape textColor: aStyleSheet textColor ] ]
 		ifTrue: [ 
 			aShape color: aStyleSheet textColor.
+			aShape text: aStyleSheet nodeLabel.
 			self flag: 'this way i have to always set the color' ].
 	aShape height: aStyleSheet height
