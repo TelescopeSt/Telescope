@@ -11,7 +11,9 @@ customizeShape: aShape withStyleSheet: aStyleSheet
 			aShape isComposite
 				ifTrue: [ 
 					aShape labelPosition: aStyleSheet nodeLabelPosition.
-					aShape textColor: aStyleSheet textColor ] ]
+					aShape textColor: aStyleSheet textColor.
+					aShape labelShape text: aStyleSheet nodeLabel 
+					] ]
 		ifTrue: [ 
 			aShape color: aStyleSheet textColor.
 			aShape text: aStyleSheet nodeLabel.

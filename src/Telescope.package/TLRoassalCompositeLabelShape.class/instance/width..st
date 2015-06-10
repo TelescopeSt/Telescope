@@ -1,3 +1,3 @@
 accessing
 width: aWidth
-	^ self shape width: aWidth
+	aWidth = TLLabelBasedWidth ifFalse: [ self shape width: aWidth]

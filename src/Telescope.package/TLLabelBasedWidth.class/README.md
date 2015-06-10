@@ -1,0 +1,1 @@
+This class takes care of computing the node width from its label size.
