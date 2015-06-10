@@ -1,0 +1,3 @@
+composite
+showChildrenConnectionsOnParent
+	self shouldBeImplemented.

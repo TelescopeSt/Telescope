@@ -2,8 +2,8 @@ initialize-release
 default
 	| defaultStyleSheet |
 	defaultStyleSheet := self new
-		layout: RTGridLayout;
-		backgroundColor: Color orange;
+		layout: (RTGridLayout new gapSize: 15);
+		backgroundColor: (Color orange lighter alpha: 0.5);
 		borderColor: Color black;
 		textColor: Color black;
 		borderWidth: 1;
