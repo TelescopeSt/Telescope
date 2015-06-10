@@ -1,7 +1,7 @@
 {
 	"commentStamp" : "GuillaumeLarcheveque 8/6/2014 11:12",
 	"super" : "TLDrawableAction",
-	"category" : "Telescope-Interactions",
+	"category" : "Telescope-Actions",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],

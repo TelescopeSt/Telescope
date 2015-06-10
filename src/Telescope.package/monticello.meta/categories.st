@@ -1,4 +1,5 @@
 SystemOrganization addCategory: #Telescope!
+SystemOrganization addCategory: 'Telescope-Actions'!
 SystemOrganization addCategory: 'Telescope-Builder'!
 SystemOrganization addCategory: 'Telescope-Core'!
 SystemOrganization addCategory: 'Telescope-Demos'!
