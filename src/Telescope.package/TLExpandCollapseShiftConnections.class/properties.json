@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "TLExpandCollapseCompositeNodeAction",
+	"category" : "Telescope-Actions",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "TLExpandCollapseShiftConnections",
+	"type" : "normal"
+}

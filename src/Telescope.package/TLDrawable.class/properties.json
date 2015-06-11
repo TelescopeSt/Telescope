@@ -8,7 +8,8 @@
 		"isUpdateRequired",
 		"isLayoutApplicationRequired",
 		"styles",
-		"styleSheet"
+		"styleSheet",
+		"isVisible"
 	],
 	"name" : "TLDrawable",
 	"commentStamp" : "GuillaumeLarcheveque 7/3/2014 10:36",

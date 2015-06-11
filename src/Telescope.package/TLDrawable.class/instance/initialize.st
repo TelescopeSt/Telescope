@@ -4,4 +4,5 @@ initialize
 	self initializeStyle.
 	interactions := OrderedCollection new.
 	isUpdateRequired := false.
-	isLayoutApplicationRequired := false
+	isLayoutApplicationRequired := false.
+	isVisible := true

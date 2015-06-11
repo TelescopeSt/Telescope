@@ -1,3 +1,4 @@
 accessing
-expanded: anObject
-	self state at: #childrenExpanded put: anObject
+expanded: aBoolean
+	self state at: #childrenExpanded put: aBoolean.
+	self childrenGroup isVisible: aBoolean

@@ -1,7 +1,7 @@
 initialization
 initialize
 	super initialize.
-	self state at: #childrenExpanded put: true.
+	self state at: #childrenExpanded put: nil.
 	self
 		childrenGroup:
 			(TLEntitiesGroup new
