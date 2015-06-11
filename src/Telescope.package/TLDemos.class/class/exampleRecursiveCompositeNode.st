@@ -10,7 +10,7 @@ exampleRecursiveCompositeNode
 		mainEntity: TLObject;
 		leftEntities: #superclass;
 		rightEntities: #subclasses.
-		visualization styleSheet shape: TLRectangle; childrenProperty: #dependentClasses;nodeLabel: #name position: #inside.
+	visualization styleSheet shape: TLRectangle; childrenProperty: #dependentClasses;nodeLabel: #name position: #inside.
 		(visualization styleSheet > #children) layout: RTVerticalLineLayout; childrenProperty: #methods; compositeExpandedByDefault: false;
 		nodeLabel: #name position: #inside;
 		backgroundColor: Color white.

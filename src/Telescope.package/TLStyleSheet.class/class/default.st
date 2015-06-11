@@ -12,7 +12,7 @@ default
 		shape: TLRectangle;
 		nodeLabelPosition: #inside;
 		childrenProperty: nil;
+		compositeExpandedByDefault: false;
 		childrenLayout: RTGridLayout;
-		yourself.	"Centered"
-	defaultStyleSheet > #children nodeClass: TLSimpleNode.
+		yourself.	
 	^ defaultStyleSheet

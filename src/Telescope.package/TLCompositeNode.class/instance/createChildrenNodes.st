@@ -1,7 +1,8 @@
 private
 createChildrenNodes
 	| result |
-	result := [ childrenGroup addNodesFromEntities: ((self property rtValue: self entity) asOrderedCollection) ]
+"	Halt if: [ entity notNil and: [[self property ~= #dependentClasses] on: KeyNotFound do: [false]]]."
+	result := [ childrenGroup addNodesFromEntities: (( self property cull: self entity) asOrderedCollection) ]
 		on: KeyNotFound
 		do: [ {} ].
 	

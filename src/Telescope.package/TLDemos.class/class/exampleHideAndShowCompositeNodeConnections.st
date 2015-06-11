@@ -20,7 +20,17 @@ exampleHideAndShowCompositeNodeConnections
 							triggerStyle
 								nodeLabel: '-' ] ]) condition: #hasChildren).
 	oneNode addInteraction: shiftAction onClick.
-	"twoNode addInteraction: shiftAction copy onClick."
+	twoNode addInteraction: ((TLExpandCollapseShiftConnections
+				withTriggerStyle: [ :triggerStyle :compositeNode | 
+					triggerStyle
+						onlyLabelForNodes.
+					compositeNode expanded
+						ifFalse: [ 
+							triggerStyle
+								nodeLabel: '+']
+						ifTrue: [ 
+							triggerStyle
+								nodeLabel: '-' ] ]) condition: #hasChildren) onClick.
 	connection := oneNode connectTo: twoNode.
 	(1 to: 3) do: [:i | oneNode childrenGroup connectInsideGroupEntity: i toEntity: i FromAnotherGroup: twoNode childrenGroup].
 	oneNode connectTo: twoNode childrenGroup.
