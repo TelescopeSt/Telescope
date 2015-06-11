@@ -1,3 +1,3 @@
-accessing
-color: aColor
-	self shape color: aColor
+color
+color: aColor 
+	self shouldBeImplemented.

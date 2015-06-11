@@ -1,3 +1,4 @@
 accessing
-legend: anObject
-	legend := anObject
+legend: aTLLegend
+	legend := aTLLegend.
+	aTLLegend parent: self
