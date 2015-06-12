@@ -16,6 +16,8 @@ buildVisualization
 			(cycleCalculator findNode: namespace) isInCycle
 				ifTrue: [ Color red ]
 				ifFalse: [ Color white ] ].
+			
+	self edgeBuilder color: Color veryLightGray.
 
 	self > #packages
 		addNodesFromEntities: self entities;
@@ -23,5 +25,3 @@ buildVisualization
 		addInteraction: TLNodeBasicInteraction popup;
 		addInteraction: TLNodeBasicInteraction draggable;
 		layout: RTCircleLayout.
-		
-	self edgeBuilder color: Color veryLightGray.
