@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "TLObject",
+	"category" : "Telescope-Style",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "TLNoNodeLabel",
+	"type" : "normal"
+}

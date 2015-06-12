@@ -1,3 +1,0 @@
-accessing
-titleToProperty
-	^ titleToProperty

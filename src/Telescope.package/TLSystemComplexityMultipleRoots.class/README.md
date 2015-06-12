@@ -1,0 +1,1 @@
+A visualization to check inheritances in a collection of elements. Based on Moose visualization and extended from TLSystemComplexity
