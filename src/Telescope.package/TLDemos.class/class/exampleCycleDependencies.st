@@ -1,22 +1,23 @@
 not working demos
 exampleCycleDependencies
 	"self exampleCycleDependencies"
-	"to use with Moose Package collection"
-
-	self flag: 'Invalid demo; cannot run like this'
-
-	"| tarjan cycleDependencies |
-	tarjan := MalTarjan new.
-	tarjan nodes: self.
-	tarjan edges: self from: #yourself toAll: #providerNamespaces.
-	tarjan run.
 	
-	cycleDependencies := TLCycleDependencies new packageEntities: self.
-	cycleDependencies styleSheet
-		width: #numberOfClasses;
-		height: [ :each | each numberOfMethods / 10 max: 5 ];
-		backgroundColor: [ :namespace | 
-					(tarjan findNode: namespace) isInCycle
-						ifTrue: [ Color red ]
-						ifFalse: [ Color white ] ].
-	cycleDependencies open"
+	"for FAMIXNamespaceGroup:
+	 TLCycleDependencies new
+		entities: self asOrderedCollection;
+		property: #providerNamespaces;
+		widthBlock: #numberOfClasses;
+		heightBlock: [ :each | each numberOfMethods / 10 max: 5 ];
+		open"
+
+	self flag: 'Invalid demo; cannot run like this'.
+	
+	"forces every class to be in cycle, maybe think on a better property"
+	TLCycleDependencies new
+		entities: TLDrawable withAllSubclasses;
+		property: [ :each | ( OrderedCollection 
+			with: each withAllSubclasses
+			with: each superclass) flattened ];
+		widthBlock: [ :each | each numberOfVariables * 3 ];
+		heightBlock: [ :each | each numberOfMethods / 2 max: 5 ];
+		open

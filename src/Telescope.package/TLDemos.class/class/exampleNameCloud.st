@@ -1,10 +1,16 @@
 not working demos
 exampleNameCloud
 	"self exampleNameCloud"
-	"to execute with a Moose Package collection"
 	
-		self flag: 'Invalid demo; cannot run like this'.
+	self flag: 'Invalid demo; cannot run like this'.
 		
-	"TLNameCloud new
-		entityGroup: self;
+	"for FAMIXNamespaceGroup:
+	 TLNameCloud new
+		entities: self;
+		nameProperty: #name;
 		open"
+		
+	TLNameCloud new
+		entities: TLDrawable withAllSubclasses;
+		nameProperty: #name;
+		open
