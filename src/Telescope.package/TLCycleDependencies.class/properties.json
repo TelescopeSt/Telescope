@@ -6,7 +6,10 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"packageEntities"
+		"entities",
+		"property",
+		"widthBlock",
+		"heightBlock"
 	],
 	"name" : "TLCycleDependencies",
 	"type" : "normal"
