@@ -1,7 +1,7 @@
 updating
 updateShapeFor: anElement
 	|  trachelShape |
-	trachelShape := anElement trachelShape shape2.
+	trachelShape := anElement trachelShape shapes second.
 	trachelShape isNil
 		ifTrue: [ ^ self ].
 	trachelShape color: (self shape colorFor: anElement).

@@ -6,5 +6,5 @@ placeElement: anElement correspondingToTrigger: aTLShapeTrigger2 relativeToDrawa
 		stick: anElement trachelShape
 		onTheRightOf:
 			(element shape isComposite
-				ifTrue: [ element trachelShape shape2 ]
+				ifTrue: [ element trachelShape shapes second ]
 				ifFalse: [ element trachelShape ])

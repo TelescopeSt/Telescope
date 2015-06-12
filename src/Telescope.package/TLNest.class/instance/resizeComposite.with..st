@@ -2,8 +2,8 @@ private
 resizeComposite: backElement with: encompassingRectangle
 	| composite shape label extent |
 	composite := backElement shape.
-	shape := backElement trachelShape shape2.
-	label := backElement trachelShape shape1.
+	shape := backElement trachelShape shapes second.
+	label := backElement trachelShape shapes first.
 	composite labelPosition = #inside
 		ifTrue: [ 
 			extent :=
