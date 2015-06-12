@@ -8,7 +8,8 @@
 	"instvars" : [
 		"shapeInteraction",
 		"secondStateStyle",
-		"action"
+		"action",
+		"referencedElement"
 	],
 	"name" : "TLShapeTrigger",
 	"type" : "normal"

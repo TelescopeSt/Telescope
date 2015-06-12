@@ -1,4 +1,4 @@
-demos
+not working demos
 examplePackageHierarchy
 	"to execute with a Moose Package collection"
 	

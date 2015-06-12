@@ -1,4 +1,4 @@
-demos
+not working demos
 exampleNameCloud
 	"self exampleNameCloud"
 	"to execute with a Moose Package collection"

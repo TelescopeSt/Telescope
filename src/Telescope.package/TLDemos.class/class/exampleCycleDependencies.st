@@ -1,4 +1,4 @@
-demos
+not working demos
 exampleCycleDependencies
 	"self exampleCycleDependencies"
 	"to use with Moose Package collection"

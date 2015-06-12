@@ -2,7 +2,7 @@ generation - interaction
 generateShapeInteraction: aTLShapeInteraction onDrawable: aTLDrawable targetingDrawable: aTargetDrawable
 	| triggerElement |
 	"Create graphic element"
-	triggerElement := aTLShapeInteraction shapeTrigger generateWith: self.
+	triggerElement := (aTLShapeInteraction shapeTrigger copyForDrawable: aTargetDrawable) generateWith: self.
 	"place it"
 	self
 		placeElement: triggerElement

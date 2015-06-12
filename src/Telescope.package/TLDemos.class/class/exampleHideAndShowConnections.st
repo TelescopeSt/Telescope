@@ -11,6 +11,7 @@ exampleHideAndShowConnections
 		connection isVisible 
 			ifTrue: [ connection hide ]
 			ifFalse: [ connection show ] ]) onClick.
-	visualization open
+	visualization open.
+	^ visualization
 	
 	
