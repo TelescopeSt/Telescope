@@ -9,13 +9,13 @@ testLabelPosition
 	view add: top; add: bottom; add: left; add: right.
 	
 	topShape := top trachelShape.
-	self assert: (topShape shape1 position <= topShape shape2 position).
+	self assert: (topShape shapes first position <= topShape shapes second position).
 		
 	bottomShape := bottom trachelShape.
-	self assert: (bottomShape shape1 position >= bottomShape shape2 position).
+	self assert: (bottomShape shapes first position >= bottomShape shapes second position).
 		
 	leftShape := left trachelShape.
-	self assert: (leftShape shape1 position <= leftShape shape2 position).
+	self assert: (leftShape shapes first position <= leftShape shapes second position).
 		
 	rigthShape := right trachelShape.
-	self assert: (rigthShape shape1 position >= rigthShape shape2 position).
+	self assert: (rigthShape shapes first position >= rigthShape shapes second position).
