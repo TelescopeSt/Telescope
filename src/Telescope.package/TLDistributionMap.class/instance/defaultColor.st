@@ -1,3 +1,3 @@
-initialization
+default
 defaultColor
 	^ Color gray
