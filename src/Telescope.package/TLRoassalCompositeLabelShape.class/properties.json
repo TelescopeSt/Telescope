@@ -1,15 +1,13 @@
 {
 	"commentStamp" : "GuillaumeLarcheveque 10/10/2014 11:46",
-	"super" : "RTShape",
+	"super" : "RTCompositeShape",
 	"category" : "Telescope-RoassalElements",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
 		"labelPosition",
-		"padding",
-		"shape",
-		"labelShape"
+		"padding"
 	],
 	"name" : "TLRoassalCompositeLabelShape",
 	"type" : "normal"

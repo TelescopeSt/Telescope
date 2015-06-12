@@ -1,3 +1,3 @@
 placing
 right
-	^ [ :label : shape | TRConstraint stick: label onTheRightOf: shape ]
+	^ [ : shape :label | TRConstraint stick: label onTheRightOf: shape ]

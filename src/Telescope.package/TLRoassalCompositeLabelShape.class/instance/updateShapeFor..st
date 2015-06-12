@@ -1,8 +1,8 @@
 updating
 updateShapeFor: anElement
 	|  trachelShape |
-	trachelShape := anElement trachelShape shapes second.
-	trachelShape isNil
-		ifTrue: [ ^ self ].
+
+	trachelShape := anElement trachelShape shapes first.
+	trachelShape ifNil: [ ^ self ].
 	trachelShape color: (self shape colorFor: anElement).
 	trachelShape strokePaint: (self shape borderColorFor: anElement).

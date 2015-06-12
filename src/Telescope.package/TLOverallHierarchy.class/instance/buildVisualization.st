@@ -3,13 +3,13 @@ buildVisualization
 
 	( self > #packages ) styleSheet
 		shape: ( TLLabelShape new text: #name );
-		color: Color black.
+		color: [ :each | Color black ].
 		
 	self > #packages
-		addNodesFromEntities: self packageEntities asOrderedCollection;
+		addNodesFromEntities: self packageEntities;
 		addInteraction: TLNodeBasicInteraction popup;
 		addInteraction: TLNodeBasicInteraction draggable;
 		layout: ( RTHorizontalTreeLayout new layered ).
 		
 	self edgeBuilder: ( TLEdgeOrthogonalLineBuilder new color: Color veryLightGray ).
-	self > #packages connectFollowingProperty: #belongsTo.
+	self > #packages connectFollowingProperty: #parentScope.

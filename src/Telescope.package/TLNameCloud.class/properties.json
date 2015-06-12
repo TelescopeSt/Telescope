@@ -6,8 +6,7 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"entities",
-		"nameProperty"
+		"entityGroup"
 	],
 	"name" : "TLNameCloud",
 	"type" : "normal"

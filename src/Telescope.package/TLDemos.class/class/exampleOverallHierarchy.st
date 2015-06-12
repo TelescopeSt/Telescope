@@ -1,10 +1,10 @@
 not working demos
-exampleNameCloud
-	"self exampleNameCloud"
+exampleOverallHierarchy
 	"to execute with a Moose Package collection"
+	
 	
 		self flag: 'Invalid demo; cannot run like this'.
 		
-	"TLNameCloud new
-		entityGroup: self;
+	"TLOverallHierarchy new 
+		packageEntities: self;
 		open"

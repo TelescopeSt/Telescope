@@ -1,18 +1,10 @@
 not working demos
 examplePackageHierarchy
-	"self exampleOverallHierarchy"
+	"to execute with a Moose Package collection"
 	
-	self flag: 'Invalid demo; cannot run like this'.
+	
+		self flag: 'Invalid demo; cannot run like this'.
 		
-	"for FAMIXNamespaceGroup
-	 TLOverallHierarchy new
-		entities: self asOrderedCollection;
-		nameProperty: #name;
-		property: #parentScope;
+	"TLPackageHierarchy new
+		packageEntities: self;
 		open"
-		
-	TLPackageHierarchy new
-		entities: TLDrawable withAllSubclasses;
-		nameProperty: #name;
-		property: #superclass;
-		open

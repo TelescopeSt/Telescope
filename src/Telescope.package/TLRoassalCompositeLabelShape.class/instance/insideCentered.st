@@ -1,3 +1,3 @@
 placing
 insideCentered
-	^ [ :label :rtShape | TRConstraint stick: label onTheCenterOf: rtShape ]
+	^ [ :rtShape :label | TRConstraint stick: label onTheCenterOf: rtShape ]

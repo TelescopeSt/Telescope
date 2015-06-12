@@ -1,4 +1,5 @@
 hooks
 updateFor: anElement
+
 	self updateLabelFor: anElement.
-	self updateShapeFor: anElement
+	self updateShapeFor: anElement.

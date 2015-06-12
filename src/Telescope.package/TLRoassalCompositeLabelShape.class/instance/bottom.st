@@ -1,3 +1,3 @@
 placing
 bottom
-	^ [ :label : shape | TRConstraint stick: label below: shape ]
+	^ [ : shape :label | TRConstraint stick: label below: shape ]

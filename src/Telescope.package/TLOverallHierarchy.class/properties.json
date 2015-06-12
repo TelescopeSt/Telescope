@@ -1,5 +1,5 @@
 {
-	"commentStamp" : "GustavoSantos 5/22/2015 15:56",
+	"commentStamp" : "GustavoSantos 5/22/2015 15:34",
 	"super" : "TLVisualization",
 	"category" : "Telescope-Visualizations",
 	"classinstvars" : [ ],
@@ -8,6 +8,6 @@
 	"instvars" : [
 		"packageEntities"
 	],
-	"name" : "TLPackageHierarchy",
+	"name" : "TLOverallHierarchy",
 	"type" : "normal"
 }
