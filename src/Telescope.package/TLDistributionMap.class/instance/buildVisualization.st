@@ -6,4 +6,5 @@ buildVisualization
 	(self > #containers) styleSheet nodeLabel: [:e | e name asString] position: #top.
 	((self > #containers) styleSheet > #children) noNodeLabel.
 	self > #containers addNodesFromEntities: self containerEntities.
+	(self > #containers) allChildrenNodes addInteraction: TLNodeBasicInteraction popup.
 	self legend: (TLLegend on: (self > #containers) allChildrenNodes label: [:drawable | (property cull: drawable entity) asString])
