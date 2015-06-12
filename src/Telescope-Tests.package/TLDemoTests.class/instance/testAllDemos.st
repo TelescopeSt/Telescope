@@ -1,3 +1,3 @@
 as yet unclassified
 testAllDemos
-	TLDemos class methods do: [ :m | (TLDemos perform: m selector) close ].
+	TLDemos class methods select: [:m | m protocol = #demos ] thenDo: [ :m | (TLDemos perform: m selector) close ].
