@@ -1,13 +1,12 @@
 as yet unclassified
 testDynamicAddRemoveWithEdge
-	| visu nodeBuilder interaction node |
+	| visu  interaction node |
 	interaction := ((TLExpandCollapseNodesAction new property: #subclasses)
-		withShape: (TLEllipseShape new color: Color red)).
-	nodeBuilder := TLNodeBuilder ellipse.
-	nodeBuilder addInteraction: interaction.
-	node := nodeBuilder buildNodeFromEntity: TLObject.
+		withTriggerStyle: [:triggerStyle :aNode | triggerStyle shape: TLEllipse; backgroundColor: Color red]) onClick.
 	visu := TLVisualization new generator: connector.
-	visu addDrawable: node.
+	node := visu addNodeFromEntity: TLObject.
+	
+	visu addInteraction: interaction.
 	
 	protocol describe exactly: 2 times: view recv: #add:. "1 for the node 1 for the blue circle"
 	protocol describe once: view recv: #addAll:.
