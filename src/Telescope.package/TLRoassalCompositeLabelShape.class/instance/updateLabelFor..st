@@ -1,5 +1,3 @@
 updating
 updateLabelFor: anElement.
-
-	self labelShape
-			updateFor: anElement trachelShape: anElement trachelShape shapes second
+	self labelShape updateFor: anElement trachelShape: anElement trachelShape shapes first

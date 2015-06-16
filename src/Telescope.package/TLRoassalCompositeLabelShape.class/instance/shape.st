@@ -1,3 +1,3 @@
 accessing
 shape
-	^ self allShapes first
+	^ shape

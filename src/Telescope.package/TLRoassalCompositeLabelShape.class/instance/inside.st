@@ -1,6 +1,6 @@
 placing
 inside
-	^ [ :aShape :label | | max |
+	^ [ :label :aShape | | max |
 			max := (label encompassingRectangle extent + (self padding*2)) max: (aShape encompassingRectangle extent).
 			label extent: max.
 			aShape extent: max.

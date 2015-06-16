@@ -1,7 +1,7 @@
 action
 expandNode: aNode
 	| children newNodes targetNodes |
-	children := self property rtValue: aNode entity.
+	children := self obtainExpandNodesFrom: aNode.
 	newNodes := TLDrawableCollection new.
 	self parentToChildren
 		at: aNode

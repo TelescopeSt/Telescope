@@ -2,15 +2,15 @@ building
 buildVisualization
 
 	| symbols objects |
-	symbols := self entityGroup symbolsUsedInName.
-	objects := (symbols associations 
-		asSortedCollection: [ :a : b | a value size > b value size ])
+	symbols := self symbolsUsedInNames.
+	objects := ( symbols associations 
+		asSortedCollection: [ :a : b | a value size > b value size ] )
 		asOrderedCollection.
 	
 	( self > #names ) styleSheet
 			onlyLabelForNodes;
 			nodeLabel: #key;
-		color: [ :each | Color black ];
+		backgroundColor: [ :each | Color black ];
 		height: [ :e | ((RTNFontLinearNormalizer 
 			inContext: objects 
 			withCommand: [:each | each value size])) 

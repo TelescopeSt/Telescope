@@ -1,3 +1,3 @@
 accessing
 labelShape
-	^ self allShapes second
+	^ labelShape
