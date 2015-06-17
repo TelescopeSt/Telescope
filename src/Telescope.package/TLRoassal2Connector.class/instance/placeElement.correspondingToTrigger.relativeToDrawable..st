@@ -1,5 +1,5 @@
 generation - interaction
-placeElement: anElement correspondingToTrigger: aTLShapeTrigger2 relativeToDrawable: aTLCompositeNode
+placeElement: anElement correspondingToTrigger: aTLShapeTrigger relativeToDrawable: aTLCompositeNode
 	| element |
 	element := self elementFromTLDrawable: aTLCompositeNode.
 	TRConstraint

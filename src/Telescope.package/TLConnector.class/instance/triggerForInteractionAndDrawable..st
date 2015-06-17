@@ -1,0 +1,3 @@
+accessing
+triggerForInteractionAndDrawable: anObject
+	triggerForInteractionAndDrawable := anObject

@@ -1,8 +1,8 @@
 removing - node
 removeSimpleNode: aNode
-	| shape |
-	shape := self elementFromTLDrawable: aNode.
-	self removeElementNodeFromView: shape.
+	| element |
+	element := self elementFromTLDrawable: aNode.
+	self removeElementFromView: element associatedToDrawable: aNode.
 	self shapeByDrawable removeKey: aNode.
 	self removeInteractionsOf: aNode.
 	aNode allConnections do: [:aConnection | [aConnection removeWith: self] on: KeyNotFound do: ["Here the connection was with another node still removed"]].

@@ -1,18 +1,21 @@
 generation - interaction
 generateShapeInteraction: aTLShapeInteraction onDrawable: aTLDrawable targetingDrawable: aTargetDrawable
-	| triggerElement |
+	| triggerElement trigger |
+	"Create a trigger for the drawable"
+	trigger := (aTLShapeInteraction shapeTrigger copyForDrawable: aTargetDrawable).
 	"Create graphic element"
-	triggerElement := (aTLShapeInteraction shapeTrigger copyForDrawable: aTargetDrawable) generateWith: self.
+	triggerElement := trigger generateWith: self.
 	"place it"
+	
 	self
 		placeElement: triggerElement
-		correspondingToTrigger: aTLShapeInteraction shapeTrigger
+		correspondingToTrigger: trigger
 		relativeToDrawable: aTLDrawable.
 	"add it to the view"
 	self addElementInteractionInView: triggerElement.
 	"register the element in the connector"
-	self shapeByDrawable at: aTLShapeInteraction shapeTrigger put: triggerElement.
+	self shapeByDrawable at: trigger put: triggerElement.
 	"register the interaction on the drawable"
-	(self registerInteraction: aTLShapeInteraction onDrawable: aTLDrawable).
+	(self registerInteraction: aTLShapeInteraction withTrigger: trigger onDrawable: aTLDrawable).
 	
-	self generateInteractionsOf: aTLShapeInteraction shapeTrigger targetingDrawable: aTargetDrawable
+	self generateInteractionsOf: trigger targetingDrawable: aTargetDrawable

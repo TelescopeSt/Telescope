@@ -1,3 +1,0 @@
-as yet unclassified
-removeWith: aTLRoassal2Connector
-	aTLRoassal2Connector removeShapeInteraction: self

@@ -11,7 +11,8 @@
 		"shapeByDrawable",
 		"menuInteractionByDrawable",
 		"interactionsByDrawable",
-		"nestByParent"
+		"nestByParent",
+		"triggerForInteractionAndDrawable"
 	],
 	"name" : "TLConnector",
 	"type" : "normal"
