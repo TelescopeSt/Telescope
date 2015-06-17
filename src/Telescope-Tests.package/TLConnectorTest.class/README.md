@@ -1,0 +1,1 @@
+I am an implementation of the abstract class TLConnector used to create test on it.

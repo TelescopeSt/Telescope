@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "GuillaumeLarcheveque 6/17/2015 14:48",
+	"super" : "TLConnector",
+	"category" : "Telescope-Tests",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "TLConnectorTest",
+	"type" : "normal"
+}
