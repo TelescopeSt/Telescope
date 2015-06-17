@@ -14,5 +14,11 @@ default
 		childrenProperty: nil;
 		compositeExpandedByDefault: false;
 		childrenLayout: RTGridLayout;
-		yourself.	
+		yourself.
+	defaultStyleSheet > #shapeInteraction
+		backgroundColor: Color lightBlue;
+		shape: TLEllipse;
+		noNodeLabel;
+		width: 8;
+		height: 8.
 	^ defaultStyleSheet

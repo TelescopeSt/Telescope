@@ -1,3 +1,3 @@
 style
 defaultStyle
-	^ #staticLegend
+	self subclassResponsibility
