@@ -1,3 +1,6 @@
 updating
-updateLabelFor: anElement.
-	self labelShape updateFor: anElement trachelShape: anElement trachelShape shapes first
+updateLabelFor: anElement
+	| labelShapeTrachel |
+	labelShapeTrachel := anElement trachelShape shapes first.
+	self labelShape updateFor: anElement trachelShape: labelShapeTrachel.
+	labelShapeTrachel pushFront
