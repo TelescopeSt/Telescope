@@ -14,4 +14,4 @@ expandNode: aNode
 			expandToOrigin
 				ifFalse: [ aNode connectToAll: targetNodes ]
 				ifTrue: [ targetNodes connectTo: aNode ].
-			aNode state at: #expanded put: true ]
+			aNode state at: self expandIdentifier put: true ]
