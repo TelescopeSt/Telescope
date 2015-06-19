@@ -1,4 +1,4 @@
-not working demos
+demos
 exampleCycleDependencies
 	"self exampleCycleDependencies"
 	
@@ -10,8 +10,6 @@ exampleCycleDependencies
 		heightBlock: [ :each | each numberOfMethods / 10 max: 5 ];
 		open"
 
-	self flag: 'Invalid demo; cannot run like this'.
-	
 	"forces every class to be in cycle, maybe think on a better property"
 	TLCycleDependencies new
 		entities: TLDrawable withAllSubclasses;

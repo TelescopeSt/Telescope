@@ -1,4 +1,4 @@
-as yet unclassified
+testing
 includesAnySubstyles: aCollectionOfSubstyles
 	self > #children.
 	^ super includesAnySubstyles: aCollectionOfSubstyles

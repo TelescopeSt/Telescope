@@ -2,9 +2,6 @@ generation - interaction
 placeElement: anElement correspondingToTrigger: aTLShapeTrigger relativeToDrawable: aTLCompositeNode
 	| element |
 	element := self elementFromTLDrawable: aTLCompositeNode.
-	TRConstraint
-		stick: anElement trachelShape
-		onTheRightOf:
-			(element shape isComposite
+	TLRoassal2ShapePlacer place: anElement trachelShape relativeTo: (element shape isComposite
 				ifTrue: [ element trachelShape shapes second ]
-				ifFalse: [ element trachelShape ])
+				ifFalse: [ element trachelShape ]) following: aTLShapeTrigger effectiveStyleSheet triggerPosition.

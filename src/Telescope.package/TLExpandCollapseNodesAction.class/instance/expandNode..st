@@ -5,12 +5,13 @@ expandNode: aNode
 	children
 		ifNotEmpty: [ 
 			newNodes := TLDrawableCollection new.
-			targetNodes := self obtainNodesWhereNew: newNodes FromEntities: children withOriginNode: aNode.
 			self parentToChildren
 				at: aNode
 				put:
-					
-							newNodes .
+					(children
+						ifNotNil: [ 
+							targetNodes := self obtainNodesWhereNew: newNodes FromEntities: children withOriginNode: aNode.
+							newNodes ]).
 			expandToOrigin
 				ifFalse: [ aNode connectToAll: targetNodes ]
 				ifTrue: [ targetNodes connectTo: aNode ].

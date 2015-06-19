@@ -1,8 +1,6 @@
-not working demos
+demos
 exampleNameCloud
 	"self exampleNameCloud"
-	
-	self flag: 'Invalid demo; cannot run like this'.
 		
 	"for FAMIXNamespaceGroup:
 	 TLNameCloud new

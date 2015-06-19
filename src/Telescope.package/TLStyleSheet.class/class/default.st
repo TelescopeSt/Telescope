@@ -14,6 +14,7 @@ default
 		childrenProperty: nil;
 		compositeExpandedByDefault: false;
 		childrenLayout: RTGridLayout;
+		triggerPosition: #right;
 		yourself.
 	defaultStyleSheet > #shapeInteraction
 		backgroundColor: Color lightBlue;

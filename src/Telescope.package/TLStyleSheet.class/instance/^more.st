@@ -1,4 +1,4 @@
-as yet unclassified
+accessing
 > aSymbol
 	^ self substyles
 		at: aSymbol

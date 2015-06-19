@@ -1,0 +1,1 @@
+I am a class that will contain the roassal2 logic to place shape
