@@ -1,7 +1,7 @@
 demos
 exampleCycleDependencies
 	"self exampleCycleDependencies"
-	
+
 	"for FAMIXNamespaceGroup:
 	 TLCycleDependencies new
 		entities: self asOrderedCollection;
@@ -11,11 +11,11 @@ exampleCycleDependencies
 		open"
 
 	"forces every class to be in cycle, maybe think on a better property"
-	TLCycleDependencies new
+
+	^ TLCycleDependencies new
 		entities: TLDrawable withAllSubclasses;
-		property: [ :each | ( OrderedCollection 
-			with: each withAllSubclasses
-			with: each superclass) flattened ];
+		property: [ :each | (OrderedCollection with: each withAllSubclasses with: each superclass) flattened ];
 		widthBlock: [ :each | each numberOfVariables * 3 ];
 		heightBlock: [ :each | each numberOfMethods / 2 max: 5 ];
-		open
+		open;
+		yourself

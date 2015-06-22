@@ -8,7 +8,8 @@ exampleNameCloud
 		nameProperty: #name;
 		open"
 		
-	TLNameCloud new
+	^ TLNameCloud new
 		entities: TLDrawable withAllSubclasses;
 		nameProperty: #name;
-		open
+		open;
+		yourself
