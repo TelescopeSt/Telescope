@@ -1,0 +1,1 @@
+I am an action that will receive in addition of the drawable a choice by the user. I will act depending on this choice

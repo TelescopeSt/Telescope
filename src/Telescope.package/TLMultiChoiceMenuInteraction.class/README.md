@@ -1,0 +1,1 @@
+A TLMultiChoiceMenuInteraction is an interaction that is accessible from a menu entry that will provide a submenu proposing choices for the action. It requires a specific action (TLMultiChoiceAction) that will be triggered will the drawable and the choice.
