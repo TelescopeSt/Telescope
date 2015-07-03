@@ -5,4 +5,6 @@ initialize
 	interactions := OrderedCollection new.
 	isUpdateRequired := false.
 	isLayoutApplicationRequired := false.
-	isVisible := true
+	isVisible := true.
+	state := Dictionary new
+	

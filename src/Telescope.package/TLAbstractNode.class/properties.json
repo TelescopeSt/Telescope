@@ -9,8 +9,7 @@
 		"entity",
 		"label",
 		"incomingConnections",
-		"outgoingConnections",
-		"state"
+		"outgoingConnections"
 	],
 	"name" : "TLAbstractNode",
 	"type" : "normal"
