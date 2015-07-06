@@ -1,4 +1,4 @@
-as yet unclassified
+visu-window-menu
 visualizationWindowMenuOn: aBuilder
 	<telescopeMenu>
 	(aBuilder item: #'Export to PNG')
@@ -11,4 +11,4 @@ visualizationWindowMenuOn: aBuilder
 								builder: connector;
 								fileName: fileName fullName;
 								exportToFile ] ];
-		icon: MooseIcons famixAttribute
+		icon: Smalltalk ui icons configurationIcon
