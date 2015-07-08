@@ -6,8 +6,9 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"previousBorderColorDictionary"
+		"previousStyleDictionary",
+		"customizationBlock"
 	],
-	"name" : "TLHighlightNodeAction",
+	"name" : "TLStyleCustomizationAction",
 	"type" : "normal"
 }
