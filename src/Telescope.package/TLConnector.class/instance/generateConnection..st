@@ -7,6 +7,7 @@ generateConnection: aTLConnection
 				createElementConnectionFrom: aTLConnection fromNode
 				to: aTLConnection toNode
 				using: (aTLConnection edgeBuilder shapeFrom: aTLConnection fromNode to: aTLConnection toNode).
+			self customizeEdgeShape: shape withStyleSheet: aTLConnection effectiveStyleSheet.
 			self addElementConnectionInView: shape.
 			self shapeByDrawable at: aTLConnection put: shape.
 			self generateInteractionsOf: aTLConnection targetingDrawable: aTLConnection.

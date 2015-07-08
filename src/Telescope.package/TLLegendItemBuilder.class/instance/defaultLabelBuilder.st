@@ -1,3 +1,0 @@
-accessing
-defaultLabelBuilder
-	^ TLLabelShapeBuilder new

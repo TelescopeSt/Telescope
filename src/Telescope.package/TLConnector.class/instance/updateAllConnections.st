@@ -6,4 +6,4 @@ updateAllConnections
 			drawable isConnection
 				ifTrue: [ 
 					((drawable fromNode isNil or: [ drawable toNode isNil ]) or: [ drawable isVisible not ])
-						ifTrue: [ self removeConnection: drawable ] ifFalse: [ (self elementFromTLDrawable: drawable) trachelShape pushFront ] ] ]
+						ifTrue: [ self removeConnection: drawable ] ifFalse: [ drawable updateWith: self ] ] ]
