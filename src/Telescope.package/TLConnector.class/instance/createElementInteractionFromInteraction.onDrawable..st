@@ -1,3 +1,0 @@
-generation - interaction
-createElementInteractionFromInteraction: aTLShapeInteraction onDrawable: aTLDrawable
-	self subclassResponsibility

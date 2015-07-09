@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "GuillaumeLarcheveque 7/9/2015 11:30",
+	"super" : "TLReversibleNodeAction",
+	"category" : "Telescope-Actions",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"destinationGroup",
+		"movedConnectableDictionary"
+	],
+	"name" : "TLMoveConnectableAction",
+	"type" : "normal"
+}
