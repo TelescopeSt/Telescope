@@ -4,7 +4,6 @@ exampleMovingNodeToAnotherGroup
 
 	| visualization |
 	visualization := TLVisualization new.
-	visualization layout: (RTHorizontalLineLayout new gapSize: 40).
 	visualization styleSheet nodeLabel: #asString.
 	visualization > #group1
 		layout: RTVerticalLineLayout;
