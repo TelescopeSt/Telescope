@@ -15,7 +15,7 @@ exampleCycleDependencies
 	^ TLCycleDependencies new
 		entities: TLDrawable withAllSubclasses;
 		property: [ :each | (OrderedCollection with: each withAllSubclasses with: each superclass) flattened ];
-		widthBlock: [ :each | each numberOfVariables * 3 ];
+		widthBlock: [ :each | each numberOfVariables * 3 max: 5 ];
 		heightBlock: [ :each | each numberOfMethods / 2 max: 5 ];
 		open;
 		yourself

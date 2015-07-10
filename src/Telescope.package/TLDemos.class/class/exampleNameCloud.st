@@ -7,7 +7,7 @@ exampleNameCloud
 		entities: self;
 		nameProperty: #name;
 		open"
-		
+
 	^ TLNameCloud new
 		entities: TLDrawable withAllSubclasses;
 		nameProperty: #name;

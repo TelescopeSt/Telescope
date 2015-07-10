@@ -3,6 +3,7 @@ exampleHighlightElements
 	"self exampleHighlightElements"
 
 	| visualization highlightInteraction |
+
 	visualization := TLVisualization new.
 	highlightInteraction := (TLStyleCustomizationAction custom: [ :style | style borderColor: Color red lighter ]) onMouseOver.
 	visualization addInteraction: highlightInteraction.
