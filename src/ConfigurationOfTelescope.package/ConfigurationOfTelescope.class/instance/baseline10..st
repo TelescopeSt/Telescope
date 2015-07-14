@@ -31,4 +31,6 @@ baseline10: spec
 			package: 'Telescope' with: [
 				spec requires: #('Stylesheet' 'Geometry' 'XMenuModel' 'RoassalForTelescope' ). ];
 			package: 'Telescope-Tests' with: [
-				spec requires: #('Telescope' 'BabyMock2' ). ]].
+				spec requires: #('Telescope' 'BabyMock2' ). ];
+			repository: 'http://www.smalltalkhub.com/mc/ObjectProfile/Roassal2/main';
+			package: #Roassal2 with: 'Roassal2-AlexandreBergel.913'.].

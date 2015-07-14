@@ -15,5 +15,4 @@ version010: spec
 		spec 
 			package: 'XMenuModel' with: 'XMenuModel-VincentBlondeau.2';
 			package: 'Telescope' with: 'Telescope-GuillaumeLarcheveque.394';
-			package: 'Telescope-Tests' with: 'Telescope-Tests-GuillaumeLarcheveque.61';
-			package: #Roassal2 with: 'Roassal2-AlexandreBergel.913'. ].
+			package: 'Telescope-Tests' with: 'Telescope-Tests-GuillaumeLarcheveque.61'. ].
