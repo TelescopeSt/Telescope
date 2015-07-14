@@ -31,5 +31,4 @@ baseline10: spec
 			package: 'Telescope' with: [
 				spec requires: #('Stylesheet' 'Geometry' 'XMenuModel' 'RoassalForTelescope' ). ];
 			package: 'Telescope-Tests' with: [
-				spec requires: #('Telescope' 'BabyMock2' ). ];
-			package: #Roassal2. ].
+				spec requires: #('Telescope' 'BabyMock2' ). ]].
