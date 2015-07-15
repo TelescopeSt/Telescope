@@ -1,3 +1,3 @@
 generation - legend
 createLegendFrom: legendItems
-	self subclassResponsibility
+	^ legendItems ifEmpty: [ nil ] ifNotEmpty: [ "here should create legend" ]

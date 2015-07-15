@@ -1,0 +1,1 @@
+TLBlocConnector is a connector that will create Bloc elements from a Telescope model
