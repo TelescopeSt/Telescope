@@ -1,3 +1,3 @@
-as yet unclassified
+interactions
 onClick
 	self addInteraction: self action onClick

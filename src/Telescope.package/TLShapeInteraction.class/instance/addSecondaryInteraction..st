@@ -1,0 +1,3 @@
+secondary-interaction
+addSecondaryInteraction: aTLInteraction
+	self shapeTrigger addSecondaryInteraction: aTLInteraction
