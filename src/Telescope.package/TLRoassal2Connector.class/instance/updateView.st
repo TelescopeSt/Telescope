@@ -1,3 +1,3 @@
 view
 updateView
-	self view signalUpdate
+	self view updateAndAdjustCamera
