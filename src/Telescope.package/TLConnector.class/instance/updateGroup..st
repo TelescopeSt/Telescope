@@ -9,19 +9,19 @@ updateGroup: aTLGroup
 				removeAllSuchThat: [ :aDrawableGraphic | 
 					| tlDrawable |
 					tlDrawable := self tlDrawableFromElement: aDrawableGraphic.
-					(aTLGroup includes: tlDrawable)
+					((aTLGroup includes: tlDrawable) and: [tlDrawable isVisible])
 						ifTrue: [ 
 							"element is still existing so should not be removed"
 							false ]
 						ifFalse: [ 
-							"If the drawable has no parent anymore it should be removed from visualization"
-							tlDrawable parent ifNil: [ tlDrawable removeWith: self ].	"element does not exist anymore so should be removed"
+							"If the drawable has no parent anymore or is hyde it should be removed from visualization"
+							(tlDrawable parent isNil or: [tlDrawable isVisible not]) ifTrue: [ tlDrawable removeWith: self ].	"element does not exist anymore so should be removed"
 							true ] ].	
 			"adding phase"
 			graphicGroup
 				addAllFirstUnlessAlreadyPresent:
-					(aTLGroup
-						collect: [ :aTLDrawable | 
+					(aTLGroup select: #isVisible
+						thenCollect: [ :aTLDrawable | 
 							[ 
 							| element |
 							element := self elementFromTLDrawable: aTLDrawable.
@@ -30,7 +30,8 @@ updateGroup: aTLGroup
 								on: NotFound
 								do: [ aTLDrawable generate ] ]).	
 			"sorting phase"
-			order := aTLGroup collect: [ :aTLDrawable | self elementFromTLDrawable: aTLDrawable ].
+			order := aTLGroup select: #isVisible
+						thenCollect: [ :aTLDrawable | self elementFromTLDrawable: aTLDrawable ].
 			graphicGroup sort: [ :a :b | (order indexOf: a) < (order indexOf: b) ].
 			aTLGroup updateDone ].
 	aTLGroup isLayoutApplicationRequired
