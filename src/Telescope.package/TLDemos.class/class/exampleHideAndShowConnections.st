@@ -7,10 +7,7 @@ exampleHideAndShowConnections
 	oneNode := visualization addNodeFromEntity: 1.
 	twoNode := visualization addNodeFromEntity: 2.
 	connection := oneNode connectTo: twoNode.
-	visualization addInteraction: (TLCustomAction block: [ :aNode | 
-		connection isVisible 
-			ifTrue: [ connection hide ]
-			ifFalse: [ connection show ] ]) onClick.
+	visualization addInteraction: (TLHideAction on: connection) onClick.
 	visualization open.
 	^ visualization
 	

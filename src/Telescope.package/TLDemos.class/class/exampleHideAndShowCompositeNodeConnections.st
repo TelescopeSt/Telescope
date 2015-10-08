@@ -35,10 +35,7 @@ exampleHideAndShowCompositeNodeConnections
 	(1 to: 3) do: [:i | oneNode childrenGroup connectInsideGroupEntity: i toEntity: i FromAnotherGroup: twoNode childrenGroup].
 	oneNode connectTo: twoNode childrenGroup.
 	oneNode childrenGroup connectTo: twoNode.
-	visualization addInteraction: (TLCustomAction block: [ :aNode | 
-		connection isVisible 
-			ifTrue: [ connection hide ]
-			ifFalse: [ connection show ] ]) onClick.
+	visualization addInteraction: (TLHideAction on: connection) onClick.
 	visualization open.
 	^ visualization
 	
