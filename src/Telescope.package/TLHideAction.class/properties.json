@@ -6,8 +6,8 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"drawableToHyde"
+		"drawableToHide"
 	],
-	"name" : "TLHydeAction",
+	"name" : "TLHideAction",
 	"type" : "normal"
 }

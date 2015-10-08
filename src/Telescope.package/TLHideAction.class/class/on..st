@@ -1,5 +1,5 @@
 instance creation
 on: aTLDrawable
 	^ self new
-		drawableToHyde: aTLDrawable;
+		drawableToHide: aTLDrawable;
 		yourself
