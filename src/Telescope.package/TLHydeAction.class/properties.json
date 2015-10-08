@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "GuillaumeLarcheveque 10/8/2015 14:55",
+	"super" : "TLReversibleNodeAction",
+	"category" : "Telescope-Actions",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"drawableToHyde"
+	],
+	"name" : "TLHydeAction",
+	"type" : "normal"
+}

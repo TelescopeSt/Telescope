@@ -7,10 +7,7 @@ exampleHideAndShowNode
 	oneNode := visualization addNodeFromEntity: 1.
 	oneNode nodeLabel: 'Click on me!'.
 	secondNode := visualization addNodeFromEntity: 2.
-	oneNode addInteraction: (TLCustomAction block: [ :aNode | 
-		secondNode isVisible 
-			ifTrue: [ secondNode hide ]
-			ifFalse: [ secondNode show ] ]) onClick.
+	oneNode addInteraction: (TLHydeAction on: secondNode) onClick.
 	visualization open.
 	^ visualization
 	
