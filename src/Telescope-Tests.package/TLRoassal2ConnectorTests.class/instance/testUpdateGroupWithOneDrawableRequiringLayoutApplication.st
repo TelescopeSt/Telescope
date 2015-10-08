@@ -8,6 +8,7 @@ testUpdateGroupWithOneDrawableRequiringLayoutApplication
 	connector shapeByDrawable at: group put: rtGroup.
 	node := protocol mock: 'node'.
 	protocol describe once: node recv: #parent:; with: group.
+	protocol describe allow: node recv: #isVisible; => true.
 
 	group addDrawable: node.
 	connector shapeByDrawable at: node put: rtNodeElement.
