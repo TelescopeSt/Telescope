@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "",
+	"super" : "TLMultiChoiceAction",
+	"category" : "Telescope-Actions",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"block"
+	],
+	"name" : "TLCustomMultiChoiceAction",
+	"type" : "normal"
+}
