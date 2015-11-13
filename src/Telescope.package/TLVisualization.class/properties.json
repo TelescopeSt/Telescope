@@ -7,7 +7,8 @@
 	"classvars" : [ ],
 	"instvars" : [
 		"title",
-		"legend"
+		"legend",
+		"shouldReplaceCameraWhenUpdating"
 	],
 	"name" : "TLVisualization",
 	"type" : "normal"

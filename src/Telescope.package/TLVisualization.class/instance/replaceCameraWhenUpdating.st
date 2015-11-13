@@ -1,0 +1,3 @@
+camera
+replaceCameraWhenUpdating
+	shouldReplaceCameraWhenUpdating := true

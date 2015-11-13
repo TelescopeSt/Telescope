@@ -2,4 +2,5 @@ initialization
 initialize
 	super initialize.
 	self styleSheet: TLStyleSheet default.
-	self configLayout
+	self configLayout.
+	shouldReplaceCameraWhenUpdating := false

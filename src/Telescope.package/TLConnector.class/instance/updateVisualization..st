@@ -3,4 +3,4 @@ updateVisualization: aTLVisualization
 	self updateAllConnections.
 	self updateGroup: aTLVisualization.
 	aTLVisualization legend updateWith: self.
-	self updateView 
+	self updateViewForVisualization: aTLVisualization
