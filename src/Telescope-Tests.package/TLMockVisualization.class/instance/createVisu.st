@@ -2,8 +2,8 @@ as yet unclassified
 createVisu
 	| visu |
 	visu := TLVisualization new.
+	visu nodeCreationStrategy compositeProperty: (1 to: 10) asOrderedCollection.
 	visu styleSheet
-		childrenProperty: (1 to: 10) asOrderedCollection;
 		childrenLayout: (RTVerticalLineLayout withGap: 10);
 		shape: TLEllipse;
 		nodeLabel: #mooseName;

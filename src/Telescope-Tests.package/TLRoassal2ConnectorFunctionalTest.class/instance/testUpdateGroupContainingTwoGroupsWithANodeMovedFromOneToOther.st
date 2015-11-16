@@ -2,6 +2,7 @@ running
 testUpdateGroupContainingTwoGroupsWithANodeMovedFromOneToOther
 	| node superGroup superGroupMock group1Mock group2Mock nodeMock layoutMock rectangle |
 	superGroup := TLEntitiesGroup new.
+	superGroup nodeCreationStrategy: TLNodeCreationStrategy default.
 	superGroup styleSheet: TLStyleSheet default.
 	layoutMock := protocol mock: 'layout'.
 	nodeMock := protocol mock: 'nodeMock'.

@@ -1,0 +1,4 @@
+tests
+testCompositePropertyFillingAddADefaultChildrenNodeCreationStrategy
+	strategy compositeProperty: #whatever.
+	self assert: strategy childrenStrategy notNil.

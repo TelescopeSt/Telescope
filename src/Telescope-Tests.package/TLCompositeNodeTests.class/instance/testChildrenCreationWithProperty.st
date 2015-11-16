@@ -1,8 +1,7 @@
 as yet unclassified
 testChildrenCreationWithProperty
 	node entity: 30.
-	node styleSheet
-		childrenProperty: #primeFactors.
+	node childrenProperty: #primeFactors.
 	node createChildrenNodes.
 	self assert: node childrenNodes size equals: 3.
 	self assert: node childrenNodes first entity equals: 2.

@@ -3,7 +3,7 @@ testGroupUpdatingAddElement
 	| group cNode aNode bNode |
 	group := TLEntitiesGroup new.
 	group generator: connector.
-	group styleSheet nodeClass: TLSimpleNode; layout: nil.
+	group nodeCreationStrategy: TLNodeCreationStrategy default; layout: nil.
 	aNode := group addNodeFromEntity: $a.
 	bNode := group addNodeFromEntity: $b.
 	group generate.

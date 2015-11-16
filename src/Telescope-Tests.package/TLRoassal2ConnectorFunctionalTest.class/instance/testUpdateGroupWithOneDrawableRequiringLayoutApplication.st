@@ -2,6 +2,7 @@ running
 testUpdateGroupWithOneDrawableRequiringLayoutApplication
 	| group node mockGroup mockSubGroup mockElement groupLayout subGroupLayout rectangle |
 	group := TLEntitiesGroup new.
+	group nodeCreationStrategy: TLNodeCreationStrategy default.
 	groupLayout := protocol mock: 'groupLayout'.
 	group styleSheet: TLStyleSheet default.
 	group layout: groupLayout.

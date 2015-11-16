@@ -1,6 +1,6 @@
 as yet unclassified
 testChildrenCreationWithCollectionOfEntities
-	node styleSheet childrenProperty: #(1 2 3).
+	node childrenProperty: #(1 2 3).
 	node createChildrenNodes.
 	self assert: node childrenNodes size equals: 3.
 	self assert: node childrenNodes first entity equals: 1.

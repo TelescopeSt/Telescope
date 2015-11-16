@@ -1,8 +1,7 @@
 as yet unclassified
 testChildrenCreationWithBlock
 	node entity: 42.
-	node styleSheet
-		childrenProperty: [ :entity | 
+	node childrenProperty: [ :entity | 
 			self assert: entity equals: 42.
 			#(1 2 3) ].
 	node createChildrenNodes.

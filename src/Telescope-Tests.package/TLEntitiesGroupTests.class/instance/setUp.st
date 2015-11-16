@@ -9,4 +9,5 @@ setUp
 		allow: parentMock recv: #effectiveStyleSheet;
 		=> TLStyleSheet default.
 	tlGroup := TLEntitiesGroup new.
+	tlGroup nodeCreationStrategy: TLNodeCreationStrategy default.
 	tlGroup parent: parentMock
