@@ -1,3 +1,3 @@
 nodes-entity
 nodeForEntity: anEntity
-	^ self nodeForEntity: anEntity ifAbsent: [ NotFound signal ]
+	^ self nodeForEntity: anEntity ifAbsent: [ NotFound signalFor: anEntity ]

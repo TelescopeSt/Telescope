@@ -2,8 +2,8 @@ building
 buildVisualization
 
 	"general layout for class and its elements"
+	(self childrenProperty: [ :aClass | { aClass . aClass }]) childrenProperty: #yourself.
 	self styleSheet
-		childrenProperty: [ :aClass | { aClass . aClass }];
 		childrenLayout: ( RTVerticalLineLayout new verticalGap: 0 );
 		compositeExpandedByDefault: true;
 		backgroundColor: Color white;
@@ -12,7 +12,6 @@ buildVisualization
 	
 	"for variables and methods groups"
 	( self styleSheet > #children )
-		nodeClass: TLCompositeNode;
 		borderColor: Color white;
 		noNodeLabel.
 	
@@ -23,5 +22,5 @@ buildVisualization
 		
 	self > #default addNodeFromEntity: self entity.
 	self > #default nodesDo: [ :aClassNode |
-		aClassNode childrenNodes first styleSheet childrenProperty: self attributesBlock.
-		aClassNode childrenNodes second styleSheet childrenProperty: self methodsBlock. ]
+		aClassNode childrenNodes first childrenProperty: self attributesBlock.
+		aClassNode childrenNodes second childrenProperty: self methodsBlock. ]

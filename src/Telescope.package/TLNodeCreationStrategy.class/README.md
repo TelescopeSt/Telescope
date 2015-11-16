@@ -1,0 +1,1 @@
+TLNodeCreationStrategy is a strategy that express how to create nodes

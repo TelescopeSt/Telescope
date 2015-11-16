@@ -1,3 +1,3 @@
 as yet unclassified
 nodeChildrenProperty: aChildrenBlockOrSelector 
-	self styleSheet  childrenProperty: aChildrenBlockOrSelector.
+	self localNodeCreationStrategy compositeProperty: aChildrenBlockOrSelector.

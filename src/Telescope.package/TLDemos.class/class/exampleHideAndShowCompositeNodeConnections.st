@@ -4,7 +4,8 @@ exampleHideAndShowCompositeNodeConnections
 
 	| visualization oneNode twoNode connection shiftAction |
 	visualization := TLVisualization new.
-	visualization styleSheet childrenProperty: #(1 2 3); compositeExpandedByDefault: false.
+	visualization childrenProperty: #(1 2 3).
+	visualization styleSheet compositeExpandedByDefault: false.
 	oneNode := visualization addNodeFromEntity: 1.
 	twoNode := visualization addNodeFromEntity: 2.
 	oneNode removeAllInteractions. twoNode removeAllInteractions.

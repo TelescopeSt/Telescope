@@ -1,3 +1,3 @@
-as yet unclassified
+instance-creation
 withEntity: anEntity
 	^ self new entity: anEntity

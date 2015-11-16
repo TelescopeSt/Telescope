@@ -11,7 +11,6 @@ default
 		height: 15;
 		shape: TLRectangle;
 		nodeLabelPosition: #inside;
-		childrenProperty: nil;
 		compositeExpandedByDefault: false;
 		childrenLayout: RTGridLayout;
 		triggerPosition: #right;

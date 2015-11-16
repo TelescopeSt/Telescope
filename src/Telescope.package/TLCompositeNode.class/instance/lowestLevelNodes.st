@@ -1,4 +1,4 @@
-as yet unclassified
+accessing
 lowestLevelNodes
 	|lowestLevelNodes|
 	lowestLevelNodes := self childrenNodes reject: #hasChildren.

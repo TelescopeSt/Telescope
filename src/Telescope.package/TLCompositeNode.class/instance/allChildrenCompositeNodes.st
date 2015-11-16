@@ -1,4 +1,4 @@
-as yet unclassified
+children
 allChildrenCompositeNodes
 	|allChildrenCompositeNodes|
 	allChildrenCompositeNodes := {self}, self childrenNodes select: [:each | each class = TLCompositeNode].

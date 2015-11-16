@@ -5,10 +5,9 @@ exampleCompositeExploringHierarchy
 	| visualization |
 
 	visualization := TLVisualization new.
+	visualization nodeCreationStrategy beRecursive; compositeProperty: #subclasses.
 	visualization styleSheet
 		childrenLayout: (RTGridLayout new gapSize: 20);
-		childrenProperty: #subclasses;
-		beChildrenRecursive;
 		nodeLabel: [:c | c name asString];
 		backgroundColor: [ :class | 
 					class subclasses isNotEmpty

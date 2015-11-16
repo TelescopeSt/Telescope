@@ -4,7 +4,7 @@
 	"instvars" : [
 		"telescopeEntities",
 		"subGroupsDictionary",
-		"nodeBuilder"
+		"nodeCreationStrategy"
 	],
 	"name" : "TLEntitiesGroup",
 	"commentStamp" : "GuillaumeLarcheveque 7/3/2014 10:34",

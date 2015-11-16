@@ -1,0 +1,3 @@
+node-building
+buildNodeFromEntity: anEntity withStrategy: aTLNodeCreationStrategy
+	^ aTLNodeCreationStrategy createNodeFromEntity: anEntity
