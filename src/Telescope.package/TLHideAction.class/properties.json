@@ -6,7 +6,7 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"drawableToHide"
+		"hidingValuableOrEntity"
 	],
 	"name" : "TLHideAction",
 	"type" : "normal"

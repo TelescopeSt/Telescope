@@ -1,5 +1,9 @@
 action
 actionOn: aTLDrawable
-	self drawableToHide isVisible 
-			ifTrue: [ self drawableToHide hide ]
-			ifFalse: [ self drawableToHide show ]
+	| drawablesToHide |
+	drawablesToHide := ([self hidingValuableOrEntity value: aTLDrawable] on: MessageNotUnderstood do: [self hidingValuableOrEntity]) asOrderedCollection.
+	drawablesToHide
+		do: [ :aDrawableToHide | 
+			aDrawableToHide isVisible
+				ifTrue: [ aDrawableToHide hide ]
+				ifFalse: [ aDrawableToHide show ] ]
