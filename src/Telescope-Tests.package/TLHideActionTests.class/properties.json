@@ -6,6 +6,6 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [ ],
-	"name" : "TLExpandCollapseNodesActionTests",
+	"name" : "TLHideActionTests",
 	"type" : "normal"
 }
