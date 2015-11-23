@@ -1,4 +1,4 @@
-node - creation
+adding
 addCompositeNodeFromEntity: aParentEntity children: aCollectionOfEntities 
 	|composite|
 	composite := (TLCompositeNode withEntity: aParentEntity).

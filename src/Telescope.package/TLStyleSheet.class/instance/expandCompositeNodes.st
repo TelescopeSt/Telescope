@@ -1,0 +1,3 @@
+children
+expandCompositeNodes
+	self compositeExpandedByDefault: true

@@ -1,3 +1,4 @@
 accessing
-root: anObject
-	root := anObject
+root: aRoot
+	self roots: aRoot asOrderedCollection.
+	self propertyApplicationRequired

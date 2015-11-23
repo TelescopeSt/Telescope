@@ -1,0 +1,3 @@
+accessing
+propertyApplicationRequired
+	requirePropertyApplication := true

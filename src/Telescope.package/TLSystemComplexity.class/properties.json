@@ -6,8 +6,10 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"root",
-		"property"
+		"roots",
+		"property",
+		"container",
+		"requirePropertyApplication"
 	],
 	"name" : "TLSystemComplexity",
 	"type" : "normal"
