@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "",
+	"super" : "ZnWebSocketDelegate",
+	"category" : "Telescope-Cytoscape",
+	"classinstvars" : [
+		"singleton"
+	],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "TLCytoscapeWebSocketDelegate",
+	"type" : "normal"
+}

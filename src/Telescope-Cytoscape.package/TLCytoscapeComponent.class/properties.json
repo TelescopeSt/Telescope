@@ -1,0 +1,17 @@
+{
+	"commentStamp" : "<historical>",
+	"super" : "WAComponent",
+	"category" : "Telescope-Cytoscape",
+	"classinstvars" : [
+		"id"
+	],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"visualization",
+		"connector",
+		"visuDivId"
+	],
+	"name" : "TLCytoscapeComponent",
+	"type" : "normal"
+}

@@ -1,0 +1,3 @@
+view
+removeElementnteractionFromView: element
+	self shouldBeImplemented

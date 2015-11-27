@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "TLConnector",
+	"category" : "Telescope-Cytoscape",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "TLCytoscapeConnector",
+	"type" : "normal"
+}

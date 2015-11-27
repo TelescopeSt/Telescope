@@ -1,0 +1,3 @@
+view
+updateViewForVisualization: anObject
+	self shouldBeImplemented

@@ -1,0 +1,1 @@
+I am a seaside component that is able to render a telescope visualisation (TLVisualization)
