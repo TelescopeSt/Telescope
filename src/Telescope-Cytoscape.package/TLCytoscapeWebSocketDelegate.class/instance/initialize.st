@@ -1,4 +1,5 @@
 as yet unclassified
 initialize
 	super initialize.
-	self handler: [ :webSocket | webSocket runWith: [:message | message inspect] ]
+	self visualizationByIdDictionary: Dictionary new.
+	self handler: [ :webSocket | webSocket runWith: [ :message | self onMessageReceived: message ] ].

@@ -1,4 +1,5 @@
 as yet unclassified
 stop
+	<script>
 	singleton
-		stopDefault
+		stop
