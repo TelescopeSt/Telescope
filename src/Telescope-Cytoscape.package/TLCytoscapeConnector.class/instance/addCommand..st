@@ -1,0 +1,3 @@
+commands
+addCommand: aTLVisualizationServerCommand 
+	self commandsQueue nextPut: aTLVisualizationServerCommand.

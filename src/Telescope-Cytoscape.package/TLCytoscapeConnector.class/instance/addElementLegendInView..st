@@ -1,3 +1,3 @@
 view
 addElementLegendInView: legend
-	self shouldBeImplemented
+	legend ifNotNil: [self shouldBeImplemented]

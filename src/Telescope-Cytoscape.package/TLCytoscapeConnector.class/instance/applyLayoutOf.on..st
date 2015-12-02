@@ -1,3 +1,3 @@
 layout
 applyLayoutOf: aTLGroup on: group
-	self shouldBeImplemented
+	self flag: 'No need to do that but maybe will be necessary after when using pharo layout'

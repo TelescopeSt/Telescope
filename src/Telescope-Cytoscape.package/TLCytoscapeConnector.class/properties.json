@@ -6,7 +6,8 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"id"
+		"id",
+		"commandsQueue"
 	],
 	"name" : "TLCytoscapeConnector",
 	"type" : "normal"
