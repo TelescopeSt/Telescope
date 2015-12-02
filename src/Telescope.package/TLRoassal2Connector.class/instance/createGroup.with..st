@@ -1,5 +1,5 @@
 generation - group
-createGroupFrom: aCollection
+createGroup: aCollection with: anObject
 	| group |
 	group := RTGroup newFrom: aCollection.
 	^ group

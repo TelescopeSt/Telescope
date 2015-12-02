@@ -1,3 +1,3 @@
 generation - group
-createGroupFrom: aTLGroup
+createGroup: aTLGroup with: anObject
 	self subclassResponsibility
