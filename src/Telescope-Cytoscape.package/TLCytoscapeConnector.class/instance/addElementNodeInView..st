@@ -1,3 +1,3 @@
 view
 addElementNodeInView: element
-	self shouldBeImplemented
+	"do nothing because we want to send pack of datas"

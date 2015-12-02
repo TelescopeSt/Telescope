@@ -1,0 +1,1 @@
+I am the abstract superclass for all commands sent to the client by the server

@@ -1,4 +1,7 @@
 as yet unclassified
 renderContentOn: html
-	html div id: self visuDivId; attributeAt: #isTelescopeVisu put: 'true'
+	| visuId |
+	visuId := self visuDivId.
+	TLCytoscapeWebSocketDelegate registerVisualization: self visualization underId: visuId.
+	html div id: visuId; attributeAt: #isTelescopeVisu put: 'true'
 	

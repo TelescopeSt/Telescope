@@ -2,4 +2,5 @@ as yet unclassified
 stop
 	<script>
 	singleton
-		stop
+		stop.
+	singleton := nil

@@ -1,0 +1,1 @@
+I am the command sent by the client after the opening of the connection to ask for the generation of a visualization
