@@ -1,3 +1,3 @@
 generation - group
-createGroup: aCollection with: anObject 
+createGroup: aGroup with: aCollection 
 	^ aCollection as: OrderedCollection 
