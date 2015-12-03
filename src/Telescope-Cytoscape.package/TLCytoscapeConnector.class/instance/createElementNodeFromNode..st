@@ -1,11 +1,12 @@
 generation - node
 createElementNodeFromNode: aNode
-	| styleSheet |
+	| styleSheet nodeId |
+	nodeId := self generateDrawableId.
 	styleSheet := aNode effectiveStyleSheet.
-	^ TLVisualizationAddNodeCommand new
-		nodeId: self generateDrawableId;
+	self addCommand:  (TLVisualizationAddNodeCommand new
+		nodeId: nodeId;
 		style:
 				(self
 						createStyleDictionaryWith:
-							#(#borderColor #borderWidth #width #height #backGroundColor #nodeLabel #nodeLabelPosition #textColor) styleSheet: styleSheet entity: aNode entity);
-		nodeId	"we return the nodeId that will be the only things we will retain in addition of Node"
+							#(#borderColor #borderWidth #width #height #backgroundColor #nodeLabel #nodeLabelPosition #textColor) styleSheet: styleSheet entity: aNode entity)).
+	^ nodeId	"we return the nodeId that will be the only things we will retain in addition of Node"

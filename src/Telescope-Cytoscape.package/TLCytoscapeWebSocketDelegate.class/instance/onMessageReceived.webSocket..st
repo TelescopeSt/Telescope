@@ -13,4 +13,4 @@ onMessageReceived: message webSocket: aWebSocket
 				executeOnVisu: (self visualizationByIdDictionary at: (aCommandDictionary at: #id)) ].
 			
 	"Then send commands to clients"
-	aWebSocket send: (NeoJSONWriter toString: (visusToUpdate flatCollect: [ :aVisuId | (self visualizationByIdDictionary at: aVisuId) generator removeAllCommands ]))
+	aWebSocket sendMessage: (NeoJSONWriter toString: (visusToUpdate flatCollect: [ :aVisuId | (self visualizationByIdDictionary at: aVisuId) generator removeAllCommands ]))

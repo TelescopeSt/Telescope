@@ -6,7 +6,7 @@ createGroup: aTLGroup with: aCollectionOfDrawableId
 	
 	self addCommand: (TLVisualizationAddGroupCommand new
 		groupId: id;
-		layout: aTLGroup layout;
+		layout: aTLGroup layout forCytoscape;
 		elementsIds: aCollectionOfDrawableId; 
 		yourself).
 	

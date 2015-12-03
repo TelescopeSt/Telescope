@@ -1,3 +1,3 @@
 commands
 addCommand: aTLVisualizationServerCommand 
-	self commandsQueue nextPut: aTLVisualizationServerCommand.
+	self commandsQueue addLast: aTLVisualizationServerCommand.

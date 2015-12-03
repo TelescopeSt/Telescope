@@ -7,7 +7,8 @@
 	"classvars" : [ ],
 	"instvars" : [
 		"id",
-		"commandsQueue"
+		"commandsQueue",
+		"visuId"
 	],
 	"name" : "TLCytoscapeConnector",
 	"type" : "normal"
