@@ -1,3 +1,3 @@
 generation - group
-createGroup: aCollection with: anObject 
+createGroup: aTLGroup with: aCollection
 	^ aCollection copy
