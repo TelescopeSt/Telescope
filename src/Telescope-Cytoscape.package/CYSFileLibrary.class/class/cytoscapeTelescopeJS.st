@@ -2,17 +2,18 @@ as yet unclassified
 cytoscapeTelescopeJS
 	^ '(function(){
   var wsUri = "ws://" + location.hostname + ":1701";
-  console.log(location);
-
+  
   function init() {
-    
+
     visuDivs = obtainAllVisualizationDivs();
-    
+
     visus = [];
-    
+
     for(var i in visuDivs){
       visus.push({divId: visuDivs[i], visu:createVisu(visuDivs[i])});
     }
+    
+    console.log(visus);
     
     websocket = new WebSocket(wsUri);
     parametrizeWebsocket(visuDivs);
@@ -22,6 +23,14 @@ cytoscapeTelescopeJS
     return cytoscape({
       container: document.getElementById(aDivId)
     });
+  }
+  
+  function visuWithId(aVisuId){
+    for(var i in visus){
+      if(visus[i].divId == aVisuId)
+            return visus[i].visu;
+    }
+
   }
   
   function obtainAllVisualizationDivs(){
@@ -49,7 +58,7 @@ cytoscapeTelescopeJS
     messages = [];
     for (var i in visuDivs)
       messages.push({id:visuDivs[i], command:"generate"});
-    console.log(messages);
+
     websocket.send(JSON.stringify(messages));
   }
 
@@ -58,7 +67,17 @@ cytoscapeTelescopeJS
   }
 
   function onMessage(evt) {
-    console.log(JSON.parse(evt.data));
+    commands = JSON.parse(evt.data);
+    console.log(commands);
+    for(var i in commands)
+      {
+        command = commands[i];
+        console.log(command);
+        if(command.command == "add"){
+         console.log(command.parameters);
+         (visuWithId(command.visuId)).add(command.parameters);
+        }
+      }
   }
 
   function onError(evt) {

@@ -1,3 +1,3 @@
 view
 addElementConnectionInView: element
-	self shouldBeImplemented
+	

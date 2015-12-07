@@ -5,8 +5,10 @@ createElementNodeFromNode: aNode
 	styleSheet := aNode effectiveStyleSheet.
 	self addCommand:  (TLVisualizationAddNodeCommand new
 		nodeId: nodeId;
+		visuId: visuId;
 		style:
 				(self
 						createStyleDictionaryWith:
-							#(#borderColor #borderWidth #width #height #backgroundColor #nodeLabel #nodeLabelPosition #textColor) styleSheet: styleSheet entity: aNode entity)).
+							#(#borderColor #borderWidth #width #height #backgroundColor  #textColor) styleSheet: styleSheet entity: aNode entity)).
+	"#nodeLabel #nodeLabelPosition"
 	^ nodeId	"we return the nodeId that will be the only things we will retain in addition of Node"
