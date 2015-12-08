@@ -8,7 +8,8 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"visualizationByIdDictionary"
+		"visualizationByIdDictionary",
+		"visuByWebsocket"
 	],
 	"name" : "TLCytoscapeWebSocketDelegate",
 	"type" : "normal"

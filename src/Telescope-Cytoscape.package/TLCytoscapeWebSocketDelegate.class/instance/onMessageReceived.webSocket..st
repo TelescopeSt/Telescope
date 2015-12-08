@@ -8,9 +8,12 @@ onMessageReceived: message webSocket: aWebSocket
 		do: [ :aCommandDictionary | 
 			visusToUpdate add: (aCommandDictionary at: #id).
 			(TLVisualizationClientsCommand createFrom: aCommandDictionary)
-				executeOnVisu: (self visualizationByIdDictionary at: (aCommandDictionary at: #id)) ].	"Then send commands to clients"
+				executeOnVisu: (self visualizationByIdDictionary at: (aCommandDictionary at: #id)) ].	"Register visus for this websocket"
+	(self visuByWebsocket at: aWebSocket ifAbsentPut: [ Set new ]) addAll: visusToUpdate.	"Then send commands to clients"
 	aWebSocket
 		sendMessage:
 			(NeoJSONWriter
 				toString:
-					(visusToUpdate flatCollect: [ :aVisuId | (self visualizationByIdDictionary at: aVisuId) generator removeAllCommands ] as: OrderedCollection))
+					(visusToUpdate
+						flatCollect: [ :aVisuId | (self visualizationByIdDictionary at: aVisuId) generator removeAllCommands ]
+						as: OrderedCollection))
