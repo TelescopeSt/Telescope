@@ -11,6 +11,6 @@ neoJsonOn: writer
 					(#data -> {(#id -> self nodeId)} asDictionary).
 					(#position
 						->
-							{(#x -> (1 to: 500) atRandom).
-							(#y -> (1 to: 500) atRandom)} asDictionary) .
+							{(#x -> self virtualNode x).
+							(#y -> self virtualNode y)} asDictionary) .
 					(#style -> self style)} asDictionary ]

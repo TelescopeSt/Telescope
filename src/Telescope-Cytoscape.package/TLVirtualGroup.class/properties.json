@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "GuillaumeLarcheveque 12/8/2015 11:25",
+	"super" : "OrderedCollection",
+	"category" : "Telescope-Cytoscape-Virtual",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "TLVirtualGroup",
+	"type" : "normal"
+}

@@ -1,5 +1,5 @@
 {
-	"commentStamp" : "",
+	"commentStamp" : "GuillaumeLarcheveque 12/8/2015 11:32",
 	"super" : "ZnWebSocketDelegate",
 	"category" : "Telescope-Cytoscape",
 	"classinstvars" : [

@@ -6,8 +6,8 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"nodeId",
-		"style"
+		"style",
+		"virtualNode"
 	],
 	"name" : "TLVisualizationAddNodeCommand",
 	"type" : "normal"

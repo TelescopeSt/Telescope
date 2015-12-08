@@ -7,8 +7,8 @@ createElementConnectionFrom: fromNode to: toNode using: aShape
 	
 	self addCommand:  (TLVisualizationAddEdgeCommand new
 		edgeId: edgeId;
-		fromNodeId: (self elementFromTLDrawable: fromNode);
-		toNodeId: (self elementFromTLDrawable: toNode);
+		fromNodeId: (self elementFromTLDrawable: fromNode) nodeId;
+		toNodeId: (self elementFromTLDrawable: toNode) nodeId;
 		visuId: visuId).
 	
 	^ edgeId

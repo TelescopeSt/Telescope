@@ -1,0 +1,1 @@
+I am the delegate that will registers visualizations and then manage requests

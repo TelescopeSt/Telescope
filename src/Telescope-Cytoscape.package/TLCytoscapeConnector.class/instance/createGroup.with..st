@@ -1,14 +1,5 @@
 generation - group
 createGroup: aTLGroup with: aCollectionOfDrawableId
-	"just have to return id"
+	"just have to return collection"
 	
-	id := self generateDrawableId.
-	
-	self addCommand: (TLVisualizationAddGroupCommand new
-		groupId: id;
-		visuId: visuId;
-		layout: aTLGroup layout forCytoscape;
-		elementsIds: aCollectionOfDrawableId; 
-		yourself).
-	
-	^ id
+	^ TLVirtualGroup withAll: aCollectionOfDrawableId

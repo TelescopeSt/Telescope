@@ -1,3 +1,3 @@
 accessing
 nodeId
-	^ nodeId
+	^ self virtualNode nodeId
