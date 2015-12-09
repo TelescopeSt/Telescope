@@ -3,5 +3,9 @@ renderContentOn: html
 	| visuId |
 	visuId := self visuDivId.
 	TLCytoscapeWebSocketDelegate registerVisualization: self visualization underId: visuId.
-	html div id: visuId; attributeAt: #isTelescopeVisu put: 'true'; style: 'width: 2000px; height: 1000px; display: block;'
-	
+	html div
+		id: visuId;
+		attributeAt: #isTelescopeVisu put: 'true';
+		style:
+				'width: ' , self visualization openingDimension x asString , 'px; height: '
+						, self visualization openingDimension y asString , 'px; display: block;'

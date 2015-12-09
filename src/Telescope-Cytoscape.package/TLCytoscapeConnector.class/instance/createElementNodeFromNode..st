@@ -13,8 +13,6 @@ createElementNodeFromNode: aNode
 				virtualNode: virtualNode;
 				visuId: visuId;
 				style:
-						(self
-								createStyleDictionaryWith: #(#borderColor #borderWidth #width #height #backgroundColor #textColor)
-								styleSheet: styleSheet
-								entity: aNode entity)).	"#nodeLabel #nodeLabelPosition"
+						(styleSheet cytoscapeNodeStyleFor: aNode entity)).
+								
 	^ virtualNode
