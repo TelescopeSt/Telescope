@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "GuillaumeLarcheveque 12/9/2015 11:26",
+	"super" : "TLObject",
+	"category" : "Telescope-Style",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"horizontal",
+		"vertical"
+	],
+	"name" : "TLNodeLabelPosition",
+	"type" : "normal"
+}

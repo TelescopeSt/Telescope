@@ -10,7 +10,7 @@ customizeShape: aShape withStyleSheet: aStyleSheet
 				color: aStyleSheet backgroundColor.
 			aShape isComposite
 				ifTrue: [ 
-					aShape labelPosition: aStyleSheet nodeLabelPosition.
+					aShape labelPosition: aStyleSheet nodeLabelPosition forRoassal2.
 					aShape textColor: aStyleSheet textColor.
 					aShape labelShape text: aStyleSheet nodeLabel 
 					] ]

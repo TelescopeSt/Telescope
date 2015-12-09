@@ -1,0 +1,1 @@
+I represent the position of a label for a node or edge
