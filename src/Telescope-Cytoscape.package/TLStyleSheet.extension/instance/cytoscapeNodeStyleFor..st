@@ -9,7 +9,8 @@ cytoscapeNodeStyleFor: anEntity
 			(#width -> #width).
 			(#height -> #height).
 			('background-color' -> #backgroundColor).
-			(#label -> #nodeLabel)}
+			(#label -> #nodeLabel).
+			(#shape -> #shape)}
 		for: anEntity)
 		at: 'text-halign' put: nodeLabelPosition horizontal;
 		at: 'text-valign' put: nodeLabelPosition vertical;

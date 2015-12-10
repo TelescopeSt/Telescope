@@ -10,6 +10,4 @@ renderContentOn: html
 		render:
 			(TLCytoscapeComponent
 				visualization:
-					(TLVisualization new
-						addNodesFromEntities: (1 to: 10);
-						yourself))
+					(TLDemos exampleAllShapes))

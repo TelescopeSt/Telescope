@@ -1,0 +1,1 @@
+I am the exception when Cytoscape does not support a Telescope functionality
