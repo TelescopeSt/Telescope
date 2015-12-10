@@ -7,8 +7,7 @@
 	"classvars" : [ ],
 	"instvars" : [
 		"fromNode",
-		"toNode",
-		"edgeBuilder"
+		"toNode"
 	],
 	"name" : "TLConnection",
 	"type" : "normal"

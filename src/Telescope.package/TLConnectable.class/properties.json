@@ -1,9 +1,7 @@
 {
 	"classtraitcomposition" : "TTLConnectable classTrait",
 	"classvars" : [ ],
-	"instvars" : [
-		"edgeBuilder"
-	],
+	"instvars" : [ ],
 	"name" : "TLConnectable",
 	"commentStamp" : "GuillaumeLarcheveque 1/5/2015 15:33",
 	"super" : "TLDrawable",

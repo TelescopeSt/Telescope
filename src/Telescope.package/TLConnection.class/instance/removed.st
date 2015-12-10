@@ -1,4 +1,4 @@
-as yet unclassified
+accessing
 removed
 	self fromNode removeOutgoingConnection: self.
 	self toNode removeIncomingConnection: self.

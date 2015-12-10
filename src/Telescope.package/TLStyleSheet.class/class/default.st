@@ -21,4 +21,8 @@ default
 		noNodeLabel;
 		width: 8;
 		height: 8.
+	defaultStyleSheet > #connection
+		backgroundColor: Color darkGray.
+	defaultStyleSheet > #connection > #target
+		shape: TLTriangle.
 	^ defaultStyleSheet

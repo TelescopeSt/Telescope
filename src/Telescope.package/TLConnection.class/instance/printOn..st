@@ -1,4 +1,4 @@
-as yet unclassified
+printing
 printOn: aStream
 	self fromNode printOn: aStream.
 	aStream << '->'.

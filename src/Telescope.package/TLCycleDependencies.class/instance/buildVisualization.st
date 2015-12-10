@@ -17,7 +17,7 @@ buildVisualization
 				ifTrue: [ Color red ]
 				ifFalse: [ Color white ] ].
 			
-	self edgeBuilder color: Color veryLightGray.
+	(self styleSheet > #connection) backgroundColor: Color veryLightGray.
 
 	self > #packages
 		addNodesFromEntities: self entities;

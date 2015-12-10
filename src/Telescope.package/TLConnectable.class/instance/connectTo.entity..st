@@ -1,3 +1,3 @@
 connect
 connectTo: aTLEntity entity: anObject
-	^ self explicitRequirement
+	^ self subclassResponsibility

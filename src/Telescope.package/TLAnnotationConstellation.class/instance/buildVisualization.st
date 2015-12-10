@@ -4,12 +4,13 @@ buildVisualization
 	self title: 'Annotation Constellation'.
 	
 	( self > #stars ) styleSheet
-		shape: TLEllipseShape;
+		shape: TLEllipse;
 		backgroundColor: ( Color veryLightGray alpha: 0.5 );
 		borderColor: Color transparent.
 		
 	( self > #sun ) styleSheet
-		shape: ( TLLabelShape new text: #name );
+		shape: TLNoShape;
+		nodeLabel: #name;
 		color: Color gray;
 		height: ( RTNFontLinearNormalizer 
 			inContext: self annotations
@@ -25,7 +26,7 @@ buildVisualization
 		addInteraction: TLNodeBasicInteraction popup;
 		"addInteraction: ( TLMenuInteraction new action: #mooseMenuMorph );"
 		layout: RTForceBasedLayout.
-	self edgeBuilder color: ( Color veryVeryLightGray alpha: 0.5 ).
+	(self styleSheet > #connection) backgroundColor: ( Color veryVeryLightGray alpha: 0.5 ).
 	self connectFollowingProperty: [ :e | 
 		( e isKindOf: FAMIXAnnotationType ) 
 			ifTrue: [ e annotatedEntities collectAsSet: #typeScope ]

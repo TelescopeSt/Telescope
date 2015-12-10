@@ -1,4 +1,4 @@
-as yet unclassified
+state
 requireUpdate
 	super requireUpdate.
 	"self shape updateWithDrawable: self"

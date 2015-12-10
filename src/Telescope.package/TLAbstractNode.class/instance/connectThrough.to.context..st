@@ -9,7 +9,7 @@ connectThrough: connectionsValuable to: targetValuable context: aTLEntitiesGroup
 		into: [ :collection :connectionAndTarget | 
 			[ 
 			collection
-				add: (self connectToNode: (aTLEntitiesGroup nodeForEntity: connectionAndTarget value) using: self edgeBuilder entity: connectionAndTarget key) ]
+				add: (self connectToNode: (aTLEntitiesGroup nodeForEntity: connectionAndTarget value) entity: connectionAndTarget key) ]
 				on: NotFound
 				do: [  ].
 			collection ]

@@ -1,4 +1,4 @@
-as yet unclassified
+interactions
 allInteractions
 	"return the local interactions only"
-	^ self edgeBuilder interactions, self interactions
+	^ self interactions

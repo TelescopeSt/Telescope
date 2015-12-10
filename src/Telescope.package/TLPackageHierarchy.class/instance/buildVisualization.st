@@ -4,7 +4,7 @@ buildVisualization
 	( self > #packages ) styleSheet
 		nodeLabel: self nameProperty;
 		textColor: Color black.
-	self edgeBuilder: ( TLEdgeOrthogonalLineBuilder new color: Color veryLightGray ).
+	(self styleSheet > #connection) curveStyle: #segments.
 		
 	self > #packages
 		addNodesFromEntities: self entities;
