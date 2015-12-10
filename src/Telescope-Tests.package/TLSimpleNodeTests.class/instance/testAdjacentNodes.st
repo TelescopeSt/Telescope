@@ -3,8 +3,7 @@ testAdjacentNodes
 	| nodeFrom nodeTo edgeBuilder |
 	edgeBuilder := protocol mock: 'edgeBuilder'.
 
-	node edgeBuilder: edgeBuilder.
-	nodeFrom := TLSimpleNode new edgeBuilder: edgeBuilder; yourself.
+	nodeFrom := TLSimpleNode new.
 	nodeTo := TLSimpleNode new "shape: shape".
 	nodeFrom connectTo: node.
 	node connectTo: nodeTo.
