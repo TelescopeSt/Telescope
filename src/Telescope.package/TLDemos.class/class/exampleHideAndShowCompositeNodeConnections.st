@@ -1,6 +1,6 @@
 demos
 exampleHideAndShowCompositeNodeConnections
-	"self exampleHideAndShowCompositeNodeConnections"
+	<script: 'self exampleHideAndShowCompositeNodeConnections open'>
 
 	| visualization oneNode twoNode connection shiftAction |
 	visualization := TLVisualization new.
@@ -37,7 +37,6 @@ exampleHideAndShowCompositeNodeConnections
 	oneNode connectTo: twoNode childrenGroup.
 	oneNode childrenGroup connectTo: twoNode.
 	visualization addInteraction: (TLHideAction on: connection) onClick.
-	visualization open.
 	^ visualization
 	
 	

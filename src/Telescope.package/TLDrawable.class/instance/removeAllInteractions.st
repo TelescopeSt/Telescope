@@ -1,3 +1,3 @@
-as yet unclassified
+interactions
 removeAllInteractions
 	self interactions removeAll

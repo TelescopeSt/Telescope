@@ -1,6 +1,6 @@
 demos
 exampleCompositeExploringHierarchy
-	"self exampleCompositeExploringHierarchy"
+	<script: 'self exampleCompositeExploringHierarchy open'>
 
 	| visualization |
 
@@ -14,5 +14,4 @@ exampleCompositeExploringHierarchy
 						ifTrue: [ Color lightOrange alpha: 0.5 ]
 						ifFalse: [ Color white ] ].
 	visualization addNodeFromEntity: Collection.
-	visualization open.
 	^ visualization

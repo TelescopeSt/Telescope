@@ -1,15 +1,8 @@
 demos
 exampleNameCloud
-	"self exampleNameCloud"
+	<script: 'self exampleNameCloud open'>
 		
-	"for FAMIXNamespaceGroup:
-	 TLNameCloud new
-		entities: self;
-		nameProperty: #name;
-		open"
-
 	^ TLNameCloud new
 		entities: TLDrawable withAllSubclasses;
 		nameProperty: #name;
-		open;
 		yourself

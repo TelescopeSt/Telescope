@@ -1,4 +1,4 @@
-as yet unclassified
+actions
 moveToGroup: aTLEntitiesGroup
 	self parent requireUpdateAndLayoutApplication.
 	self parent telescopeEntities remove: self.

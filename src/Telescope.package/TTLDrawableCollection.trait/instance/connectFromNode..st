@@ -1,3 +1,3 @@
 connect
 connectFromNode: aTLNode
-	^ self collect: [ :aTLDrawable | aTLDrawable connectFromNode: aTLNode ]
+	^ self flatCollect: [ :aTLDrawable | (aTLDrawable connectFromNode: aTLNode) asTLDrawableCollection ]

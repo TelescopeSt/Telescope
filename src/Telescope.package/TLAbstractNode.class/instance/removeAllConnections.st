@@ -1,3 +1,3 @@
-as yet unclassified
+connect
 removeAllConnections
 	self allConnections do: #removed

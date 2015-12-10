@@ -1,6 +1,6 @@
 demos
 exampleRecursiveCompositeNode
-	"self exampleRecursiveCompositeNode"
+	<script: 'self exampleRecursiveCompositeNode open'>
 
 	| visualization |
 	"nodeBuilder childrenNodeBuilder childrenNodeBuilder addInteraction: TLNodeBasicInteraction popup.
@@ -26,5 +26,4 @@ exampleRecursiveCompositeNode
 		addInteraction:
 				((TLCustomAction block: [ :node | node entity browse ] condition: [ :node | node entity numberOfMethods < 5 ])
 						withMenu: 'Browse').
-	visualization open.
 	^ visualization

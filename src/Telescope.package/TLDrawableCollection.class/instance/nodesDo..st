@@ -1,4 +1,4 @@
-as yet unclassified
+enumerating
 nodesDo: aBlock
 	^ self
 		select: #isNode thenDo: aBlock

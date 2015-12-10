@@ -1,3 +1,3 @@
 connect
 connectTo: aTLEntity
-		^ self collect: [:aLocalTLEntity | aLocalTLEntity connectTo: aTLEntity ]
+		^ self flatCollect: [:aLocalTLEntity | (aLocalTLEntity connectTo: aTLEntity) asTLDrawableCollection ]

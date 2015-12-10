@@ -1,4 +1,4 @@
-as yet unclassified
+enumerating
 allNodesDo: aBlock
 	^ self
 		do: [ :aTLEntity | 

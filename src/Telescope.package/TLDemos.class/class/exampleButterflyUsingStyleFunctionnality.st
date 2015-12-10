@@ -1,6 +1,6 @@
 demos
 exampleButterflyUsingStyleFunctionnality
-	"self exampleButterflyUsingStyleFunctionnality"
+	<script: 'self exampleButterflyUsingStyleFunctionnality open'>
 
 	| butterfly |
 	butterfly := TLButterfly new
@@ -10,5 +10,4 @@ exampleButterflyUsingStyleFunctionnality
 	butterfly styleSheet shape: TLEllipse; width: 40; borderWidth: 0.1.
 	butterfly styleSheet > #redBackground backgroundColor: Color red; textColor: Color white.
 	butterfly > #left addStyle: #redBackground.
-	butterfly open.
 	^ butterfly

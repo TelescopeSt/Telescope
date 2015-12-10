@@ -1,6 +1,6 @@
 not working demos
 examplePackageHierarchy
-	"self exampleOverallHierarchy"
+	<script: 'self exampleOverallHierarchy open'>
 	
 	self flag: 'Invalid demo; cannot run like this'.
 		
@@ -11,8 +11,8 @@ examplePackageHierarchy
 		property: #parentScope;
 		open"
 		
-	TLPackageHierarchy new
+	^ TLPackageHierarchy new
 		entities: TLDrawable withAllSubclasses;
 		nameProperty: #name;
 		property: #superclass;
-		open
+		yourself

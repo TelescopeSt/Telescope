@@ -1,6 +1,6 @@
 demos
 exampleCompositeNodeWithLabelInsideInButterfly
-	"self exampleCompositeNodeWithLabelInsideInButterfly"
+	<script: 'self exampleCompositeNodeWithLabelInsideInButterfly open'>
 	| butterfly |
 	
 	butterfly := TLButterfly new
@@ -10,6 +10,5 @@ exampleCompositeNodeWithLabelInsideInButterfly
 	butterfly nodeCreationStrategy compositeProperty: [ :n | 
 			{(n - 100).
 			(n + 100)} ].
-	butterfly open.
 	^ butterfly
 	

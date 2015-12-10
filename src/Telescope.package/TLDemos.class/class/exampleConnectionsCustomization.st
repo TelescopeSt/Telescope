@@ -1,6 +1,6 @@
 demos
 exampleConnectionsCustomization
-	"self exampleConnectionsCustomization"
+	<script: 'self exampleConnectionsCustomization open'>
 
 	| visualization source group2 |
 	visualization := TLVisualization new.
@@ -11,5 +11,4 @@ exampleConnectionsCustomization
 	(source connectTo: (group2 addNodeFromEntity: 3)) color: Color blue.
 	(source connectTo: (group2 addNodeFromEntity: 4)) color: Color yellow.
 	group2 layout: RTVerticalLineLayout.
-	visualization open.
 	^ visualization

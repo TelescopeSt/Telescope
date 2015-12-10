@@ -1,3 +1,3 @@
-as yet unclassified
+node - creation
 nodeChildrenProperty: aChildrenBlockOrSelector 
 	self localNodeCreationStrategy compositeProperty: aChildrenBlockOrSelector.

@@ -1,6 +1,6 @@
 demos
 exampleFLowControl
-	"self exampleFLowControl"
+	<script: 'self exampleFLowControl open'>
 
 	| a b c d e f g visu |
 	a := TLBasicBlock new title: 'a'.
@@ -23,5 +23,4 @@ exampleFLowControl
 		nextProperty: #next.
 	visu addInteraction: TLNodeBasicInteraction draggable; addInteraction: (TLNodeBasicInteraction popup: #title).
 	visu styleSheet nodeLabel: #title.
-	visu open.
 	 ^ visu

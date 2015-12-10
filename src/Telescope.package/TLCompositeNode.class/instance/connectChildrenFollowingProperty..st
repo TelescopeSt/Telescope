@@ -1,3 +1,3 @@
-as yet unclassified
+connect
 connectChildrenFollowingProperty: aBlockOrSymbol
-	self childrenNodes connectFollowingProperty: aBlockOrSymbol
+	^ self childrenNodes connectFollowingProperty: aBlockOrSymbol

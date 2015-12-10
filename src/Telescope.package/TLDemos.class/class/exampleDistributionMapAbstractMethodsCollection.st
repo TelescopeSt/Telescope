@@ -1,6 +1,6 @@
 demos
 exampleDistributionMapAbstractMethodsCollection
-	"self exampleDistributionMapAbstractMethodsCollection"
+	<script: 'self exampleDistributionMapAbstractMethodsCollection open'>
 
 	| visualization |
 	visualization := TLDistributionMap new
@@ -8,5 +8,4 @@ exampleDistributionMapAbstractMethodsCollection
 		innerEntities: #methods;
 		property: #isAbstract;
 		yourself.
-	visualization open.
 	^ visualization

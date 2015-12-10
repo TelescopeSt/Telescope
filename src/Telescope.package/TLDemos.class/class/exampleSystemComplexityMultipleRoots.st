@@ -1,6 +1,6 @@
 demos
 exampleSystemComplexityMultipleRoots
-	"self exampleSystemComplexityMultipleRoots"
+	<script: 'self exampleSystemComplexityMultipleRoots open'>
 	
 	"for FAMIXTypeGroup:
 	 TLSystemComplexityMultipleRoots new
@@ -21,5 +21,4 @@ exampleSystemComplexityMultipleRoots
 		property: #subclasses;
 		scopeBlock: #yourself.
 	visualization addInteraction: (TLNodeBasicInteraction popup: #yourself).
-	visualization open.
 	^ visualization

@@ -1,6 +1,6 @@
 demos
 exampleHideAndShowConnections
-	"self exampleHideAndShowConnections"
+	<script: 'self exampleHideAndShowConnections open'>
 
 	| visualization oneNode twoNode connection |
 	visualization := TLVisualization new.
@@ -8,7 +8,6 @@ exampleHideAndShowConnections
 	twoNode := visualization addNodeFromEntity: 2.
 	connection := oneNode connectTo: twoNode.
 	visualization addInteraction: (TLHideAction on: connection) onClick.
-	visualization open.
 	^ visualization
 	
 	

@@ -1,3 +1,3 @@
-as yet unclassified
+generation
 generateWith: aGenerator
 	^ aGenerator generateSimpleNode: self

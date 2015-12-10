@@ -1,6 +1,6 @@
 demos
 exampleStarVisualization
-	"self exampleStarVisualization"
+	<script: 'self exampleStarVisualization open'>
 
 	| visu |
 	visu := TLStarVisualization new.
@@ -13,5 +13,4 @@ exampleStarVisualization
 		enableDefaultInteraction.
 	visu styleSheet shape: TLEllipse;height: [ :each | each + 100 ];
 		width: [ :each | each + 100 ].
-	visu open.
 	^ visu

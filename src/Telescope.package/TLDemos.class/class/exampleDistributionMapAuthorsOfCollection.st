@@ -1,6 +1,6 @@
 demos
 exampleDistributionMapAuthorsOfCollection
-	"self exampleDistributionMapAuthorsOfCollection"
+	<script: 'self exampleDistributionMapAuthorsOfCollection open'>
 
 	| visualization |
 	visualization := TLDistributionMap new
@@ -8,5 +8,4 @@ exampleDistributionMapAuthorsOfCollection
 		innerEntities: #authors;
 		property: #yourself;
 		yourself.
-	visualization open.
 	^ visualization

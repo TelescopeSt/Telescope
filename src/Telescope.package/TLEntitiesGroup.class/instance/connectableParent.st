@@ -1,3 +1,3 @@
-as yet unclassified
+connect
 connectableParent
 	^ self parent

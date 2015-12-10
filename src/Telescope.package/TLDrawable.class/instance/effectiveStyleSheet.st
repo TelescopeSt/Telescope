@@ -1,4 +1,4 @@
-as yet unclassified
+style
 effectiveStyleSheet
 	^ self
 		buildCompositeStyleSheetFrom:

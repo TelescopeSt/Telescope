@@ -1,6 +1,6 @@
 demos
 exampleDistributionMapCycloComplexOfCollection
-	"self exampleDistributionMapCycloComplexOfCollection"
+	<script: 'self exampleDistributionMapCycloComplexOfCollection open'>
 
 	| visualization |
 	visualization := TLDistributionMap new
@@ -8,5 +8,4 @@ exampleDistributionMapCycloComplexOfCollection
 		innerEntities: #methods;
 		property: #author;
 		yourself.
-	visualization open.
 	^ visualization

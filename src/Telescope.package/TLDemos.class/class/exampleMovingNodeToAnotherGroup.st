@@ -1,6 +1,6 @@
 demos
 exampleMovingNodeToAnotherGroup
-	"self exampleMovingNodeToAnotherGroup"
+	<script: 'self exampleMovingNodeToAnotherGroup open'>
 
 	| visualization |
 	visualization := TLVisualization new.
@@ -15,5 +15,4 @@ exampleMovingNodeToAnotherGroup
 		addNodesFromEntities: ($e to: $h);
 		addInteraction: (TLMoveConnectableAction destination: visualization > #group1) onClick;
 		addInteraction: (TLStyleCustomizationAction custom: [:style | style backgroundColor: Color blue]) onMouseOver.
-	visualization open.
 	^ visualization

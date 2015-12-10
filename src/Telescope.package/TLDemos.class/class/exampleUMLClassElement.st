@@ -1,6 +1,6 @@
 demos
 exampleUMLClassElement
-	"self exampleUMLClassElement"
+	<script: 'self exampleUMLClassElement open'>
 	
 	"for FAMIXTypeGroup:
 	 TLUMLClassElement new
@@ -14,5 +14,4 @@ exampleUMLClassElement
 		entity: TLConnection;
 		attributesBlock: #allInstVarNames;
 		methodsBlock: #methods.
-	visualization open.
 	^ visualization

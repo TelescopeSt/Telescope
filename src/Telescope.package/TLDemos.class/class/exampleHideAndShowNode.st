@@ -1,6 +1,6 @@
 demos
 exampleHideAndShowNode
-	"self exampleHideAndShowNode"
+	<script: 'self exampleHideAndShowNode open'>
 
 	| visualization oneNode secondNode  |
 	visualization := TLVisualization new.
@@ -8,7 +8,6 @@ exampleHideAndShowNode
 	oneNode nodeLabel: 'Click on me!'.
 	secondNode := visualization addNodeFromEntity: 2.
 	oneNode addInteraction: (TLHideAction on: secondNode) onClick.
-	visualization open.
 	^ visualization
 	
 	

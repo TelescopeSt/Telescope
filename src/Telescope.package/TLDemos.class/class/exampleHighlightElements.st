@@ -1,6 +1,6 @@
 demos
 exampleHighlightElements
-	"self exampleHighlightElements"
+	<script: 'self exampleHighlightElements open'>
 
 	| visualization highlightInteraction |
 
@@ -12,5 +12,4 @@ exampleHighlightElements
 	visualization addNodesFromEntities: ($a to: $z).
 	"By default connections do not inherit interactions so I have to define it"
 	(visualization connectFollowingProperty: [ :aChar | (1 to: ((0 to: 3) atRandom)) collect: [ :i | (($a to: $z) \ { aChar }) atRandom ] ]) addInteraction: highlightInteraction.
-	visualization open.
 	^ visualization
