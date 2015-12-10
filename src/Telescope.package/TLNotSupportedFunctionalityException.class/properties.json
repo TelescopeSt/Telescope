@@ -1,11 +1,11 @@
 {
-	"commentStamp" : "GuillaumeLarcheveque 7/16/2014 10:56",
+	"commentStamp" : "GuillaumeLarcheveque 12/10/2015 14:35",
 	"super" : "Error",
 	"category" : "Telescope-Exceptions",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [ ],
-	"name" : "TLInvalidPosition",
+	"name" : "TLNotSupportedFunctionalityException",
 	"type" : "normal"
 }

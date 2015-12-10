@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "GuillaumeLarcheveque 12/10/2015 14:56",
+	"super" : "TLSimpleShape",
+	"category" : "Telescope-Shape",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "TLRoundRectangle",
+	"type" : "normal"
+}

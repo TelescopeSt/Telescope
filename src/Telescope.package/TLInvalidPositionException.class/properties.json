@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "GuillaumeLarcheveque 7/16/2014 10:56",
+	"super" : "Error",
+	"category" : "Telescope-Exceptions",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "TLInvalidPositionException",
+	"type" : "normal"
+}
