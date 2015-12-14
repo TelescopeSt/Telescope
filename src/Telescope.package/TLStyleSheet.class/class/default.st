@@ -26,7 +26,5 @@ default
 		color: Color gray;
 		width: 1.
 	defaultStyleSheet > #connection > #head shape: TLTriangle.
-	defaultStyleSheet > #connection > #middle shape: TLEllipse.
-	defaultStyleSheet > #connection > #base shape: TLRectangle.
-	defaultStyleSheet > #connection > #middleReversed shape: TLVee.
+	
 	^ defaultStyleSheet

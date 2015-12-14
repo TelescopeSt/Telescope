@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "GuillaumeLarcheveque 12/14/2015 14:06",
+	"super" : "TLCurveStyle",
+	"category" : "Telescope-Style",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "TLBezierCurve",
+	"type" : "normal"
+}

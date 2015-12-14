@@ -1,0 +1,1 @@
+I am the enum value for using Segments lines

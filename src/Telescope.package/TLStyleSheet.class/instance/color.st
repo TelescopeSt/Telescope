@@ -1,3 +1,3 @@
-edge
+connection
 color
 	^ self get: #color
