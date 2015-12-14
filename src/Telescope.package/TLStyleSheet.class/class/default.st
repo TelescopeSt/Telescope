@@ -22,7 +22,11 @@ default
 		width: 8;
 		height: 8.
 	defaultStyleSheet > #connection
-		backgroundColor: Color darkGray.
-	defaultStyleSheet > #connection > #target
-		shape: TLTriangle.
+		connectionLabel: 'Toto';
+		color: Color gray;
+		width: 1.
+	defaultStyleSheet > #connection > #head shape: TLTriangle.
+	defaultStyleSheet > #connection > #middle shape: TLEllipse.
+	defaultStyleSheet > #connection > #base shape: TLRectangle.
+	defaultStyleSheet > #connection > #middleReversed shape: TLVee.
 	^ defaultStyleSheet

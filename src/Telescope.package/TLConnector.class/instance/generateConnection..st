@@ -4,9 +4,9 @@ generateConnection: aTLConnection
 	aTLConnection isVisible
 		ifTrue: [ 
 			shape := self
-				createElementConnectionFrom: aTLConnection fromNode
-				to: aTLConnection toNode
-				using: (aTLConnection effectiveStyleSheet).
+				createElementConnection: aTLConnection
+				From: aTLConnection fromNode
+				to: aTLConnection toNode.
 			self addElementConnectionInView: shape.
 			self shapeByDrawable at: aTLConnection put: shape.
 			self generateInteractionsOf: aTLConnection targetingDrawable: aTLConnection.
