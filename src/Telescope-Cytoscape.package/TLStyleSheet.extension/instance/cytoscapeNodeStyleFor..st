@@ -1,9 +1,10 @@
 *Telescope-Cytoscape
 cytoscapeNodeStyleFor: anEntity
-	| nodeLabelPosition |
+	| nodeLabelPosition styleDictionary |
 	nodeLabelPosition := self obtainValue: #nodeLabelPosition forEntity: anEntity.
-	^ (self
-		createStyleDictionaryWith:
+	styleDictionary := Dictionary new.
+	(self
+		fillStyleDictionary: styleDictionary with:
 			{('border-color' -> #borderColor).
 			('border-width' -> #borderWidth).
 			(#width -> #width).
@@ -11,7 +12,9 @@ cytoscapeNodeStyleFor: anEntity
 			('background-color' -> #backgroundColor).
 			(#label -> #nodeLabel).
 			(#shape -> #shape)}
-		for: anEntity)
+		for: anEntity converter: #forCytoscapeNode).
+	styleDictionary 
 		at: 'text-halign' put: nodeLabelPosition horizontal;
-		at: 'text-valign' put: nodeLabelPosition vertical;
-		yourself
+		at: 'text-valign' put: nodeLabelPosition vertical.
+	^ styleDictionary 
+	

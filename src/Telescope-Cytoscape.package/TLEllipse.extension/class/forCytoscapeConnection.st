@@ -1,0 +1,3 @@
+*Telescope-Cytoscape
+forCytoscapeConnection
+	^ 'circle'

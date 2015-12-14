@@ -1,5 +1,5 @@
 generation - connection
-createElementConnectionFrom: fromNode to: toNode using: aShape
+createElementConnection: aTLConnection From: fromNode to: toNode
 	| edgeId |
 	self flag: 'refactor about edges required'.
 	
@@ -9,6 +9,7 @@ createElementConnectionFrom: fromNode to: toNode using: aShape
 		edgeId: edgeId;
 		fromNodeId: (self elementFromTLDrawable: fromNode) nodeId;
 		toNodeId: (self elementFromTLDrawable: toNode) nodeId;
+		style: (aTLConnection effectiveStyleSheet cytoscapeConnectionStyleFor: aTLConnection) ;
 		visuId: visuId).
 	
 	^ edgeId

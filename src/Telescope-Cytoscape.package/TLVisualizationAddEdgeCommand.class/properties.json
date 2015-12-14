@@ -8,7 +8,8 @@
 	"instvars" : [
 		"edgeId",
 		"fromNodeId",
-		"toNodeId"
+		"toNodeId",
+		"style"
 	],
 	"name" : "TLVisualizationAddEdgeCommand",
 	"type" : "normal"

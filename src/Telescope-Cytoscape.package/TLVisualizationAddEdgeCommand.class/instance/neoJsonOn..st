@@ -8,5 +8,9 @@ neoJsonOn: writer
 				writeKey: #parameters
 				value:
 					{(#group -> #edges).
-					(#data -> {(#id -> self edgeId) . (#source -> self fromNodeId) . (#target -> self toNodeId) } asDictionary).
-					} asDictionary ]
+					(#data
+						->
+							{(#id -> self edgeId).
+							(#source -> self fromNodeId).
+							(#target -> self toNodeId)} asDictionary).
+					(#style -> self style)} asDictionary ]
