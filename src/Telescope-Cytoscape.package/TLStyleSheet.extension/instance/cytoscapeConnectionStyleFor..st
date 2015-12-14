@@ -17,7 +17,7 @@ cytoscapeConnectionStyleFor: anEntity
 	(#head -> 'target-arrow-').
 	(#middle -> 'mid-target-arrow-')}
 		do: [ :substyleAndCytoStyle | 
-			self + (self > substyleAndCytoStyle key)
+			(self copyWithout: #(shape)) + (self > substyleAndCytoStyle key)
 				fillStyleDictionary: styleDictionary
 				with:
 					{((substyleAndCytoStyle value , #color) -> #color).
