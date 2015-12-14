@@ -1,7 +1,8 @@
 generation - connection
 obtainEdgeShapeFromStylesheet: aStylesheet
-	^ ((aStylesheet > #target) shape = TLTriangle
-		ifTrue: [ RTArrowedLine ]) new
+	self flag: 'here we should manage all roassal shit about lines'.
+	^ ((aStylesheet > #head) shape = TLTriangle
+		ifTrue: [ RTArrowedLine ] ifFalse: [RTLine]) new
 		attachPoint: TLTelescopeAttachPoint new;
-		color: aStylesheet backgroundColor;
+		color: aStylesheet color;
 		yourself
