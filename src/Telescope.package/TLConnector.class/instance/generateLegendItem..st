@@ -3,6 +3,6 @@ generateLegendItem: aTLLegendItem
 	| legendItem |
 	legendItem := self createElementLegendItemFrom: aTLLegendItem.
 	self addElementLegendItemInView: legendItem.
-	self shapeByDrawable at: aTLLegendItem put: legendItem.
+	self registerShape: legendItem forDrawable: aTLLegendItem.
 	self generateInteractionsOf: aTLLegendItem targetingDrawable: aTLLegendItem.
 	^ legendItem

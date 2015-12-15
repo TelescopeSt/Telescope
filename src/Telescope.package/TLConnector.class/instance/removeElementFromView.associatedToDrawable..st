@@ -1,3 +1,3 @@
 drawing - removing
-removeElementFromView: anAssociation associatedToDrawable: aTLSimpleNode 
+removeElementFromView: element associatedToDrawable: aTLDrawable 
 	self subclassResponsibility 

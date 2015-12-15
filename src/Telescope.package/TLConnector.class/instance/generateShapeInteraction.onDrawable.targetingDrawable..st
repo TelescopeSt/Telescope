@@ -14,7 +14,7 @@ generateShapeInteraction: aTLShapeInteraction onDrawable: aTLDrawable targetingD
 	"add it to the view"
 	self addElementInteractionInView: triggerElement.
 	"register the element in the connector"
-	self shapeByDrawable at: trigger put: triggerElement.
+	self registerShape: triggerElement forDrawable: trigger.
 	"register the interaction on the drawable"
 	(self registerInteraction: aTLShapeInteraction withTrigger: trigger onDrawable: aTLDrawable).
 	

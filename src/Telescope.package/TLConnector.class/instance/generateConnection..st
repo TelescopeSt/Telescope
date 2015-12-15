@@ -8,6 +8,6 @@ generateConnection: aTLConnection
 				From: aTLConnection fromNode
 				to: aTLConnection toNode.
 			self addElementConnectionInView: shape.
-			self shapeByDrawable at: aTLConnection put: shape.
+			self registerShape: shape forDrawable: aTLConnection.
 			self generateInteractionsOf: aTLConnection targetingDrawable: aTLConnection.
 			^ shape ]

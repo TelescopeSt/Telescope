@@ -1,3 +1,3 @@
 view
-updateViewForVisualization: anObject
+updateViewForVisualization: aTLVisualization
 	self subclassResponsibility

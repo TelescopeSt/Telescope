@@ -4,6 +4,6 @@ generateGroup: aTLGroup
 	group := self
 		createGroup: aTLGroup
 		with: (aTLGroup telescopeEntities collect: [ :aTLConnectable | aTLConnectable generate ]).
-	self shapeByDrawable at: aTLGroup put: group.
+	self registerShape: group forDrawable: aTLGroup.
 	self applyLayoutOf: aTLGroup on: group.
 	^ group

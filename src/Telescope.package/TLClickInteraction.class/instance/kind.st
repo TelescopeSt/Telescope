@@ -1,0 +1,3 @@
+accessor
+kind
+	^ #click
