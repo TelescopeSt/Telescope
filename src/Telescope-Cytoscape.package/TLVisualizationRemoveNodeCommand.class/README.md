@@ -1,0 +1,1 @@
+I am the command to remove a node on the client

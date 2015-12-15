@@ -13,7 +13,7 @@ createElementNodeFromNode: aNode
 		addCommand:
 			(TLVisualizationAddNodeCommand new
 				virtualNode: virtualNode;
-				visuId: visuId;
+				visuId: self visuId;
 				style:
 						(styleSheet cytoscapeNodeStyleFor: aNode entity)).
 								

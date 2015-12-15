@@ -1,3 +1,4 @@
-as yet unclassified
+instance-creation
 createFrom: aJsonDictionary
-	^ ({ 'generate' -> TLVisualizationGenerationCommand } asDictionary at: (aJsonDictionary at: #command)) newWithParameters: aJsonDictionary
+	
+	^ ({ 'generate' -> TLVisualizationGenerationCommand . 'interaction' -> TLInteractionCommand } asDictionary at: (aJsonDictionary at: #command)) newWithParameters: aJsonDictionary

@@ -1,4 +1,5 @@
 initialization
 initialize
 	super initialize.
-	commandsQueue := OrderedCollection new
+	commandsQueue := OrderedCollection new.
+	drawablesById :=Dictionary new

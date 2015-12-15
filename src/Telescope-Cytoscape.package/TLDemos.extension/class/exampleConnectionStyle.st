@@ -2,7 +2,7 @@
 exampleConnectionStyle
 	<script: 'self exampleConnectionStyle open'>
 	| visualization firstNode |
-	visualization := TLVisualization new.
+	visualization := TLVisualization new layout: (RTHorizontalLineLayout new gapSize: 150).
 	(TLSimpleShape allSubclasses select: #availableForCytoscapeConnection)
 		doWithIndex: [ :aShape :i | 
 			firstNode := visualization > #group1 addNodeFromEntity: 'first'.

@@ -1,3 +1,3 @@
 view
-updateViewForVisualization: anObject
-	self shouldBeImplemented
+updateViewForVisualization: aTLVisualization
+	"nothing to do here with cytoscape"

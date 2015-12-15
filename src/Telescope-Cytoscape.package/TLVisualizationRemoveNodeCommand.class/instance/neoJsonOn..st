@@ -3,5 +3,6 @@ neoJsonOn: writer
 	writer
 		writeMapStreamingDo: [ :jsonMapWriter | 
 			jsonMapWriter writeKey: #command value: self class command.
-			self class allInstVarNames
-				do: [ :anAttribute | jsonMapWriter writeKey: anAttribute value: (self perform: anAttribute) ] ]
+			jsonMapWriter writeKey: #visuId value: self visuId.
+			jsonMapWriter writeKey: #nodeId value: self nodeId.
+			 ]

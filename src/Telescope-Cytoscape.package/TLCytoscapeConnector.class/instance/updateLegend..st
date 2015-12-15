@@ -1,3 +1,3 @@
 updating - legend
 updateLegend: aTLLegend
-	self shouldBeImplemented
+	self flag: 'TODO'
