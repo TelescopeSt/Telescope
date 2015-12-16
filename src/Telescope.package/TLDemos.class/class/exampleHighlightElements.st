@@ -5,7 +5,7 @@ exampleHighlightElements
 	| visualization highlightInteraction |
 
 	visualization := TLVisualization new.
-	highlightInteraction := (TLStyleCustomizationAction custom: [ :style | style borderColor: Color red lighter ]) onMouseOver.
+	highlightInteraction := (TLStyleCustomizationAction custom: [ :style | style borderColor: Color red lighter; color: Color red lighter. style width: 3 ]) onMouseOver.
 	visualization addInteraction: highlightInteraction.
 	visualization addInteraction: (TLCustomAction block: [:drawable | visualization close. TLVisualization new addNodeFromEntity: (drawable entity); open]) onClick.
 	visualization layout: RTCircleLayout new.
