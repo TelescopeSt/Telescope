@@ -8,13 +8,13 @@ neoJsonOn: writer
 				writeKey: #layout
 				value:
 					{(#name -> 'preset').
+					(#animate -> true).
 					(#positions
 						->
 							(self nodes
 								collect: [ :aNode | 
 									aNode nodeId asString
 										->
-											({#position
-												->
+											
 													{(#x -> aNode x).
-													(#y -> aNode y)} asDictionary}) asDictionary ]) asDictionary)} asDictionary ]
+													(#y -> aNode y)} asDictionary ]) asDictionary)} asDictionary ]
