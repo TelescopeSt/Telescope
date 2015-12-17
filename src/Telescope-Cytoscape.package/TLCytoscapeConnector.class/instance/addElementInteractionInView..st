@@ -1,3 +1,3 @@
 view
 addElementInteractionInView: element
-	self shouldBeImplemented
+	self flag: #TODO

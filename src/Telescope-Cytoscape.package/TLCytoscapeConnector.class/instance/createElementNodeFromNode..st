@@ -15,6 +15,6 @@ createElementNodeFromNode: aNode
 				virtualNode: virtualNode;
 				visuId: self visuId;
 				style:
-						(styleSheet cytoscapeNodeStyleFor: aNode entity)).
+						(styleSheet cytoscapeNodeStyleFor: aNode)).
 								
 	^ virtualNode

@@ -1,3 +1,3 @@
 placing
 placeElement: anAssociation correspondingToTrigger: aTLShapeTrigger relativeToDrawable: aTLSimpleNode
-	self shouldBeImplemented
+	self flag: #TODO

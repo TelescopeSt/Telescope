@@ -1,3 +1,3 @@
 generation - interaction
 createElementFromTrigger: aTLShapeTrigger
-	self shouldBeImplemented
+	self flag: 'TO DO'
