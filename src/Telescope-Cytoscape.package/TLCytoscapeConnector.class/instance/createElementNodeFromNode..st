@@ -5,10 +5,10 @@ createElementNodeFromNode: aNode
 	styleSheet := aNode effectiveStyleSheet.
 	virtualNode := TLVirtualNode new
 		nodeId: nodeId;
-		dimension: (styleSheet width)@(styleSheet height);
-		position: (500 atRandom @ 500 atRandom)
+		dimension: (styleSheet obtainValue: #width forEntity: aNode entity)@(styleSheet obtainValue: #height forEntity: aNode entity);
+		position: (0@0 atRandom)
 		yourself.
-	self flag: 'temp random position for developping'.
+	"temp  position for creation".
 	self
 		addCommand:
 			(TLVisualizationAddNodeCommand new

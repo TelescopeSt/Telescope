@@ -16,6 +16,6 @@ cytoscapeNodeStyleFor: aNode
 	styleDictionary 
 		at: 'text-halign' put: nodeLabelPosition horizontal;
 		at: 'text-valign' put: nodeLabelPosition vertical.
-	aNode isComposite ifTrue: [ self adaptStyleForComposite: styleDictionary ].
+	(aNode isComposite and: [ aNode hasChildrenToDisplay ]) ifTrue: [ self adaptStyleForComposite: styleDictionary ].
 	^ styleDictionary 
 	
