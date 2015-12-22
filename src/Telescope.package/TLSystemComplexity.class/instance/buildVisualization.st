@@ -1,7 +1,8 @@
 building
 buildVisualization
-	self styleSheet expandCompositeNodes.
-	self styleSheet backgroundColor: Color veryPaleRed.
+	self styleSheet expandCompositeNodes;
+		backgroundColor: Color veryPaleRed.
+	self styleSheet > #connection >#head shape: TLNoShape.
 	(self container ifNil: [ self styleSheet > #roots ] ifNotNil: [ self styleSheet > #children > #roots ])
 		width: [ :c | c numberOfVariables * 5 max: 5 ];
 		height: [ :c | c numberOfMethods max: 5 ];

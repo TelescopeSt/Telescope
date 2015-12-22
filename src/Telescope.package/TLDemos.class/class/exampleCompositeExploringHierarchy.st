@@ -9,6 +9,7 @@ exampleCompositeExploringHierarchy
 	visualization styleSheet
 		childrenLayout: (RTGridLayout new gapSize: 20);
 		nodeLabel: [:c | c name asString];
+		width:200;
 		compositeExpandedByDefault: true;
 		backgroundColor: [ :class | 
 					class subclasses isNotEmpty
