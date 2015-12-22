@@ -1,6 +1,6 @@
 {
 	"commentStamp" : "",
-	"super" : "TestCase",
+	"super" : "BabyMock2TestCase",
 	"category" : "Telescope-Cytoscape-Tests-Connector",
 	"classinstvars" : [ ],
 	"pools" : [ ],
