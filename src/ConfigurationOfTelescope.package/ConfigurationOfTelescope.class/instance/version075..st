@@ -15,4 +15,4 @@ version075: spec
 		spec 
 			package: 'XMenuModel' with: 'XMenuModel-VincentBlondeau.2';
 			package: 'Telescope' with: 'Telescope-usmanbhatti.416';
-			package: 'Telescope-Tests' with: ' Telescope-Tests-guillaumelarcheveque.71'. ].
+			package: 'Telescope-Tests' with: 'Telescope-Tests-guillaumelarcheveque.71'. ].
