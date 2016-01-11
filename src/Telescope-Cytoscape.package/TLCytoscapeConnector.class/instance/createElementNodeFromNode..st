@@ -5,6 +5,7 @@ createElementNodeFromNode: aNode
 	styleSheet := aNode effectiveStyleSheet.
 	virtualNode := TLVirtualNode new
 		nodeId: nodeId;
+		realNode: aNode;
 		dimension: (styleSheet obtainValue: #width forEntity: aNode entity)@(styleSheet obtainValue: #height forEntity: aNode entity);
 		position: (0@0 atRandom)
 		yourself.

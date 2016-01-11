@@ -1,3 +1,3 @@
 generation - interaction
 generateBasicInteraction: aTLInteraction onNode: aTLNode
-	self shouldBeImplemented
+	self flag: 'TO DO'

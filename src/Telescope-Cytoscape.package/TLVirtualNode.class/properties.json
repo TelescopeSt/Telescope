@@ -10,7 +10,9 @@
 		"dimension",
 		"nodeId",
 		"parent",
-		"children"
+		"children",
+		"incomingEdges",
+		"realNode"
 	],
 	"name" : "TLVirtualNode",
 	"type" : "normal"
