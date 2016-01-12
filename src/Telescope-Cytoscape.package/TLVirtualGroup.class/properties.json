@@ -1,11 +1,13 @@
 {
-	"commentStamp" : "GuillaumeLarcheveque 12/8/2015 11:25",
-	"super" : "OrderedCollection",
-	"category" : "Telescope-Cytoscape-Virtual",
-	"classinstvars" : [ ],
-	"pools" : [ ],
+	"classtraitcomposition" : "TCytoscapePositionable classTrait",
 	"classvars" : [ ],
 	"instvars" : [ ],
 	"name" : "TLVirtualGroup",
-	"type" : "normal"
+	"commentStamp" : "GuillaumeLarcheveque 12/8/2015 11:25",
+	"super" : "OrderedCollection",
+	"traitcomposition" : "TCytoscapePositionable",
+	"type" : "normal",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"category" : "Telescope-Cytoscape-Virtual"
 }

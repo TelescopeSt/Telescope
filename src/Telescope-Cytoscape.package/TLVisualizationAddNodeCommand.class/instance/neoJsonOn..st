@@ -5,8 +5,8 @@ neoJsonOn: writer
 	(#data -> {(#id -> self nodeId)} asDictionary).
 	(#position
 		->
-			{(#x -> self virtualNode absoluteCenterPosition x).
-			(#y -> self virtualNode absoluteCenterPosition y)} asDictionary).
+			{(#x -> self virtualNode cytoscapePosition x).
+			(#y -> self virtualNode cytoscapePosition y)} asDictionary).
 	(#style -> self style )} asDictionary.
 	self virtualNode hasParent
 		ifTrue: [ (parameters at: #data) at: #parent put: self virtualNode parent nodeId ].

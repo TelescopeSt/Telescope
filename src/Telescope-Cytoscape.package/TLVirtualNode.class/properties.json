@@ -1,9 +1,5 @@
 {
-	"commentStamp" : "GuillaumeLarcheveque 12/21/2015 16:08",
-	"super" : "Object",
-	"category" : "Telescope-Cytoscape-Virtual",
-	"classinstvars" : [ ],
-	"pools" : [ ],
+	"classtraitcomposition" : "TCytoscapePositionable classTrait",
 	"classvars" : [ ],
 	"instvars" : [
 		"position",
@@ -15,5 +11,11 @@
 		"realNode"
 	],
 	"name" : "TLVirtualNode",
-	"type" : "normal"
+	"commentStamp" : "GuillaumeLarcheveque 12/21/2015 16:08",
+	"super" : "Object",
+	"traitcomposition" : "TCytoscapePositionable",
+	"type" : "normal",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"category" : "Telescope-Cytoscape-Virtual"
 }

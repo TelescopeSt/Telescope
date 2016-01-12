@@ -15,5 +15,5 @@ neoJsonOn: writer
 								collect: [ :aNode | 
 									aNode nodeId asString
 										->
-											{(#x -> aNode absoluteCenterPosition x).
-											(#y -> aNode absoluteCenterPosition y)} asDictionary ]) asDictionary)} asDictionary ]
+											{(#x -> aNode cytoscapePosition x).
+											(#y -> aNode cytoscapePosition y)} asDictionary ]) asDictionary)} asDictionary ]
