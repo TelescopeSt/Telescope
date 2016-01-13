@@ -6,6 +6,6 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [ ],
-	"name" : "TLVirtualNodeTests",
+	"name" : "TLVirtualStructureTests",
 	"type" : "normal"
 }
