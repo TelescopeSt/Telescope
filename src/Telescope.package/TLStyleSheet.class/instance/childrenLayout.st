@@ -1,3 +1,3 @@
 children
 childrenLayout
-	^ self get: #childrenLayout
+	^ (self > #children) layout

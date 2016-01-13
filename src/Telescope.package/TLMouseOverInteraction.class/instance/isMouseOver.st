@@ -1,3 +1,3 @@
 testing
-isComposite
+isMouseOver
 	^ true

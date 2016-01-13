@@ -5,4 +5,4 @@ updateCompositeNode: aNode
 			self updateSimpleNode: aNode.
 			aNode expanded
 				ifTrue: [ self updateChildrenOf: aNode ]
-				ifFalse: [ self removeChildrenAndResize: aNode ] ]
+				ifFalse: [ self removeChildrenOf: aNode ] ]
