@@ -14,6 +14,8 @@ createElementNodeFromNode: aNode
 		addCommand:
 			(TLVisualizationAddNodeCommand new
 				virtualNode: virtualNode;
+				mouseOverInteraction: (aNode allInteractions anySatisfy: #isMouseOver);
+		
 				visuId: self visuId;
 				style:
 						(styleSheet cytoscapeNodeStyleFor: aNode)).

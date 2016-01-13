@@ -9,7 +9,8 @@
 		"edgeId",
 		"fromNodeId",
 		"toNodeId",
-		"style"
+		"style",
+		"mouseOverInteraction"
 	],
 	"name" : "TLVisualizationAddEdgeCommand",
 	"type" : "normal"

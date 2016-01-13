@@ -11,8 +11,8 @@ neoJsonOn: writer
 					(#animate -> true).
 					(#positions
 						->
-							(self nodes
-								collect: [ :aNode | 
+							(self nodes reject: #hasChildren
+								thenCollect: [ :aNode | 
 									aNode nodeId asString
 										->
 											{(#x -> aNode cytoscapePosition x).

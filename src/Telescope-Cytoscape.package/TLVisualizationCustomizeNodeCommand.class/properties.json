@@ -7,7 +7,8 @@
 	"classvars" : [ ],
 	"instvars" : [
 		"style",
-		"virtualNode"
+		"virtualNode",
+		"mouseOverInteraction"
 	],
 	"name" : "TLVisualizationCustomizeNodeCommand",
 	"type" : "normal"

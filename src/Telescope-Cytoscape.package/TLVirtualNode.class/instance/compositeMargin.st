@@ -1,3 +1,3 @@
-as yet unclassified
+accessing
 compositeMargin
-	^ 10@10
+	^ compositeMargin ifNil: [ 10@10 ]

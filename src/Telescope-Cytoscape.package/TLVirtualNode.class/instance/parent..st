@@ -1,4 +1,5 @@
 accessing
 parent: aParent
-	aParent children add: self.
-	parent := aParent
+	parent := aParent.
+	aParent addChildren: self.
+	

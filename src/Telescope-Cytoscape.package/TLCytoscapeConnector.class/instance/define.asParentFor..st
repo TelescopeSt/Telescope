@@ -1,0 +1,3 @@
+as yet unclassified
+define: parentCompositeElement asParentFor: aCollectionOfChildrenElements
+	aCollectionOfChildrenElements parent: parentCompositeElement

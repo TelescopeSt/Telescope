@@ -1,11 +1,14 @@
 {
-	"classtraitcomposition" : "TCytoscapePositionable classTrait",
+	"classtraitcomposition" : "TVirtualElement classTrait",
 	"classvars" : [ ],
-	"instvars" : [ ],
+	"instvars" : [
+		"parent",
+		"position"
+	],
 	"name" : "TLVirtualGroup",
 	"commentStamp" : "GuillaumeLarcheveque 12/8/2015 11:25",
 	"super" : "OrderedCollection",
-	"traitcomposition" : "TCytoscapePositionable",
+	"traitcomposition" : "TVirtualElement",
 	"type" : "normal",
 	"classinstvars" : [ ],
 	"pools" : [ ],

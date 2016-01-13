@@ -1,5 +1,5 @@
 {
-	"classtraitcomposition" : "TCytoscapePositionable classTrait",
+	"classtraitcomposition" : "TVirtualElement classTrait",
 	"classvars" : [ ],
 	"instvars" : [
 		"position",
@@ -8,12 +8,13 @@
 		"parent",
 		"children",
 		"incomingEdges",
-		"realNode"
+		"realNode",
+		"compositeMargin"
 	],
 	"name" : "TLVirtualNode",
 	"commentStamp" : "GuillaumeLarcheveque 12/21/2015 16:08",
 	"super" : "Object",
-	"traitcomposition" : "TCytoscapePositionable",
+	"traitcomposition" : "TVirtualElement",
 	"type" : "normal",
 	"classinstvars" : [ ],
 	"pools" : [ ],
