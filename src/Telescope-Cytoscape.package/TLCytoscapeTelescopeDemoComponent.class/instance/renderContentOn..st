@@ -1,6 +1,8 @@
 as yet unclassified
 renderContentOn: html
 	html text: 'Coucou'.
+	
+	html render: (TLCytoscapeComponent visualization: TLDemos exampleChangingLayout).
 	html render: (TLCytoscapeComponent visualization: TLDemos exampleCompositeExploringHierarchy).
 	html render: (TLCytoscapeComponent visualization: TLDemos exampleSystemComplexityMultipleRoots).
 	

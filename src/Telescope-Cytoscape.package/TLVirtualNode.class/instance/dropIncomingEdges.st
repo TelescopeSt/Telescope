@@ -1,0 +1,3 @@
+edges
+dropIncomingEdges
+	incomingEdges := nil

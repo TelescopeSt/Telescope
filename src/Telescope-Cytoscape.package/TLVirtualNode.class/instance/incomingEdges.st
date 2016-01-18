@@ -11,5 +11,5 @@ incomingEdges
 							(generator
 								elementFromTLDrawable: aConnection fromNode);
 								to: self;
-								yourself ] ].
+								yourself ] as: OrderedCollection ].
 	^ incomingEdges

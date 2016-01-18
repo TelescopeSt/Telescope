@@ -9,6 +9,7 @@ neoJsonOn: writer
 				value:
 					{(#name -> 'preset').
 					(#animate -> true).
+					(#animationDuration -> 1500).
 					(#positions
 						->
 							(self nodes reject: #hasChildren
