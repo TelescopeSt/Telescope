@@ -24,7 +24,7 @@ updateGroup: aTLGroup
 						thenCollect: [ :aTLDrawable | 
 							[ 
 							| element |
-							element := self elementFromTLDrawable: aTLDrawable.
+						element := self elementFromTLDrawable: aTLDrawable.
 							aTLDrawable updateWith: self.
 							element ]
 								on: NotFound
@@ -33,7 +33,9 @@ updateGroup: aTLGroup
 			order := aTLGroup select: #isVisible
 						thenCollect: [ :aTLDrawable | self elementFromTLDrawable: aTLDrawable ].
 			graphicGroup sort: [ :a :b | (order indexOf: a) < (order indexOf: b) ].
-			aTLGroup updateDone ].
+			aTLGroup updateDone ]
+		ifFalse:
+			[aTLGroup isLayoutApplicationRequired ifTrue: ["In that case, layout application is required but not updating so we iterate over subelements" aTLGroup do: [ :aTLDrawable | aTLDrawable updateWith: self ] ]].
 	aTLGroup isLayoutApplicationRequired
 		ifFalse: [ ^ self ].
 	aTLGroup layout ifNotNil: [ self applyLayoutOf: aTLGroup on: (self elementFromTLDrawable: aTLGroup) ].
