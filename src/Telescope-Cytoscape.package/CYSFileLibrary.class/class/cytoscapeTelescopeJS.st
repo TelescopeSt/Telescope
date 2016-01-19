@@ -8,7 +8,7 @@ cytoscapeTelescopeJS
     visuDivs = obtainAllVisualizationDivs();
 
     visus = [];
-
+    
     for(var i in visuDivs){
       visus.push({visuId: visuDivs[i], visu:createVisu(visuDivs[i])});
     }
@@ -79,19 +79,23 @@ cytoscapeTelescopeJS
   }
 
   function onMessage(evt) {
-    console.log(evt.data);
     commands = JSON.parse(evt.data);
     for(var i in commands)
       {
         command = commands[i];
         visu = visuWithId(command.visuId);
         if(command.command == "add"){
-          visu.add(command.parameters);
+        element = visu.add(command.parameters)[0];
+        element[''mouseOverInteraction''] = command.mouseOverInteraction;
         } else if(command.command == "remove"){
           visu.remove(visu.getElementById(command.nodeId));
         } else if(command.command == "positioning"){
           visu.layout(command.layout);
-        } else {
+        } else if(command.command == ''customize''){
+          visu.getElementById(command.elementId).style(command.style);
+        }
+        
+        else {
           console.log("unsupported command: " + command.command);
         }
       }
@@ -100,13 +104,23 @@ cytoscapeTelescopeJS
   function onError(evt) {
      }
 
-  function parametrizeInteractionsListenerForVisu(visuWithId){
-    eventsWithInteractions = {''tap'':''click'' , ''mouseover'':''mouseOver''};
+  function createEventFunction(visuWithId){
+    eventsWithInteractions = {''tap'':''click'' , ''cxttap'':''rightClick'' , ''mouseover'':''mouseOver'', ''mouseout'':''mouseOver''};
     
-    visuWithId.visu.on(''tap mouseover'',''node'',function(evt){
-      console.log(evt);
+    return function (evt){
+      if((!evt.cyTarget[''mouseOverInteraction'']) && ((evt.type == ''mouseover'') || (evt.type == ''mouseout''))){
+          
+      }
+      else{
         websocket.send(JSON.stringify([{id:visuWithId.visuId, drawableId:evt.cyTarget.id(),command:"interaction",kind:(eventsWithInteractions[evt.type])}]));
-    });
+      }
+    };
+  }
+
+  function parametrizeInteractionsListenerForVisu(visuWithId){
+    
+    visuWithId.visu.on(''tap mouseover mouseout cxttap'',''node'',createEventFunction(visuWithId));
+    visuWithId.visu.on(''tap mouseover mouseout cxttap'',''edge'',createEventFunction(visuWithId));
     
   }
 
