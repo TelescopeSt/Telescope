@@ -16,5 +16,8 @@ baseline01: spec
 					className: #ConfigurationOfRoassal2;
 					versionString: #'stable';
 					repository: 'http://smalltalkhub.com/mc/ObjectProfile/Roassal2/main/' ].
-		spec package: #'Telescope-Roassal2' with: [
-				spec requires: #('Telescope' 'Roassal2' ). ]. ].
+		spec 
+			package: #'Telescope-Roassal2' with: [
+				spec requires: #('Telescope' 'Roassal2' ). ];
+			package: 'Telescope-Roassal2-Tests' with: [
+				spec requires: #(#'Telescope-Roassal2' 'Telescope' 'Roassal2' ). ]. ].
