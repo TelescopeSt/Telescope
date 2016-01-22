@@ -1,4 +1,4 @@
 accessing
 generator
-	generator ifNil: [ self generator: self defaultGenerator ].
+	generator ifNil: [ self generator: self defaultConnector ].
 	^ generator

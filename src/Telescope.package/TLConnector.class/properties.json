@@ -1,7 +1,7 @@
 {
 	"commentStamp" : "GuillaumeLarcheveque 9/16/2014 11:21",
 	"super" : "TLObject",
-	"category" : "Telescope-Core",
+	"category" : "Telescope-Connector",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
