@@ -9,7 +9,7 @@ baseline01: spec
 			project: 'Telescope' with: [
 				spec
 					className: #ConfigurationOfTelescope;
-					versionString: #'stable';
+					versionString: #'development';
 					repository: 'http://smalltalkhub.com/mc/Moose/Telescope/main/' ];
 			project: 'Roassal2' with: [
 				spec
