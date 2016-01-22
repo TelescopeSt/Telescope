@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "",
+	"super" : "BabyMock2TestCase",
+	"category" : "Telescope-Roassal2-Tests",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"shape"
+	],
+	"name" : "TLCompositeLabelShapeTests",
+	"type" : "normal"
+}
