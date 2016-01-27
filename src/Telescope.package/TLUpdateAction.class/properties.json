@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "Guillaumelarcheveque 1/26/2016 17:28",
+	"super" : "TLDrawableAction",
+	"category" : "Telescope-Actions",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"drawable",
+		"action"
+	],
+	"name" : "TLUpdateAction",
+	"type" : "normal"
+}
