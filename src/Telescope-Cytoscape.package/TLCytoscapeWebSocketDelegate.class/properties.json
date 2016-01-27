@@ -9,7 +9,7 @@
 	"classvars" : [ ],
 	"instvars" : [
 		"visualizationByIdDictionary",
-		"visuByWebsocket"
+		"websocketByVisu"
 	],
 	"name" : "TLCytoscapeWebSocketDelegate",
 	"type" : "normal"

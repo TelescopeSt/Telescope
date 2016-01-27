@@ -1,3 +1,3 @@
-view
-updateViewForVisualization: aTLVisualization
+as yet unclassified
+postGenerationFor: aTLVisualization
 	TLCytoscapeWebSocketDelegate delegate sendCommands: self removeAllCommands forVisu: aTLVisualization
