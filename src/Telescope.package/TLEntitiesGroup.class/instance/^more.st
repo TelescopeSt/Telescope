@@ -5,5 +5,5 @@ accessing
 		ifAbsentPut: [ 
 			| newGroup |
 			newGroup := TLEntitiesGroup new parent: self.
-			self telescopeEntities addLast: newGroup.
+			self addDrawable: newGroup.
 			newGroup ]

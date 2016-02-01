@@ -1,5 +1,7 @@
 as yet unclassified
 computeChild
+	self removeAllMorphs.
+	self menuItems removeAll.
 	self childBlock value
 		ifEmpty: [ self
 						add: 'empty'

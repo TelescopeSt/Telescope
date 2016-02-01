@@ -1,6 +1,7 @@
 generation - interaction
 generateMultiChoiceMenuInteraction: aTLMultiChoiceMenuInteraction onDrawable: aTLDrawable targeting: anotherDrawable
 	| menu subMenu |
+
 	menu := self menuInteractionByDrawable at: aTLDrawable ifAbsentPut: [ self createMenuFor: aTLDrawable ].
 	subMenu := TLLazyMenuMorph new.
 	subMenu

@@ -1,3 +1,3 @@
 as yet unclassified
 computeIfNecessary
-	computed ifFalse: [ self computeChild. computed := true ]
+	computed ifFalse: [ self computeChild. computed := false ]
