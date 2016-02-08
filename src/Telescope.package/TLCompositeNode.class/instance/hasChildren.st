@@ -1,3 +1,3 @@
 testing
 hasChildren
-	^ self childrenNodes isEmpty not
+	^ self childrenGroup notEmpty
