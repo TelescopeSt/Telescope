@@ -1,5 +1,5 @@
 as yet unclassified
-cytoscapeTelescopeJS
+cytoscapeTelescopeJs
 	^ '(function(){
   var wsUri = "ws://" + location.hostname + ":1701";
   
