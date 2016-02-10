@@ -1,3 +1,3 @@
 accessing
 selectorsToInclude
-	^ #(cytoscapeMinJs cytoscapeMinJsMap cytoscapeTelescopeJs)
+	^ #(cytoscapeMinJs cytoscapeMinJsMap cytoscapeTelescopeJs telescopeCss)

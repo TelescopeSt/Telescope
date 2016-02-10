@@ -1,13 +1,14 @@
 as yet unclassified
 renderContentOn: html
+	| divStyle |
+	divStyle := [ :visu | 'width: ' , visu openingDimension x asString , 'px; height: ' , visu openingDimension y asString , 'px; display: block;' ].
+	
 	html text: 'Coucou'.
 	
-	html render: (TLCytoscapeComponent visualization: TLDemos exampleChangingLayout).
-	html render: (TLCytoscapeComponent visualization: TLDemos exampleCompositeExploringHierarchy).
-	html render: (TLCytoscapeComponent visualization: TLDemos exampleSystemComplexityMultipleRoots).
-	
-	html render: (TLCytoscapeComponent visualization: TLDemos exampleHighlightElements).
-	html render: (TLCytoscapeComponent visualization: TLDemos exampleMovingNodeToAnotherGroup).
-	html render: (TLCytoscapeComponent visualization: TLDemos exampleButterflyUsingStyleFunctionnality).
-	html render: (TLCytoscapeComponent visualization: TLDemos exampleConnectionStyle).
-	html render: (TLCytoscapeComponent visualization: TLDemos exampleAllShapes)
+	#(#exampleChangingLayout #exampleCompositeExploringHierarchy #exampleSystemComplexityMultipleRoots #exampleHighlightElements #exampleMovingNodeToAnotherGroup #exampleButterflyUsingStyleFunctionnality #exampleConnectionStyle #exampleAllShapes)
+		do: [ :visuName | 
+			| visualization |
+			visualization := TLDemos perform: visuName.
+			html div
+				style: (divStyle value: visualization);
+				with: [ html render: (TLCytoscapeComponent visualization: visualization) ] ]
