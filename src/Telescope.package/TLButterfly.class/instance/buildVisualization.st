@@ -9,4 +9,5 @@ buildVisualization
 	self > #right addNodesFromEntities: rightEntitiesValues.
 	(self > #left) connectTo: (self > #central).
 	(self > #central) connectTo: (self > #right).
+	self configLabelPosition
 	
