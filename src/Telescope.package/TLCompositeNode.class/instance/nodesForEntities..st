@@ -2,4 +2,4 @@ enumeration
 nodesForEntities: aCollectionOfEntities
 	^ (aCollectionOfEntities includes: self entity)
 		ifTrue: [ {self} ]
-		ifFalse: [ #() ]
+		ifFalse: [ self childrenGroup nodesForEntities: aCollectionOfEntities ]
