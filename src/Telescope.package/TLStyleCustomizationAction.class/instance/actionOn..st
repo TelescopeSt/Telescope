@@ -2,6 +2,8 @@ action
 actionOn: aTLDrawable
 	| targetDrawable |
 	targetDrawable := self target ifNotNil: [ self target value: aTLDrawable ] ifNil: [ aTLDrawable ].
-	(targetDrawable state includesKey: self stateKey)
-		ifFalse: [ self customize: targetDrawable ]
-		ifTrue: [ self removeCustomization: targetDrawable ]
+	(targetDrawable as: TLDrawableCollection)
+		do: [ :aTargetDrawable | 
+			(aTargetDrawable state includesKey: self stateKey)
+				ifFalse: [ self customize: aTargetDrawable ]
+				ifTrue: [ self removeCustomization: aTargetDrawable ] ]
