@@ -1,3 +1,3 @@
 enumeration
-allLeafNodes
+allNodesRecursively
 	^ {self}
