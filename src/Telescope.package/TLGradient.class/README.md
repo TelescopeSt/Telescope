@@ -1,0 +1,1 @@
+I represent a gradient of colors. I will concern a set of entities that telescope

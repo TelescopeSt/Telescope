@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "GuillaumeLarcheveque 2/15/2016 17:26",
+	"super" : "TLObject",
+	"category" : "Telescope-Style",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"levelForColors",
+		"levelProperty"
+	],
+	"name" : "TLGradient",
+	"type" : "normal"
+}

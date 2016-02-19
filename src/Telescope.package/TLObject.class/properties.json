@@ -1,6 +1,6 @@
 {
 	"commentStamp" : "GuillaumeLarcheveque 6/30/2014 15:07",
-	"super" : "RTObject",
+	"super" : "Object",
 	"category" : "Telescope-Model",
 	"classinstvars" : [ ],
 	"pools" : [ ],
