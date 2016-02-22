@@ -1,4 +1,4 @@
-as yet unclassified
+accessing
 children
 	Halt now.
 	^ self

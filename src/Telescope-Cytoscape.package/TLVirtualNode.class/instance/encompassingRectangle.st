@@ -1,3 +1,3 @@
 accessing
 encompassingRectangle
-	^ Rectangle origin: self position extent: self dimension 
+	^ encompassingRectangle ifNil: [ encompassingRectangle := Rectangle center: self position extent: self dimension ]

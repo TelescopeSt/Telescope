@@ -1,0 +1,3 @@
+adding
+addAddingCommand: aTLVisualizationAddNodeCommand 
+	self addingCommands addLast: aTLVisualizationAddNodeCommand .

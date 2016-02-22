@@ -1,0 +1,3 @@
+optimization
+clearEncompassingRectangle
+	encompassingRectangle := nil

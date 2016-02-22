@@ -1,3 +1,4 @@
 accessing
 position: anObject
-	position := anObject
+	position := anObject.
+	self clearEncompassingRectangle

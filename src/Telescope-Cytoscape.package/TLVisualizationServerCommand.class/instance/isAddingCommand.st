@@ -1,3 +1,3 @@
 testing
-isNode
+isAddingCommand
 	^ false

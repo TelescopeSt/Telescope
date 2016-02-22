@@ -5,7 +5,7 @@ renderContentOn: html
 	
 	html text: 'Coucou'.
 	
-	#(#exampleChangingLayout #exampleCompositeExploringHierarchy #exampleSystemComplexityMultipleRoots #exampleHighlightElements #exampleMovingNodeToAnotherGroup #exampleButterflyUsingStyleFunctionnality #exampleConnectionStyle #exampleAllShapes)
+	#(#exampleGradient #exampleChangingLayout #exampleCompositeExploringHierarchy #exampleSystemComplexityMultipleRoots #exampleHighlightElements #exampleMovingNodeToAnotherGroup #exampleButterflyUsingStyleFunctionnality #exampleConnectionStyle #exampleAllShapes)
 		do: [ :visuName | 
 			| visualization |
 			visualization := TLDemos perform: visuName.

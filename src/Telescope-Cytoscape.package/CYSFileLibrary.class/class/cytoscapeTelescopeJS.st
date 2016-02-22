@@ -1,5 +1,5 @@
 as yet unclassified
-cytoscapeTelescopeJs
+cytoscapeTelescopeJS
 	^ '(function(){
   var wsUri = "ws://" + location.hostname + ":1701";
   
@@ -85,9 +85,9 @@ cytoscapeTelescopeJs
         command = commands[i];
         visu = visuWithId(command.visuId);
         if(command.command == "add"){
-          elements = visu.add(command.parameters);
-          for(var elementId = 0; elementId < elements.length;elementId++){
-            elements[elementId][''mouseOverInteraction''] = command.parameters[elementId].mouseOverInteraction;}
+        console.log(command.parameters);
+        element = visu.add(command.parameters)[0];
+        element[''mouseOverInteraction''] = command.mouseOverInteraction;
         } else if(command.command == "remove"){
           visu.remove(visu.getElementById(command.nodeId));
         } else if(command.command == "positioning"){

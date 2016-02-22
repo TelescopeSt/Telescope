@@ -3,7 +3,8 @@
 	"classvars" : [ ],
 	"instvars" : [
 		"parent",
-		"position"
+		"position",
+		"encompassingRectangle"
 	],
 	"name" : "TLVirtualGroup",
 	"commentStamp" : "GuillaumeLarcheveque 12/8/2015 11:25",

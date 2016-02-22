@@ -1,21 +1,19 @@
 json
 neoJsonOn: writer
-	| parameters |
-	parameters := {(#group -> #nodes).
-	(#data -> {(#id -> self nodeId)} asDictionary).
-	(#style -> self style)} asDictionary.
+	| data |
+	data := {(#id -> self nodeId)} asDictionary.
 	self virtualNode hasParentNode
-		ifTrue: [ (parameters at: #data) at: #parent put: self virtualNode parentNode nodeId ].
-	self virtualNode hasChildren
-		ifFalse: [ 
-			parameters
-				at: #position
-				put:
-					{(#x -> self virtualNode cytoscapePosition x).
-					(#y -> self virtualNode cytoscapePosition y)} asDictionary ].
+		ifTrue: [ data at: #parent put: self virtualNode parentNode nodeId ].
 	writer
 		writeMapStreamingDo: [ :jsonMapWriter | 
-			jsonMapWriter writeKey: #command value: self class command.
-			jsonMapWriter writeKey: #visuId value: self visuId.
+			jsonMapWriter writeKey: #group value: #nodes.
+			jsonMapWriter writeKey: #data value: data.
+			self virtualNode hasChildren
+				ifFalse: [ 
+					jsonMapWriter
+						writeKey: #position
+						value:
+							{(#x -> self virtualNode cytoscapePosition x).
+							(#y -> self virtualNode cytoscapePosition y)} asDictionary ].
 			jsonMapWriter writeKey: #mouseOverInteraction value: self mouseOverInteraction.
-			jsonMapWriter writeKey: #parameters value: parameters ]
+			jsonMapWriter writeKey: #style value: self style ]

@@ -1,3 +1,3 @@
-as yet unclassified
+private
 species
 	^ self class superclass

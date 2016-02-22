@@ -1,3 +1,3 @@
 testing
-isGroup
+isMultiAdding
 	^ true

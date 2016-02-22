@@ -12,6 +12,6 @@ createElementConnection: aTLConnection From: fromNode to: toNode
 		fromNodeId: (self elementFromTLDrawable: fromNode) nodeId;
 		toNodeId: (self elementFromTLDrawable: toNode) nodeId;
 		style: (aTLConnection effectiveStyleSheet cytoscapeConnectionStyleFor: aTLConnection) ;
-		visuId: visuId).
+		visuId: self visuId).
 	
 	^ edgeId

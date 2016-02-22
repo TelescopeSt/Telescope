@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "",
+	"super" : "TLVisualizationServerCommand",
+	"category" : "Telescope-Cytoscape-Commands",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"addingCommands"
+	],
+	"name" : "TLVisualizationMultiAddingCommand",
+	"type" : "normal"
+}

@@ -1,6 +1,9 @@
-as yet unclassified
+adding
 addLast: aTLVirtual
 	(self includes: aTLVirtual)
-		ifFalse: [ super addLast: aTLVirtual ].
+		ifFalse: [ 
+			self updateEncompassingByAdding: aTLVirtual.
+			super addLast: aTLVirtual ].
 	aTLVirtual parent = self
-		ifFalse: [ aTLVirtual parent: self ]
+		ifFalse: [ aTLVirtual parent: self ].
+	^ aTLVirtual

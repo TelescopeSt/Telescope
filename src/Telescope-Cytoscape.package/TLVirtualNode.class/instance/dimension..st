@@ -1,3 +1,4 @@
 accessing
 dimension: anObject
-	dimension := anObject
+	dimension := anObject.
+	self clearEncompassingRectangle
