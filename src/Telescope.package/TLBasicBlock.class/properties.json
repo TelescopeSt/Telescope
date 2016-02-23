@@ -1,7 +1,7 @@
 {
-	"commentStamp" : "",
+	"commentStamp" : "GuillaumeLarcheveque 2/23/2016 10:34",
 	"super" : "TLObject",
-	"category" : "Telescope-Helper",
+	"category" : "Telescope-Demos",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],

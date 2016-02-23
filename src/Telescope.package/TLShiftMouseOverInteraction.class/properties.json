@@ -1,6 +1,6 @@
 {
-	"commentStamp" : "NicolasAnquetil 2/22/2016 14:40",
-	"super" : "TLMouseOverInteraction",
+	"commentStamp" : "",
+	"super" : "TLInteraction",
 	"category" : "Telescope-Interactions",
 	"classinstvars" : [ ],
 	"pools" : [ ],

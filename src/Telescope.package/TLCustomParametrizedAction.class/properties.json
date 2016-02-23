@@ -1,6 +1,6 @@
 {
-	"commentStamp" : "GuillaumeLarcheveque 8/7/2014 15:44",
-	"super" : "TLDrawableParametrizedAction",
+	"commentStamp" : "",
+	"super" : "TLAction",
 	"category" : "Telescope-Actions",
 	"classinstvars" : [ ],
 	"pools" : [ ],

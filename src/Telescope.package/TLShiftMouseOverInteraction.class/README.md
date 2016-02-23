@@ -1,1 +1,0 @@
-Same as TLMooseOverInteraction but activeated only if shift is pressed when the mouse is over the drawable.
