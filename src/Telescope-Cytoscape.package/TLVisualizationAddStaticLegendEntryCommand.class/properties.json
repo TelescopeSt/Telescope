@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "",
+	"super" : "TLVisualizationAddLegendEntryCommand",
+	"category" : "Telescope-Cytoscape-Commands",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"html"
+	],
+	"name" : "TLVisualizationAddStaticLegendEntryCommand",
+	"type" : "normal"
+}

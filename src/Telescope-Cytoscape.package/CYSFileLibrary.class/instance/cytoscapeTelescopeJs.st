@@ -98,6 +98,7 @@ cytoscapeTelescopeJs
         
         else {
           console.log("unsupported command: " + command.command);
+          console.log(command);
         }
       }
   }

@@ -1,3 +1,3 @@
 view
 addElementLegendInView: legend
-	legend ifNotNil: [self shouldBeImplemented]
+	"Here we have nothing to do because we sent commands for entries creation before"

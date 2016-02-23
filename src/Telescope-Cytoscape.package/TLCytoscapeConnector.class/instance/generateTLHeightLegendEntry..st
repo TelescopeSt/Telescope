@@ -1,0 +1,3 @@
+generation-legendEntry
+generateTLHeightLegendEntry: aTLHeightLegendEntry 
+	^ aTLHeightLegendEntry
