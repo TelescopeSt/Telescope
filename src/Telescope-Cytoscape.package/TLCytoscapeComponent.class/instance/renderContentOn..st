@@ -6,4 +6,8 @@ renderContentOn: html
 	html div
 		id: visuId;
 		attributeAt: #isTelescopeVisu put: 'true';
-		class: 'telescopeVisu'
+		class: 'telescopeVisu';
+		with: [ 
+					html div
+						class: 'visualization';
+						style: 'height: 100%; width: 100%;' ]

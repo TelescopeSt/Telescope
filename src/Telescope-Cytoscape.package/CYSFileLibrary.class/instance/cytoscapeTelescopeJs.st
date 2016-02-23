@@ -22,7 +22,8 @@ cytoscapeTelescopeJs
   
   function createVisu(aDivId){
     return cytoscape({
-      container: document.getElementById(aDivId),
+      
+      container: document.getElementById(aDivId).firstChild,
       layout: {name: ''preset''}
     });
   }
@@ -94,13 +95,25 @@ cytoscapeTelescopeJs
           visu.layout(command.layout);
         } else if(command.command == ''customize''){
           visu.getElementById(command.elementId).style(command.style);
+        } else if(command.command == ''addStaticLegendEntry''){
+          addStaticLegendEntry(command.visuId,command.html);
         }
-        
         else {
           console.log("unsupported command: " + command.command);
           console.log(command);
         }
       }
+  }
+  
+  function addStaticLegendEntry(visuId,html){
+    var div = document.getElementById(visuId+''legend'');
+    if(!div) {
+      div = document.createElement(''div'');
+      div.id = visuId+''legend'';
+      div.className = ''tlLegend'';
+      div.innerHTML=''<table></table>'';
+      document.getElementById(visuId).appendChild(div);}
+    div.firstChild.insertRow(-1).innerHTML = html;
   }
 
   function onError(evt) {
