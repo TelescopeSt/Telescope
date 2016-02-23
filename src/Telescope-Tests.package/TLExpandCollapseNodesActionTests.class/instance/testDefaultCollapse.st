@@ -1,7 +1,6 @@
 as yet unclassified
 testDefaultCollapse
-	| visu node action |
-	visu := TLVisualization new.
+	| node action |
 	node := visu addNodeFromEntity: 4.
 	visu generate.
 	action:=(TLExpandCollapseNodesAction property: [ :n | 1 to: n - 1 ]).

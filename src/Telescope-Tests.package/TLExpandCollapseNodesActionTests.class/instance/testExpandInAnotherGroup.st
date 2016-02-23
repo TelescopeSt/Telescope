@@ -1,7 +1,6 @@
 as yet unclassified
 testExpandInAnotherGroup
-	| visu node |
-	visu := TLVisualization new.
+	| node |
 	node := visu addNodeFromEntity: 4.
 	visu generate.
 	(TLExpandCollapseNodesAction property: [ :n | 1 to: n - 1 ] destinationGroup: visu > #childGroup) actionOn: node.

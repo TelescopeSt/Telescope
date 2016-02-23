@@ -1,13 +1,13 @@
 {
 	"commentStamp" : "",
 	"super" : "TestCase",
-	"category" : "Telescope-Tests-Actions",
+	"category" : "Telescope-Tests",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"visu"
+		"gradient"
 	],
-	"name" : "TLExpandCollapseNodesActionTests",
+	"name" : "TLGradientTests",
 	"type" : "normal"
 }
