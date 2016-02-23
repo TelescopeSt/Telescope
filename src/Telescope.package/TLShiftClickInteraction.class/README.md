@@ -1,0 +1,1 @@
+Same as TLClickInteraction but activated only if shift is pressed when the user clicks on the drawable
