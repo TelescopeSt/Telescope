@@ -1,13 +1,13 @@
 {
-	"commentStamp" : "GuillaumeLarcheveque 2/23/2016 14:37",
-	"super" : "TLDrawable",
+	"commentStamp" : "GuillaumeLarcheveque 2/23/2016 14:33",
+	"super" : "TLLegendEntry",
 	"category" : "Telescope-Model-Legend",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"legendEntries"
+		"label"
 	],
-	"name" : "TLLegend",
+	"name" : "TLStaticLegendEntry",
 	"type" : "normal"
 }

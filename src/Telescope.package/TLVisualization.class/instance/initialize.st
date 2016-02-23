@@ -4,5 +4,6 @@ initialize
 	self styleSheet: TLStyleSheet default.
 	self nodeCreationStrategy: TLNodeCreationStrategy default.
 	self openingDimension: 720@480.
+	self legend: (TLLegend parent: self).
 	shouldReplaceCameraWhenUpdating := false.
 	self configLayout

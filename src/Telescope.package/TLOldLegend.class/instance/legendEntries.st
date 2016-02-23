@@ -1,0 +1,3 @@
+accessing
+legendEntries
+	^ self items

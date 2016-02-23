@@ -1,0 +1,1 @@
+I am an abstract class for legend entries. A legend entry is a part of the legend that describe one variable parameter.
