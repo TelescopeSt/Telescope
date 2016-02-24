@@ -1,4 +1,4 @@
-as yet unclassified
+tests
 testNodeInCompositeInCompositePosition
 	| parent child grandParent |
 	grandParent := TLVirtualNode new dimension: 16 @ 12.

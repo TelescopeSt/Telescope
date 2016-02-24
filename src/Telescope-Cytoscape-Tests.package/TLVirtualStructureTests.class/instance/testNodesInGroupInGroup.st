@@ -1,4 +1,4 @@
-as yet unclassified
+tests
 testNodesInGroupInGroup
 	| group child1 child2 |
 	group := TLVirtualGroup new.

@@ -1,4 +1,4 @@
-as yet unclassified
+tests
 testRemoveNodeFromAGroupThenAddToAnotherWithParentSelector
 	|groupSource groupTarget node|
 	node:= TLVirtualNode new.
