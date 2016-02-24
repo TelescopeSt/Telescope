@@ -1,3 +1,3 @@
-as yet unclassified
+position
 upperLeftAbsolutePosition
 	^ self absolutePosition - (self dimension / 2)
