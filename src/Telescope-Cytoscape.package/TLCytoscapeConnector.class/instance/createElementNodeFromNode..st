@@ -7,7 +7,7 @@ createElementNodeFromNode: aNode
 		nodeId: nodeId;
 		realNode: aNode;
 		dimension: (styleSheet obtainValue: #width forEntity: aNode entity)@(styleSheet obtainValue: #height forEntity: aNode entity);
-		position: (0@0)
+		position: (0@0);
 		yourself.
 	"temp  position for creation".
 	self

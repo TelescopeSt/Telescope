@@ -1,0 +1,16 @@
+{
+	"commentStamp" : "",
+	"super" : "TLVisualizationServerCommand",
+	"category" : "Telescope-Cytoscape-Commands",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"mouseOverInteraction",
+		"style",
+		"virtualNodeReference",
+		"virtualTrigger"
+	],
+	"name" : "TLVisualizationAddTriggerCommand",
+	"type" : "normal"
+}

@@ -1,3 +1,3 @@
 view
 addElementInteractionInView: element
-	self flag: #TODO
+	"No need in virtual hierarchy"
