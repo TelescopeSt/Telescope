@@ -1,3 +1,3 @@
 generation
-generateWith: aTLRoassal2Connector 
-	^ aTLRoassal2Connector generateTrigger: self
+generateWith: aConnector 
+	^ aConnector generateTrigger: self

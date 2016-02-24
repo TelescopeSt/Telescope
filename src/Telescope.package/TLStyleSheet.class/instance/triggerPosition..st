@@ -1,3 +1,3 @@
 interaction
 triggerPosition: aTriggerPosition
-	self at: #triggerPosition put: (TLPosition from: aTriggerPosition)
+	self at: #triggerPosition put: (TLPosition for: aTriggerPosition)

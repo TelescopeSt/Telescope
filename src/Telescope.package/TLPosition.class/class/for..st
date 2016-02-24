@@ -1,4 +1,4 @@
-as yet unclassified
+instance-creation
 for: aLabelOrPosition
 	^ aLabelOrPosition class = self
 		ifTrue: [ aLabelOrPosition ]
