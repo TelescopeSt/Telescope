@@ -1,3 +1,3 @@
 view
-addElementLegendInView: aLegend
-	self assert: aLegend isNil
+addElementLegendInView: legend
+	"Here we have nothing to do"
