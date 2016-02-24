@@ -6,18 +6,15 @@ createElementNodeFromNode: aNode
 	virtualNode := TLVirtualNode new
 		nodeId: nodeId;
 		realNode: aNode;
-		dimension: (styleSheet obtainValue: #width forEntity: aNode entity)@(styleSheet obtainValue: #height forEntity: aNode entity);
-		position: (0@0);
-		yourself.
-	"temp  position for creation".
+		dimension:
+				(styleSheet obtainValue: #width forEntity: aNode entity) @ (styleSheet obtainValue: #height forEntity: aNode entity);
+		position: 0 @ 0;
+		yourself.	"temp  position for creation"
 	self
 		addCommand:
 			(TLVisualizationAddNodeCommand new
 				virtualNode: virtualNode;
 				mouseOverInteraction: (aNode allInteractions anySatisfy: #isMouseOver);
-		
 				visuId: self visuId;
-				style:
-						(styleSheet cytoscapeNodeStyleFor: aNode)).
-								
+				style: (styleSheet cytoscapeNodeStyleFor: aNode)).
 	^ virtualNode

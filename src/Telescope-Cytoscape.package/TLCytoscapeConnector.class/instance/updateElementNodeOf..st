@@ -2,7 +2,7 @@ updating - node
 updateElementNodeOf: aDrawable
 	self
 		addCommand:
-			(TLVisualizationCustomizeNodeCommand new
+			(TLVisualizationCustomizeElementCommand new
 				virtualNode: (self elementFromTLDrawable: aDrawable);
 				mouseOverInteraction: (aDrawable allInteractions anySatisfy: #isMouseOver);
 				visuId: self visuId;

@@ -10,6 +10,6 @@
 		"virtualNode",
 		"mouseOverInteraction"
 	],
-	"name" : "TLVisualizationCustomizeNodeCommand",
+	"name" : "TLVisualizationCustomizeElementCommand",
 	"type" : "normal"
 }
