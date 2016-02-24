@@ -1,0 +1,3 @@
+as yet unclassified
+updateShapeTrigger: aTLShapeTrigger
+	self subclassResponsibility

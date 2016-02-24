@@ -2,4 +2,4 @@ updating - node
 updateChildrenOf: aCompositeNode
 	[ aCompositeNode childrenGroup update ]
 		on: KeyNotFound
-		do: [ ^ self generateChildrenOf: aCompositeNode ].
+		do: [ self define: (self elementFromTLDrawable: aCompositeNode) asParentFor: (self generateChildrenOf: aCompositeNode) ]
