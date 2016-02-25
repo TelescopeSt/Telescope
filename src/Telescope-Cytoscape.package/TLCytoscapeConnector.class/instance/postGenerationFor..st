@@ -1,3 +1,3 @@
-as yet unclassified
+generation - group
 postGenerationFor: aTLVisualization
 	TLCytoscapeWebSocketDelegate delegate sendCommands: self removeAllCommands forVisu: aTLVisualization

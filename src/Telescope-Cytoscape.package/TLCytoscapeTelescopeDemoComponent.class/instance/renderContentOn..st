@@ -1,13 +1,14 @@
 as yet unclassified
 renderContentOn: html
-	| divStyle visualization |
+	| divStyle |
 	divStyle := [ :visu | 'width: ' , visu openingDimension x asString , 'px; height: ' , visu openingDimension y asString , 'px; display: block;' ].
+	
 	html text: 'Coucou'.
-	visualization := TLVisualization new.
-	visualization
-		addCompositeNodeFromEntity: Collection children: (Collection subclasses first: 2);
-		addCompositeDefaultCollapseInteraction.
-	visualization styleSheet expandCompositeNodes.
-	html div
-		style: (divStyle value: visualization);
-		with: [ html render: (TLCytoscapeComponent visualization: visualization) ]
+	
+	#(#exampleLegend #exampleGradient #exampleChangingLayout #exampleCompositeExploringHierarchy #exampleSystemComplexityMultipleRoots #exampleHighlightElements #exampleMovingNodeToAnotherGroup #exampleButterflyUsingStyleFunctionnality #exampleConnectionStyle #exampleAllShapes)
+		do: [ :visuName | 
+			| visualization |
+			visualization := TLDemos perform: visuName.
+			html div
+				style: (divStyle value: visualization);
+				with: [ html render: (TLCytoscapeComponent visualization: visualization) ] ]

@@ -1,3 +1,3 @@
-as yet unclassified
+generation - node
 define: parentCompositeElement asParentFor: aCollectionOfChildrenElements
 	aCollectionOfChildrenElements parent: parentCompositeElement
