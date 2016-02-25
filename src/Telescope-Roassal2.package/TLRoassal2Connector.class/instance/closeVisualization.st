@@ -1,3 +1,3 @@
 instance creation
-closeView
+closeVisualization
 	self viewMorph delete
