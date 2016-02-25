@@ -1,3 +1,3 @@
-as yet unclassified
+accessing
 tlDrawableFromElement: element
 	^ self shapeByDrawable keyAtValue: element

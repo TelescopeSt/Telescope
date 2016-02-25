@@ -1,3 +1,3 @@
 instance creation
 close
-	self generator closeView
+	self generator closeVisualization

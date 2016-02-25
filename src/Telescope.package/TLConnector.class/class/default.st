@@ -1,3 +1,3 @@
 accessing
 default
-	^ self subclasses detectMax: #priority
+	^ self allSubclasses detectMax: #priority

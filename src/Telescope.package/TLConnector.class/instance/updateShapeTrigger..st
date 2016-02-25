@@ -1,3 +1,3 @@
-as yet unclassified
+updating - interaction
 updateShapeTrigger: aTLShapeTrigger
 	self subclassResponsibility

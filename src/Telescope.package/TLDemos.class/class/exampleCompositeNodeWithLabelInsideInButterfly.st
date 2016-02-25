@@ -10,5 +10,6 @@ exampleCompositeNodeWithLabelInsideInButterfly
 	butterfly nodeCreationStrategy compositeProperty: [ :n | 
 			{(n - 100).
 			(n + 100)} ].
+	butterfly addCompositeDefaultCollapseInteraction.
 	^ butterfly
 	

@@ -1,6 +1,6 @@
 {
 	"commentStamp" : "GuillaumeLarcheveque 7/15/2015 15:17",
-	"super" : "TLConnector",
+	"super" : "TLViewConnector",
 	"category" : "Telescope-Connector",
 	"classinstvars" : [ ],
 	"pools" : [ ],

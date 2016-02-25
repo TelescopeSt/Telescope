@@ -6,12 +6,9 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"view",
-		"viewMorph",
 		"shapeByDrawable",
 		"menuInteractionByDrawable",
 		"interactionsByDrawable",
-		"nestByParent",
 		"triggerForInteractionAndDrawable"
 	],
 	"name" : "TLConnector",

@@ -1,3 +1,3 @@
-as yet unclassified
+accessing
 elementFromTLDrawable: aNode
 	^ self shapeByDrawable at: aNode
