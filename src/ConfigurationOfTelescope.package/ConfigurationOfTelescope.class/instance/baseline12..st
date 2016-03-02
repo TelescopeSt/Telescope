@@ -20,10 +20,16 @@ baseline12: spec
 				spec
 					className: #ConfigurationOfStylesheet;
 					versionString: #'development';
-					repository: 'http://smalltalkhub.com/mc/RMoD/Stylesheet/main/' ].
+					repository: 'http://smalltalkhub.com/mc/RMoD/Stylesheet/main/' ];
+			project: 'MaterialDesignLite' with: [
+				spec
+					className: #ConfigurationOfMaterialDesignLite;
+					versionString: #'bleedingEdge';
+					loads: #('#colors' );
+					repository: 'http://smalltalkhub.com/mc/KevinLanvin/MaterialDesignLite/main/' ].
 		spec 
 			package: 'XMenuModel';
 			package: 'Telescope' with: [
-				spec requires: #('Stylesheet' 'Geometry' 'XMenuModel' ). ];
+				spec requires: #('Stylesheet' 'Geometry' 'XMenuModel' 'MaterialDesignLite' ). ];
 			package: 'Telescope-Tests' with: [
 				spec requires: #('Telescope' 'BabyMock2' ). ]. ].
