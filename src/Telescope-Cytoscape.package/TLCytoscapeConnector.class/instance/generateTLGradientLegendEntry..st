@@ -1,0 +1,3 @@
+generation-legend
+generateTLGradientLegendEntry: aTLGradientLegendEntry 
+	^ aTLGradientLegendEntry
