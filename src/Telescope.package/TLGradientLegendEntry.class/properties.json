@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "<historical>",
+	"super" : "TLStaticLegendEntry",
+	"category" : "Telescope-Model-Legend",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"gradient"
+	],
+	"name" : "TLGradientLegendEntry",
+	"type" : "normal"
+}

@@ -1,4 +1,4 @@
-as yet unclassified
+compute
 computeForLevel: aLevel
 	| min max |
 	min := self levelForColors reverse detect: [ :levelWithColor | levelWithColor key <= aLevel ] ifNone: [ nil ].

@@ -1,3 +1,3 @@
-generation - legend
+generation-legendEntry
 generateTLWidthLegendEntry: aTLWidthLegendEntry 
 	^ self subclassResponsibility 
