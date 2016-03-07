@@ -25,7 +25,7 @@ baseline12: spec
 				spec
 					className: #ConfigurationOfMaterialDesignLite;
 					versionString: #'bleedingEdge';
-					loads: #('#colors' );
+					loads: #('colors' );
 					repository: 'http://smalltalkhub.com/mc/KevinLanvin/MaterialDesignLite/main/' ].
 		spec 
 			package: 'XMenuModel';
