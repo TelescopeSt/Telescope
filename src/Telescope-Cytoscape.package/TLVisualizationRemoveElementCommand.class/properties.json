@@ -8,6 +8,6 @@
 	"instvars" : [
 		"nodeId"
 	],
-	"name" : "TLVisualizationRemoveNodeCommand",
+	"name" : "TLVisualizationRemoveElementCommand",
 	"type" : "normal"
 }

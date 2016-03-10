@@ -1,3 +1,8 @@
 view
 removeElementConnectionFromView: element
-	self shouldBeImplemented
+	self
+		addCommand:
+			(TLVisualizationRemoveElementCommand new
+				visuId: self visuId;
+				nodeId: element;
+				yourself)
