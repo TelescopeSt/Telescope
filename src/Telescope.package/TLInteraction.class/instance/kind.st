@@ -1,3 +1,3 @@
-accessor
+private
 kind
 	^ self subclassResponsibility 

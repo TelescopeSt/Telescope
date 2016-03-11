@@ -1,3 +1,3 @@
-as yet unclassified
+testing
 isReversible
 	^ true

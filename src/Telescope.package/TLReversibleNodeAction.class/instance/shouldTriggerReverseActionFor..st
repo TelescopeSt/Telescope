@@ -1,0 +1,3 @@
+testing
+shouldTriggerReverseActionFor: aTLDrawable
+	^ self subclassResponsability
