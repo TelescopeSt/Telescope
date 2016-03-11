@@ -1,3 +1,4 @@
 *Telescope-Cytoscape
 forCytoscape
-	KeyNotFound signal: 'By sending keyNotFound the label will be considered as inexistent'
+	"We return an empty string so it will override a previous string"
+	^ ''

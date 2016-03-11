@@ -1,4 +1,4 @@
-as yet unclassified
+updating - interaction
 updateTriggerOf: aShapeTrigger 
 	self
 		addCommand:

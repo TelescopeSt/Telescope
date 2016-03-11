@@ -85,7 +85,7 @@ cytoscapeTelescopeJs
       {
         command = commands[i];
         visu = visuWithId(command.visuId);
-          if(command.command == "add"){
+        if(command.command == "add"){
           elements = visu.add(command.parameters);
           for(var elementId = 0; elementId < elements.length;elementId++){
             elements[elementId][''mouseOverInteraction''] = command.parameters[elementId].mouseOverInteraction;}
@@ -120,7 +120,7 @@ cytoscapeTelescopeJs
      }
 
   function createEventFunction(visuWithId){
-    eventsWithInteractions = {''tap'':''click'' , ''cxttap'':''rightClick'' , ''mouseover'':''mouseOver'', ''mouseout'':''mouseOver''};
+    eventsWithInteractions = {''tap'':''click'' , ''cxttap'':''rightClick'' , ''mouseover'':''mouseOver'', ''mouseout'':''mouseOut''};
     
     return function (evt){
       if((!evt.cyTarget[''mouseOverInteraction'']) && ((evt.type == ''mouseover'') || (evt.type == ''mouseout''))){
@@ -141,5 +141,4 @@ cytoscapeTelescopeJs
 
 
   window.addEventListener("load", init, false);
-})();
-'
+})();'
