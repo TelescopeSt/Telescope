@@ -1,7 +1,7 @@
 action
 expandNode: aNode
 	| children newNodes targetNodes |
-	children := self obtainExpandNodesFrom: aNode.
+	children := self obtainExpandEntitiesFrom: aNode.
 	children
 		ifNotEmpty: [ 
 			newNodes := TLDrawableCollection new.
@@ -12,6 +12,7 @@ expandNode: aNode
 					
 							newNodes .
 			expandToOrigin
-				ifFalse: [ aNode connectToAll: targetNodes ]
-				ifTrue: [ targetNodes connectTo: aNode ].
+				ifFalse: [ aNode connectIfNotToAll: targetNodes ]
+				ifTrue: [ targetNodes connectIfNotTo: aNode ].
+			self connectNewNodes: newNodes toExistingOnesInVisu: aNode visualization.
 			aNode state at: self expandIdentifier put: true ]
