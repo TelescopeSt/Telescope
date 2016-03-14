@@ -1,4 +1,4 @@
-as yet unclassified
+tests
 testChildrenCreationWithBlock
 	node entity: 42.
 	node childrenProperty: [ :entity | 

@@ -1,3 +1,3 @@
-as yet unclassified
+tests
 testVisualizationLayout
 	self assert: (visualization layout isKindOf: RTGridLayout)

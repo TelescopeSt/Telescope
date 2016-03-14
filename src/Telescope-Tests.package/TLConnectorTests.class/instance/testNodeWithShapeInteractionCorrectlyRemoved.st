@@ -1,4 +1,4 @@
-as yet unclassified
+tests
 testNodeWithShapeInteractionCorrectlyRemoved
 	| node interaction |
 	node := TLSimpleNode new.

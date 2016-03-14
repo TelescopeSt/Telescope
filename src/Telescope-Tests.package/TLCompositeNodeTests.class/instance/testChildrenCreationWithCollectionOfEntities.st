@@ -1,4 +1,4 @@
-as yet unclassified
+tests
 testChildrenCreationWithCollectionOfEntities
 	node childrenProperty: #(1 2 3).
 	node createChildrenNodes.

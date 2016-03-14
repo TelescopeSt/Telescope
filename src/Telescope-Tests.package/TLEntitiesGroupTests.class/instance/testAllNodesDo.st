@@ -1,4 +1,4 @@
-as yet unclassified
+tests
 testAllNodesDo
 	| node1 node2 node3 |
 	node1 := protocol mock: 'node1'.

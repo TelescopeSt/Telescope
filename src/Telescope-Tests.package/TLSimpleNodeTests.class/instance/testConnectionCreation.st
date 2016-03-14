@@ -1,4 +1,4 @@
-as yet unclassified
+tests
 testConnectionCreation
 	| anotherNode visualization |
 	visualization := TLVisualization new.

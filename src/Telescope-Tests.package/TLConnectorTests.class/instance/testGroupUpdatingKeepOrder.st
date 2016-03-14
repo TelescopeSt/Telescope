@@ -1,4 +1,4 @@
-as yet unclassified
+tests
 testGroupUpdatingKeepOrder
 	| group cNode aNode bNode |
 	group := TLEntitiesGroup new.

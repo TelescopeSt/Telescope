@@ -1,4 +1,4 @@
-as yet unclassified
+tests
 testRemovedNodeHasNoConnection
 	| node |
 	visualization > #one addNodesFromEntities: (1 to: 4).

@@ -1,4 +1,4 @@
-as yet unclassified
+tests
 testChildrenCreationWithProperty
 	node entity: 30.
 	node childrenProperty: #primeFactors.

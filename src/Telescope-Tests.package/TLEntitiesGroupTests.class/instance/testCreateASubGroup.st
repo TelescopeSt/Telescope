@@ -1,4 +1,4 @@
-as yet unclassified
+tests
 testCreateASubGroup
 	self assert: tlGroup telescopeEntities isEmpty.
 	protocol describe

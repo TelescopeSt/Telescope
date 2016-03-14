@@ -1,4 +1,4 @@
-as yet unclassified
+tests
 testConnectGroupFromANode
 	| connections  |
 	connections := group connectFrom: TLSimpleNode new.

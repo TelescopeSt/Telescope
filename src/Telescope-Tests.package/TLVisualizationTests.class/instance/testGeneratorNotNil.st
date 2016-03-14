@@ -1,3 +1,3 @@
-as yet unclassified
+tests
 testGeneratorNotNil
 	self assert: visualization generator notNil

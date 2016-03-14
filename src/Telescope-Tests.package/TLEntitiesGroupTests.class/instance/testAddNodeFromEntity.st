@@ -1,4 +1,4 @@
-as yet unclassified
+tests
 testAddNodeFromEntity
 	| entityMock node |
 	entityMock := protocol mock: 'entity'.

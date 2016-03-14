@@ -1,4 +1,4 @@
-as yet unclassified
+tests
 testConnectThroughWithNonExistingEntity
 	| connections connection |
 	connections := group connectThrough: [ :each | {each + 1 . each + 16} ] to: [ :each | each + 2 ].

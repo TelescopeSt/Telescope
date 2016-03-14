@@ -1,4 +1,4 @@
-as yet unclassified
+tests
 testConnectGroupWithSubgroupToANode
 	| connections  |
 	group > #subgroup addNodesFromEntities: (5 to: 8).

@@ -1,4 +1,4 @@
-as yet unclassified
+tests
 testAdjacentNodes
 	| nodeFrom nodeTo edgeBuilder |
 	edgeBuilder := protocol mock: 'edgeBuilder'.

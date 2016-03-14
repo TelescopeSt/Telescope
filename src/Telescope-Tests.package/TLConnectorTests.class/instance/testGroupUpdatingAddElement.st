@@ -1,4 +1,4 @@
-as yet unclassified
+tests
 testGroupUpdatingAddElement
 	| group cNode aNode bNode |
 	group := TLEntitiesGroup new.

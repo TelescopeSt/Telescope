@@ -1,3 +1,3 @@
-as yet unclassified
+tests
 testIsGroup
 	self deny: node isGroup

@@ -1,4 +1,4 @@
-as yet unclassified
+tests
 testConnectNodeToAnotherNode
 	| connection  nodeA nodeB |
 	nodeA := TLSimpleNode withEntity: $a.

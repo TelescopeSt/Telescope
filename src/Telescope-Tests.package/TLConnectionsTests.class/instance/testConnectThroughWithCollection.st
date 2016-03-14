@@ -1,4 +1,4 @@
-as yet unclassified
+tests
 testConnectThroughWithCollection
 	| connections connection |
 	connections := group connectThrough: [ :each | {each + 1} ] to: [ :each | each + 2 ].
