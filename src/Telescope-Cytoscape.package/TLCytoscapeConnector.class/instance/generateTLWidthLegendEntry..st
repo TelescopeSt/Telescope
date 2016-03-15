@@ -1,3 +1,6 @@
 generation - legend
-generateTLWidthLegendEntry: aTLWidthLegendEntry 
+generateTLWidthLegendEntry: aTLWidthLegendEntry
+	self
+		addCommand:
+			(TLVisualizationAddLegendEntryCommand visuId: self visuId html: aTLWidthLegendEntry cytoscapeHtmlRepresentation).
 	^ aTLWidthLegendEntry

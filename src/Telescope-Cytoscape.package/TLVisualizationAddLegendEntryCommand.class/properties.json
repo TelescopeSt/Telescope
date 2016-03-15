@@ -5,7 +5,10 @@
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
-	"instvars" : [ ],
+	"instvars" : [
+		"html",
+		"entryId"
+	],
 	"name" : "TLVisualizationAddLegendEntryCommand",
 	"type" : "normal"
 }

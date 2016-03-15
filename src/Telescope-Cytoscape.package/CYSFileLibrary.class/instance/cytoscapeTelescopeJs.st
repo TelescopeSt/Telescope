@@ -97,12 +97,21 @@ cytoscapeTelescopeJs
           visu.getElementById(command.elementId).style(command.style);
         } else if(command.command == ''addStaticLegendEntry''){
           addStaticLegendEntry(command.visuId,command.html);
+        } else if(command.command == ''removeLegend''){
+          removeLegend(command.visuId);
         }
         else {
           console.log("unsupported command: " + command.command);
           console.log(command);
         }
       }
+  }
+  
+  function removeLegend(visuId){
+    var div = document.getElementById(visuId+''legend'');
+    if(div) {
+      div.parentNode.removeChild(div); 
+    }
   }
   
   function addStaticLegendEntry(visuId,html){
