@@ -1,0 +1,1 @@
+I am the superclass for all dynamic legend entries, computed on a set of elements and updated automatically

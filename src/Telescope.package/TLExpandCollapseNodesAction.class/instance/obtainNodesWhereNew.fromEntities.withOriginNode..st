@@ -1,5 +1,5 @@
 action
-obtainNodesWhereNew: newNodes FromEntities: children withOriginNode: aNode
+obtainNodesWhereNew: newNodes fromEntities: children withOriginNode: aNode
 	^ children
 		collect: [ :aChild | 
 			(self destinationGroupFor: aChild byDefault: aNode parent)

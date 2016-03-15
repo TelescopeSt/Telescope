@@ -1,3 +1,3 @@
 state
 requireUpdate
-	self isUpdateRequired: true
+	self isUpdateRequired: true.
