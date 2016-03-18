@@ -1,6 +1,6 @@
 as yet unclassified
 sendCommands: aCollectionOfCommands forVisu: aTLVisualization
-	(self webSocketForVisu: aTLVisualization)
+	[(self webSocketForVisu: aTLVisualization)
 		sendMessage:
 			(NeoJSONWriter
-				toString: aCollectionOfCommands)
+				toString: aCollectionOfCommands)] on: ConnectionTimedOut do: [ "The client leave the page before datas where sent" ]
