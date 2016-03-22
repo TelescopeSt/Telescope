@@ -9,6 +9,8 @@ cytoscapeTelescopeJs
 
     visus = [];
     
+    waitingDivByVisu = [];
+    
     for(var i in visuDivs){
       visus.push({visuId: visuDivs[i], visu:createVisu(visuDivs[i])});
     }
@@ -21,9 +23,16 @@ cytoscapeTelescopeJs
   }
   
   function createVisu(aDivId){
+    
+    visuDiv = document.getElementById(aDivId);
+    
+    //Here we remove the second child which is the waiting display and store it for future waiting
+    waitingDivByVisu[aDivId]=visuDiv.getElementsByClassName(''tlWaiting'')[0];
+    //visuDiv.removeChild(waitingDivByVisu[aDivId]);
+    
     return cytoscape({
       
-      container: document.getElementById(aDivId).firstChild,
+      container: visuDiv.firstChild,
       layout: {name: ''preset''}
     });
   }
@@ -78,9 +87,19 @@ cytoscapeTelescopeJs
   function onClose(evt) {
    
   }
+  
+  function removeWaitingForVisuId(aVisuId){
+    try{
+      visuDiv = document.getElementById(aVisuId);
+      visuDiv.removeChild(waitingDivByVisu[aVisuId]);
+    }catch(err){
+      //Here the waiting has been removed a previous time
+    }
+  }
 
   function onMessage(evt) {
     commands = JSON.parse(evt.data);
+    
     for(var i in commands)
       {
         command = commands[i];
@@ -105,6 +124,8 @@ cytoscapeTelescopeJs
           console.log(command);
         }
       }
+    removeWaitingForVisuId(commands[0].visuId);
+    
   }
   
   function removeLegend(visuId){

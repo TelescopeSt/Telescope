@@ -10,7 +10,8 @@
 	"instvars" : [
 		"visualization",
 		"connector",
-		"visuDivId"
+		"visuDivId",
+		"waitingMessage"
 	],
 	"name" : "TLCytoscapeComponent",
 	"type" : "normal"

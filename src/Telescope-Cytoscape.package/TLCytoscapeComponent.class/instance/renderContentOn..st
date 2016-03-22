@@ -1,4 +1,4 @@
-as yet unclassified
+rendering
 renderContentOn: html
 	| visuId |
 	visuId := self visuDivId.
@@ -10,4 +10,5 @@ renderContentOn: html
 		with: [ 
 					html div
 						class: 'visualization';
-						style: 'height: 100%; width: 100%;' ]
+						style: 'height: 100%; width: 100%;'.
+					(self waitingMessage value: html) ]
