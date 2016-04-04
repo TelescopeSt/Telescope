@@ -16,4 +16,5 @@ neoJsonOn: writer
 							{(#x -> self virtualNode cytoscapePosition x).
 							(#y -> self virtualNode cytoscapePosition y)} asDictionary ].
 			jsonMapWriter writeKey: #mouseOverInteraction value: self mouseOverInteraction.
+			self popUp ifNotNil: [ jsonMapWriter writeKey: #popUp value: self popUp ].
 			jsonMapWriter writeKey: #style value: self style ]

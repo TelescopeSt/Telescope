@@ -1,4 +1,4 @@
-as yet unclassified
+libs
 cytoscapeTelescopeJs
 	^ '(function(){
   var wsUri = "ws://" + location.hostname + ":1701";
@@ -107,7 +107,10 @@ cytoscapeTelescopeJs
         if(command.command == "add"){
           elements = visu.add(command.parameters);
           for(var elementId = 0; elementId < elements.length;elementId++){
-            elements[elementId][''mouseOverInteraction''] = command.parameters[elementId].mouseOverInteraction;}
+            customizeElement(elements[elementId],command.parameters[elementId]);
+            
+           
+          }
         } else if(command.command == "remove"){
           visu.remove(visu.getElementById(command.nodeId));
         } else if(command.command == "positioning"){
@@ -126,6 +129,13 @@ cytoscapeTelescopeJs
       }
     removeWaitingForVisuId(commands[0].visuId);
     
+  }
+  
+  function customizeElement(element, commandParametersForElement){
+    element[''mouseOverInteraction''] = commandParametersForElement.mouseOverInteraction;
+    if(commandParametersForElement.popUp){
+      element.qtip(commandParametersForElement.popUp);
+    }
   }
   
   function removeLegend(visuId){
@@ -153,6 +163,8 @@ cytoscapeTelescopeJs
     eventsWithInteractions = {''tap'':''click'' , ''cxttap'':''rightClick'' , ''mouseover'':''mouseOver'', ''mouseout'':''mouseOut''};
     
     return function (evt){
+      
+      // server interaction processing
       if((!evt.cyTarget[''mouseOverInteraction'']) && ((evt.type == ''mouseover'') || (evt.type == ''mouseout''))){
           
       }

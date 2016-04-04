@@ -1,0 +1,1 @@
+I am a trait to factorise code for elements

@@ -1,4 +1,4 @@
-accessing
+libs
 cytoscapeMinJs
 ^ '/*!
  * This file is part of Cytoscape.js 2.5.0.

@@ -8,7 +8,8 @@
 	"instvars" : [
 		"style",
 		"virtualNode",
-		"mouseOverInteraction"
+		"mouseOverInteraction",
+		"popUp"
 	],
 	"name" : "TLVisualizationAddNodeCommand",
 	"type" : "normal"
