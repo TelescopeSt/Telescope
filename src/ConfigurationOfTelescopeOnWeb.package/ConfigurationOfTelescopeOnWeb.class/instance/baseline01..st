@@ -15,9 +15,9 @@ baseline01: spec
 				project: 'Seaside3'
 					with: [ 
 							spec
-								className: #ConfigurationOfSeaside3;
-								versionString: #stable;
-								repository: 'http://smalltalkhub.com/mc/Pharo/MetaRepoForPharo40/main/' ].
+					className: 'ConfigurationOfSeaside3';
+					version: #'release3.2';
+					repository: 'http://smalltalkhub.com/mc/Seaside/MetacelloConfigurations/main' ].
 			spec repository: 'http://mc.stfx.eu/ZincHTTPComponents'.
 			spec package: 'Zinc-WebSocket-Core'.
 			spec repository: 'http://smalltalkhub.com/mc/Moose/Telescope/main/'.
