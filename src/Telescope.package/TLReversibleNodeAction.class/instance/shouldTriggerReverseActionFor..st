@@ -1,3 +1,4 @@
 testing
 shouldTriggerReverseActionFor: aTLDrawable
-	^ self subclassResponsability
+	self flag: 'only supported by Telescope-Cytoscape now and managed on the client side'.
+	^ false

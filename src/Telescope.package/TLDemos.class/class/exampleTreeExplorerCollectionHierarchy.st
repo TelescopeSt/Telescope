@@ -5,6 +5,6 @@ exampleTreeExplorerCollectionHierarchy
 	| visualization |
 	visualization := TLTreeExplorer root: Collection expandProperty: #subclasses.
 
-	visualization addInteraction: TLNodeBasicInteraction popup.
+	visualization addInteraction: TLPopUpAction onMouseOver.
 	visualization addInteraction: TLNodeBasicInteraction draggable.
 	^ visualization

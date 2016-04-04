@@ -21,6 +21,6 @@ exampleFLowControl
 	visu := TLFlowGraph new
 		entryPoint: a;
 		nextProperty: #next.
-	visu addInteraction: TLNodeBasicInteraction draggable; addInteraction: (TLNodeBasicInteraction popup: #title).
+	visu addInteraction: TLNodeBasicInteraction draggable; addInteraction: (TLPopUpAction text: #title) onMouseOver.
 	visu styleSheet nodeLabel: #title.
 	 ^ visu

@@ -18,5 +18,5 @@ buildVisualization
 		
 	self > #names
 		addNodesFromEntities: objects;
-		addInteraction: ( TLNodeBasicInteraction popup: [:each | each value size asString ] );
+		addInteraction: (TLPopUpAction text: [:each | each value size asString ] ) onMouseOver;
 		layout: ( RTFlowLayout new maxWidth: 600 ).

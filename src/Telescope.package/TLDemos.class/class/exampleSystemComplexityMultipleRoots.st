@@ -20,5 +20,5 @@ exampleSystemComplexityMultipleRoots
 		backgroundColorBlock: #linesOfCode;
 		property: #subclasses;
 		scopeBlock: #yourself.
-	visualization addInteraction: (TLNodeBasicInteraction popup: #yourself).
+	visualization addInteraction: TLPopUpAction onMouseOver.
 	^ visualization

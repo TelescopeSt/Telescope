@@ -23,7 +23,7 @@ buildVisualization
 		select: [ :each | each annotatedEntities notEmpty ] ).
 
 	self 
-		addInteraction: TLNodeBasicInteraction popup;
+		addInteraction: TLPopUpAction onMouseOver;
 		"addInteraction: ( TLMenuInteraction new action: #mooseMenuMorph );"
 		layout: RTForceBasedLayout.
 	(self styleSheet > #connection) backgroundColor: ( Color veryVeryLightGray alpha: 0.5 ).

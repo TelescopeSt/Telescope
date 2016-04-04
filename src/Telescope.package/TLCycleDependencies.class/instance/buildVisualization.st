@@ -22,6 +22,6 @@ buildVisualization
 	self > #packages
 		addNodesFromEntities: self entities;
 		connectFollowingProperty: self property;
-		addInteraction: TLNodeBasicInteraction popup;
+		addInteraction: TLPopUpAction onMouseOver;
 		addInteraction: TLNodeBasicInteraction draggable;
 		layout: RTCircleLayout.

@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "<historical>",
+	"super" : "TLReversibleNodeAction",
+	"category" : "Telescope-Actions",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"textBlock",
+		"position"
+	],
+	"name" : "TLPopUpAction",
+	"type" : "normal"
+}

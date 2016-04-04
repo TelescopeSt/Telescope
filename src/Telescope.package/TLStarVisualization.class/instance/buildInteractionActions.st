@@ -1,9 +1,10 @@
 building
 buildInteractionActions
 	self > #center
-		addInteraction: (TLNodeBasicInteraction popup: #mooseName);
+		addInteraction: (TLPopUpAction text: #mooseName) onMouseOver;
 		addNodeFromEntity: self centerNode.
-	(self > #around)
+	self > #around
 		addInteraction: TLNodeBasicInteraction draggable;
-		addInteraction: (TLNodeBasicInteraction popup: #mooseName).
-	defaultInteraction ifTrue: [ (self > #around ) addInteraction: self selectNodeInteraction ]
+		addInteraction: (TLPopUpAction text: #mooseName) onMouseOver.
+	defaultInteraction
+		ifTrue: [ self > #around addInteraction: self selectNodeInteraction ]

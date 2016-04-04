@@ -5,5 +5,5 @@ exampleSystemComplexity
 	visualization := TLSystemComplexity new
 		root: Collection;
 		property: #subclasses.
-	visualization addInteraction: (TLNodeBasicInteraction popup: #yourself).
+	visualization addInteraction: TLPopUpAction onMouseOver.
 	^ visualization
