@@ -121,6 +121,8 @@ cytoscapeTelescopeJs
           addStaticLegendEntry(command.visuId,command.html);
         } else if(command.command == ''removeLegend''){
           removeLegend(command.visuId);
+        } else if(command.command == ''callback''){
+          sendCallBack(command.callbackUrl);
         }
         else {
           console.log("unsupported command: " + command.command);
@@ -129,6 +131,35 @@ cytoscapeTelescopeJs
       }
     removeWaitingForVisuId(commands[0].visuId);
     
+  }
+  
+  function post(path, parameters) {
+	 var form = $(''<form></form>'');
+
+    form.attr("method", "post");
+    form.attr("action", path);
+
+    $.each(parameters, function(key, value) {
+        var field = $(''<input></input>'');
+
+        field.attr("type", "hidden");
+        field.attr("name", key);
+        field.attr("value", value);
+
+        form.append(field);
+    });
+
+    // The form needs to be a part of the document in
+    // order for us to be able to submit it.
+    $(document.body).append(form);
+    form.submit();
+}
+  
+  function sendCallBack(callBackUrl){
+    console.log(callBackUrl);
+    param = [];
+    param[callBackUrl[1]]= ''refresh'';
+    post(callBackUrl[0], param);
   }
   
   function customizeElement(element, commandParametersForElement){

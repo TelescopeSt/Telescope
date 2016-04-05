@@ -1,14 +1,19 @@
 as yet unclassified
 renderContentOn: html
-	| divStyle |
+	| divStyle visua |
 	divStyle := [ :visu | 'width: ' , visu openingDimension x asString , 'px; height: ' , visu openingDimension y asString , 'px; display: block;' ].
-	
-	html text: 'Coucou'.
-	
-	#(#examplePopUp "#exampleLegend #exampleGradient #exampleChangingLayout #exampleCompositeExploringHierarchy #exampleSystemComplexityMultipleRoots #exampleHighlightElements #exampleMovingNodeToAnotherGroup #exampleButterflyUsingStyleFunctionnality #exampleConnectionStyle #exampleAllShapes")
+	selection ifNotNil: [ html text: 'Selection: ', selection asString ].
+	visua := TLVisualization new
+		addNodesFromEntities: (1 to: 10);
+		addInteraction: (TLSeasideCallBackAction block: [ :node | selection := node entity ]) onClick;
+		yourself.
+	html div
+		style: (divStyle value: visua);
+		with: [ html render: (TLCytoscapeComponent visualization: visua) ].
+	#(#examplePopUp)
 		do: [ :visuName | 
 			| visualization |
 			visualization := TLDemos perform: visuName.
 			html div
 				style: (divStyle value: visualization);
-				with: [ html render: (TLCytoscapeComponent visualization: visualization) ] ]
+				with: [ html render: (TLCytoscapeComponent visualization: visualization) ] ]	"#exampleLegend #exampleGradient #exampleChangingLayout #exampleCompositeExploringHierarchy #exampleSystemComplexityMultipleRoots #exampleHighlightElements #exampleMovingNodeToAnotherGroup #exampleButterflyUsingStyleFunctionnality #exampleConnectionStyle #exampleAllShapes"
