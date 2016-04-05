@@ -10,7 +10,9 @@
 		"commandsQueue",
 		"visuId",
 		"drawablesById",
-		"positionNodesCommand"
+		"positionNodesCommand",
+		"visuCallBack",
+		"visuCallBackUrl"
 	],
 	"name" : "TLCytoscapeConnector",
 	"type" : "normal"

@@ -1,9 +1,8 @@
 rendering
 renderContentOn: html
-	| visuId |
+	| visuId div callback |
 	visuId := self visuDivId.
-	TLCytoscapeWebSocketDelegate registerVisualization: self visualization underId: visuId.
-	html div
+	div := html div
 		id: visuId;
 		attributeAt: #isTelescopeVisu put: 'true';
 		class: 'telescopeVisu';
@@ -11,4 +10,11 @@ renderContentOn: html
 					html div
 						class: 'visualization';
 						style: 'height: 100%; width: 100%;'.
-					(self waitingMessage value: html) ]
+					self waitingMessage value: html ];
+		yourself.
+	callback := WAValueCallback new.
+	TLCytoscapeWebSocketDelegate
+		registerVisualization: self visualization
+		underId: visuId
+		withCallBack: callback
+		callbackUrl: {html actionUrl asString.(div storeCallback: callback)}

@@ -1,0 +1,1 @@
+I am an action that execute the provided block as a seaside callback

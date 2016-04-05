@@ -1,0 +1,1 @@
+I am a command that ask the client to add a trigger on the referenced node
