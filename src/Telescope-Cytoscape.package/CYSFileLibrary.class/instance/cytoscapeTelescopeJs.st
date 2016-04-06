@@ -122,7 +122,7 @@ cytoscapeTelescopeJs
         } else if(command.command == ''removeLegend''){
           removeLegend(command.visuId);
         } else if(command.command == ''callback''){
-          sendCallBack(command.callbackUrl);
+          sendCallBack(command.callbackUrl, command.openInNewTab);
         }
         else {
           console.log("unsupported command: " + command.command);
@@ -133,11 +133,14 @@ cytoscapeTelescopeJs
     
   }
   
-  function post(path, cbId) {
+  function post(path, cbId, openInNewTab) {
 	 var form = $(''<form></form>'');
 
     form.attr("method", "post");
     form.attr("action", path);
+    if(openInNewTab){
+      form.attr("target", "_blank");
+    } 
 
    var field = $(''<input></input>'');
 
@@ -153,8 +156,8 @@ cytoscapeTelescopeJs
     form.submit();
 }
   
-  function sendCallBack(callBackUrl){
-    post(callBackUrl[0], callBackUrl[1]);
+  function sendCallBack(callBackUrl,openInNewTab){
+    post(callBackUrl[0], callBackUrl[1], openInNewTab);
   }
   
   function customizeElement(element, commandParametersForElement){
