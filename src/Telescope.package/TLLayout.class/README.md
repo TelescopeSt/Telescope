@@ -1,0 +1,1 @@
+I am the superclass for all layouts in Telescope. A layout is able to display drawables (nodes and groups) following its own logic and parameters.

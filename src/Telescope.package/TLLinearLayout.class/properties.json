@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "",
+	"super" : "TLLayout",
+	"category" : "Telescope-Layouts",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"horizontalGap",
+		"verticalGap",
+		"newLineStrategy"
+	],
+	"name" : "TLLinearLayout",
+	"type" : "normal"
+}

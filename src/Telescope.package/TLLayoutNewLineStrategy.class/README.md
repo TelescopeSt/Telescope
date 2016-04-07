@@ -1,0 +1,1 @@
+I am the superclass for all strategies able to answer if a new line should be created
