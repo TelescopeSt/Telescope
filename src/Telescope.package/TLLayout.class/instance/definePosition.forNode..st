@@ -1,4 +1,8 @@
 node facade
 definePosition: aPosition forNode: aNode
-	"Should be improved if we put an angle on layout"
-	aNode position: aPosition
+	"Layouts are always working in an ideal reference, then we place the node with the desired rotation"
+	aNode
+		position:
+			(self angle = 0
+				ifTrue: [ aPosition ]
+				ifFalse: [ aPosition rotateBy: self angleInRadian about: 0 @ 0 ])
