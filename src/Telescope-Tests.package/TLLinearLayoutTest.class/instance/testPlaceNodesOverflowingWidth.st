@@ -1,7 +1,7 @@
 tests
 testPlaceNodesOverflowingWidth
 	| nodes |
-	layout := TLLinearLayout gap: 5 maximumWidth: 50.
+	layout := TLLinearLayout gap: 5 maximumDimension: 50.
 	nodes := (1 to: 5)
 		collect: [ :i | 
 			| mock |
