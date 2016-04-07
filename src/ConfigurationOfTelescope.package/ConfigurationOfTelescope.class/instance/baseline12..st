@@ -26,10 +26,15 @@ baseline12: spec
 					className: #ConfigurationOfMaterialDesignLite;
 					versionString: #'bleedingEdge';
 					loads: #('colors' );
-					repository: 'http://smalltalkhub.com/mc/KevinLanvin/MaterialDesignLite/main/' ].
+					repository: 'http://smalltalkhub.com/mc/KevinLanvin/MaterialDesignLite/main/' ];
+			project: 'Mocketry' with: [
+				spec
+					className: #ConfigurationOfMocketry;
+					versionString: #'stable';
+					repository: 'http://smalltalkhub.com/mc/Pharo/MetaRepoForPharo40/main/' ].
 		spec 
 			package: 'XMenuModel';
 			package: 'Telescope' with: [
 				spec requires: #('Stylesheet' 'Geometry' 'XMenuModel' 'MaterialDesignLite' ). ];
 			package: 'Telescope-Tests' with: [
-				spec requires: #('Telescope' 'BabyMock2' ). ]. ].
+				spec requires: #('Telescope' 'BabyMock2' 'Mocketry' ). ]. ].
