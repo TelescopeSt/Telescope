@@ -8,7 +8,7 @@ on: aGroup
 		do: [ :aNode | 
 			| nodeDimension |
 			nodeDimension := self obtainsNodeDimension: aNode.
-			(self newLineStrategy shouldCreateNewLineFrom: currentPosition currentNodeNumberOnLine: nodesOnLine for: aNode)
+			(self newLineStrategy shouldCreateNewLineFrom: currentPosition currentNodeNumberOnLine: nodesOnLine forDimension: aNode dimension)
 				ifTrue: [ currentPosition := 0 @ (currentPosition y + maxHeight + self verticalGap).
 					maxHeight := 0.
 					nodesOnLine := 1 ].
