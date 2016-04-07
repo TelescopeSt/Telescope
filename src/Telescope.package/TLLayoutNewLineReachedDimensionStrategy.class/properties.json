@@ -6,8 +6,8 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"maxWidth"
+		"maxDimension"
 	],
-	"name" : "TLLayoutNewLineReachedWidthStrategy",
+	"name" : "TLLayoutNewLineReachedDimensionStrategy",
 	"type" : "normal"
 }

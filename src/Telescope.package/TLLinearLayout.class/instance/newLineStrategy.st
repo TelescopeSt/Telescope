@@ -1,3 +1,3 @@
 accessing
 newLineStrategy
-	^ newLineStrategy ifNil: [ newLineStrategy := TLLayoutNewLineReachedWidthStrategy width: 400 ]
+	^ newLineStrategy ifNil: [ newLineStrategy := TLLayoutNewLineReachedDimensionStrategy dimension: Float infinity ]

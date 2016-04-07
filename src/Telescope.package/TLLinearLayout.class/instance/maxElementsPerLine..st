@@ -1,0 +1,3 @@
+strategy
+maxElementsPerLine: aNumberOfElements
+	self newLineStrategy: (TLLayoutNewLineMaxNumberElementsStrategy maxNumberOfElements: aNumberOfElements)

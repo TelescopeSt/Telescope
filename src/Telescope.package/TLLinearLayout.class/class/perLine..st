@@ -1,5 +1,5 @@
 instance-creation
-gap: aGap perLine: anInteger
-	^ (self gap: aGap)
+perLine: anInteger
+	^ self new
 		maxElementsPerLine: anInteger;
 		yourself
