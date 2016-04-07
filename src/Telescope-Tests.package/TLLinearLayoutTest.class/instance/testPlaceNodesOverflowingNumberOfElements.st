@@ -1,7 +1,7 @@
 tests
-testPlace5IdenticalNodes
+testPlaceNodesOverflowingNumberOfElements
 	| nodes |
-	layout := TLLinearLayout gap: 5.
+	layout := TLLinearLayout gap: 5 perLine: 3.
 	nodes := (1 to: 5)
 		collect: [ :i | 
 			| mock |
@@ -12,6 +12,6 @@ testPlace5IdenticalNodes
 	nodes first should got position: 5@5.
 	nodes second should got position: 20@5.
 	nodes third should got position: 35@5.
-	nodes fourth should got position: 50@5.
-	nodes fifth should got position: 65@5.
+	nodes fourth should got position: 5@20.
+	nodes fifth should got position: 20@20.
 	

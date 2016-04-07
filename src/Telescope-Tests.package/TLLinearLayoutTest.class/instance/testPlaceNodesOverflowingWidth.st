@@ -6,8 +6,6 @@ testPlaceNodesOverflowingWidth
 		collect: [ :i | 
 			| mock |
 			mock := Mock named: 'Node ', i asString.
-			mock stub width willReturn: 10.
-			mock stub height willReturn: 10.
 			mock stub dimension willReturn: 10@10.
 			mock ].
 	layout on: nodes.
