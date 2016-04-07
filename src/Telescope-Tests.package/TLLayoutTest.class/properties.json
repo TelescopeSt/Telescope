@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "",
+	"super" : "TestCase",
+	"category" : "Telescope-Tests-Layouts",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"layout"
+	],
+	"name" : "TLLayoutTest",
+	"type" : "normal"
+}
