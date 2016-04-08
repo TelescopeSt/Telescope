@@ -1,3 +1,3 @@
 accessing
 doLayout
-	self layout: (RTGridLayout new lineItemsCount:3; gapSize: 20)
+	self layout: (TLLinearLayout gap: 20 perLine: 3)

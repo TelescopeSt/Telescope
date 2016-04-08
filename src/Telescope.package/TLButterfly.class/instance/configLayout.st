@@ -1,6 +1,6 @@
 layout
 configLayout
-	self > #left layout: (RTVerticalLineLayout new alignRight).
+	self > #left layout: TLLinearLayout topToBottom.
 	self > #central.
-	self > #right layout: (RTVerticalLineLayout new alignLeft).
-	self layout: (RTHorizontalLineLayout new alignCenter; horizontalGap: 100)
+	self > #right layout: TLLinearLayout topToBottom.
+	self layout: (TLLinearLayout gap: 100)

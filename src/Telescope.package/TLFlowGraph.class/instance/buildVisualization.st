@@ -1,4 +1,4 @@
 building
 buildVisualization
 	self buildTheFlowFrom: {self entryPoint} currentRank: 1.
-	self layout: (RTHorizontalLineLayout new alignCenter; gapSize: 30).
+	self layout: (TLLinearLayout gap: 30).

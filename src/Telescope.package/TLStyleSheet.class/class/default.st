@@ -2,7 +2,7 @@ initialize-release
 default
 	| defaultStyleSheet |
 	defaultStyleSheet := self new
-		layout: (RTGridLayout new gapSize: 15);
+		layout: (TLLinearLayout gap: 15 maximumDimension: 300);
 		backgroundColor: (Color orange lighter alpha: 0.5);
 		borderColor: Color black;
 		textColor: Color black;
@@ -12,7 +12,7 @@ default
 		shape: TLRectangle;
 		nodeLabelPosition: #inside;
 		compositeExpandedByDefault: false;
-		childrenLayout: RTGridLayout;
+		childrenLayout: (TLLinearLayout gap: 5 maximumDimension: 50);
 		triggerPosition: #right;
 		yourself.
 	defaultStyleSheet > #shapeInteraction

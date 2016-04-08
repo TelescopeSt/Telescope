@@ -2,4 +2,4 @@ private
 addNodes: aCollectionOfObjects At: anIntegerRank
 	self > anIntegerRank
 		addNodesFromEntities: aCollectionOfObjects;
-		layout: (RTVerticalLineLayout new gapSize: 30)
+		layout: (TLLinearLayout topToBottom gap: 30)
