@@ -5,13 +5,13 @@ baseline01: spec
 		for: #common
 		do: [ 
 			spec blessing: #baseline.
-			spec
-				project: 'Telescope'
-					with: [ 
-							spec
-								className: #ConfigurationOfTelescope;
-								versionString: #development;
-								repository: 'http://smalltalkhub.com/mc/Moose/Telescope/main/' ];
+			spec 
+			project: 'Telescope' with: [
+				spec
+					className: #ConfigurationOfTelescope;
+					versionString: #'development';
+					loads: #('Core' );
+					repository: 'http://smalltalkhub.com/mc/Moose/Telescope/main/' ];
 				project: 'Seaside3'
 					with: [ 
 							spec
