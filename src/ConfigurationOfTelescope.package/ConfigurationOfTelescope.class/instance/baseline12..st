@@ -40,5 +40,4 @@ baseline12: spec
 				spec requires: #('Telescope' 'BabyMock2' 'Mocketry' ). ].
 		spec 
 			group: 'Core' with: #('Telescope' 'XMenuModel' );
-			group: 'Tests' with: #('Telescope-Tests' );
-			group: 'default' with: #('Core' ). ].
+			group: 'Tests' with: #('Telescope-Tests' ). ].
