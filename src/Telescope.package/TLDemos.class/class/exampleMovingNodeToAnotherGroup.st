@@ -11,7 +11,7 @@ exampleMovingNodeToAnotherGroup
 		addInteraction: (TLMoveConnectableAction destination: visualization > #group2) onClick;
 		addInteraction: (TLStyleCustomizationAction custom: [:style | style backgroundColor: Color red]) onMouseOver.
 	visualization > #group2
-		layout: RTVerticalLineLayout;
+		layout: TLLinearLayout topToBottom;
 		addNodesFromEntities: ($e to: $h);
 		addInteraction: (TLMoveConnectableAction destination: visualization > #group1) onClick;
 		addInteraction: (TLStyleCustomizationAction custom: [:style | style backgroundColor: Color blue]) onMouseOver.

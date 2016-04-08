@@ -1,3 +1,3 @@
 angle
 angleInRadian
-	^ self angle degreesToRadians
+	^ self angle degreesToRadians negated

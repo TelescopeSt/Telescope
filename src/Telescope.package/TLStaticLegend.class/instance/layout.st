@@ -1,3 +1,3 @@
 accessing
 layout
-	^ layout ifNil: [ RTGridLayout new gapSize: 20 ]
+	^ layout ifNil: [ TLLinearLayout gap: 20 maximumDimension: 150 ]

@@ -15,7 +15,7 @@ buildCycleStartingAt: anObject
 							self rank at: obj put: nextRank.
 							self objectAdded at: obj put: false.
 							self > nextRank addNodeFromEntity: obj.
-							self > nextRank layout: (RTVerticalLineLayout new gapSize: 30) ].
+							self > nextRank layout: (TLLinearLayout topToBottom gap: 30) ].
 					self > currentRank connectInsideGroupEntity: anObject toEntity: obj FromAnotherGroup: self > nextRank ].
 			self objectAdded at: anObject put: true.
 			next

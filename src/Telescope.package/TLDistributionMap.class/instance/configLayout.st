@@ -1,3 +1,3 @@
 layout
 configLayout
-	self > #containers layout: (RTGridLayout new)
+	self > #containers layout: (TLLinearLayout maximumDimension: 500)

@@ -1,18 +1,26 @@
 placing
 on: aGroup
-	| currentPosition maxHeight nodesOnLine |
+	| currentPosition maxHeight nodesOnLine lineOfNodesWithPosition |
 	currentPosition := 0 @ 0.
 	maxHeight := 0.
 	nodesOnLine := 1.
+	lineOfNodesWithPosition := OrderedDictionary new.
 	aGroup
 		do: [ :aNode | 
 			| nodeDimension |
 			nodeDimension := self obtainsNodeDimension: aNode.
-			(self newLineStrategy shouldCreateNewLineFrom: currentPosition currentNodeNumberOnLine: nodesOnLine forDimension: aNode dimension)
-				ifTrue: [ currentPosition := 0 @ (currentPosition y + maxHeight + self verticalGap).
+			(self newLineStrategy
+				shouldCreateNewLineFrom: currentPosition
+				currentNodeNumberOnLine: nodesOnLine
+				forDimension: aNode dimension)
+				ifTrue: [ 
+					currentPosition := 0 @ (currentPosition y + maxHeight + self verticalGap).
 					maxHeight := 0.
-					nodesOnLine := 1 ].
+					nodesOnLine := 1.
+					self placeLineOfNodes: lineOfNodesWithPosition maxHeight: maxHeight.
+					lineOfNodesWithPosition removeAll ].
 			maxHeight := maxHeight max: nodeDimension y.
 			nodesOnLine := nodesOnLine + 1.
-			self definePosition: currentPosition + (nodeDimension / 2) forNode: aNode.
-			currentPosition := currentPosition + ((self horizontalGap + nodeDimension x) @ 0) ]
+			lineOfNodesWithPosition at: aNode put: currentPosition + (nodeDimension / 2) -> nodeDimension y.
+			currentPosition := currentPosition + ((self horizontalGap + nodeDimension x) @ 0) ].
+	self placeLineOfNodes: lineOfNodesWithPosition maxHeight: maxHeight

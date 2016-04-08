@@ -16,7 +16,7 @@ exampleRecursiveCompositeNode
 		
 		nodeLabel: #name position: #inside.
 	visualization styleSheet > #children
-		layout: RTVerticalLineLayout;
+		layout: TLLinearLayout topToBottom;
 		compositeExpandedByDefault: false;
 		nodeLabel: #name position: #inside;
 		backgroundColor: Color white.

@@ -5,7 +5,7 @@ exampleChangingLayout
 	| visu |
 	visu := TLVisualization new.
 	visu styleSheet width: 200; height: 50.
-	visu > #group1 layout: RTVerticalLineLayout.
+	visu > #group1 layout: TLLinearLayout topToBottom.
 	visu > #group1 addNodesFromEntities: (RTLayout allSubclasses reject: #isAbstract).
 	visu > #group2 addNodesFromEntities: Collection withAllSubclasses.
 	visu > #group2 connectFollowingProperty: #superclass.

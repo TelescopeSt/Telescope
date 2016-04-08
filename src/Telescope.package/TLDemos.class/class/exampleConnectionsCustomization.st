@@ -10,5 +10,5 @@ exampleConnectionsCustomization
 	(source connectTo: (group2 addNodeFromEntity: 2)) color: Color green.
 	(source connectTo: (group2 addNodeFromEntity: 3)) color: Color blue.
 	(source connectTo: (group2 addNodeFromEntity: 4)) color: Color yellow.
-	group2 layout: RTVerticalLineLayout.
+	group2 layout: TLLinearLayout topToBottom.
 	^ visualization
