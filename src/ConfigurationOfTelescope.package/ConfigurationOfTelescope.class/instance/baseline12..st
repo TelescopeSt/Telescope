@@ -37,4 +37,7 @@ baseline12: spec
 			package: 'Telescope' with: [
 				spec requires: #('Stylesheet' 'Geometry' 'XMenuModel' 'MaterialDesignLite' ). ];
 			package: 'Telescope-Tests' with: [
-				spec requires: #('Telescope' 'BabyMock2' 'Mocketry' ). ]. ].
+				spec requires: #('Telescope' 'BabyMock2' 'Mocketry' ). ].
+		spec 
+			group: 'Core' with: #('Telescope' 'XMenuModel' );
+			group: 'Tests' with: #('Telescope-Tests' ). ].
