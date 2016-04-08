@@ -10,7 +10,7 @@ baseline01: spec
 				spec
 					className: #ConfigurationOfTelescope;
 					versionString: #'development';
-					loads: #('Core' );
+					loads: #( #Core );
 					repository: 'http://smalltalkhub.com/mc/Moose/Telescope/main/' ];
 				project: 'Seaside3'
 					with: [ 
