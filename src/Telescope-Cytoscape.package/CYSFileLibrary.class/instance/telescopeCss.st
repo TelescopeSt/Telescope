@@ -22,4 +22,7 @@ telescopeCss
 	 color: rgb(96,125,139);
 }
 
+.tlLegendIcon {
+    min-width: 30px;
+}
 '
