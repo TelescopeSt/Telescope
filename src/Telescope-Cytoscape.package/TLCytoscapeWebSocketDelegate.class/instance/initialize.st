@@ -5,6 +5,9 @@ initialize
 	self websocketByVisu: Dictionary new.
 	self
 		handler: [ :webSocket | 
+			[ 
 			[ webSocket runWith: [ :message | self onMessageReceived: message webSocket: webSocket ] ]
 				on: ConnectionClosed
 				do: [ self freeResourcesFor: webSocket ] ]
+				on: PrimitiveFailed
+				do: [ self class restart ] ]
