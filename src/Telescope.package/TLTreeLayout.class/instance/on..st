@@ -1,3 +1,8 @@
 as yet unclassified
 on: aGroup
-	self obtainTreesFromNodes: aGroup
+	| tree yTable |
+	tree := self obtainTreesFromNodes: aGroup.
+	
+	yTable := self obtainYtableForTree: tree.
+	
+	self positionNodesInTree: tree currentDec: 0.
