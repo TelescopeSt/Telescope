@@ -9,6 +9,6 @@ testCyclicGraphAccepted
 				answers: 20 @ 20.
 			node can receive: #position:.
 			node can
-				receive: #incomingAdjacentNodes;
+				receive: #outgoingAdjacentNodes;
 				answers: {(nodes after: node ifAbsent: [ nodes first ])} ].
 	layout on: nodes

@@ -4,12 +4,12 @@ testObtainYTable
 	layout levelGap: 5.
 	node := context mock: 'child'.
 	node can
-		receive: #height;
-		answers: 10.
+		receive: #dimension;
+		answers: 5@10.
 	root := context mock: #root.
 	root can
-		receive: #height;
-		answers: 20.
+		receive: #dimension;
+		answers: 10@20.
 	tree := {(root -> {(node -> Dictionary new)} asDictionary)} asDictionary.
 	self
 		assert: (layout obtainYtableForTree: tree)
