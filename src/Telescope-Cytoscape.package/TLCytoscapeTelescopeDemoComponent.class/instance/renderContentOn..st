@@ -1,7 +1,7 @@
 as yet unclassified
 renderContentOn: html
 	| divStyle visua |
-	divStyle := [ :visu | 'width: ' , visu openingDimension x asString , 'px; height: ' , visu openingDimension y asString , 'px; display: block;' ].
+	divStyle := [ :visu | 'width: ' , (visu openingDimension x * 3) asString , 'px; height: ' , (visu openingDimension y * 3) asString , 'px; display: block;' ].
 	selection ifNotNil: [ html text: 'Selection: ', selection asString ].
 	visua := TLVisualization new
 		addNodesFromEntities: (1 to: 10);
@@ -10,7 +10,7 @@ renderContentOn: html
 	html div
 		style: (divStyle value: visua);
 		with: [ html render: (TLCytoscapeComponent visualization: visua) ].
-	#(#examplePopUp exampleTelescopeLayouts)
+	#(#exampleChangingLayout #examplePopUp exampleTelescopeLayouts)
 		do: [ :visuName | 
 			| visualization |
 			visualization := TLDemos perform: visuName.
