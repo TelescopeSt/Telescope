@@ -1,13 +1,19 @@
 as yet unclassified
 testObtainYTable
 	| node root tree |
-	node := Mock named: 'child'.
-	node stub height willReturn: 10.
-	root := Mock named: #root.
-	root stub height willReturn: 20.
+	layout levelGap: 5.
+	node := context mock: 'child'.
+	node can
+		receive: #height;
+		answers: 10.
+	root := context mock: #root.
+	root can
+		receive: #height;
+		answers: 20.
 	tree := {(root -> {(node -> Dictionary new)} asDictionary)} asDictionary.
 	self
 		assert: (layout obtainYtableForTree: tree)
 		equals:
-			{20.
-			10}
+			{0.
+			25.
+			40} asOrderedCollection
