@@ -10,7 +10,7 @@ renderContentOn: html
 	html div
 		style: (divStyle value: visua);
 		with: [ html render: (TLCytoscapeComponent visualization: visua) ].
-	#(#exampleChangingLayout #examplePopUp exampleTelescopeLayouts)
+	#(#exampleBackgroundImages #exampleChangingLayout #examplePopUp exampleTelescopeLayouts)
 		do: [ :visuName | 
 			| visualization |
 			visualization := TLDemos perform: visuName.
