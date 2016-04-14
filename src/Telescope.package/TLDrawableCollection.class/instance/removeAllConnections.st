@@ -1,0 +1,3 @@
+as yet unclassified
+removeAllConnections
+	self allNodesRecursivelyDo: #removeAllConnections
