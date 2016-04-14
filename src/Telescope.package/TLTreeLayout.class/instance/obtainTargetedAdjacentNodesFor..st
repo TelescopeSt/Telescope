@@ -1,3 +1,5 @@
-as yet unclassified
+private
 obtainTargetedAdjacentNodesFor: aNode
-	^ aNode outgoingAdjacentNodes
+	^ self incomingUsed
+		ifTrue: [ aNode incomingAdjacentNodes ]
+		ifFalse: [ aNode outgoingAdjacentNodes ]

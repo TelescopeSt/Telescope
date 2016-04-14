@@ -1,7 +1,7 @@
-as yet unclassified
+private
 obtainYtableForTree: tree
-
-	| maxHeightByLevel |
-	maxHeightByLevel := OrderedCollection new.
-	self calculateMaxForLevel: 1 forTree: tree inTable: maxHeightByLevel.
-	^ maxHeightByLevel 
+	| maxHeightByLevel pointer |
+	maxHeightByLevel := OrderedCollection with: 0.
+	self calculateMaxForLevel: 2 forTree: tree inTable: maxHeightByLevel.
+	pointer := self levelGap negated.
+	^ maxHeightByLevel collect: [ :yDec | pointer := pointer + yDec + self levelGap ]

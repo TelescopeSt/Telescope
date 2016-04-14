@@ -1,4 +1,4 @@
-as yet unclassified
+private
 obtainTreeWithRoot: root childrenIn: remainingNodes existingTrees: trees
 	^ (self obtainTargetedAdjacentNodesFor: root)
 		inject: OrderedDictionary new
@@ -7,8 +7,19 @@ obtainTreeWithRoot: root childrenIn: remainingNodes existingTrees: trees
 				at: node
 				ifPresent: [ :branch | dictionary at: node put: (trees removeKey: node) ]
 				ifAbsent: [ 
-					[ dictionary at: node put: (self obtainTreeWithRoot: node childrenIn: (remainingNodes remove: node) existingTrees: trees) ]
+					[ 
+					dictionary
+						at: node
+						put:
+							(self
+								obtainTreeWithRoot: node
+								childrenIn:
+									(remainingNodes
+										remove: node;
+										yourself)
+								existingTrees: trees) ]
 						on: NotFound
-						do: [Halt now. 
-							"no children found in existing trees or remaining nodes"
-							 ] ]. dictionary ]
+						do: [ 
+							"no children found in existing trees (at first level) or remaining nodes"
+							 ] ].
+			dictionary ]

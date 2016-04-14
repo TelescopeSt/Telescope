@@ -1,4 +1,4 @@
-as yet unclassified
+private
 obtainTreesFromNodes: aGroup
 	| trees remainingNodes |
 	remainingNodes := aGroup asOrderedCollection.
