@@ -3,7 +3,7 @@ baseline09: spec
 	<version: '0.9-baseline'>
 
 	spec for: #'common' do: [
-		spec blessing: #'development'.
+		spec blessing: #'baseline'.
 		spec repository: 'http://smalltalkhub.com/mc/Moose/Telescope/main/'.
 		spec 
 			project: 'BabyMock2' with: [

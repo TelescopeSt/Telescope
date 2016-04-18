@@ -26,19 +26,14 @@ baseline12: spec
 					className: #ConfigurationOfMaterialDesignLite;
 					versionString: #'bleedingEdge';
 					loads: #('colors' );
-					repository: 'http://smalltalkhub.com/mc/KevinLanvin/MaterialDesignLite/main/' ]";
-			project: 'Mocketry' with: [
+					repository: 'http://smalltalkhub.com/mc/KevinLanvin/MaterialDesignLite/main/' ];
+			project: 'TelescopeLayouts' with: [
 				spec
-					className: #ConfigurationOfMocketry;
-					versionString: #'stable';
-					repository: 'http://smalltalkhub.com/mc/dionisiy/Mocktry/main/' ]".
+					className: #ConfigurationOfTelescopeLayouts;
+					versionString: #'bleedingEdge';
+					repository: 'http://smalltalkhub.com/mc/Moose/Telescope/main/' ].
 		spec 
 			package: 'XMenuModel';
 			package: 'Telescope' with: [
-				spec requires: #('Stylesheet' 'Geometry' 'XMenuModel' 'MaterialDesignLite' ). ]";
-			package: 'Telescope-Tests' with: [
-				spec requires: #('Telescope' 'BabyMock2' 'Mocketry' ). ]".
-			self flag: #todo. "For now Mocktry is not compatible with Moose. Remove this comment latter to load the tests"
-		spec 
-			group: 'Core' with: #('Telescope' 'XMenuModel' )";
-			group: 'Tests' with: #('Telescope-Tests' )". ].
+				spec requires: #('Stylesheet' 'Geometry' 'XMenuModel' 'MaterialDesignLite' 'TelescopeLayouts' ). ].
+		spec group: 'Core' with: #('Telescope' 'XMenuModel' ). ].
