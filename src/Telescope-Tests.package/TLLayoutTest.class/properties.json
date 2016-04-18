@@ -1,6 +1,6 @@
 {
 	"commentStamp" : "",
-	"super" : "TestCase",
+	"super" : "BabyMockTestCase",
 	"category" : "Telescope-Tests-Layouts",
 	"classinstvars" : [ ],
 	"pools" : [ ],
