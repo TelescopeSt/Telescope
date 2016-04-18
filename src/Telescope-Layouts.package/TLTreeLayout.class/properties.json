@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "GuillaumeLarcheveque 4/8/2016 15:05",
+	"super" : "TLLayout",
+	"category" : "Telescope-Layouts",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"levelGap",
+		"leavesGap",
+		"incomingUsed"
+	],
+	"name" : "TLTreeLayout",
+	"type" : "normal"
+}

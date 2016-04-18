@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "<historical>",
+	"super" : "TLLayoutNewLineStrategy",
+	"category" : "Telescope-Layouts",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"maxDimension"
+	],
+	"name" : "TLLayoutNewLineReachedDimensionStrategy",
+	"type" : "normal"
+}

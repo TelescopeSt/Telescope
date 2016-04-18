@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "CyrilFerlicot 4/7/2016 15:17",
+	"super" : "TLLayoutNewLineStrategy",
+	"category" : "Telescope-Layouts",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"maxNumberOfElements"
+	],
+	"name" : "TLLayoutNewLineMaxNumberElementsStrategy",
+	"type" : "normal"
+}
