@@ -1,5 +1,5 @@
 placing
-on: aGroup
+executeOn: aGroup
 	| tree yTable |
 	tree := self obtainTreesFromNodes: aGroup.
 	yTable := self obtainYtableForTree: tree.

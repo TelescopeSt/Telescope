@@ -6,7 +6,8 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"angle"
+		"angle",
+		"cache"
 	],
 	"name" : "TLLayout",
 	"type" : "normal"

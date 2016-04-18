@@ -1,5 +1,5 @@
 placing
-on: aGroup
+executeOn: aGroup
 	| currentPosition maxHeight nodesOnLine lineOfNodesWithPosition |
 	currentPosition := 0 @ 0.
 	maxHeight := 0.
