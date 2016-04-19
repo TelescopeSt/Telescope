@@ -1,8 +1,5 @@
 as yet unclassified
 testWithAngle
-	| node |
-	layout angle: 90.
-	node := Mock new.
-	layout definePosition: 5 @ 5 forNode: node.
+	layout angle: 90.	
 	"This is due to float calculation"
-	node should got position: 5.000000000000001 @ -5.0
+	self assert: (layout rotateResult: {5 @ 5}) first equals: 5.000000000000001 @ -5.0
