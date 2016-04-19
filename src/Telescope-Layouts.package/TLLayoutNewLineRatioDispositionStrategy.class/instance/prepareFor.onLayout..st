@@ -1,6 +1,7 @@
 as yet unclassified
 prepareFor: aGroup onLayout: aLayout
 	| dimensions simulator numberOfNodes minRatio maxRatio |
+	aGroup ifEmpty: [ ^ self ].
 	dimensions := aGroup collect: [ :aNode | aLayout obtainsNodeDimension: aNode ].
 	numberOfNodes := (dimensions size * ratio) sqrt rounded max: 1.
 	[ minRatio isNil or: [ maxRatio isNil ] ]
@@ -13,7 +14,7 @@ prepareFor: aGroup onLayout: aLayout
 				verticalGap: aLayout verticalGap;
 				newLineStrategy: self;
 				yourself.
-			simulator layoutApplicationOn: aGroup.
+			simulator executeOn: aGroup.
 			simulator ratio > self ratio
 				ifTrue: [ 
 					maxRatio := simulator ratio -> self maxDimension.

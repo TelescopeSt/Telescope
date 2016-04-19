@@ -1,4 +1,5 @@
 initialization
 initialize
 	super initialize.
-	self angle: 0
+	self angle: 0.
+	self clearCache
