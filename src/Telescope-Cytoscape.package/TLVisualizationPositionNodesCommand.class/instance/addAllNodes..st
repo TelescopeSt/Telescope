@@ -1,3 +1,8 @@
 adding
-addAllNodes: aCollectionOfTLVirtualNodes
-	self nodes addAll: (aCollectionOfTLVirtualNodes select: #isNode)
+addAllNodes: aCollectionOfTLVirtualElements
+	aCollectionOfTLVirtualElements
+		do: [ :anElement | 
+			anElement isNode
+				ifTrue: [ 
+					self nodes add: anElement.
+					self addAllNodes: anElement children ] ]
