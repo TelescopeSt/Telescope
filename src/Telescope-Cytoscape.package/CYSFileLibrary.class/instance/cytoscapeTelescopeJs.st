@@ -202,23 +202,22 @@ cytoscapeTelescopeJs
      }
 
   function displayMenuForElement(element, visuId, position){
-    console.log(element.menu);
     var menu = [];
-    for(var i = 0; i < element.menu.length; i++){
-      
-      menu.push({name: element.menu[i], title: element.menu[i], fun: function (name, evt){
+    var fun = function (name, evt){
         websocket.send(JSON.stringify([
           {"id": visuId, 
           "drawableId": element.id(),
           "command": "menuInteraction",
           "kind": "menu",
           "entry": evt.target.innerHTML
-          }]));
-      }});
+          }]));};
+    
+    
+    for(var i = 0; i < element.menu.length; i++){
+      
+      menu.push({name: element.menu[i], title: element.menu[i], fun: fun});
     }
-    console.log(menu);
-    console.log( $(''#''+visuId));
-    $(''#''+visuId).contextMenu(menu);//element[''menu''];
+     $(''#''+visuId).contextMenu(menu);//element[''menu''];
     $(''#''+visuId).contextMenu(''open'', {top: position.y, left: position.x});
   }
 
@@ -226,8 +225,6 @@ cytoscapeTelescopeJs
     eventsWithInteractions = {''tap'':''click'' , ''cxttap'':''rightClick'' , ''mouseover'':''mouseOver'', ''mouseout'':''mouseOut''};
     
     return function (evt){
-      console.log(evt.cyPosition);
-      console.log(evt.cyRenderedPosition);
       // server interaction processing
       if((!evt.cyTarget[''mouseOverInteraction'']) && ((evt.type == ''mouseover'') || (evt.type == ''mouseout''))){
           
