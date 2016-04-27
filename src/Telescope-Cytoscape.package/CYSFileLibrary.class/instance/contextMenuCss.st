@@ -9,27 +9,31 @@ contextMenuCss
  */
 /*Context menu css */
 .iw-contextMenu {
-  -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-  border: 1px solid #E6E6E6;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.12), 0px 1px 4px rgba(0, 0, 0, 0.12);
+  border-radius: 2px;
   display: none;
   z-index: 1000;
+  font-size: 15px;
+  line-height: 32px;
+  white-space: nowrap;
 }
 .iw-cm-menu {
-  background: #F4F4F4;
-  color: #333;
+  background: #FFF;
+  color: rgba(0, 0, 0, 0.87);
   margin: 0px;
-  padding: 0px;
+  padding: 8px 0px;
 }
 .iw-cm-menu li {
   list-style: none;
-  padding: 3px;
-  padding-left: 30px;
-  padding-right: 20px;
-  border-bottom: 1px solid #CCC;
+  border-bottom: 1px solid rgb(224, 224, 224);
   cursor: pointer;
   position: relative;
+  margin-left: 0px;
+  padding: 5px 24px;
+  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+}
+.iw-cm-menu li:last-of-type {
+    border-bottom: none;
 }
 .iw-mOverlay {
   position: absolute;
@@ -44,8 +48,7 @@ contextMenuCss
   opacity: .3;
 }
 .iw-mSelected {
-  background-color: #003366;
-  color: #F2F2F2;
+  background: rgba(0, 0, 0, 0.1) none repeat scroll 0% 0%;
 }
 .iw-cm-arrow-right {
   width: 0;
@@ -57,9 +60,6 @@ contextMenuCss
   right: 3px;
   top: 50%;
   margin-top: -3px;
-}
-.iw-mSelected > .iw-cm-arrow-right {
-  border-left: 5px solid #FFF;
 }
 .iw-mIcon {
   width: 20px;
