@@ -1,7 +1,7 @@
 interaction
-executeMenuInteraction: anEntryName onDrawableId: aDrawableId 
+executeMenuInteraction: anEntryIndex onDrawableId: aDrawableId
 	| drawable |
 	drawable := self tlDrawableFromId: aDrawableId.
-	drawable allInteractions
-		select: [:anInteraction | anInteraction isMenu and: [ anInteraction title = anEntryName ]]
-		thenDo: [:anInteraction | self executeInteraction: anInteraction forDrawable: drawable referencedElement]
+	self
+		executeInteraction: ((drawable allInteractions select: #isMenu) at: anEntryIndex)
+		forDrawable: drawable referencedElement

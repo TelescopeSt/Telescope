@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "",
+	"super" : "TLInteractionCommand",
+	"category" : "Telescope-Cytoscape-Commands",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"entry",
+		"selection"
+	],
+	"name" : "TLMultiChoicesMenuInteractionCommand",
+	"type" : "normal"
+}

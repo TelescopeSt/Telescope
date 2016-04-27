@@ -10,4 +10,14 @@ customizeFromInteractions: aCollectionOfInteractions forNode: aTLNode
 				detect: [ :interaction | interaction action isPopUp ]
 				ifFound: [ :interaction | interaction forCytoscapeFromNode: aTLNode ]
 				ifNone: [ nil ]).
-	self menu: (aCollectionOfInteractions select: #isMenu thenCollect: #title)
+	self
+		menu:
+			(aCollectionOfInteractions
+				select: #isMenu
+				thenCollect: [ :anInteraction | 
+					| dic |
+					dic := Dictionary new.
+					dic at: 'title' put: anInteraction title.
+					anInteraction isMultiChoiceMenu
+						ifTrue: [ dic at: #subMenu put: (anInteraction choicesListForDrawable: aTLNode) ].
+					dic ])

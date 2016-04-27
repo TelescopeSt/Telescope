@@ -1,3 +1,3 @@
 generation - interaction
 generateRightClickInteraction: aRightClickInteraction onDrawable: aTLDrawable targetingDrawable: aTargetTLDrawable
-	self flag: 'should only register the association aTLDrawable->aTargetTLDrawable'
+	"nothing to do because we manage interaction when the client send a request"

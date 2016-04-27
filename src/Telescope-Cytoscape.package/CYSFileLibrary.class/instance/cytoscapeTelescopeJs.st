@@ -201,7 +201,7 @@ cytoscapeTelescopeJs
   function onError(evt) {
      }
 
-  function displayMenuForElement(element, visuId, position){
+ function displayMenuForElement(element, visuId, position){
     var menu = [];
     var fun = function (name, evt){
         websocket.send(JSON.stringify([
@@ -209,15 +209,36 @@ cytoscapeTelescopeJs
           "drawableId": element.id(),
           "command": "menuInteraction",
           "kind": "menu",
-          "entry": evt.target.innerHTML
+          "entry": ($(evt.target).index() + 1)
           }]));};
     
+    var subFun = function (name, evt){
+        var selected = evt.currentTarget;
+        websocket.send(JSON.stringify([
+          {"id": visuId, 
+          "drawableId": element.id(),
+          "command": "multiMenuInteraction",
+          "kind": "menu",
+          "entry": ($(selected.parentNode.parentNode).index() + 1),
+          "selection": ($(selected).index() + 1)
+          }]));};
     
     for(var i = 0; i < element.menu.length; i++){
+      entry = {name: element.menu[i].title, title: element.menu[i].title};
       
-      menu.push({name: element.menu[i], title: element.menu[i], fun: fun});
+      if (element.menu[i].subMenu){
+        entry["subMenu"] = [];
+        for(var j = 0; j < element.menu[i].subMenu.length; j++){
+          var subMenuTitle = element.menu[i].subMenu[j];
+          entry["subMenu"].push({name: subMenuTitle, title: subMenuTitle, fun: subFun});
+        }
+      } else {
+        entry["fun"]=fun;
+      }
+      menu.push(entry);
     }
-     $(''#''+visuId).contextMenu(menu);//element[''menu''];
+     $(''#''+visuId).contextMenu(menu);
+     //Should remove old menu
     $(''#''+visuId).contextMenu(''open'', {top: position.y, left: position.x});
   }
 
