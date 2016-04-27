@@ -1,0 +1,1 @@
+I am a specialized interaction for menu

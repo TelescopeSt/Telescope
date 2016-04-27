@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "GuillaumeLarcheveque 4/27/2016 10:34",
+	"super" : "TLInteractionCommand",
+	"category" : "Telescope-Cytoscape-Commands",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"entry"
+	],
+	"name" : "TLMenuInteractionCommand",
+	"type" : "normal"
+}

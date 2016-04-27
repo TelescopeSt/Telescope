@@ -9,4 +9,5 @@ customizeFromInteractions: aCollectionOfInteractions forNode: aTLNode
 			(aCollectionOfInteractions
 				detect: [ :interaction | interaction action isPopUp ]
 				ifFound: [ :interaction | interaction forCytoscapeFromNode: aTLNode ]
-				ifNone: [ nil ])
+				ifNone: [ nil ]).
+	self menu: (aCollectionOfInteractions select: #isMenu thenCollect: #title)

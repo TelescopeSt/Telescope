@@ -1,0 +1,16 @@
+{
+	"commentStamp" : "GuillaumeLarcheveque 4/27/2016 10:19",
+	"super" : "TLVisualizationServerCommand",
+	"category" : "Telescope-Cytoscape-Commands",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"mouseOverInteraction",
+		"popUp",
+		"menu",
+		"style"
+	],
+	"name" : "TLVisualizationDrawableCommand",
+	"type" : "normal"
+}

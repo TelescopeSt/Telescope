@@ -170,8 +170,13 @@ cytoscapeTelescopeJs
   
   function customizeElement(element, commandParametersForElement){
     element[''mouseOverInteraction''] = commandParametersForElement.mouseOverInteraction;
+    // here we define a popup if the element has one
     if(commandParametersForElement.popUp){
       element.qtip(commandParametersForElement.popUp);
+    }
+    // here we define a menu if element has one
+    if(commandParametersForElement.menu){
+      element[''menu''] = commandParametersForElement.menu;
     }
   }
   
@@ -196,16 +201,43 @@ cytoscapeTelescopeJs
   function onError(evt) {
      }
 
+  function displayMenuForElement(element, visuId, position){
+    console.log(element.menu);
+    var menu = [];
+    for(var i = 0; i < element.menu.length; i++){
+      
+      menu.push({name: element.menu[i], title: element.menu[i], fun: function (name, evt){
+        websocket.send(JSON.stringify([
+          {"id": visuId, 
+          "drawableId": element.id(),
+          "command": "menuInteraction",
+          "kind": "menu",
+          "entry": evt.target.innerHTML
+          }]));
+      }});
+    }
+    console.log(menu);
+    console.log( $(''#''+visuId));
+    $(''#''+visuId).contextMenu(menu);//element[''menu''];
+    $(''#''+visuId).contextMenu(''open'', {top: position.y, left: position.x});
+  }
+
   function createEventFunction(visuWithId){
     eventsWithInteractions = {''tap'':''click'' , ''cxttap'':''rightClick'' , ''mouseover'':''mouseOver'', ''mouseout'':''mouseOut''};
     
     return function (evt){
-      
+      console.log(evt.cyPosition);
+      console.log(evt.cyRenderedPosition);
       // server interaction processing
       if((!evt.cyTarget[''mouseOverInteraction'']) && ((evt.type == ''mouseover'') || (evt.type == ''mouseout''))){
           
       }
       else{
+        // menu management
+        if(evt.type == ''cxttap'' && evt.cyTarget[''menu'']){
+          displayMenuForElement(evt.cyTarget, visuWithId.visuId,{ x:evt.originalEvent.clientX , y: evt.originalEvent.clientY});
+        }
+        
         websocket.send(JSON.stringify([{id:visuWithId.visuId, drawableId:evt.cyTarget.id(),command:"interaction",kind:(eventsWithInteractions[evt.type])}]));
       }
     };

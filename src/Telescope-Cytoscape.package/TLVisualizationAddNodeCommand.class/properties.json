@@ -1,15 +1,12 @@
 {
 	"commentStamp" : "guillaumelarcheveque 12/1/2015 15:25",
-	"super" : "TLVisualizationServerCommand",
+	"super" : "TLVisualizationDrawableCommand",
 	"category" : "Telescope-Cytoscape-Commands",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"style",
-		"virtualNode",
-		"mouseOverInteraction",
-		"popUp"
+		"virtualNode"
 	],
 	"name" : "TLVisualizationAddNodeCommand",
 	"type" : "normal"
