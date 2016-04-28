@@ -138,7 +138,7 @@ cytoscapeTelescopeJs
         }
       }
     removeWaitingForVisuId(commands[0].visuId);
-    
+    console.log(visuWithId(commands[0].visuId));
   }
   
   function post(path, cbId, openInNewTab) {
