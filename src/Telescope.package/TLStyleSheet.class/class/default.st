@@ -13,6 +13,7 @@ default
 		nodeLabelPosition: #inside;
 		compositeExpandedByDefault: false;
 		childrenLayout: (TLLinearLayout gap: 5 maximumDimension: 50);
+		takeAllSpace: false;
 		triggerPosition: #right;
 		yourself.
 	defaultStyleSheet > #shapeInteraction
