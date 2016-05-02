@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "GuillaumeLarcheveque 5/2/2016 11:42",
+	"super" : "Notification",
+	"category" : "Telescope-Layouts-Notifications",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"node"
+	],
+	"name" : "TLNodeDimensionChanged",
+	"type" : "normal"
+}
