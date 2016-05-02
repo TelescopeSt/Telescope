@@ -112,9 +112,8 @@ cytoscapeTelescopeJs
           elements = visu.add(command.parameters);
           for(var elementId = 0; elementId < elements.length;elementId++){
             customizeElement(elements[elementId],command.parameters[elementId]);
-            
-           
           }
+          
         } else if(command.command == "remove"){
           visu.remove(visu.getElementById(command.nodeId));
         } else if(command.command == "positioning"){
@@ -138,7 +137,6 @@ cytoscapeTelescopeJs
         }
       }
     removeWaitingForVisuId(commands[0].visuId);
-    console.log(visuWithId(commands[0].visuId));
   }
   
   function post(path, cbId, openInNewTab) {
@@ -169,7 +167,8 @@ cytoscapeTelescopeJs
   }
   
   function customizeElement(element, commandParametersForElement){
-    element[''mouseOverInteraction''] = commandParametersForElement.mouseOverInteraction;
+    if((commandParametersForElement.mouseOverInteraction !== null))
+      element[''mouseOverInteraction''] = commandParametersForElement.mouseOverInteraction;
     // here we define a popup if the element has one
     if(commandParametersForElement.popUp){
       element.qtip(commandParametersForElement.popUp);
