@@ -12,6 +12,7 @@ cytoscapeNodeStyleFor: aNode
 			(#height -> #height).
 			('background-color' -> #backgroundColor).
 			('background-image' -> #backgroundImageUrl).
+			('background-opacity' -> [:t | t backgroundColor alpha]).
 			(#label -> #nodeLabel).
 			(#shape -> #shape)}
 		for: aNode entity

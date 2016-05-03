@@ -1,6 +1,9 @@
 *Telescope-Cytoscape
 obtainValue: aPropertyOrValuable forEntity: anEntity
-	^ [ ([self perform: aPropertyOrValuable] on: MessageNotUnderstood
-		do: [ :msg | KeyNotFound signal ]) value: anEntity ]
+	| result |
+	[ result := aPropertyOrValuable cull: self] 
 		on: MessageNotUnderstood
-		do: [ :msg | msg receiver ]
+		do: [ :msg | KeyNotFound signal ].
+	^ (result isEvaluable)
+		ifTrue: [ result value: anEntity ]
+		ifFalse: [ result ]
