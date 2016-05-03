@@ -1,3 +1,5 @@
 accessing
 layout
-	^ self effectiveStyleSheet layout
+	^ (self parent notNil and: [ self parent isNode ])
+		ifTrue: [ self effectiveStyleSheet obtainValue: #layout forEntity: self parent entity ]
+		ifFalse: [ self effectiveStyleSheet layout ]
