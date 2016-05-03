@@ -1,3 +1,3 @@
 as yet unclassified
-angleInRadian: anAngleInDegrees
+angleInRadians: anAngleInDegrees
 	^ anAngleInDegrees degreesToRadians negated
