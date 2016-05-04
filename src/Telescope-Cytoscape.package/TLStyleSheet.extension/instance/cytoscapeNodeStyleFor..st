@@ -7,6 +7,7 @@ cytoscapeNodeStyleFor: aNode
 		fillStyleDictionary: styleDictionary
 		with:
 			{('border-color' -> #borderColor).
+			('border-opacity' -> [:t | t borderColor alpha]).
 			('border-width' -> #borderWidth).
 			(#width -> #width).
 			(#height -> #height).

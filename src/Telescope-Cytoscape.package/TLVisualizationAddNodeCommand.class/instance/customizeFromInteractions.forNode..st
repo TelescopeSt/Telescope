@@ -3,7 +3,7 @@ customizeFromInteractions: aCollectionOfInteractions forNode: aTLNode
 	self
 		mouseOverInteraction:
 			(aCollectionOfInteractions
-				anySatisfy: [ :interaction | interaction action isPopUp not and: [ interaction isMouseOver ] ]).
+				anySatisfy: [ :interaction | interaction action isPopUp not and: [ interaction shouldOccursOn: 'mouseOver' with: aTLNode ] ]).
 	self
 		popUp:
 			(aCollectionOfInteractions
@@ -13,7 +13,7 @@ customizeFromInteractions: aCollectionOfInteractions forNode: aTLNode
 	self
 		menu:
 			(aCollectionOfInteractions
-				select: #isMenu
+				select: [ :interaction | interaction shouldOccursOn: #menu with: aTLNode ]
 				thenCollect: [ :anInteraction | 
 					| dic |
 					dic := Dictionary new.
