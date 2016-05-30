@@ -7,7 +7,8 @@
 	"classvars" : [ ],
 	"instvars" : [
 		"action",
-		"container"
+		"container",
+		"inherited"
 	],
 	"name" : "TLInteraction",
 	"type" : "normal"

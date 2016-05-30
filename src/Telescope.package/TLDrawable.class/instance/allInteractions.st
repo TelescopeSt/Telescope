@@ -6,5 +6,5 @@ allInteractions
 		ifNil: [ #() ]
 		ifNotNil: [ 
 			self parent isNode
-				ifTrue: [ #() ]
+				ifTrue: [ self parent allInheritedInteractions ]
 				ifFalse: [ self parent allInteractions ] ]) , self interactions
