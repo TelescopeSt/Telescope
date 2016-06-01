@@ -19,5 +19,5 @@ customizeFromInteractions: aCollectionOfInteractions forNode: aTLNode
 					dic := Dictionary new.
 					dic at: 'title' put: anInteraction title.
 					anInteraction isMultiChoiceMenu
-						ifTrue: [ dic at: #subMenu put: (anInteraction choicesListForDrawable: aTLNode) ].
+						ifTrue: [ dic at: #subMenu put: ((anInteraction choicesListForDrawable: aTLNode) collect: anInteraction displayBlock) ].
 					dic ])

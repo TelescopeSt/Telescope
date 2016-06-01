@@ -4,5 +4,7 @@ executeMultiChoice: aChoiceIndex menuInteraction: anEntryIndex onDrawableId: aDr
 	drawable := self tlDrawableFromId: aDrawableId.
 	self
 		executeChoice: aChoiceIndex
-		interaction: ((drawable allInteractions select: #isMenu) at: anEntryIndex)
+		interaction:
+			((drawable allInteractions
+				select: [ :anInteraction | anInteraction isMenu and: [ anInteraction condition value: drawable ] ]) at: anEntryIndex)
 		forDrawable: drawable referencedElement
