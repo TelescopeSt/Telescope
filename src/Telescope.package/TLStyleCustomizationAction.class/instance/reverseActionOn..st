@@ -1,3 +1,3 @@
 action
 reverseActionOn: aTLDrawable
-	(self obtainTargetDrawablesFrom: aTLDrawable) do: [ :aTargetDrawable | self removeCustomization: aTargetDrawable ]
+	self removeCustomization: aTLDrawable
