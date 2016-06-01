@@ -1,3 +1,3 @@
 as yet unclassified
 choicesListForDrawable: aTLDrawable
-	^ self choicesBlock value: aTLDrawable 
+	^ self choicesBlock cull: aTLDrawable
