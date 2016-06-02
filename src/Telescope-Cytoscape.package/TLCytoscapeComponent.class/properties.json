@@ -11,7 +11,8 @@
 		"visualization",
 		"connector",
 		"visuDivId",
-		"waitingMessage"
+		"waitingMessage",
+		"style"
 	],
 	"name" : "TLCytoscapeComponent",
 	"type" : "normal"

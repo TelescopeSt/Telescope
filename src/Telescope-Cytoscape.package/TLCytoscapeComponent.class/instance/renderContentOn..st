@@ -4,6 +4,7 @@ renderContentOn: html
 	visuId := self visuDivId.
 	div := html div
 		id: visuId;
+		style: self style;
 		attributeAt: #isTelescopeVisu put: 'true';
 		class: 'telescopeVisu';
 		with: [ 
@@ -17,4 +18,6 @@ renderContentOn: html
 		registerVisualization: self visualization
 		underId: visuId
 		withCallBack: callback
-		callbackUrl: {html actionUrl asString.(div storeCallback: callback)}
+		callbackUrl:
+			{(html actionUrl asString).
+			(div storeCallback: callback)}
