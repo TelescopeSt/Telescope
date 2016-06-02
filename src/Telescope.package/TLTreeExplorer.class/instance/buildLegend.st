@@ -1,4 +1,4 @@
 as yet unclassified
 buildLegend
-	self legend addTitle: 'Expand' color: Color red.
-	self legend addTitle: 'Collapse' color: Color blue
+	self legend description: 'Expand' forColor: Color red.
+	self legend description: 'Collapse' forColor: Color blue

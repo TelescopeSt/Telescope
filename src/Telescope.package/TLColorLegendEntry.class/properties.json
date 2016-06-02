@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "guillaumelarcheveque 6/2/2016 11:18",
+	"super" : "TLStaticLegendEntry",
+	"category" : "Telescope-Model-Legend",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"color"
+	],
+	"name" : "TLColorLegendEntry",
+	"type" : "normal"
+}
