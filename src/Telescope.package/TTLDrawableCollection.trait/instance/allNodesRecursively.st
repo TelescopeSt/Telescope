@@ -1,3 +1,3 @@
 enumerating
 allNodesRecursively
-	^ self nodes, (self subGroups flatCollect: #allNodesRecursively)
+	^ (self nodes flatCollect: #allNodesRecursively), (self subGroups flatCollect: #allNodesRecursively)
