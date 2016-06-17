@@ -11,7 +11,13 @@ renderContentOn: html
 					html div
 						class: 'visualization';
 						style: 'height: 100%; width: 100%;'.
-					self waitingMessage value: html ];
+					self waitingMessage value: html.
+					html div
+						class: 'fitButton';
+						with: [ 
+							html anchor
+								onClick: 'visuWithId(' , self visuDivId asString , ').fit();';
+								with: 'Reset' ] ];
 		yourself.
 	callback := WAValueCallback new.
 	TLCytoscapeWebSocketDelegate

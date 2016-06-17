@@ -1,6 +1,13 @@
 libs
 cytoscapeTelescopeJs
-	^ '(function(){
+	^ 'function visuWithId(aVisuId){
+  for(var i in visus){
+    if(visus[i].visuId == aVisuId)
+      return visus[i].visu;
+  }
+}
+
+(function(){
   var wsUri = "ws://" + location.hostname + ":1701";
   
   function init() {
@@ -35,14 +42,6 @@ cytoscapeTelescopeJs
       container: visuDiv.firstChild,
       layout: {name: ''preset''}
     });
-  }
-  
-  function visuWithId(aVisuId){
-    for(var i in visus){
-      if(visus[i].visuId == aVisuId)
-            return visus[i].visu;
-    }
-
   }
   
   function calculateNodesPositionsWithLayout(layout, nodes){
@@ -117,11 +116,7 @@ cytoscapeTelescopeJs
         } else if(command.command == "remove"){
           visu.remove(visu.getElementById(command.nodeId));
         } else if(command.command == "positioning"){
-          //ensure min zoom is small to make unzoom possible for layout
-          visu.minZoom(visu.zoom()/1000);
           visu.layout(command.layout);
-          //define the min zoom to avoid getting too far
-          visu.minZoom(visu.zoom()/2);
         } else if(command.command == ''customize''){
           visu.getElementById(command.elementId).style(command.style);
         } else if(command.command == ''addStaticLegendEntry''){

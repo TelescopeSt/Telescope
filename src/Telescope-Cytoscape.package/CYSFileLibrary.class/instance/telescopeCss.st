@@ -13,6 +13,14 @@ telescopeCss
 	background-color: white;
 }
 
+.telescopeVisu .fitButton{
+   position: absolute;
+   top: 5px;
+   right: 5px;
+	cursor: pointer;
+	background-color: white;
+}
+
 .telescopeVisu  .tlWaiting{
 	 position: absolute;
     top: 50%;
