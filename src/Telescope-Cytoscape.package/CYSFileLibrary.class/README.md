@@ -1,1 +1,0 @@
-I am the file library that provide the cytoscape JS file and also the specific JS file for telescope connector on the client side. With this, no need to have an internet access for the server.
