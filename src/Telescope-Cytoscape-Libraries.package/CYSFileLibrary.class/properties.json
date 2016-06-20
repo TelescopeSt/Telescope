@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "GuillaumeLarcheveque 12/10/2015 10:32",
+	"super" : "WAFileLibrary",
+	"category" : "Telescope-Cytoscape-Libraries",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "CYSFileLibrary",
+	"type" : "normal"
+}
