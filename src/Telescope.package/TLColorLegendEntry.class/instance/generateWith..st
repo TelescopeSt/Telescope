@@ -1,3 +1,3 @@
 generation
-generateWith: aTLCytoscapeConnector 
-	^ aTLCytoscapeConnector generateTLColorLegendEntry: self
+generateWith: aTLConnector 
+	^ aTLConnector generateTLColorLegendEntry: self
