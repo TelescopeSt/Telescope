@@ -21,4 +21,5 @@ baseline01: spec
 			spec repository: 'http://mc.stfx.eu/ZincHTTPComponents'.
 			spec package: 'Zinc-WebSocket-Core'.
 			spec repository: 'http://smalltalkhub.com/mc/Moose/Telescope/main/'.
+			spec package: 'Telescope-Cytoscape-Libraries'.
 			spec package: 'Telescope-Cytoscape' ]
