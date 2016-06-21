@@ -255,10 +255,18 @@ cytoscapeTelescopeJs
     };
   }
 
+  function createDragEventFunction(visuWithId){
+    return function (evt){
+      websocket.send(JSON.stringify([{id:visuWithId.visuId, nodeId:evt.cyTarget.id(),command:"moveNode",position:evt.cyTarget.position()}]));
+    };
+  }
+
   function parametrizeInteractionsListenerForVisu(visuWithId){
     
     visuWithId.visu.on(''tap mouseover mouseout cxttap'',''node'',createEventFunction(visuWithId));
     visuWithId.visu.on(''tap mouseover mouseout cxttap'',''edge'',createEventFunction(visuWithId));
+    visuWithId.visu.on(''drag'',''node'',createDragEventFunction(visuWithId));
+    
     
   }
 

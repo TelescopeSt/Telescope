@@ -18,7 +18,7 @@ telescopeCss
    top: 5px;
    right: 5px;
 	cursor: pointer;
-	background-color: white;
+	width: 25px;
 }
 
 .telescopeVisu  .tlWaiting{
