@@ -1,4 +1,5 @@
 accessing
 position: anObject
-	position := anObject.
+	self userFixedPosition
+		ifFalse: [ position := anObject ].
 	self clearEncompassingRectangle

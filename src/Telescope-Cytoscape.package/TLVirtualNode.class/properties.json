@@ -11,7 +11,8 @@
 		"realNode",
 		"compositeMargin",
 		"attributes",
-		"encompassingRectangle"
+		"encompassingRectangle",
+		"userFixedPosition"
 	],
 	"name" : "TLVirtualNode",
 	"commentStamp" : "GuillaumeLarcheveque 12/21/2015 16:08",

@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "<historical>",
+	"super" : "TLVisualizationClientsCommand",
+	"category" : "Telescope-Cytoscape-Commands",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"nodeId",
+		"nodePosition"
+	],
+	"name" : "TLNodeMovedCommand",
+	"type" : "normal"
+}
