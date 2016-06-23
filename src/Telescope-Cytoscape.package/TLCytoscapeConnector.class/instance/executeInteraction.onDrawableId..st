@@ -1,4 +1,4 @@
-actions
+executing - interaction
 executeInteraction: aKindOfInteraction onDrawableId: aDrawableId
 	| drawable |
 	drawable := self tlDrawableFromId: aDrawableId.

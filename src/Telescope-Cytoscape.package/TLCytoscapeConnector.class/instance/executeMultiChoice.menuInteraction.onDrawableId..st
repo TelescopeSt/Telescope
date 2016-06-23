@@ -1,4 +1,4 @@
-executeInteraction
+executing - interaction
 executeMultiChoice: aChoiceIndex menuInteraction: anEntryIndex onDrawableId: aDrawableId
 	| drawable |
 	drawable := self tlDrawableFromId: aDrawableId.
