@@ -1,3 +1,3 @@
 generate
-generateWith: aTLRoassal2Connector on: aTLDrawable targeting: aTargetDrawable
-	aTLRoassal2Connector generateMouseOverInteraction: self onDrawable: aTLDrawable targetingDrawable: aTargetDrawable
+generateWith: aTLConnector on: aTLDrawable targeting: aTargetDrawable
+	aTLConnector generateMouseOverInteraction: self onDrawable: aTLDrawable targetingDrawable: aTargetDrawable
