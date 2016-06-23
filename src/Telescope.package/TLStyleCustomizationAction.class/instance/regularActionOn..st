@@ -1,3 +1,3 @@
 action
-regularActionOn: aTargetDrawable
-	self customize: aTargetDrawable
+regularActionOn: aTLDrawable
+	(self obtainTargetDrawablesFrom: aTLDrawable) do: [ :aTargetDrawable | self customize: aTargetDrawable ]
