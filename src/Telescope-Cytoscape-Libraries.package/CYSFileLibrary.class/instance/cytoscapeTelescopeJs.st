@@ -265,7 +265,7 @@ cytoscapeTelescopeJs
     
     visuWithId.visu.on(''tap mouseover mouseout cxttap'',''node'',createEventFunction(visuWithId));
     visuWithId.visu.on(''tap mouseover mouseout cxttap'',''edge'',createEventFunction(visuWithId));
-    visuWithId.visu.on(''drag'',''node'',createDragEventFunction(visuWithId));
+    visuWithId.visu.on(''free'',''node'',createDragEventFunction(visuWithId));
     
     
   }
