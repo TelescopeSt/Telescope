@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "GuillaumeLarcheveque 6/27/2016 14:30",
+	"super" : "Error",
+	"category" : "Telescope-Exceptions",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "TLWrongUsedFunctionalityException",
+	"type" : "normal"
+}
