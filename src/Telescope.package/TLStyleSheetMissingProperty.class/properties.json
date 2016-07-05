@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "<historical>",
+	"super" : "TLWrongUsedFunctionalityException",
+	"category" : "Telescope-Exceptions",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"property",
+		"entity"
+	],
+	"name" : "TLStyleSheetMissingProperty",
+	"type" : "normal"
+}
