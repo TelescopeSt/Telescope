@@ -4,6 +4,6 @@ fillStyleDictionary: aDictionary with: aCollectionOfProperties for: anEntity con
 		inject: aDictionary
 		into: [ :style :aPropertyAndValuable | 
 			[ style at: aPropertyAndValuable key put: ((self obtainValue: aPropertyAndValuable value forEntity: anEntity) perform: aConverter) ]
-				on: KeyNotFound
+				on: TLStyleSheetMissingProperty
 				do: [  ].
 			style ]
