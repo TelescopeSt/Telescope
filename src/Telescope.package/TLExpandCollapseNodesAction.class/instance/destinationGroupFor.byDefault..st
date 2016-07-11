@@ -1,3 +1,3 @@
 destination
 destinationGroupFor: entity byDefault: aGroup
-	^ self destinationGroup ifNotNil: [ self destinationGroup rtValue: entity ] ifNil: [ aGroup ]
+	^ self destinationGroup ifNotNil: [ self obtain: self destinationGroup on: entity ] ifNil: [ aGroup ]

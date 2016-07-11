@@ -10,11 +10,7 @@ buildVisualization
 	( self > #names ) styleSheet
 			onlyLabelForNodes;
 			nodeLabel: #key;
-		backgroundColor: [ :each | Color black ];
-		height: [ :e | ((RTNFontLinearNormalizer 
-			inContext: objects 
-			withCommand: [:each | each value size])) 
-			rtValue: e ].
+		backgroundColor: [ :each | Color black ].
 		
 	self > #names
 		addNodesFromEntities: objects;

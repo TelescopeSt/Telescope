@@ -1,3 +1,3 @@
 action
 obtainExpandEntitiesFrom: aNode
-	^ self property rtValue: aNode entity
+	^ self obtain: self property on: aNode entity

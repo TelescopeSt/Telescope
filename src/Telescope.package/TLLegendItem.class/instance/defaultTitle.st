@@ -1,3 +1,0 @@
-default
-defaultTitle
-	^ 'Default'

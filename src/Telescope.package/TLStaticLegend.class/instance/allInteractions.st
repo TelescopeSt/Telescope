@@ -1,3 +1,0 @@
-interactions
-allInteractions
-	^ self interactions
