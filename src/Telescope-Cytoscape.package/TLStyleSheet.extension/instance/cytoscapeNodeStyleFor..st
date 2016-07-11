@@ -7,13 +7,13 @@ cytoscapeNodeStyleFor: aNode
 		fillStyleDictionary: styleDictionary
 		with:
 			{('border-color' -> #borderColor).
-			('border-opacity' -> [:t | t borderColor alpha]).
+			('border-opacity' -> [ :t | [ :e | (t obtainValue: #borderColor forEntity: e) alpha ] ]).
 			('border-width' -> #borderWidth).
 			(#width -> #width).
 			(#height -> #height).
 			('background-color' -> #backgroundColor).
 			('background-image' -> #backgroundImageUrl).
-			('background-opacity' -> [:t | t backgroundColor alpha]).
+			('background-opacity' -> [ :t | [ :e | (t obtainValue: #backgroundColor forEntity: e) alpha ] ]).
 			(#label -> #nodeLabel).
 			(#shape -> #shape)}
 		for: aNode entity
