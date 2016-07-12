@@ -7,7 +7,7 @@ cytoscapeConnectionStyleFor: anEntity
 		with:
 			{(#width -> #width).
 			('line-color' -> #color).
-			('line-style' -> #style).
+			('line-style' -> #connectionStyle).
 			('source-arrow-text' -> #connectionLabel).
 			('curve-style' -> #curveStyle).
 			(#label -> #label)}
