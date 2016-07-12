@@ -9,8 +9,8 @@ cytoscapeConnectionStyleFor: anEntity
 			('line-color' -> #color).
 			('line-style' -> #connectionStyle).
 			('source-arrow-text' -> #connectionLabel).
-			('curve-style' -> #curveStyle).
-			(#label -> #label)}
+			('curve-style' -> #curveStyle)".
+			(#label -> #label)"}
 		for: anEntity converter: #forCytoscapeConnection.
 	{(#base -> 'source-arrow-').
 	(#middleReversed -> 'mid-source-arrow-').
