@@ -1,5 +1,5 @@
 position
-calcultateRelativePositionFromAbsolute: aPosition
+calculateRelativePositionFromAbsolute: aPosition
 	^ aPosition
 		-
 			(self hasParent

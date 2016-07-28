@@ -5,7 +5,10 @@ renderContentOn: html
 	visu := TLVisualization new.
 	visu addNodesFromEntities: selection associations.
 	visu styleSheet nodeLabel: #asString.
-	visu styleSheet position: #value; width: 120.
+	visu styleSheet
+		position: #value;
+		width: 120.
+	visu addInteraction: TLMemorizeNodePositionAction onMove.
 	visu
 		addInteraction:
 			(TLCustomAction

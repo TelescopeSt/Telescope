@@ -1,5 +1,5 @@
 {
-	"commentStamp" : "GuillaumeLarcheveque 12/8/2015 10:58",
+	"commentStamp" : "GuillaumeLarcheveque 7/28/2016 18:15",
 	"super" : "TLConnector",
 	"category" : "Telescope-Cytoscape-Connector",
 	"classinstvars" : [ ],
@@ -12,7 +12,8 @@
 		"drawablesById",
 		"positionNodesCommand",
 		"visuCallBack",
-		"visuCallBackUrl"
+		"visuCallBackUrl",
+		"movedNodesRelativePositionByElement"
 	],
 	"name" : "TLCytoscapeConnector",
 	"type" : "normal"

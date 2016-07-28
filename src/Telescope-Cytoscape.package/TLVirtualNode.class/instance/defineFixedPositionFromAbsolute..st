@@ -1,3 +1,3 @@
 position
 defineFixedPositionFromAbsolute: aPosition
-	self defineFixedRelativePosition: (self calcultateRelativePositionFromAbsolute: aPosition)
+	self defineFixedRelativePosition: (self calculateRelativePositionFromAbsolute: aPosition)
