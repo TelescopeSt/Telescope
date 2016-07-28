@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "GuillaumeLarcheveque 7/28/2016 15:34",
+	"super" : "TLDrawableAction",
+	"category" : "Telescope-Actions",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "TLMemorizeNodePositionAction",
+	"type" : "normal"
+}

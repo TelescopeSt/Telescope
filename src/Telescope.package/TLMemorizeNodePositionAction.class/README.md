@@ -1,0 +1,1 @@
+I am an action that will make the node to keep its relative position to its parent when triggered. Layout will now stop to place the node but will count it for positionning the others
