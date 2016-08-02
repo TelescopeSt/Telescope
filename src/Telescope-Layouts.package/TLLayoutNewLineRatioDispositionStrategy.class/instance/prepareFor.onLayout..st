@@ -1,27 +1,24 @@
 as yet unclassified
 prepareFor: aGroup onLayout: aLayout
-	| dimensions simulator numberOfNodes minRatio maxRatio |
+	| dimensions numberOfNodes minRatio maxRatio simulatedRatio |
 	aGroup ifEmpty: [ ^ self ].
 	dimensions := aGroup collect: [ :aNode | aLayout obtainsNodeDimension: aNode ].
-	numberOfNodes := (dimensions size * ratio) sqrt rounded max: 1.
+	numberOfNodes := ((dimensions size * ratio) sqrt rounded max: 1) min: dimensions size.
 	[ minRatio isNil or: [ maxRatio isNil ] ]
 		whileTrue: [ 
 			self
 				maxDimension:
 					((1 to: numberOfNodes) sum: [ :i | (dimensions at: i) x ]) + ((numberOfNodes - 1) * aLayout horizontalGap).
-			simulator := TLLinearLayoutSimulator new
-				horizontalGap: aLayout horizontalGap;
-				verticalGap: aLayout verticalGap;
-				newLineStrategy: self;
-				yourself.
-			simulator executeOn: aGroup.
-			simulator ratio > self ratio
+			simulatedRatio := self obtainRatioBySimulatingLayout: aLayout on: aGroup.
+			simulatedRatio > self ratio
 				ifTrue: [ 
-					maxRatio := simulator ratio -> self maxDimension.
+					maxRatio := simulatedRatio -> self maxDimension.
 					numberOfNodes := numberOfNodes - 1 ]
 				ifFalse: [ 
-					minRatio := simulator ratio -> self maxDimension.
-					numberOfNodes := numberOfNodes + 1 ] ].
+					minRatio := simulatedRatio -> self maxDimension.
+					numberOfNodes := numberOfNodes + 1.
+					numberOfNodes > aGroup size
+						ifTrue: [ maxRatio := simulatedRatio -> self maxDimension ] ] ].
 	self
 		maxDimension:
 			((minRatio key - ratio) abs < (maxRatio key - ratio) abs
