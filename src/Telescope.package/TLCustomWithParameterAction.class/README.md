@@ -1,0 +1,1 @@
+I am an action that will receive a parameter in addition of the drawable when triggered. It can be a choice from a menu or an other drawable when drop action occurs.

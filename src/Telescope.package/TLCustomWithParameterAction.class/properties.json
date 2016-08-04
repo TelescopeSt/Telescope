@@ -1,5 +1,5 @@
 {
-	"commentStamp" : "",
+	"commentStamp" : "GuillaumeLarcheveque 8/3/2016 17:14",
 	"super" : "TLMultiChoiceAction",
 	"category" : "Telescope-Actions",
 	"classinstvars" : [ ],
@@ -8,6 +8,6 @@
 	"instvars" : [
 		"block"
 	],
-	"name" : "TLCustomMultiChoiceAction",
+	"name" : "TLCustomWithParameterAction",
 	"type" : "normal"
 }
