@@ -1,0 +1,3 @@
+execution
+executeOnVisu: aVisualization
+	aVisualization generator executeDropInteraction: self droppedNodeId onDrawableId: self targetNodeId

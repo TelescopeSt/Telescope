@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "GuillaumeLarcheveque 8/4/2016 16:34",
+	"super" : "TLVisualizationClientsCommand",
+	"category" : "Telescope-Cytoscape-Commands",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"droppedNodeId",
+		"targetNodeId"
+	],
+	"name" : "TLDropNodeCommand",
+	"type" : "normal"
+}

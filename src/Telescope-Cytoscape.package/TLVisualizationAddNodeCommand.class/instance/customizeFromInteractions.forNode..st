@@ -4,6 +4,9 @@ customizeFromInteractions: aCollectionOfInteractions forNode: aTLNode
 		mouseOverInteraction:
 			(aCollectionOfInteractions
 				anySatisfy: [ :interaction | interaction action isPopUp not and: [ interaction shouldOccursOn: 'mouseOver' with: aTLNode ] ]).
+	self dropInteraction:
+		(aCollectionOfInteractions
+				anySatisfy: #isDrop).
 	self
 		popUp:
 			(aCollectionOfInteractions

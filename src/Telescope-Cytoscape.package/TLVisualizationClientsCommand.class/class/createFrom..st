@@ -4,4 +4,5 @@ createFrom: aJsonDictionary
 	('interaction' -> TLInteractionCommand).
 	('menuInteraction' -> TLMenuInteractionCommand).
 	('multiMenuInteraction' -> TLMultiChoicesMenuInteractionCommand).
-	('moveNode' -> TLNodeMovedCommand)} asDictionary at: (aJsonDictionary at: #command)) newWithParameters: aJsonDictionary
+	('moveNode' -> TLNodeMovedCommand).
+	('dropNode' -> TLDropNodeCommand)} asDictionary at: (aJsonDictionary at: #command)) newWithParameters: aJsonDictionary
