@@ -9,6 +9,9 @@ testPlaceNodesWithMultipleDimensionsCentered
 			mock can
 				receive: #dimension;
 				answers: 10 @ (i * 4).
+			mock can
+				receive: #occupyMaxSpace;
+				answers: false.
 			mock ].
 	nodes first should
 		receive: #position:;

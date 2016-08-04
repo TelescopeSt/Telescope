@@ -9,6 +9,9 @@ testPlaceNodesOverflowingWidth
 			mock can
 				receive: #dimension;
 				answers: 10 @ 10.
+			mock can
+				receive: #occupyMaxSpace;
+				answers: false.
 			mock ].
 	nodes first should
 		receive: #position:;
