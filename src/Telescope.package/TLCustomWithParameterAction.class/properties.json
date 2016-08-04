@@ -1,6 +1,6 @@
 {
 	"commentStamp" : "GuillaumeLarcheveque 8/3/2016 17:14",
-	"super" : "TLMultiChoiceAction",
+	"super" : "TLActionWithParameter",
 	"category" : "Telescope-Actions",
 	"classinstvars" : [ ],
 	"pools" : [ ],

@@ -1,0 +1,1 @@
+I am an interaction that occurs when another drawable is dropped on me
