@@ -19,7 +19,7 @@ testAllNodesDo
 		once: node3 recv: #testMessage.
 	protocol describe allow: parentMock recv: #requireUpdate.
 	protocol describe allow: parentMock recv: #requireLayoutApplication.
-	tlGroup > #subGroup addDrawable: node1.
-	tlGroup addDrawable: node2.
-	tlGroup > #subGroup > #subSubGroup addDrawable: node3.
+	tlGroup > #subGroup addChild: node1.
+	tlGroup addChild: node2.
+	tlGroup > #subGroup > #subSubGroup addChild: node3.
 	tlGroup allNodesDo: [ :aNode | aNode testMessage ]

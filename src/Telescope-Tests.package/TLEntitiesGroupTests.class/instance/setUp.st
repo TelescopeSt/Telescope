@@ -10,4 +10,5 @@ setUp
 		=> TLStyleSheet default.
 	tlGroup := TLEntitiesGroup new.
 	tlGroup nodeCreationStrategy: TLNodeCreationStrategy default.
+	protocol describe allow: parentMock recv: #addChild:.
 	tlGroup parent: parentMock
