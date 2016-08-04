@@ -162,8 +162,12 @@ cytoscapeTelescopeJs
   }
   
   function customizeElement(element, commandParametersForElement){
+    // here we define the attribute for mouse over to avoid sending request to the server if unnecessary
     if((commandParametersForElement.mouseOverInteraction !== null))
       element[''mouseOverInteraction''] = commandParametersForElement.mouseOverInteraction;
+    // here we define the attribute for mouse over to avoid sending request to the server if unnecessary
+    if((commandParametersForElement.dropInteraction !== null))
+      element[''dropInteraction''] = commandParametersForElement.dropInteraction;
     // here we define a popup if the element has one
     if(commandParametersForElement.popUp){
       element.qtip(commandParametersForElement.popUp);
@@ -255,9 +259,30 @@ cytoscapeTelescopeJs
     };
   }
 
+  function isDropActionOnANode(visuWithId, candidates, pos, droppedNode){
+   var target;
+      
+    for(i = 0; i < candidates.length ; i++){
+      var node = candidates[i];
+      var bound = node.renderedBoundingBox();
+      if(node != droppedNode && bound.x1 < pos.x && bound.x2 > pos.x && bound.y1 < pos.y && bound.y2 > pos.y){
+        //here we found a node correctly positionned and *WARNING* we keep the last one so with the closest zIndex
+        target = node;
+      }
+    }
+    
+    // if we found a target and this one has a drop interaction then we request the server
+    if(target && target.dropInteraction){
+      websocket.send(JSON.stringify([{id:visuWithId.visuId, nodeId:droppedNode.id(),command:"dropNode",targetNode:target.id()}]));
+      return true;
+    } else return false;
+  }
+
   function createDragEventFunction(visuWithId){
     return function (evt){
-      websocket.send(JSON.stringify([{id:visuWithId.visuId, nodeId:evt.cyTarget.id(),command:"moveNode",position:evt.cyTarget.position()}]));
+      //We only send a moveNode command if it is not considered as a drop
+      if(!isDropActionOnANode(visuWithId, evt.cy.elements(), this.renderedPosition(), evt.cyTarget))
+        websocket.send(JSON.stringify([{id:visuWithId.visuId, nodeId:evt.cyTarget.id(),command:"moveNode",position:evt.cyTarget.position()}]));
     };
   }
 
