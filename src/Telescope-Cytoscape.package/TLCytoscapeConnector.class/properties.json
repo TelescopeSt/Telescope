@@ -10,7 +10,6 @@
 		"commandsQueue",
 		"visuId",
 		"drawablesById",
-		"positionNodesCommand",
 		"visuCallBack",
 		"visuCallBackUrl",
 		"movedNodesRelativePositionByElement"

@@ -1,6 +1,6 @@
 layout
 applyLayoutOf: aTLGroup on: group
-	self positionNodesCommand addAllNodes: group.
+	self commandsQueue managePositioningOf: group.
 	group restoreElementsPosition.
 	[ aTLGroup layout on: group ]
 		on: TLNodeDimensionChanged
