@@ -4,4 +4,6 @@ parent: aParent
 	oldParent := parent.
 	parent := aParent.
 	oldParent ifNotNil: [ oldParent removeChild: self ].
-	aParent ifNotNil: [ aParent addChild: self ]
+	aParent ifNotNil: [ aParent addChild: self ].
+	self requireUpdateAndLayoutApplication.
+	
