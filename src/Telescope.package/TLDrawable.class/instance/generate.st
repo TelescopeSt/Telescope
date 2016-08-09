@@ -1,4 +1,4 @@
-generation
+private-connector
 generate
 	| result |
 	"Do not override this method"

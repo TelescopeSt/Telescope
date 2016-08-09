@@ -1,3 +1,6 @@
 generation
-generateWith: aConnector 
-	^ aConnector generateTrigger: self
+generateWith: aConnector
+	| generated |
+	generated := aConnector generateTrigger: self.
+	self hierarchyChangeManaged.
+	^ generated

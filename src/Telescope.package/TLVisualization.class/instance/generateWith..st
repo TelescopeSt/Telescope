@@ -1,4 +1,7 @@
-accessing
-generateWith: aTLGenerator
+private-connector
+generateWith: aTLConnector
+	| generated |
 	self buildVisualization.
-	^ aTLGenerator generateVisualization: self
+	generated := aTLConnector generateVisualization: self.
+	self hierarchyChangeManaged.
+	^ generated

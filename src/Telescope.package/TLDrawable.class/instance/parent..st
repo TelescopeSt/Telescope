@@ -5,5 +5,8 @@ parent: aParent
 	parent := aParent.
 	oldParent ifNotNil: [ oldParent removeChild: self ].
 	aParent ifNotNil: [ aParent addChild: self ].
-	self requireUpdateAndLayoutApplication.
-	
+	oldParent = parent
+		ifFalse: [ 
+			self hierarchyHasChanged.
+			oldParent ifNotNil: [ oldParent hierarchyHasChanged ] ].
+	self requireUpdateAndLayoutApplication

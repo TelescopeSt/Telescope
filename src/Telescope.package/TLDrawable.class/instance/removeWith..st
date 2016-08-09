@@ -1,3 +1,3 @@
-generation
+private-connector
 removeWith: aTLConnector
 	self subclassResponsibility

@@ -1,3 +1,4 @@
-generation
+private-connector
 removeWith: aTLConnector
-	aTLConnector removeCompositeNode: self
+	aTLConnector removeCompositeNode: self.
+	self hierarchyChangeManaged

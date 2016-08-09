@@ -1,3 +1,6 @@
 generation
-generateWith: aTLConnector 
-	^ aTLConnector generateTLColorLegendEntry: self
+generateWith: aTLConnector
+	| generated |
+	generated := aTLConnector generateTLColorLegendEntry: self.
+	self hierarchyChangeManaged.
+	^ generated

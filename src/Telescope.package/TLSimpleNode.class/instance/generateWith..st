@@ -1,3 +1,6 @@
-generation
-generateWith: aGenerator
-	^ aGenerator generateSimpleNode: self
+private-connector
+generateWith: aConnector
+	| generated |
+	generated := aConnector generateSimpleNode: self.
+	self hierarchyChangeManaged.
+	^ generated

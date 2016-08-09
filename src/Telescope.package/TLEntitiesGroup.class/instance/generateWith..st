@@ -1,3 +1,6 @@
-generation
+private-connector
 generateWith: aGenerator
-	^ aGenerator generateGroup: self
+	| generated |
+	generated := aGenerator generateGroup: self.
+	self hierarchyChangeManaged.
+	^ generated

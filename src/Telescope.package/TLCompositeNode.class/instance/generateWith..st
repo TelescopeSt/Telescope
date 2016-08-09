@@ -1,3 +1,6 @@
-adding
+private-connector
 generateWith: aGenerator
-	^ aGenerator generateCompositeNode: self
+	| generated |
+	generated := aGenerator generateCompositeNode: self.
+	self hierarchyChangeManaged.
+	^ generated
