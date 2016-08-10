@@ -1,6 +1,9 @@
 private
 createChildrenNodes
-	self childrenProperty ifNil: [TLNoChildrenPropertyException signal].
+	self areChildrenGenerated
+		ifTrue: [ TLCompositeChildrenAlreadyGeneratedException signal ]
+		ifFalse: [ self state at: #childrenGenerated put: true ].
+	self childrenProperty ifNil: [ TLNoChildrenPropertyException signal ].
 	childrenGroup
 		addNodesFromEntities:
 			([ self childrenProperty cull: self entity ]

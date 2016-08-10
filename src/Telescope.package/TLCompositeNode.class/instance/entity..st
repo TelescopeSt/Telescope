@@ -1,4 +1,5 @@
 accessing
 entity: anEntity
 	super entity: anEntity.
-	self childrenGroup removeAll.
+	self areChildrenGenerated
+		ifTrue: [ self childrenGroup removeAll ]

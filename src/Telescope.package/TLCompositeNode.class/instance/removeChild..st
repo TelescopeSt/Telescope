@@ -1,3 +1,3 @@
 removing
 removeChild: aTLDrawable
-	self childrenGroup removeChild: aTLDrawable
+	self childrenGroup remove: aTLDrawable
