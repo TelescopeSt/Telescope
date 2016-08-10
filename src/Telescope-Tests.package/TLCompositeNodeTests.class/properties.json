@@ -1,7 +1,7 @@
 {
 	"commentStamp" : "",
 	"super" : "BabyMock2TestCase",
-	"category" : "Telescope-Tests",
+	"category" : "Telescope-Tests-Model",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],

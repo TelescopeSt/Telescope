@@ -1,0 +1,14 @@
+tests
+testRemoveAllFromGroup
+	| group node1 node2 |
+	group := TLEntitiesGroup new.
+	node1 := group addDrawable: (TLSimpleNode new).
+	node2 := group addDrawable: (TLSimpleNode new).
+	self assert: group size equals: 2.
+	self assert: node1 parent equals: group.
+	self assert: node2 parent equals: group.
+	group removeAll.
+	self assert: group size equals: 0.
+	self assert: node1 parent equals: nil.
+	self assert: node2 parent equals: nil.
+	
