@@ -1,0 +1,3 @@
+building
+buildVisualization
+	self displayVisu

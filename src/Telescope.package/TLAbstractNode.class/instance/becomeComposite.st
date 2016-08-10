@@ -1,0 +1,3 @@
+transformation
+becomeComposite
+	^ self subclassResponsibility 

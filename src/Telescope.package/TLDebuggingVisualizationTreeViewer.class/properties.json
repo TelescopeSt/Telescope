@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "GuillaumeLarcheveque 8/10/2016 10:56",
+	"super" : "TLVisualization",
+	"category" : "Telescope-Debugging",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"anotherVisualization"
+	],
+	"name" : "TLDebuggingVisualizationTreeViewer",
+	"type" : "normal"
+}
