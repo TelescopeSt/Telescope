@@ -1,3 +1,3 @@
 style
 defaultStyle
-	self subclassResponsibility
+	^ #drawable

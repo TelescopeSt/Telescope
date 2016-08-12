@@ -1,4 +1,4 @@
 state
 requireUpdate
 	super requireUpdate.
-	self legend requireUpdate
+	self legend ifNotNilDo: [ :aLegend | aLegend requireUpdate ]
