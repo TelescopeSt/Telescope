@@ -23,10 +23,8 @@ baseline12: spec
 					repository: 'http://smalltalkhub.com/mc/RMoD/Stylesheet/main/' ];
 			project: 'MaterialDesignLite' with: [
 				spec
-					className: #ConfigurationOfMaterialDesignLite;
-					versionString: #'bleedingEdge';
-					loads: #('colors' );
-					repository: 'http://smalltalkhub.com/mc/KevinLanvin/MaterialDesignLite/main/' ];
+					repository: 'github://DuneSt/MaterialDesignLite:development/src';
+					loads: #('colors') ];
 			project: 'TelescopeLayouts' with: [
 				spec
 					className: #ConfigurationOfTelescopeLayouts;
