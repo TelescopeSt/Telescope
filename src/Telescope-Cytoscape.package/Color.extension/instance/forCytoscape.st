@@ -1,3 +1,3 @@
 *Telescope-Cytoscape
 forCytoscape
-	^ self asHTMLColor
+	^ '#' , self asHexString
