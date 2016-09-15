@@ -11,34 +11,26 @@ cytoscapeTelescopeJs
   var wsUri = "ws://" + location.hostname + ":1701";
   
   function init() {
-
-    visuDivs = obtainAllVisualizationDivs();
-
+    visuDivs = document.getElementsByClassName("telescopeVisu");
     visus = [];
-    
     waitingDivByVisu = [];
     
-    for(var i in visuDivs){
-      visus.push({visuId: visuDivs[i], visu:createVisu(visuDivs[i])});
+    for(var i=0; i<visuDivs.length;i++){
+      visus.push({visuId: visuDivs[i].getAttribute(''id''), visu:createVisu(visuDivs[i])});
     }
     
     websocket = new WebSocket(wsUri);
-    parametrizeWebsocket(visuDivs);
+    parametrizeWebsocket(visus);
     
     for(var j in visus)
       parametrizeInteractionsListenerForVisu(visus[j]);
   }
   
-  function createVisu(aDivId){
-    
-    visuDiv = document.getElementById(aDivId);
-    
+  function createVisu(visuDiv){
     //Here we remove the second child which is the waiting display and store it for future waiting
-    waitingDivByVisu[aDivId]=visuDiv.getElementsByClassName(''tlWaiting'')[0];
+    waitingDivByVisu[visuDiv.getAttribute(''id'')]=visuDiv.getElementsByClassName(''tlWaiting'')[0];
     //visuDiv.removeChild(waitingDivByVisu[aDivId]);
-    
     return cytoscape({
-      
       container: visuDiv.firstChild,
       layout: {name: ''preset''}
     });
@@ -48,41 +40,17 @@ cytoscapeTelescopeJs
     
   }
   
-  function keysFor(associativeArray){
-    var keys = [];
-    for (var key in dictionary) {
-      if (dictionary.hasOwnProperty(key)) {
-      keys.push(key);
-      }
-    }
-    return keys;
-  }
-  
-  function obtainAllVisualizationDivs(){
-   ids = [];
-   $( "div" ).each(function(){
-     if(this.getAttribute(''isTelescopeVisu'') == ''true''){
-     
-     ids.push(this.getAttribute(''id''));
-       
-     }
-     });
-   return ids;
-  }
-  
-
-  function parametrizeWebsocket() {
-    
-    websocket.onopen = function(evt) { onOpen(evt, visuDivs); };
+  function parametrizeWebsocket(visus) {
+    websocket.onopen = function(evt) { onOpen(evt, visus); };
     websocket.onclose = function(evt) { onClose(evt); };
     websocket.onmessage = function(evt) { onMessage(evt); };
     websocket.onerror = function(evt) { onError(evt); };
   }
 
-  function onOpen(evt) {
+  function onOpen(evt, visus) {
     messages = [];
-    for (var i in visuDivs)
-      messages.push({id:visuDivs[i], command:"generate"});
+    for (var i in visus)
+      messages.push({id:visus[i].visuId, command:"generate"});
 
     websocket.send(JSON.stringify(messages));
   }
@@ -93,69 +61,75 @@ cytoscapeTelescopeJs
   
   function removeWaitingForVisuId(aVisuId){
     try{
-      visuDiv = document.getElementById(aVisuId);
-      visuDiv.removeChild(waitingDivByVisu[aVisuId]);
+      waitingDivByVisu[aVisuId].parentNode.removeChild(waitingDivByVisu[aVisuId]);
     }catch(err){
       //Here the waiting has been removed a previous time
     }
   }
 
+  commandsAction={};
+  
+  commandsAction.add = function (command, visu) {
+    elements = visu.add(command.parameters);
+    for (var elementId = 0; elementId < elements.length; elementId++) {
+      customizeElement(elements[elementId], command.parameters[elementId]);
+    }
+  };
+  
+  commandsAction.remove = function (command, visu) {
+    visu.remove(visu.getElementById(command.nodeId));
+  };
+  
+  commandsAction.positioning = function (command, visu) {
+    visu.layout(command.layout);
+  };
+  
+  commandsAction.customize = function (command, visu) {
+    visu.getElementById(command.elementId).style(command.style);
+  };
+  
+  commandsAction.addStaticLegendEntry = function (command) {
+    addStaticLegendEntry(command.visuId,command.html);
+  };
+  
+  commandsAction.removeLegend = function (command) {
+    $(''#''+command.visuId+''legend'').remove();
+  };
+  
+  commandsAction.callback = function (command, visu) {
+    sendCallBack(command.callbackUrl, command.openInNewTab);
+  };
+
   function onMessage(evt) {
     commands = JSON.parse(evt.data);
     
-    for(var i in commands)
-      {
-        command = commands[i];
-        visu = visuWithId(command.visuId);
-        if(command.command == "add"){
-          elements = visu.add(command.parameters);
-          for(var elementId = 0; elementId < elements.length;elementId++){
-            customizeElement(elements[elementId],command.parameters[elementId]);
-          }
-          
-        } else if(command.command == "remove"){
-          visu.remove(visu.getElementById(command.nodeId));
-        } else if(command.command == "positioning"){
-          visu.layout(command.layout);
-        } else if(command.command == ''customize''){
-          visu.getElementById(command.elementId).style(command.style);
-        } else if(command.command == ''addStaticLegendEntry''){
-          addStaticLegendEntry(command.visuId,command.html);
-        } else if(command.command == ''removeLegend''){
-          removeLegend(command.visuId);
-        } else if(command.command == ''callback''){
-          sendCallBack(command.callbackUrl, command.openInNewTab);
-        }
-        else {
-          console.log("unsupported command: " + command.command);
-          console.log(command);
-        }
+    for (var i in commands) {
+      command = commands[i];
+      visu = visuWithId(command.visuId);
+      if (commandsAction[command.command]) {
+        commandsAction[command.command](command, visu);
+      } else {
+        console.log("unsupported command: " + command.command);
+        console.log(command);
       }
+    }
     removeWaitingForVisuId(commands[0].visuId);
   }
   
   function post(path, cbId, openInNewTab) {
-	 var form = $(''<form></form>'');
-
-    form.attr("method", "post");
-    form.attr("action", path);
-    if(openInNewTab){
+    var form = $(''<form></form>'',{method: "post",action: path});
+    if (openInNewTab) {
       form.attr("target", "_blank");
-    } 
-
-   var field = $(''<input></input>'');
-
-   field.attr("type", "hidden");
-    field.attr("name", cbId);
-     field.attr("value", ''refresh'');
-
-     form.append(field);
+    }
     
+    var field = $(''<input>'',{ type: "hidden",name: cbId, value:''refresh''});
+    form.append(field);
+
     // The form needs to be a part of the document in
     // order for us to be able to submit it.
     $(document.body).append(form);
     form.submit();
-}
+  }
   
   function sendCallBack(callBackUrl,openInNewTab){
     post(callBackUrl[0], callBackUrl[1], openInNewTab);
@@ -178,26 +152,17 @@ cytoscapeTelescopeJs
     }
   }
   
-  function removeLegend(visuId){
-    var div = document.getElementById(visuId+''legend'');
-    if(div) {
-      div.parentNode.removeChild(div); 
-    }
-  }
-  
   function addStaticLegendEntry(visuId,html){
     var div = document.getElementById(visuId+''legend'');
     if(!div) {
-      div = document.createElement(''div'');
-      div.id = visuId+''legend'';
-      div.className = ''tlLegend'';
-      div.innerHTML=''<table></table>'';
+      div =$(''<div>'', {id: visuId+''legend'',class :''tlLegend''})
+              .html(''<table></table>'')[0];
       document.getElementById(visuId).appendChild(div);}
     div.firstChild.insertRow(-1).innerHTML = html;
   }
 
   function onError(evt) {
-     }
+  }
 
  function displayMenuForElement(element, visuId, position){
     var menu = [];
@@ -235,32 +200,30 @@ cytoscapeTelescopeJs
       }
       menu.push(entry);
     }
-     $(''#''+visuId).contextMenu(menu);
+    $(''#''+visuId).contextMenu(menu);
      //Should remove old menu
     $(''#''+visuId).contextMenu(''open'', {top: position.y, left: position.x});
   }
 
+  eventsWithInteractions = {''tap'':''click'' , ''cxttap'':''rightClick'' , ''mouseover'':''mouseOver'', ''mouseout'':''mouseOut''};
+
   function createEventFunction(visuWithId){
-    eventsWithInteractions = {''tap'':''click'' , ''cxttap'':''rightClick'' , ''mouseover'':''mouseOver'', ''mouseout'':''mouseOut''};
-    
     return function (evt){
       // server interaction processing
       if((!evt.cyTarget[''mouseOverInteraction'']) && ((evt.type == ''mouseover'') || (evt.type == ''mouseout''))){
           
-      }
-      else{
+      } else{
         // menu management
         if(evt.type == ''cxttap'' && evt.cyTarget[''menu'']){
           displayMenuForElement(evt.cyTarget, visuWithId.visuId,{ x:evt.originalEvent.clientX , y: evt.originalEvent.clientY});
-        }
-        
+        }       
         websocket.send(JSON.stringify([{id:visuWithId.visuId, drawableId:evt.cyTarget.id(),command:"interaction",kind:(eventsWithInteractions[evt.type])}]));
       }
     };
   }
 
   function isDropActionOnANode(visuWithId, candidates, pos, droppedNode){
-   var target;
+    var target;
       
     for(i = 0; i < candidates.length ; i++){
       var node = candidates[i];
@@ -287,14 +250,10 @@ cytoscapeTelescopeJs
   }
 
   function parametrizeInteractionsListenerForVisu(visuWithId){
-    
     visuWithId.visu.on(''tap mouseover mouseout cxttap'',''node'',createEventFunction(visuWithId));
     visuWithId.visu.on(''tap mouseover mouseout cxttap'',''edge'',createEventFunction(visuWithId));
-    visuWithId.visu.on(''free'',''node'',createDragEventFunction(visuWithId));
-    
-    
+    visuWithId.visu.on(''free'',''node'',createDragEventFunction(visuWithId));     
   }
-
 
   window.addEventListener("load", init, false);
 })();'
