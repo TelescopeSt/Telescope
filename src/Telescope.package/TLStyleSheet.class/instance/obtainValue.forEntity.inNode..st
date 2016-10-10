@@ -1,5 +1,5 @@
 private
-obtainValue: aPropertyOrValuable forEntity: anEntity
+obtainValue: aPropertyOrValuable forEntity: anEntity inNode: aNode
 	| result |
 	[ result := aPropertyOrValuable cull: self ]
 		on: KeyNotFound
@@ -10,7 +10,7 @@ obtainValue: aPropertyOrValuable forEntity: anEntity
 				signal ].
 	^ result isEvaluable
 		ifTrue: [ 
-			[ result value: anEntity ]
+			[ result cull: anEntity cull: aNode ]
 				on: MessageNotUnderstood
 				do: [ 
 					TLStyleSheetPropertyBadlyUsed new
