@@ -1,5 +1,5 @@
 *Telescope-Cytoscape
-cytoscapeConnectionStyleFor: anEntity
+cytoscapeConnectionStyleFor: aConnection
 	| styleDictionary |
 	styleDictionary := Dictionary new.
 	self
@@ -11,7 +11,7 @@ cytoscapeConnectionStyleFor: anEntity
 			('source-arrow-text' -> #connectionLabel).
 			('curve-style' -> #curveStyle)".
 			(#label -> #label)"}
-		for: anEntity converter: #forCytoscapeConnection.
+		for: aConnection converter: #forCytoscapeConnection.
 	{(#base -> 'source-arrow-').
 	(#middleReversed -> 'mid-source-arrow-').
 	(#head -> 'target-arrow-').
@@ -22,5 +22,5 @@ cytoscapeConnectionStyleFor: anEntity
 				with:
 					{((substyleAndCytoStyle value , #color) -> #color).
 					((substyleAndCytoStyle value , #shape) -> #shape)}
-				for: anEntity converter: #forCytoscapeConnection].
+				for: aConnection converter: #forCytoscapeConnection].
 	^ styleDictionary

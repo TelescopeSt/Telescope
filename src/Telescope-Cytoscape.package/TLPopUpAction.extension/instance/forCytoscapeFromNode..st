@@ -1,6 +1,6 @@
 *Telescope-Cytoscape
 forCytoscapeFromNode: aTLNode
-	^ {('content' -> (self textBlock value: aTLNode entity)).
+	^ {('content' -> (self textBlock cull: aTLNode entity cull: aTLNode)).
 	('position'
 		->
 			{('my' -> self popUpArrowPosition forQTip).

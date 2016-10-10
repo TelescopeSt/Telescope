@@ -1,7 +1,7 @@
 *Telescope-Cytoscape
 cytoscapeTriggerStyleFor: aTrigger
 	| nodeLabelPosition styleDictionary |
-	nodeLabelPosition := self obtainValue: #nodeLabelPosition forEntity: nil.
+	nodeLabelPosition := self obtainValue: #nodeLabelPosition forEntity: nil inNode: aTrigger.
 	styleDictionary := Dictionary new.
 	self
 		fillStyleDictionary: styleDictionary
@@ -13,7 +13,7 @@ cytoscapeTriggerStyleFor: aTrigger
 			('background-color' -> #backgroundColor).
 			(#label -> #nodeLabel).
 			(#shape -> #shape)}
-		for: nil
+		for: aTrigger
 		converter: #forCytoscapeNode.
 	styleDictionary
 		at: 'text-halign' put: nodeLabelPosition horizontal;

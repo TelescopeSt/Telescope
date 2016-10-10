@@ -4,7 +4,7 @@ generateNodeBackgroundLegendEntry: aTLNodeBackgroundLegendEntry
 		collect: [ :collection | 
 			| drawable |
 			drawable := collection anyOne.
-			drawable effectiveStyleSheet obtainValue: #backgroundColor forEntity: drawable entity ]) associations
+			drawable effectiveStyleSheet obtainValue: #backgroundColor forEntity: drawable entity inNode: drawable ]) associations
 		do: [ :labelAndColor | 
 			self
 				addCommand:
