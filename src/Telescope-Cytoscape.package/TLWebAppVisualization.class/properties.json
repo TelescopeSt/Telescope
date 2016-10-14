@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "BriceGovin 10/14/2016 09:50",
+	"super" : "Object",
+	"category" : "Telescope-Cytoscape",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"visualization"
+	],
+	"name" : "TLWebAppVisualization",
+	"type" : "normal"
+}

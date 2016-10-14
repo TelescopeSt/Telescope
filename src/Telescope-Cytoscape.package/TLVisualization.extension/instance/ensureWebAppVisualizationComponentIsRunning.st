@@ -1,0 +1,4 @@
+*Telescope-Cytoscape
+ensureWebAppVisualizationComponentIsRunning
+
+	TLWebAppVisualizationComponent ensureIsRunning.
