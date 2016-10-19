@@ -4,14 +4,15 @@ customizeFromInteractions: aCollectionOfInteractions forNode: aTLNode
 		mouseOverInteraction:
 			(aCollectionOfInteractions
 				anySatisfy: [ :interaction | interaction action isPopUp not and: [ interaction shouldOccursOn: 'mouseOver' with: aTLNode ] ]).
-	self dropInteraction:
-		(aCollectionOfInteractions
-				anySatisfy: #isDrop).
+	self dropInteraction: (aCollectionOfInteractions anySatisfy: #isDrop).
 	self
 		popUp:
 			(aCollectionOfInteractions
 				detect: [ :interaction | interaction action isPopUp ]
-				ifFound: [ :interaction | interaction forCytoscapeFromNode: aTLNode ]
+				ifFound: [ :interaction | 
+					[ interaction forCytoscapeFromNode: aTLNode ]
+						on: TLNilOrEmptyTextException
+						do: [ nil ] ]
 				ifNone: [ nil ]).
 	self
 		menu:
