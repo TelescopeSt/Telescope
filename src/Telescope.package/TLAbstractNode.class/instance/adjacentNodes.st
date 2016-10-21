@@ -1,3 +1,7 @@
 accessing
 adjacentNodes
-	^ self incomingAdjacentNodes , self outgoingAdjacentNodes
+   |t|
+	t:=TLDrawableCollection new 
+	addAll: self incomingAdjacentNodes.
+	t addAllFirstUnlessAlreadyPresent: self outgoingAdjacentNodes.
+	^ t
