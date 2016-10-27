@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "",
+	"super" : "TLStaticLegendEntry",
+	"category" : "Telescope-Model-Legend",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"icon"
+	],
+	"name" : "TLStyleSheetLegendEntry",
+	"type" : "normal"
+}
