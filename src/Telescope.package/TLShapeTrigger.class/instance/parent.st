@@ -1,3 +1,3 @@
 accessing
 parent
-	^ self shapeInteraction container
+	^ self shapeInteraction ifNotNil: [ self shapeInteraction container]

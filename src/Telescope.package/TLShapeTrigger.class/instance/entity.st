@@ -1,0 +1,3 @@
+hack
+entity
+	^ nil

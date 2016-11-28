@@ -1,4 +1,3 @@
 instance creation
 open
-	self generate.
-	self generator openViewInWindowSized: self openingDimension titled: self title.
+	self generator open: self inWindowSized: self openingDimension titled: self title.
