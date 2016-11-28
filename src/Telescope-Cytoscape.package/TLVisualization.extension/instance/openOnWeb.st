@@ -1,10 +1,20 @@
 *Telescope-Cytoscape
 openOnWeb
-
-	| webAppVisualization |
-	self ensureWebAppVisualizationComponentIsRunning. 
+	| webAppVisualization port |
+	self ensureWebAppVisualizationComponentIsRunning.
 	webAppVisualization := TLWebAppVisualization singleton.
 	webAppVisualization visualization: self.
-	
-	UIManager default message: 'Open your prefered browser and go to localhost:8080/UserVisualization'.
-	self flag: 'I am assuming that a server is already running on the port 8080. There should be a way to open the prefered browser at the right page'
+	WAServerManager default adaptors
+		ifEmpty: [ 
+			(ZnZincServerAdaptor
+				port: (port := 8080))
+				start ]
+		ifNotEmpty: [ :adaptors | 
+			adaptors
+				detect: #isRunning
+				ifFound: [ :anAdaptor | port := anAdaptor server port ]
+				ifNone: [ 
+					(ZnZincServerAdaptor
+						port: (port := 8080))
+						start ] ].
+	OSProcess command: 'open http://localhost:' , port asString , '/UserVisualization'
