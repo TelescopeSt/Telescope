@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "TLTreeLayout",
+	"category" : "Telescope-Layouts",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "TLCircularTreeLayout",
+	"type" : "normal"
+}

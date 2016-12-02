@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "GuillaumeLarcheveque 11/30/2016 10:07",
+	"super" : "TLLayout",
+	"category" : "Telescope-Layouts",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"arcGap"
+	],
+	"name" : "TLCircularLayout",
+	"type" : "normal"
+}
