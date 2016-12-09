@@ -33,4 +33,22 @@ telescopeCss
 .tlLegendIcon {
     min-width: 30px;
 }
+
+.qtip.qtip-default{
+	-webkit-border-radius:2px;
+	-moz-border-radius:2px;
+	-ms-border-radius:2px;
+	-o-border-radius:2px;
+	border-radius:2px;
+	background-clip:padding-box;
+	z-index:999;
+	background:rgba(97,97,97,0.9);
+	color:#FFF;
+	max-width:400px;
+	text-align:center;
+	line-height:14px;
+	font-size:14px;
+	padding:16px;
+	border:0
+}
 '
