@@ -100,6 +100,10 @@ cytoscapeTelescopeJs
     sendCallBack(command.callbackUrl, command.openInNewTab);
   };
 
+  commandsAction.generated = function (command) {
+    removeWaitingForVisuId(command.visuId);
+  }
+
   function onMessage(evt) {
     commands = JSON.parse(evt.data);
     
@@ -113,7 +117,6 @@ cytoscapeTelescopeJs
         console.log(command);
       }
     }
-    removeWaitingForVisuId(commands[0].visuId);
   }
   
   function post(path, cbId, openInNewTab) {
