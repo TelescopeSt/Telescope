@@ -1,3 +1,3 @@
 layout
 configLayout
-	self layout: (RTHorizontalTreeLayout new horizontalGap: 100)
+	self layout: (TLTreeLayout topToBottom levelGap: 100)
