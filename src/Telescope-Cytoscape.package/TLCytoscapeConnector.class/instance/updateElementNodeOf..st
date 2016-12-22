@@ -6,13 +6,7 @@ updateElementNodeOf: aDrawable
 		ifTrue: [ 
 			self
 				addCommand:
-					(TLVisualizationRemoveElementCommand new
-						visuId: self visuId;
-						nodeId: element nodeId;
-						yourself).
-			self
-				addCommand:
-					(TLVisualizationAddNodeCommand new
+					(TLVisualizationRefreshNodeCommand new
 						virtualNode: element;
 						customizeFromInteractions: aDrawable allInteractions forNode: aDrawable;
 						visuId: self visuId;

@@ -6,7 +6,8 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"selection"
+		"selection",
+		"method"
 	],
 	"name" : "TLCytoscapeTelescopeDemoComponent",
 	"type" : "normal"

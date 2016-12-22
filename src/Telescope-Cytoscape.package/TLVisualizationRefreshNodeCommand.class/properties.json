@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "YannLesage 12/22/2016 11:43",
+	"super" : "TLVisualizationDrawableCommand",
+	"category" : "Telescope-Cytoscape-Commands",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"virtualNode"
+	],
+	"name" : "TLVisualizationRefreshNodeCommand",
+	"type" : "normal"
+}

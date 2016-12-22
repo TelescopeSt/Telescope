@@ -1,0 +1,1 @@
+I am the command for redraw a node 
