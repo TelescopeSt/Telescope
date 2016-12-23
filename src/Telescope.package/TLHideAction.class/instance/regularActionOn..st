@@ -6,4 +6,4 @@ regularActionOn: aTLDrawable
 			(([ self hidingValuableOrEntity value: aTLDrawable ]
 				on: MessageNotUnderstood
 				do: [ self hidingValuableOrEntity ]) asOrderedCollection select: #isVisible).
-	(self hiddedDrawables at: aTLDrawable) do: [ :aDrawableToHide | aDrawableToHide hide ]
+	(self hiddedDrawables at: aTLDrawable) do: #hide
