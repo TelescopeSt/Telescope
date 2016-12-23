@@ -1,12 +1,13 @@
 {
-	"commentStamp" : "GuillaumeLarcheveque 10/8/2015 14:55",
+	"commentStamp" : "CyrilFerlicot 12/23/2016 14:36",
 	"super" : "TLReversibleNodeAction",
 	"category" : "Telescope-Actions",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"hidingValuableOrEntity"
+		"hidingValuableOrEntity",
+		"hiddedDrawables"
 	],
 	"name" : "TLHideAction",
 	"type" : "normal"

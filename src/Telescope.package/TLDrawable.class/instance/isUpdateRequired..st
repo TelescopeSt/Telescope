@@ -1,3 +1,3 @@
 accessing
-isUpdateRequired: anObject
-	isUpdateRequired := anObject
+isUpdateRequired: aBoolean
+	isUpdateRequired := aBoolean

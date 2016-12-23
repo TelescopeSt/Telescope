@@ -1,3 +1,6 @@
 initialization
 show
-	self isVisible: true
+	self isVisible ifTrue: [ ^ self ].
+	
+	self isVisible: true.
+	self generateWith: self generator
