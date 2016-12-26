@@ -3,7 +3,7 @@ cytoscapeTelescopeJs
 	^ 'var telescope = (function () {
   var wsUri = "ws://" + location.hostname + ":1701";
   var websocket;
-  var self = this;
+  var self = {};
 
   function visuWithId(aVisuId) {
     for (var i in visus) {
@@ -58,7 +58,7 @@ cytoscapeTelescopeJs
     websocket.onerror = function (evt) {
       onError(evt);
     };
-    if (websocket.readyState==0) {
+    if (websocket.readyState == 0) {
       websocket.onopen = function (evt) {
         onOpen(evt, visus);
       };
@@ -245,8 +245,18 @@ cytoscapeTelescopeJs
 
   eventsWithInteractions = {"tap": "click", "cxttap": "rightClick", "mouseover": "mouseOver", "mouseout": "mouseOut"};
 
-  function createEventFunction(visuWithId) {
+  function createEventFunction(visu) {
     return function (evt) {
+      useExternalTrigger(evt, visu.visuId);
+    };
+  }
+
+  function useExternalTrigger(evt, visuId) {
+console.log(visuId)
+    if (!evt.cyTarget) {
+      console.log("send",[{id: visuId, command: "interaction", kind: (eventsWithInteractions[evt.type]|| evt.type)}])
+       websocket.send(JSON.stringify([{id: visuId, command: "interaction", kind: (eventsWithInteractions[evt.type])}]));
+    } else {
       // server interaction processing
       if ((!evt.cyTarget["mouseOverInteraction"]) && ((evt.type == "mouseover") || (evt.type == "mouseout"))) {
 
@@ -255,9 +265,10 @@ cytoscapeTelescopeJs
         if (evt.type == "cxttap" && evt.cyTarget["menu"]) {
           displayMenuForElement(evt.cyTarget, visuWithId.visuId, {x: evt.originalEvent.clientX, y: evt.originalEvent.clientY});
         }
-        websocket.send(JSON.stringify([{id: visuWithId.visuId, drawableId: evt.cyTarget.id(), command: "interaction", kind: (eventsWithInteractions[evt.type])}]));
+      console.log("send",[{id: visuId, drawableId: evt.cyTarget.id(), command: "interaction", kind: (eventsWithInteractions[evt.type])}])
+        websocket.send(JSON.stringify([{id: visuId, drawableId: evt.cyTarget.id(), command: "interaction", kind: (eventsWithInteractions[evt.type])}]));
       }
-    };
+    }
   }
 
   function isDropActionOnANode(visuWithId, candidates, pos, droppedNode) {
@@ -313,13 +324,14 @@ cytoscapeTelescopeJs
 
   cytoscape("collection", "changeData", changeData);
 
+  self.useExternalTrigger = useExternalTrigger;
   self.visuWithId = visuWithId;
   self.loadVisuIn = loadVisuIn;
 
   return self;
 })();
 
-visuWithId=function (id) {
+visuWithId = function (id) {
   console.log("visuWithId is deprecated. Use telescope.visuWithId instead.");
   return telescope.visuWithId(id);
-}'
+};'
