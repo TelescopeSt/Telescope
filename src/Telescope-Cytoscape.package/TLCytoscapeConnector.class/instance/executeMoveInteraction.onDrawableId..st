@@ -8,4 +8,8 @@ executeMoveInteraction: aDrawablePosition onDrawableId: aDrawableId
 				at: anElement
 				put: (anElement calculateRelativePositionFromAbsolute: aDrawablePosition) ].
 	(aDrawable allValidInteractionsOfKind: TLNodeMovedInteraction)
-		do: [ :anInteraction | self executeRegularInteraction: anInteraction forDrawable: aDrawable referencedElement ]
+		do: [ :anInteraction | 
+			self
+				executeInteraction: anInteraction
+				parameter: aDrawablePosition
+				forDrawable: aDrawable referencedElement ]

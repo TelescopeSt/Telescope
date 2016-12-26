@@ -4,5 +4,5 @@ executeDropInteraction: aDroppedDrawableId onDrawableId: aTargetDrawableId
 	targetDrawable := self tlDrawableFromId: aTargetDrawableId.
 	visualization := targetDrawable visualization.
 	(targetDrawable allValidInteractionsOfKind: TLDropInteraction)
-		do: [ :anInteraction | anInteraction actionOn: targetDrawable choice: (self tlDrawableFromId: aDroppedDrawableId) ].
+		do: [ :anInteraction | anInteraction actionOn: targetDrawable parameter: (self tlDrawableFromId: aDroppedDrawableId) ].
 	visualization update
