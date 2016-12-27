@@ -18,5 +18,5 @@ renderContentOn: html
 										with: each selector ] ].
 					html div
 						id: 'view';
-						style: 'background: aliceblue; flex-grow:1; width:1px;';
+						style: 'background: aliceblue; flex-grow:1; width:1px;overflow: auto;padding: 10px 5px 20px 5px;';
 						with: [ self renderDemo: html ] ]
