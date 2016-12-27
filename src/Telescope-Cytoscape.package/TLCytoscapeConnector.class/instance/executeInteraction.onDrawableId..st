@@ -1,7 +1,7 @@
 executing - interaction
 executeInteraction: aKindOfInteraction onDrawableId: aDrawableId
 	| drawable |
-   drawable := self tlDrawableFromId: aDrawableId.
+	drawable := self tlDrawableFromId: aDrawableId.
 	drawable allInteractions
 		select: [ :anInteraction | anInteraction shouldOccursOn: aKindOfInteraction with: drawable ]
 		thenDo: [ :anInteraction | 
@@ -11,4 +11,4 @@ executeInteraction: aKindOfInteraction onDrawableId: aDrawableId
 				ifFalse: [ 
 					aKindOfInteraction = #mouseOut
 						ifTrue: [ self executeReverseInteraction: anInteraction forDrawable: drawable ]
-						ifFalse: [ 'on'crLog.self executeInteraction: anInteraction forDrawable: drawable referencedElement ] ] ]
+						ifFalse: [ self executeInteraction: anInteraction forDrawable: drawable referencedElement ] ] ]
