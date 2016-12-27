@@ -8,7 +8,7 @@ generateMultiChoiceMenuInteraction: aTLMultiChoiceMenuInteraction onDrawable: aT
 		actionBlock: [ :entity | 
 			| visualization |
 			visualization := aTLDrawable visualization.	"we have to memorize the visualization because we are not sure the element will still be part of visualization after action"
-			aTLMultiChoiceMenuInteraction actionOn: anotherDrawable choice: entity.
+			aTLMultiChoiceMenuInteraction actionOn: anotherDrawable parameter: entity.
 			visualization update ].
 	subMenu childBlock: [ aTLMultiChoiceMenuInteraction choicesBlock value: aTLDrawable ].
 	subMenu displayBlock: aTLMultiChoiceMenuInteraction displayBlock.
