@@ -14,7 +14,6 @@ cytoscapeTelescopeJs
 
   function loadVisuIn(htmlElement) {
     visuDivs = htmlElement.getElementsByClassName("telescopeVisu");
-    console.log("visuDivs ", visuDivs)
     for (var i = 0; i < visuDivs.length; i++) {
       visus.push({visuId: visuDivs[i].getAttribute("id"), visu: createVisu(visuDivs[i])});
     }
@@ -134,7 +133,7 @@ cytoscapeTelescopeJs
     for (var i in commands) {
       command = commands[i];
       visu = visuWithId(command.visuId);
-      if (visu.refreshStopped) {
+      if (visu.refreshStopped==null) {
         visu.startBatch();//stop refresh of view
         visu.refreshStopped = true;
         toRestart.push(visu)
@@ -147,6 +146,7 @@ cytoscapeTelescopeJs
       }
     }
     for (i = 0; i < toRestart.length; i++) {
+      toRestart[i].refreshStopped=null
       toRestart[i].endBatch();//refresh the view
     }
   }
@@ -245,18 +245,8 @@ cytoscapeTelescopeJs
 
   eventsWithInteractions = {"tap": "click", "cxttap": "rightClick", "mouseover": "mouseOver", "mouseout": "mouseOut"};
 
-  function createEventFunction(visu) {
+  function createEventFunction(visuWithId) {
     return function (evt) {
-      useExternalTrigger(evt, visu.visuId);
-    };
-  }
-
-  function useExternalTrigger(evt, visuId) {
-console.log(visuId)
-    if (!evt.cyTarget) {
-      console.log("send",[{id: visuId, command: "interaction", kind: (eventsWithInteractions[evt.type]|| evt.type)}])
-       websocket.send(JSON.stringify([{id: visuId, command: "interaction", kind: (eventsWithInteractions[evt.type])}]));
-    } else {
       // server interaction processing
       if ((!evt.cyTarget["mouseOverInteraction"]) && ((evt.type == "mouseover") || (evt.type == "mouseout"))) {
 
@@ -265,10 +255,22 @@ console.log(visuId)
         if (evt.type == "cxttap" && evt.cyTarget["menu"]) {
           displayMenuForElement(evt.cyTarget, visuWithId.visuId, {x: evt.originalEvent.clientX, y: evt.originalEvent.clientY});
         }
-      console.log("send",[{id: visuId, drawableId: evt.cyTarget.id(), command: "interaction", kind: (eventsWithInteractions[evt.type])}])
-        websocket.send(JSON.stringify([{id: visuId, drawableId: evt.cyTarget.id(), command: "interaction", kind: (eventsWithInteractions[evt.type])}]));
+        websocket.send(JSON.stringify([{id: visuWithId.visuId, drawableId: evt.cyTarget.id(), command: "interaction", kind: (eventsWithInteractions[evt.type])}]));
       }
+    };
+  }
+
+  function triggerOnleaves(evt, visuId) {
+    toSend= [ ];
+    leaves = visuWithId(visuId).nodes().filterFn(function(e){return e.outgoers().length==0});
+    for(i=0; i< leaves.length;i++){
+      toSend.push({id: visuId, drawableId: leaves[i].id(), command: "interaction", kind: (eventsWithInteractions[evt.type]|| evt.type)})
     }
+    websocket.send(JSON.stringify(toSend));
+  }
+
+  function useExternalTrigger(evt, visuId) {
+    websocket.send(JSON.stringify([{id: visuId, command: "externalTrigger", kind: (eventsWithInteractions[evt.type]|| evt.type)}]));
   }
 
   function isDropActionOnANode(visuWithId, candidates, pos, droppedNode) {
@@ -325,6 +327,7 @@ console.log(visuId)
   cytoscape("collection", "changeData", changeData);
 
   self.useExternalTrigger = useExternalTrigger;
+  self.triggerOnleaves= triggerOnleaves;
   self.visuWithId = visuWithId;
   self.loadVisuIn = loadVisuIn;
 
