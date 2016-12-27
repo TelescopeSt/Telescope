@@ -1,4 +1,4 @@
 action
 regularActionOn: aNode
 	self connectNode: aNode.
-	aNode requireUpdateAndLayoutApplication
+	aNode requireUpdate
