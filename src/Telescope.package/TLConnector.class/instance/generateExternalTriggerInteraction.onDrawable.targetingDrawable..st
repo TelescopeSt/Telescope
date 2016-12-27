@@ -1,0 +1,3 @@
+generation - interaction
+generateExternalTriggerInteraction: aTLMouseOverInteraction onDrawable: aTLDrawable targetingDrawable: anObject
+	self subclassResponsibility

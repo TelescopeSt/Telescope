@@ -1,3 +1,0 @@
-testing
-externalTrigger
-	externalTrigger := true

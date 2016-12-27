@@ -6,8 +6,7 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"condition",
-		"externalTrigger"
+		"condition"
 	],
 	"name" : "TLAction",
 	"type" : "normal"
