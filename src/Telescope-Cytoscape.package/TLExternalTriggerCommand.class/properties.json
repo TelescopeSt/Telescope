@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "",
+	"super" : "TLVisualizationClientsCommand",
+	"category" : "Telescope-Cytoscape-Commands",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"droppedNodeId",
+		"targetNodeId",
+		"kind"
+	],
+	"name" : "TLExternalTriggerCommand",
+	"type" : "normal"
+}
