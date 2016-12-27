@@ -69,7 +69,8 @@ cytoscapeTelescopeJs
   function onOpen(evt, visus) {
     messages = [];
     for (var i in visus)
-      messages.push({id: visus[i].visuId, command: "generate"});
+      if(document.getElementById(visus[i].visuId)!=null)
+        messages.push({id: visus[i].visuId, command: "generate"});
 
     websocket.send(JSON.stringify(messages));
   }
@@ -132,22 +133,14 @@ cytoscapeTelescopeJs
     toRestart = [];
     for (var i in commands) {
       command = commands[i];
+    console.log("command",command)
       visu = visuWithId(command.visuId);
-      if (visu.refreshStopped==null) {
-        visu.startBatch();//stop refresh of view
-        visu.refreshStopped = true;
-        toRestart.push(visu)
-      }
       if (commandsAction[command.command]) {
         commandsAction[command.command](command, visu);
       } else {
         console.log("unsupported command: " + command.command);
         console.log(command);
       }
-    }
-    for (i = 0; i < toRestart.length; i++) {
-      toRestart[i].refreshStopped=null
-      toRestart[i].endBatch();//refresh the view
     }
   }
 
@@ -203,6 +196,13 @@ cytoscapeTelescopeJs
   function displayMenuForElement(element, visuId, position) {
     var menu = [];
     var fun = function (name, evt) {
+      console.log([
+        {"id": visuId,
+          "drawableId": element.id(),
+          "command": "menuInteraction",
+          "kind": "menu",
+          "entry": ($(evt.target).index() + 1)
+        }])
       websocket.send(JSON.stringify([
         {"id": visuId,
           "drawableId": element.id(),
@@ -255,6 +255,7 @@ cytoscapeTelescopeJs
         if (evt.type == "cxttap" && evt.cyTarget["menu"]) {
           displayMenuForElement(evt.cyTarget, visuWithId.visuId, {x: evt.originalEvent.clientX, y: evt.originalEvent.clientY});
         }
+console.log("send",[{id: visuWithId.visuId, drawableId: evt.cyTarget.id(), command: "interaction", kind: (eventsWithInteractions[evt.type])}])
         websocket.send(JSON.stringify([{id: visuWithId.visuId, drawableId: evt.cyTarget.id(), command: "interaction", kind: (eventsWithInteractions[evt.type])}]));
       }
     };
