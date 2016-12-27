@@ -133,7 +133,6 @@ cytoscapeTelescopeJs
     toRestart = [];
     for (var i in commands) {
       command = commands[i];
-    console.log("command",command)
       visu = visuWithId(command.visuId);
       if (commandsAction[command.command]) {
         commandsAction[command.command](command, visu);
@@ -196,13 +195,6 @@ cytoscapeTelescopeJs
   function displayMenuForElement(element, visuId, position) {
     var menu = [];
     var fun = function (name, evt) {
-      console.log([
-        {"id": visuId,
-          "drawableId": element.id(),
-          "command": "menuInteraction",
-          "kind": "menu",
-          "entry": ($(evt.target).index() + 1)
-        }])
       websocket.send(JSON.stringify([
         {"id": visuId,
           "drawableId": element.id(),
@@ -255,7 +247,6 @@ cytoscapeTelescopeJs
         if (evt.type == "cxttap" && evt.cyTarget["menu"]) {
           displayMenuForElement(evt.cyTarget, visuWithId.visuId, {x: evt.originalEvent.clientX, y: evt.originalEvent.clientY});
         }
-console.log("send",[{id: visuWithId.visuId, drawableId: evt.cyTarget.id(), command: "interaction", kind: (eventsWithInteractions[evt.type])}])
         websocket.send(JSON.stringify([{id: visuWithId.visuId, drawableId: evt.cyTarget.id(), command: "interaction", kind: (eventsWithInteractions[evt.type])}]));
       }
     };
