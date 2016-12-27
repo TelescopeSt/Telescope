@@ -1,5 +1,6 @@
 action
 connectNode: aNode
+	1halt.
 	self connectionsByNode
 		at: aNode
 		put:

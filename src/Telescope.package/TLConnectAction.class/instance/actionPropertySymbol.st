@@ -1,3 +1,3 @@
 action
 actionPropertySymbol
-	^ (#connect , self property) asSymbol
+	^ (#connect , self property hash asString) asSymbol

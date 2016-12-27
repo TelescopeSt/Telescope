@@ -1,3 +1,3 @@
 action
-actionOn: aTLDrawable parameter: aChoiceResultObject
+actionOn: aTLDrawable choice: aChoiceResultObject
 	self block value: aTLDrawable value: aChoiceResultObject
