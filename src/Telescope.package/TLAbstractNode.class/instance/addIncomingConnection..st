@@ -1,4 +1,4 @@
 adding
 addIncomingConnection: aTLConnection
 	self incomingConnections add: aTLConnection.
-	self requireUpdateAndLayoutApplication
+	self requireUpdateForConnections

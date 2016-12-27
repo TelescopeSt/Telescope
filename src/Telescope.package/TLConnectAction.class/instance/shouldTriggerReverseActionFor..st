@@ -1,3 +1,3 @@
 testing
-shouldTriggerReverseActionFor: aTLDrawable
-	^ aTLDrawable state at: self actionPropertySymbol ifAbsent: [ false ]
+shouldTriggerReverseActionFor: aNode
+	^ self connectionsByNode at: aNode ifPresent: [ :c | true ] ifAbsent: [ false ]

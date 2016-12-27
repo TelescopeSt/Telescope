@@ -9,5 +9,5 @@ exampleGradient
 				to: MDLColor orange at: 15;
 				to: MDLColor yellow at: 30;
 				to: MDLColor green at: 50).
-	visu addNodesFromEntities: ((1 to: 60) collect: [ :i | i ]).
+	visu addNodesFromEntities: (1 to: 60).
 	^ visu

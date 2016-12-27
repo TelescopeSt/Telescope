@@ -3,7 +3,6 @@ connectNode: aNode
 	self connectionsByNode
 		at: aNode
 		put:
-			(self connectToOrigin value
+			((self obtain: self connectToOrigin on: aNode entity)
 				ifFalse: [ aNode connectTo: (self context nodesForEntities: (self obtain: self property on: aNode entity)) ]
-				ifTrue: [ (self context nodesForEntities: (self obtain: self property on: aNode entity)) connectTo: aNode ]).
-	aNode state at: self actionPropertySymbol put: true
+				ifTrue: [ (self context nodesForEntities: (self obtain: self property on: aNode entity)) connectTo: aNode ])
