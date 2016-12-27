@@ -1,4 +1,4 @@
-action
+initialization
 initialize
 	super initialize.
-	previousStyleDictionary := Dictionary new
+	self previousStyleDictionary: Dictionary new

@@ -1,4 +1,4 @@
 action
-removeCustomization: aTLDrawable
-	[aTLDrawable styleSheet: (aTLDrawable state removeKey: self stateKey)] on: KeyNotFound do: [ Transcript show: 'Problem: #removeCustomization find no key' ] .
-	aTLDrawable requireUpdate.
+removeCustomization: aDrawable
+	aDrawable styleSheet: (aDrawable state removeKey: self stateKey).
+	aDrawable requireUpdate

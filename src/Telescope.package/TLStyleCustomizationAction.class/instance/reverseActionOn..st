@@ -1,3 +1,4 @@
 action
 reverseActionOn: aTLDrawable
-	(self obtainTargetDrawablesFrom: aTLDrawable) do: [ :aTargetDrawable | self removeCustomization: aTargetDrawable ]
+	(self previousStyleDictionary at: aTLDrawable) do: [ :aTargetDrawable | self removeCustomization: aTargetDrawable ].
+	self previousStyleDictionary removeKey: aTLDrawable

@@ -1,5 +1,5 @@
 {
-	"commentStamp" : "GuillaumeLarcheveque 4/10/2015 09:54",
+	"commentStamp" : "CyrilFerlicot 12/27/2016 17:17",
 	"super" : "TLReversibleNodeAction",
 	"category" : "Telescope-Actions",
 	"classinstvars" : [ ],

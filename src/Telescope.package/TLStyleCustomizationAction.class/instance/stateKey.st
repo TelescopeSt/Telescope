@@ -1,3 +1,3 @@
 action
-stateKey 
-	^ #styleCustomized
+stateKey
+	^ #styleCustomized , self customizationBlock hash asString
