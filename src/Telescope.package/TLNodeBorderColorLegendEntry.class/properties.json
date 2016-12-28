@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "CyrilFerlicot 12/28/2016 10:52",
+	"super" : "TLDynamicLegendEntry",
+	"category" : "Telescope-Model-Legend",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "TLNodeBorderColorLegendEntry",
+	"type" : "normal"
+}
