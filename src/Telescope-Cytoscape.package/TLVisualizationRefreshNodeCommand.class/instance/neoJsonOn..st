@@ -6,6 +6,8 @@ neoJsonOn: writer
 		ifTrue: [ data at: #parent put: self virtualNode parentNode nodeId ].
 	writer
 		writeMapStreamingDo: [ :jsonMapWriter | 
+			jsonMapWriter writeKey: #command value: self class command.
+			jsonMapWriter writeKey: #visuId value: self visuId.
 			jsonMapWriter writeKey: #group value: #nodes.
 			jsonMapWriter writeKey: #data value: data.
 			self virtualNode hasChildren

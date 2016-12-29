@@ -8,6 +8,5 @@ defaultDemo
 			(i * 15)} ].
 	visu addNodesFromEntities: #(1 2).
 	visu styleSheet
-		nodeLabel: #asString;
-		expandCompositeNodes.
+		nodeLabel: #asString.
 	^visu

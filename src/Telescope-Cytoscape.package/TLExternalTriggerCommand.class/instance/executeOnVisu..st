@@ -1,3 +1,3 @@
 as yet unclassified
 executeOnVisu: aTLVisualization
-	aTLVisualization generator executeExternalTrigger.
+	aTLVisualization generator executeExternalTrigger: self triggerId .

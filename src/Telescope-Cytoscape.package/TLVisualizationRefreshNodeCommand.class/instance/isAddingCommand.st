@@ -1,3 +1,3 @@
 as yet unclassified
 isAddingCommand
-	^ true
+	^ false
