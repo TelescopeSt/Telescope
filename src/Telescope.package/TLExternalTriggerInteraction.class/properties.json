@@ -1,11 +1,15 @@
 {
-	"commentStamp" : "",
+	"commentStamp" : "YannLesage 12/28/2016 12:16",
 	"super" : "TLInteraction",
 	"category" : "Telescope-Interactions",
-	"classinstvars" : [ ],
+	"classinstvars" : [
+		"id"
+	],
 	"pools" : [ ],
 	"classvars" : [ ],
-	"instvars" : [ ],
+	"instvars" : [
+		"id"
+	],
 	"name" : "TLExternalTriggerInteraction",
 	"type" : "normal"
 }
