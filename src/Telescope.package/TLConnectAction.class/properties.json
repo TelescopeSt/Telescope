@@ -1,5 +1,5 @@
 {
-	"commentStamp" : "CyrilFerlicot 12/27/2016 13:50",
+	"commentStamp" : "CyrilFerlicot 12/29/2016 10:09",
 	"super" : "TLReversibleNodeAction",
 	"category" : "Telescope-Actions",
 	"classinstvars" : [ ],
@@ -9,7 +9,8 @@
 		"connectionsByNode",
 		"property",
 		"context",
-		"connectToOrigin"
+		"connectToOrigin",
+		"connectionStyle"
 	],
 	"name" : "TLConnectAction",
 	"type" : "normal"
