@@ -117,7 +117,7 @@ cytoscapeTelescopeJs
   };
 
   commandsAction.refreshNode = function (command, visu) {
-    visu.$("#" + command.nodeId).changeData(command.data);
+   setTimeout(function(){ visu.$("#" + command.data.id).changeData(command.data);}, 3000);
   };
 
   commandsAction.callback = function (command, visu) {
@@ -135,7 +135,7 @@ cytoscapeTelescopeJs
       command = commands[i];
       visu = visuWithId(command.visuId);
       if (commandsAction[command.command]) {
-        commandsAction[command.command](command, visu);
+         commandsAction[command.command](command, visu);
       } else {
         console.log("unsupported command: " + command.command);
         console.log(command);
@@ -261,8 +261,8 @@ cytoscapeTelescopeJs
     websocket.send(JSON.stringify(toSend));
   }
 
-  function useExternalTrigger(evt, visuId) {
-    websocket.send(JSON.stringify([{id: visuId, command: "externalTrigger", kind: (eventsWithInteractions[evt.type]|| evt.type)}]));
+  function useExternalTrigger(evt, visuId, triggerId) {
+    websocket.send(JSON.stringify([{id: visuId, command: "externalTrigger", triggerId:triggerId, kind: (eventsWithInteractions[evt.type]|| evt.type)}]));
   }
 
   function isDropActionOnANode(visuWithId, candidates, pos, droppedNode) {
@@ -286,7 +286,7 @@ cytoscapeTelescopeJs
   }
 
   function createDragEventFunction(visuWithId) {
-    return function (evt) {
+    return function (evt) { 
       //We only send a moveNode command if it is not considered as a drop
       if (!isDropActionOnANode(visuWithId, evt.cy.elements(), this.renderedPosition(), evt.cyTarget))
         websocket.send(JSON.stringify([{id: visuWithId.visuId, nodeId: evt.cyTarget.id(), command: "moveNode", position: evt.cyTarget.position()}]));
@@ -310,10 +310,18 @@ cytoscapeTelescopeJs
       data: newData,
       style: self.style()
     };
+    commandParametersForElement={
+      mouseOverInteraction: self["mouseOverInteraction"] ,
+      dropInteraction: self["dropInteraction"],
+      menu: self["menu"]
+    };
     edges = self.connectedEdges();
+    children= self.children;//visu.$("#"+newData.id+" *");
     self.remove();
-    visu.add(newNode);
+    toCustomize=visu.add(newNode); console.log("commandParametersForElement",commandParametersForElement)
+    customizeElement(toCustomize, commandParametersForElement);
     edges.restore();
+    children.restore();
   }
 
   cytoscape("collection", "changeData", changeData);
