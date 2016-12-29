@@ -1,4 +1,7 @@
 accessing
-isVisible: anObject
-	isVisible := anObject.
-	self requireUpdateAndLayoutApplication
+isVisible: aBoolean
+	isVisible ~= aBoolean
+		ifTrue: [ 
+			isVisible := aBoolean.
+			self requireUpdateAndLayoutApplication ]
+		ifFalse: [ isVisible := aBoolean ]
