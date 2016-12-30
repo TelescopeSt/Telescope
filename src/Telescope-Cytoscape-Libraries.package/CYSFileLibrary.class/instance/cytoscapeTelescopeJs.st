@@ -3,7 +3,10 @@ cytoscapeTelescopeJs
 	^ 'var telescope = (function () {
   var wsUri = "ws://" + location.hostname + ":1701";
   var websocket;
+  var timeoutId; //use to delais interaction
   var self = {};
+  //time in ms before an event like mouse over.
+  self.reactTime=200;
 
   function visuWithId(aVisuId) {
     for (var i in visus) {
@@ -235,10 +238,31 @@ cytoscapeTelescopeJs
     $("#" + visuId).contextMenu("open", {top: position.y, left: position.x});
   }
 
+  function triggerOnleaves(evt, visuId) {
+    toSend= [ ];
+    leaves = visuWithId(visuId).nodes().filterFn(function(e){return e.outgoers().length==0});
+    for(i=0; i< leaves.length;i++){
+      toSend.push({id: visuId, drawableId: leaves[i].id(), command: "interaction", kind: (eventsWithInteractions[evt.type]|| evt.type)})
+    }
+    websocket.send(JSON.stringify(toSend));
+  }
+
+  function useExternalTrigger(evt, visuId, triggerId) {
+    websocket.send(JSON.stringify([{id: visuId, command: "externalTrigger", triggerId:triggerId, kind: (eventsWithInteractions[evt.type]|| evt.type)}]));
+  }
+
   eventsWithInteractions = {"tap": "click", "cxttap": "rightClick", "mouseover": "mouseOver", "mouseout": "mouseOut"};
+
+  function clearOverInteraction(){
+    if(timeoutId!=null){
+      clearTimeout(timeoutId);
+      timeoutId=null;
+    }
+  }
 
   function createEventFunction(visuWithId) {
     return function (evt) {
+      clearOverInteraction();
       // server interaction processing
       if ((!evt.cyTarget["mouseOverInteraction"]) && ((evt.type == "mouseover") || (evt.type == "mouseout"))) {
 
@@ -251,18 +275,15 @@ cytoscapeTelescopeJs
       }
     };
   }
-
-  function triggerOnleaves(evt, visuId) {
-    toSend= [ ];
-    leaves = visuWithId(visuId).nodes().filterFn(function(e){return e.outgoers().length==0});
-    for(i=0; i< leaves.length;i++){
-      toSend.push({id: visuId, drawableId: leaves[i].id(), command: "interaction", kind: (eventsWithInteractions[evt.type]|| evt.type)})
-    }
-    websocket.send(JSON.stringify(toSend));
-  }
-
-  function useExternalTrigger(evt, visuId, triggerId) {
-    websocket.send(JSON.stringify([{id: visuId, command: "externalTrigger", triggerId:triggerId, kind: (eventsWithInteractions[evt.type]|| evt.type)}]));
+   
+   function  delaisEvtFunction(evtFunction) {
+    return function (evt) {
+      clearOverInteraction();
+      timeoutId = setTimeout(function() {
+        evt.cyTarget.onmouseover= null;
+        evtFunction(evt);
+      }, self.reactTime);
+    };
   }
 
   function isDropActionOnANode(visuWithId, candidates, pos, droppedNode) {
@@ -294,8 +315,10 @@ cytoscapeTelescopeJs
   }
 
   function parametrizeInteractionsListenerForVisu(visuWithId) {
-    visuWithId.visu.on("tap mouseover mouseout cxttap", "node", createEventFunction(visuWithId));
-    visuWithId.visu.on("tap mouseover mouseout cxttap", "edge", createEventFunction(visuWithId));
+    evtFunction= createEventFunction(visuWithId)
+    evtFunctionWithDelais= delaisEvtFunction(evtFunction);
+    visuWithId.visu.on("tap mouseout cxttap",  evtFunction);
+    visuWithId.visu.on("mouseover", evtFunctionWithDelais);
     visuWithId.visu.on("free", "node", createDragEventFunction(visuWithId));
   }
 
@@ -318,7 +341,7 @@ cytoscapeTelescopeJs
     edges = self.connectedEdges();
     children= self.children;//visu.$("#"+newData.id+" *");
     self.remove();
-    toCustomize=visu.add(newNode); console.log("commandParametersForElement",commandParametersForElement)
+    toCustomize=visu.add(newNode); 
     customizeElement(toCustomize, commandParametersForElement);
     edges.restore();
     children.restore();
