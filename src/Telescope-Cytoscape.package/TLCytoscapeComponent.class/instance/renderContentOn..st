@@ -16,7 +16,7 @@ renderContentOn: html
 						class: 'fitButton';
 						with: [ 
 							html anchor
-								onClick: 'visuWithId(' , self visuDivId asString , ').fit();';
+								onClick: 'telescope.visuWithId(' , self visuDivId asString , ').fit();';
 								with: 'Reset' ] ];
 		yourself.
 	callback := WAValueCallback new.
