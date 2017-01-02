@@ -107,8 +107,10 @@ cytoscapeTelescopeJs
     visu.layout(command.layout);
   };
 
-  commandsAction.customize = function (command, visu) {
-    visu.getElementById(command.elementId).style(command.style);
+  commandsAction.customize = function (command, visu,toUpdate) {
+    toUpdate[command.visuId]= toUpdate[command.visuId] || {};
+    toUpdate[command.visuId][command.elementId] =command.style;
+    //this lines delete duplicated update;
   };
 
   commandsAction.addStaticLegendEntry = function (command) {
@@ -130,20 +132,36 @@ cytoscapeTelescopeJs
   commandsAction.generated = function (command) {
     removeWaitingForVisuId(command.visuId);
   }
+  
+  function customizeAll(toUpdate){
+    visuIDs= Object.keys(toUpdate);
+    for ( var i = 0; i<visuIDs.length ; i ++){
+      cmd=toUpdate[visuIDs[i]];
+      visu = visuWithId(visuIDs[i]);
+      visu.startBatch();
+      els= Object.keys(cmd);
+      for( var j = 0; j<cmd.length ; j ++){
+        visu.getElementById(els[i]).style(cmd[els[j]]);
+      }
+      visu.endBatch();
+    }
+  }
 
   function onMessage(evt) {
     commands = JSON.parse(evt.data);
-    toRestart = [];
+    toUpdate = {};
     for (var i in commands) {
       command = commands[i];
       visu = visuWithId(command.visuId);
       if (commandsAction[command.command]) {
-         commandsAction[command.command](command, visu);
+         commandsAction[command.command](command, visu,toUpdate);
       } else {
         console.log("unsupported command: " + command.command);
         console.log(command);
       }
     }
+    //customize in one visu rendering all element toUpdate
+    customizeAll(toUpdate);
   }
 
   function post(path, cbId, openInNewTab) {
