@@ -4,7 +4,7 @@ placeLineOfNodes: lineOfNodesWithPosition maxHeight: maxHeight
 		keysAndValuesDo: [ :aNode :aPositionAndSize | 
 			aNode occupyMaxSpace
 				ifTrue: [ 
-					self changeNode: aNode dimension: aNode width @ maxHeight ].
+					self changeNode: aNode dimension: aNode width @ (aNode height min: maxHeight) ].
 			self
 				definePosition:
 					(self adjustPosition: aPositionAndSize key withHeight: aPositionAndSize value forMaxHeight: maxHeight)
