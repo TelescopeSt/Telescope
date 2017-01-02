@@ -279,15 +279,17 @@ cytoscapeTelescopeJs
   function createEventFunction(visuWithId) {
     return function (evt) {
       clearOverInteraction();
-      // server interaction processing
-      if ((!evt.cyTarget["mouseOverInteraction"]) && ((evt.type == "mouseover") || (evt.type == "mouseout"))) {
+      if(evt.cyTarget.id != null){ 
+        // server interaction processing
+        if ((!evt.cyTarget["mouseOverInteraction"]) && ((evt.type == "mouseover") || (evt.type == "mouseout"))) {
 
-      } else {
+        } else {
         // menu management
-        if (evt.type == "cxttap" && evt.cyTarget["menu"]) {
-          displayMenuForElement(evt.cyTarget, visuWithId.visuId, {x: evt.originalEvent.clientX, y: evt.originalEvent.clientY});
+          if (evt.type == "cxttap" && evt.cyTarget["menu"]) {
+            displayMenuForElement(evt.cyTarget, visuWithId.visuId, {x: evt.originalEvent.clientX, y: evt.originalEvent.clientY});
+          }
+          websocket.send(JSON.stringify([{id: visuWithId.visuId, drawableId: evt.cyTarget.id(), command: "interaction", kind: (eventsWithInteractions[evt.type])}]));
         }
-        websocket.send(JSON.stringify([{id: visuWithId.visuId, drawableId: evt.cyTarget.id(), command: "interaction", kind: (eventsWithInteractions[evt.type])}]));
       }
     };
   }
