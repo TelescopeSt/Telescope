@@ -108,9 +108,8 @@ cytoscapeTelescopeJs
   };
 
   commandsAction.customize = function (command, visu,toUpdate) {
-    toUpdate[command.visuId]= toUpdate[command.visuId] || {};
-    toUpdate[command.visuId][command.elementId] =command.style;
-    //this lines delete duplicated update;
+    toUpdate[command.visuId]= toUpdate[command.visuId] || [];
+    toUpdate[command.visuId].push(command);
   };
 
   commandsAction.addStaticLegendEntry = function (command) {
@@ -136,12 +135,11 @@ cytoscapeTelescopeJs
   function customizeAll(toUpdate){
     visuIDs= Object.keys(toUpdate);
     for ( var i = 0; i<visuIDs.length ; i ++){
-      cmd=toUpdate[visuIDs[i]];
+      cmds=toUpdate[visuIDs[i]];
       visu = visuWithId(visuIDs[i]);
       visu.startBatch();
-      els= Object.keys(cmd);
-      for( var j = 0; j<cmd.length ; j ++){
-        visu.getElementById(els[i]).style(cmd[els[j]]);
+      for( var j = 0; j<cmds.length ; j ++){
+        visu.getElementById(cmds[j].elementId).style(cmds[j].style);
       }
       visu.endBatch();
     }
