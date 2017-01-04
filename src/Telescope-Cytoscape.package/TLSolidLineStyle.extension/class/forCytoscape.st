@@ -1,3 +1,3 @@
 *Telescope-Cytoscape
 forCytoscape
-	^ #segments
+	^ #solid

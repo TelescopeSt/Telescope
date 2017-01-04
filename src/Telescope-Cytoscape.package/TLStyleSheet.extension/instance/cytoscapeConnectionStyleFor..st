@@ -9,18 +9,21 @@ cytoscapeConnectionStyleFor: aConnection
 			('line-color' -> #color).
 			('line-style' -> #connectionStyle).
 			('source-arrow-text' -> #connectionLabel).
-			('curve-style' -> #curveStyle)".
+			('curve-style' -> #curveStyle).
+			('line-style' -> #connectionLineStyle)	".
 			(#label -> #label)"}
-		for: aConnection converter: #forCytoscapeConnection.
+		for: aConnection
+		converter: #forCytoscapeConnection.
 	{(#base -> 'source-arrow-').
 	(#middleReversed -> 'mid-source-arrow-').
 	(#head -> 'target-arrow-').
 	(#middle -> 'mid-target-arrow-')}
 		do: [ :substyleAndCytoStyle | 
-			(self copyWithout: #(shape)) + (self > substyleAndCytoStyle key)
+			(self copyWithout: #(#shape)) + (self > substyleAndCytoStyle key)
 				fillStyleDictionary: styleDictionary
 				with:
 					{((substyleAndCytoStyle value , #color) -> #color).
 					((substyleAndCytoStyle value , #shape) -> #shape)}
-				for: aConnection converter: #forCytoscapeConnection].
+				for: aConnection
+				converter: #forCytoscapeConnection ].
 	^ styleDictionary

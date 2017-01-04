@@ -7,8 +7,9 @@ cytoscapeNodeStyleFor: aNode
 		fillStyleDictionary: styleDictionary
 		with:
 			{('border-color' -> #borderColor).
-			('border-opacity' -> [ :t | [ :e : n | (t obtainValue: #borderColor forEntity: e inNode: n) alpha ] ]).
+			('border-opacity' -> [ :t | [ :e :n | (t obtainValue: #borderColor forEntity: e inNode: n) alpha ] ]).
 			('border-width' -> #borderWidth).
+			('border-style' -> #borderStyle).
 			(#width -> #width).
 			(#height -> #height).
 			('background-color' -> #backgroundColor).
@@ -17,7 +18,7 @@ cytoscapeNodeStyleFor: aNode
 			('background-opacity' -> [ :t | [ :e :n | (t obtainValue: #backgroundColor forEntity: e inNode: n) alpha ] ]).
 			(#label -> #nodeLabel).
 			(#shape -> #shape)}
-		for: aNode 
+		for: aNode
 		converter: #forCytoscapeNode.
 	styleDictionary
 		at: 'text-halign' put: nodeLabelPosition horizontal;
