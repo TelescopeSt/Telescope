@@ -1,9 +1,5 @@
 action
 regularActionOn: aTLDrawable
-	self hiddedDrawables
+	(self hiddedDrawables
 		at: aTLDrawable
-		put:
-			(([ self hidingValuableOrEntity value: aTLDrawable ]
-				on: MessageNotUnderstood
-				do: [ self hidingValuableOrEntity ]) asOrderedCollection select: #isVisible).
-	(self hiddedDrawables at: aTLDrawable) do: #hide
+		put: (self obtain: self hidingValuableOrEntity on: aTLDrawable) asOrderedCollection) do: #hide

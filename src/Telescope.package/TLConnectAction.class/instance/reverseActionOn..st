@@ -1,4 +1,3 @@
 action
 reverseActionOn: aNode
-	(self connectionsByNode at: aNode) do: #removed.
-	self connectionsByNode removeKey: aNode
+	(self connectionsByNode removeKey: aNode) do: #removed

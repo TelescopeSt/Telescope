@@ -1,5 +1,5 @@
 state
 requireUpdateForConnections
-	self visualization layout isConnectionDependant
+	self parent layout isConnectionDependant
 		ifTrue: [ self requireUpdateAndLayoutApplication ]
 		ifFalse: [ self requireUpdate ]

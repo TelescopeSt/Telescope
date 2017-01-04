@@ -1,4 +1,3 @@
 action
 reverseActionOn: aTLDrawable
-	(self hiddedDrawables at: aTLDrawable) select: #isVisible thenDo: #show.
-	self hiddedDrawables removeKey: aTLDrawable
+	(self hiddedDrawables removeKey: aTLDrawable) do: #show
