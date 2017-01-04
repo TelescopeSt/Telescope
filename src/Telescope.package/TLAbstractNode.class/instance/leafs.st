@@ -1,0 +1,3 @@
+accessing
+leafs
+	^ self subclassResponsibility
