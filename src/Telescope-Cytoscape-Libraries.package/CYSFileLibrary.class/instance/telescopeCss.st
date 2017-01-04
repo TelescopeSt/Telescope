@@ -51,4 +51,7 @@ telescopeCss
 	padding:16px;
 	border:0
 }
-'
+
+.iw-contextMenu{
+    z-index: 100000 !important;
+}'
