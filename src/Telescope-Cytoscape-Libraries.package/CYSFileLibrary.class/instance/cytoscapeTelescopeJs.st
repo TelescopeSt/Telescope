@@ -4,6 +4,7 @@ cytoscapeTelescopeJs
   var wsUri = "ws://" + location.hostname + ":1701";
   var websocket;
   var timeoutId; //use to delais interaction
+  var toNotifyMessage={};
   var self = {};
   //time in ms before an event like mouse over.
   self.reactTime=200;
@@ -148,8 +149,12 @@ cytoscapeTelescopeJs
   function onMessage(evt) {
     commands = JSON.parse(evt.data);
     toUpdate = {};
+    needNotify = {};
     for (var i in commands) {
       command = commands[i];
+      if(needNotify[command.visuId]){
+         needNotify[command.visuId]=true;
+      }
       visu = visuWithId(command.visuId);
       if (commandsAction[command.command]) {
          commandsAction[command.command](command, visu,toUpdate);
@@ -160,6 +165,9 @@ cytoscapeTelescopeJs
     }
     //customize in one visu rendering all element toUpdate
     customizeAll(toUpdate);
+    needNotify= Object.keys(needNotify);
+    for(i=0;i<needNotify.length;i++)
+      notifyMessageEnd(needNotify[i]);
   }
 
   function post(path, cbId, openInNewTab) {
@@ -365,12 +373,32 @@ cytoscapeTelescopeJs
     children.restore();
   }
 
+  /* useful for test with mocha 
+   * callback parameter : ()
+   */
+  function onMessageEnd(callback, id){
+    if(id !=null){
+       if(toNotifyMessage[id] ==null)
+         toNotifyMessage[id] =  [ ]
+       toNotifyMessage[id].push(callback);
+    }
+  }
+
+  function notifyMessageEnd(visuId){
+    if(toNotifyMessage[id] ==null)
+      toNotifyMessage[id] =  [ ]
+    for(i=0; i< toNotifyMessage.onAll.length;i++){
+      toNotifyMessage[visuId][i];
+    }
+  }
+
   cytoscape("collection", "changeData", changeData);
 
   self.useExternalTrigger = useExternalTrigger;
   self.triggerOnleaves= triggerOnleaves;
   self.visuWithId = visuWithId;
   self.loadVisuIn = loadVisuIn;
+  self.onMessageEnd = onMessageEnd;
 
   return self;
 })();
