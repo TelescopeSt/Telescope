@@ -8,6 +8,7 @@ SystemOrganization addCategory: 'Telescope-Interactions'!
 SystemOrganization addCategory: 'Telescope-Interactions-Old'!
 SystemOrganization addCategory: 'Telescope-Model'!
 SystemOrganization addCategory: 'Telescope-Model-Legend'!
+SystemOrganization addCategory: 'Telescope-Model-Request'!
 SystemOrganization addCategory: 'Telescope-Shape'!
 SystemOrganization addCategory: 'Telescope-Strategy'!
 SystemOrganization addCategory: 'Telescope-Style'!

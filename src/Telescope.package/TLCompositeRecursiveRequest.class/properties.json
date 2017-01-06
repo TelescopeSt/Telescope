@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "TLRequest",
+	"category" : "Telescope-Model-Request",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "TLCompositeRecursiveRequest",
+	"type" : "normal"
+}
