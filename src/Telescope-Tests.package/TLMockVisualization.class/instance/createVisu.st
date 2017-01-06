@@ -4,7 +4,7 @@ createVisu
 	visu := TLVisualization new.
 	visu nodeCreationStrategy compositeProperty: (1 to: 10) asOrderedCollection.
 	visu styleSheet
-		childrenLayout: (RTVerticalLineLayout withGap: 10);
+		childrenLayout: TLLinearLayout topToBottom;
 		shape: TLEllipse;
 		nodeLabel: #mooseName;
 		backgroundColor: Color gray.

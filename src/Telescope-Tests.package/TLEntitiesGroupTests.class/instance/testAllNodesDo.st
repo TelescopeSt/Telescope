@@ -17,8 +17,6 @@ testAllNodesDo
 		once: node1 recv: #testMessage;
 		once: node2 recv: #testMessage;
 		once: node3 recv: #testMessage.
-	protocol describe allow: parentMock recv: #requireUpdate.
-	protocol describe allow: parentMock recv: #requireLayoutApplication.
 	tlGroup > #subGroup addChild: node1.
 	tlGroup addChild: node2.
 	tlGroup > #subGroup > #subSubGroup addChild: node3.
