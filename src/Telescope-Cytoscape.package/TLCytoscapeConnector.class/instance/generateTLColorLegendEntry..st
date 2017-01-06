@@ -1,4 +1,4 @@
-legend
+generation - legend
 generateTLColorLegendEntry: aTLColorLegendEntry 
 	self
 		addCommand:
