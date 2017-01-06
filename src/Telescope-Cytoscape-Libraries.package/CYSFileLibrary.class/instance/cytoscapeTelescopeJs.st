@@ -7,7 +7,7 @@ cytoscapeTelescopeJs
   var toNotifyMessage={};
   var self = {};
   //time in ms before an event like mouse over.
-  self.reactTime=200;
+  self.reactTime=100;
 
   function visuWithId(aVisuId) {
     for (var i in visus) {
