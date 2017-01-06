@@ -1,0 +1,3 @@
+generation-legendEntry
+generateTLBorderShapeLegendEntry: aTLBorderShapeLegendEntry 
+	^ self subclassResponsibility

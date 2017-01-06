@@ -1,3 +1,3 @@
-generation - legend
+generation-legendEntry
 generateNodeBorderLegendEntry: aLegendEntry
 	^ self subclassResponsibility

@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "CyrilFerlicot 1/6/2017 15:28",
+	"super" : "TLStaticLegendEntry",
+	"category" : "Telescope-Model-Legend",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"shape"
+	],
+	"name" : "TLBorderShapeLegendEntry",
+	"type" : "normal"
+}
