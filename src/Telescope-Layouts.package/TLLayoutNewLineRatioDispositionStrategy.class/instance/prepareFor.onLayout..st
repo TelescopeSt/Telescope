@@ -13,11 +13,11 @@ prepareFor: aGroup onLayout: aLayout
 			simulatedRatio > self ratio
 				ifTrue: [ 
 					maxRatio := simulatedRatio -> self maxDimension.
-					numberOfNodes := numberOfNodes - 1 ]
+					(numberOfNodes := numberOfNodes - 1) = 0
+						ifTrue: [ minRatio := maxRatio ] ]
 				ifFalse: [ 
 					minRatio := simulatedRatio -> self maxDimension.
-					numberOfNodes := numberOfNodes + 1.
-					numberOfNodes > aGroup size
+					(numberOfNodes := numberOfNodes + 1) > aGroup size
 						ifTrue: [ maxRatio := simulatedRatio -> self maxDimension ] ] ].
 	self
 		maxDimension:
