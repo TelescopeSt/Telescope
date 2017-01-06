@@ -1,0 +1,20 @@
+{
+	"commentStamp" : "",
+	"super" : "TestCase",
+	"category" : "Telescope-Tests-Model",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"simple",
+		"composite",
+		"group",
+		"collection",
+		"compositeChildrenNode",
+		"compositeChildrenGroup",
+		"groupSimpleNode",
+		"groupChildrenGroup"
+	],
+	"name" : "TLObtainRequestTests",
+	"type" : "normal"
+}
