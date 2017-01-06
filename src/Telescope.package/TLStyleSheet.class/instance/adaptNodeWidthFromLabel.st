@@ -1,3 +1,3 @@
 shape
 adaptNodeWidthFromLabel
-	self width: TLLabelBasedWidth
+	self width: TLLabelBasedWidth new

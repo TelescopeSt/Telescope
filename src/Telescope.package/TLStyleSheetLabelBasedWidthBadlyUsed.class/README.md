@@ -1,0 +1,1 @@
+I am an exception raised when we try to determine the width of a node from his label when the label is not set.

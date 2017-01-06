@@ -4,7 +4,7 @@ obtainValue: aPropertyOrValuable forEntity: anEntity inNode: aNode
 	[ result := aPropertyOrValuable cull: self ]
 		on: KeyNotFound
 		do: [ :msg | 
-			TLStyleSheetMissingProperty new 
+			TLStyleSheetMissingProperty new
 				property: aPropertyOrValuable;
 				entity: anEntity;
 				signal ].
@@ -12,10 +12,5 @@ obtainValue: aPropertyOrValuable forEntity: anEntity inNode: aNode
 		ifTrue: [ 
 			[ result cull: anEntity cull: aNode ]
 				on: MessageNotUnderstood
-				do: [ 
-					TLStyleSheetPropertyBadlyUsed new
-						property: aPropertyOrValuable;
-						propertyBlock: result;
-						entity: anEntity;
-						signal ] ]
+				do: [ TLStyleSheetPropertyBadlyUsed signalForProperty: aPropertyOrValuable propertyBlock: result entity: anEntity ] ]
 		ifFalse: [ result ]

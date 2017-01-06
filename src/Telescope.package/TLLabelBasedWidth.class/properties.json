@@ -1,11 +1,13 @@
 {
-	"commentStamp" : "usmanbhatti 6/10/2015 11:10",
+	"commentStamp" : "CyrilFerlicot 1/6/2017 12:05",
 	"super" : "TLObject",
 	"category" : "Telescope-Style",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
-	"instvars" : [ ],
+	"instvars" : [
+		"defaultWidth"
+	],
 	"name" : "TLLabelBasedWidth",
 	"type" : "normal"
 }

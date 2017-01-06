@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "CyrilFerlicot 1/6/2017 11:31",
+	"super" : "TLWrongUsedFunctionalityException",
+	"category" : "Telescope-Exceptions",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"entity"
+	],
+	"name" : "TLStyleSheetLabelBasedWidthBadlyUsed",
+	"type" : "normal"
+}
