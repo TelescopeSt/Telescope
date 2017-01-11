@@ -1,2 +1,2 @@
 # Telescope
-This is an empty project that will serve as temporary bug tracker for the Telescope project. http://smalltalkhub.com/#!/~Moose/Telescope
+This is an empty project that will serve as bug tracker for the Telescope project before we move it to github. http://smalltalkhub.com/#!/~Moose/Telescope
