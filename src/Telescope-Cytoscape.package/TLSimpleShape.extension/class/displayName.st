@@ -1,3 +1,3 @@
 *Telescope-Cytoscape
 displayName
-	^ self forCytoscapeNode
+	^ self forCytoscapeNode capitalized

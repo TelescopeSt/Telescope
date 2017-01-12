@@ -1,6 +1,6 @@
 *Telescope-Cytoscape
 cytoscapeNodeStyleFor: aNode
-	| nodeLabelPosition styleDictionary |
+	| nodeLabelPosition styleDictionary shape |
 	nodeLabelPosition := self obtainValue: #nodeLabelPosition forEntity: aNode entity inNode: aNode.
 	styleDictionary := Dictionary new.
 	self
@@ -16,13 +16,16 @@ cytoscapeNodeStyleFor: aNode
 			('background-image' -> #backgroundImageUrl).
 			('background-image-opacity' -> #backgroundImageOpacity).
 			('background-opacity' -> [ :t | [ :e :n | (t obtainValue: #backgroundColor forEntity: e inNode: n) alpha ] ]).
-			(#label -> #nodeLabel).
-			(#shape -> #shape)}
+			(#label -> #nodeLabel)}
 		for: aNode
 		converter: #forCytoscapeNode.
 	styleDictionary
 		at: 'text-halign' put: nodeLabelPosition horizontal;
 		at: 'text-valign' put: nodeLabelPosition vertical.
+	shape := self obtainValue: #shape forEntity: aNode entity inNode: aNode.
+	styleDictionary at: shape cytoscapeAttribute put: shape forCytoscapeNode.
+	shape cytoscapeAttribute = #shape
+		ifFalse: [ styleDictionary at: #shape put: #polygon ].
 	(aNode isComposite and: [ aNode hasChildrenToDisplay ])
 		ifTrue: [ self adaptStyleForComposite: styleDictionary ].
 	^ styleDictionary

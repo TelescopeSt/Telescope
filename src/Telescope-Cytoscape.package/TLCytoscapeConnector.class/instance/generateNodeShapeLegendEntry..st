@@ -11,6 +11,6 @@ generateNodeShapeLegendEntry: aLegendEntry
 					(TLVisualizationAddLegendEntryCommand
 						visuId: self visuId
 						html:
-							'<td class="tlLegendIcon""><img style="width: 30px;height: 30px;" src="' , (CYSFileLibrary urlOf: labelAndColor value forCytoscapeNode , '.png') asString
+							'<td class="tlLegendIcon""><img style="width: 30px;height: 30px;" src="' , (CYSFileLibrary urlOf: labelAndColor value iconName , '.png') asString
 								, '"></td><td class="tlLegendLabel">' , labelAndColor key , '</td>') ].
 	^ aLegendEntry
