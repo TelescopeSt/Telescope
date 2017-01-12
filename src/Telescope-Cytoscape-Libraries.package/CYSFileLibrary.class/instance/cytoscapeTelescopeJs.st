@@ -29,7 +29,8 @@ cytoscapeTelescopeJs
   }
 
   function init() {
-    visus = [];
+    self.visus = [];
+    visus= self.visus; // make closure as soon as possible to clean API
     waitingDivByVisu = [];
     websocket = new WebSocket(wsUri);
 
@@ -166,8 +167,11 @@ cytoscapeTelescopeJs
     //customize in one visu rendering all element toUpdate
     customizeAll(toUpdate);
     needNotify= Object.keys(needNotify);
-    for(i=0;i<needNotify.length;i++)
+    for(i=0;i<needNotify.length;i++){
+console.log("needNotify",needNotify, i);
       notifyMessageEnd(needNotify[i]);
+    }
+    notifyMessageEnd("onAll");
   }
 
   function post(path, cbId, openInNewTab) {
@@ -260,15 +264,6 @@ cytoscapeTelescopeJs
     $("#" + visuId).contextMenu(menu);
     //Should remove old menu
     $("#" + visuId).contextMenu("open", {top: position.y, left: position.x});
-  }
-
-  function triggerOnleaves(evt, visuId) {
-    toSend= [ ];
-    leaves = visuWithId(visuId).nodes().filterFn(function(e){return e.outgoers().length==0});
-    for(i=0; i< leaves.length;i++){
-      toSend.push({id: visuId, drawableId: leaves[i].id(), command: "interaction", kind: (eventsWithInteractions[evt.type]|| evt.type)})
-    }
-    websocket.send(JSON.stringify(toSend));
   }
 
   function useExternalTrigger(evt, visuId, triggerId) {
@@ -381,24 +376,38 @@ cytoscapeTelescopeJs
        if(toNotifyMessage[id] ==null)
          toNotifyMessage[id] =  [ ]
        toNotifyMessage[id].push(callback);
+    }else { 
+      onMessageEnd(callback, "onAll");
+    }
+  }
+
+  
+  function removeMessageEnd(callback, id, optArrToAdd){
+    if(id !=null){
+       if(toNotifyMessage[id] ==null)
+         return;
+       toNotifyMessage[id].splice( toNotifyMessage[id].indexOf(callback), 1 );
+    }else { 
+      removeMessageEnd(callback, "onAll");
     }
   }
 
   function notifyMessageEnd(visuId){
-    if(toNotifyMessage[id] ==null)
-      toNotifyMessage[id] =  [ ]
+    if(toNotifyMessage[visuId] ==null)
+      toNotifyMessage[visuId] =  [ ]
     for(i=0; i< toNotifyMessage.onAll.length;i++){
-      toNotifyMessage[visuId][i];
+      console.log(toNotifyMessage[visuId],i);
+      toNotifyMessage[visuId][i]();
     }
   }
 
   cytoscape("collection", "changeData", changeData);
 
   self.useExternalTrigger = useExternalTrigger;
-  self.triggerOnleaves= triggerOnleaves;
   self.visuWithId = visuWithId;
   self.loadVisuIn = loadVisuIn;
   self.onMessageEnd = onMessageEnd;
+  self.removeMessageEnd= removeMessageEnd
 
   return self;
 })();
