@@ -1,0 +1,3 @@
+generation-legendEntry
+generateNodeShapeLegendEntry: aTLNodeShapeLegendEntry 
+	^ self subclassResponsibility

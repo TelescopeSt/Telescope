@@ -1,0 +1,3 @@
+generation
+generateWith: aTLCytoscapeConnector
+	^ aTLCytoscapeConnector generateNodeShapeLegendEntry: self

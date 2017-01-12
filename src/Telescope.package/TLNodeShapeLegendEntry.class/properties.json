@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "TLDynamicLegendEntry",
+	"category" : "Telescope-Model-Legend",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "TLNodeShapeLegendEntry",
+	"type" : "normal"
+}

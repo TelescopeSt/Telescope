@@ -1,3 +1,3 @@
 action
 expandIdentifier
-	^ #expanded
+	^ #expanded , self property hash asString

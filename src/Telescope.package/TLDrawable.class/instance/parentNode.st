@@ -1,4 +1,4 @@
-as yet unclassified
+accessing
 parentNode
 	^ (self parent isNil or: [ self parent isNode ])
 		ifTrue: [ self parent ]

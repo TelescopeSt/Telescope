@@ -1,9 +1,8 @@
 action
-expandNode: aNode
-	| children newNodes targetNodes |
-	children := self obtainExpandEntitiesFrom: aNode.
-	children
-		ifNotEmpty: [ 
+regularActionOn: aNode
+	| newNodes targetNodes |
+	(self obtain: self property on: aNode entity)
+		ifNotEmpty: [ :children | 
 			newNodes := TLDrawableCollection new.
 			targetNodes := self obtainNodesWhereNew: newNodes fromEntities: children withOriginNode: aNode.
 			self parentToChildren at: aNode put: newNodes.
