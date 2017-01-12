@@ -1,4 +1,0 @@
-running
-setUp: html
-	self wait: 'telescope.onMessageEnd(function(){telescope.removeMessageEnd(this); mocha.run()})'.
-	html render: ((TLCytoscapeComponent visualization: self visualization) style: 'height: 500px; width:800px;')

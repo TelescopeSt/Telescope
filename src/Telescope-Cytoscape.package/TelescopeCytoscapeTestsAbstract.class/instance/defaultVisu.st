@@ -1,3 +1,0 @@
-running
-defaultVisu
-	self subclassResponsibility 
