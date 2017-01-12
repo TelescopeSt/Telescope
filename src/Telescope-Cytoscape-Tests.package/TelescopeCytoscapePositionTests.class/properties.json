@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "TelescopeCytoscapeTestsAbstract",
+	"category" : "Telescope-Cytoscape-Tests-Client",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "TelescopeCytoscapePositionTests",
+	"type" : "normal"
+}
