@@ -5,3 +5,4 @@ SystemOrganization addCategory: 'Telescope-Cytoscape-Connector'!
 SystemOrganization addCategory: 'Telescope-Cytoscape-Demos'!
 SystemOrganization addCategory: 'Telescope-Cytoscape-Exception'!
 SystemOrganization addCategory: 'Telescope-Cytoscape-Virtual'!
+SystemOrganization addCategory: 'Telescope-Cytoscape-test'!
