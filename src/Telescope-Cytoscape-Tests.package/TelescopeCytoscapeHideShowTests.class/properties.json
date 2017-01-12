@@ -6,6 +6,6 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [ ],
-	"name" : "TelescopeCytoscapeDimentionTests",
+	"name" : "TelescopeCytoscapeHideShowTests",
 	"type" : "normal"
 }
