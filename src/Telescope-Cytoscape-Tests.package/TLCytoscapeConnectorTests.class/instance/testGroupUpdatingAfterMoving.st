@@ -9,7 +9,7 @@ testGroupUpdatingAfterMoving
 	groupB
 		nodeCreationStrategy: TLNodeCreationStrategy default;
 		styleSheet: TLStyleSheet default.
-	node := groupA addNodeFromEntity: #1.
+	node := groupA addNodeFromEntity: 1.
 	groupA generator: connector.
 	groupA generate.
 	groupB generator: connector.
@@ -18,5 +18,4 @@ testGroupUpdatingAfterMoving
 	node moveToGroup: groupB.
 	groupA update.
 	groupB update.
-	self assert: (connector elementFromTLDrawable: node) parent equals: (connector elementFromTLDrawable: groupB).
-	
+	self assert: (connector elementFromTLDrawable: node) parent equals: (connector elementFromTLDrawable: groupB)
