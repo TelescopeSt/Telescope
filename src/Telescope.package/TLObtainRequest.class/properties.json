@@ -5,7 +5,9 @@
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
-	"instvars" : [ ],
+	"instvars" : [
+		"strategies"
+	],
 	"name" : "TLObtainRequest",
 	"type" : "normal"
 }

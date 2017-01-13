@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "GuillaumeLarcheveque 1/13/2017 15:08",
+	"super" : "TLObject",
+	"category" : "Telescope-Model-Request",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "TLRequestStrategy",
+	"type" : "normal"
+}

@@ -6,5 +6,5 @@ from: collection select: aBlockClosure into: selection
 				ifTrue: [ selection add: aDrawable ].
 			aDrawable isGroup
 				ifTrue: [ self from: aDrawable select: aBlockClosure into: selection ].
-			aDrawable isCompositeNode
+			(aDrawable isCompositeNode and: [ aDrawable expanded ])
 				ifTrue: [ self from: aDrawable childrenGroup select: aBlockClosure into: selection ] ]
