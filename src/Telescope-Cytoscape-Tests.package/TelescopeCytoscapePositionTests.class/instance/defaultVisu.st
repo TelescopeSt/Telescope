@@ -1,4 +1,4 @@
-as yet unclassified
+running
 defaultVisu
 	| butterfly |
 	butterfly := TLButterfly new

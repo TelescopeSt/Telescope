@@ -1,4 +1,4 @@
-as yet unclassified
+running
 defaultVisu
 	| visualization oneNode secondNode |
 	visualization := TLVisualization new.

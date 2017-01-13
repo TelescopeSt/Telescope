@@ -1,4 +1,4 @@
-as yet unclassified
+tests
 testAllShapesExist
 	self skip.
   ^'describe("#element", function() {

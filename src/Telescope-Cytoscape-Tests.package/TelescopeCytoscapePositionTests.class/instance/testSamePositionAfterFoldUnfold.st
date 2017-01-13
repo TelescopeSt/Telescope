@@ -1,4 +1,4 @@
-as yet unclassified
+tests
 testSamePositionAfterFoldUnfold
 	self skip.
   ^'describe("#element", function() {

@@ -1,4 +1,4 @@
-as yet unclassified
+tests
 testShowNodeAfterHide
 	self skip.
   ^'describe("#element", function() {
