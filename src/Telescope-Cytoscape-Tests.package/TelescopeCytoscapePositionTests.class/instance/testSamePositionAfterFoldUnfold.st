@@ -1,5 +1,6 @@
 as yet unclassified
 testSamePositionAfterFoldUnfold
+	self skip.
   ^'describe("#element", function() {
     it("position node", function(done) {
       node=telescope.visus[0].visu.nodes()[3];

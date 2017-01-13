@@ -1,5 +1,6 @@
 as yet unclassified
 testShowNodeAfterHide
+	self skip.
   ^'describe("#element", function() {
     it("show node", function(done) {
       nodes=telescope.visus[0].visu.nodes();
