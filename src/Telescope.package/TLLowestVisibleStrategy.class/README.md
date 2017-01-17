@@ -1,0 +1,1 @@
+I am a strategy that will only accept lowest visibles elements (for a composite, if it is expanded its children will be accepted but not itself; if it is not expanded, it will be accepted)
