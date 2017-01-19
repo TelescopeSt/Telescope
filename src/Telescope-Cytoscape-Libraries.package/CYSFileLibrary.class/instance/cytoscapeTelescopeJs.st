@@ -6,6 +6,7 @@ cytoscapeTelescopeJs
   var timeoutId; //use to delais interaction
   var toNotifyMessage={};
   var self = {};
+  var tryReconnect=true;
   //time in ms before an event like mouse over.
   self.reactTime=100;
 
@@ -81,8 +82,10 @@ cytoscapeTelescopeJs
   }
 
   function onClose(evt) {
-    console.log("retry connection");
-    parametrizeWebsocket(visus);
+    if(tryReconnect){
+      console.log("retry connection");
+      parametrizeWebsocket(visus);
+    }
   }
 
   function removeWaitingForVisuId(aVisuId) {
@@ -230,6 +233,7 @@ console.log("needNotify",needNotify, i);
   }
 
   function onError(evt) {
+    tryReconnect=false;
   }
 
   function displayMenuForElement(element, visuId, position) {
