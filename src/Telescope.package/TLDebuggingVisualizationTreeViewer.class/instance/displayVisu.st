@@ -1,7 +1,9 @@
 building
 displayVisu
-	(self addNodeFromEntity: anotherVisualization) styleSheet nodeLabel: 'Visualization'; backgroundColor: MDLColor deepOrange.
-	(self addNodesFromEntities: anotherVisualization allNodesRecursively)
+	(self addNodeFromEntity: anotherVisualization) styleSheet
+		nodeLabel: 'Visualization';
+		backgroundColor: MDLColor deepOrange.
+	(self addNodesFromEntities: anotherVisualization obtain recursively nodes)
 		do: [ :aNode | 
 			aNode
 				addStyle:
@@ -16,4 +18,4 @@ displayVisu
 	self styleSheet nodeLabel: [ :node | node entity asString ].
 	self styleSheet > #simpleNode backgroundColor: MDLColor yellow.
 	self styleSheet > #compositeNode backgroundColor: MDLColor orange.
-	self legend backGroundDescription: [ :node | node class asString ].
+	self legend backGroundDescription: [ :node | node class asString ]

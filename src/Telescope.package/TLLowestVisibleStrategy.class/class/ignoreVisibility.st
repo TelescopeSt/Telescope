@@ -1,0 +1,3 @@
+optimisation
+ignoreVisibility
+	^ false
