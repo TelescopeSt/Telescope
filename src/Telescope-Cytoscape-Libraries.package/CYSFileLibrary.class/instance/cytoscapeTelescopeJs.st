@@ -32,8 +32,6 @@ cytoscapeTelescopeJs
     self.visus = [];
     visus= self.visus; // make closure as soon as possible to clean API
     waitingDivByVisu = [];
-    websocket = new WebSocket(wsUri);
-
     loadVisuIn(document, websocket);
   }
 
@@ -53,6 +51,8 @@ cytoscapeTelescopeJs
   }
 
   function parametrizeWebsocket(visus) {
+    websocket = new WebSocket(wsUri);
+
     websocket.onclose = function (evt) {
       onClose(evt);
     };
@@ -81,7 +81,8 @@ cytoscapeTelescopeJs
   }
 
   function onClose(evt) {
-
+    console.log("retry connection");
+    parametrizeWebsocket(visus);
   }
 
   function removeWaitingForVisuId(aVisuId) {
