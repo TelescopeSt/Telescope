@@ -93,6 +93,12 @@ cytoscapeTelescopeJs
   }
 
   commandsAction = {};
+  commandsActionBatch ={};
+  
+  function toBacthCommand(command, visu,toUpdate){
+    toUpdate[command.visuId]= toUpdate[command.visuId] || [];
+    toUpdate[command.visuId].push(command);
+  }
 
   commandsAction.add = function (command, visu) {
     elements = visu.add(command.parameters);
@@ -101,7 +107,8 @@ cytoscapeTelescopeJs
     }
   };
 
-  commandsAction.remove = function (command, visu) {
+  commandsAction.remove = toBacthCommand;
+  commandsActionBatch.remove=function(command,visu){
     visu.remove(visu.getElementById(command.nodeId));
   };
 
@@ -109,9 +116,9 @@ cytoscapeTelescopeJs
     visu.layout(command.layout);
   };
 
-  commandsAction.customize = function (command, visu,toUpdate) {
-    toUpdate[command.visuId]= toUpdate[command.visuId] || [];
-    toUpdate[command.visuId].push(command);
+  commandsAction.customize = toBacthCommand;
+  commandsActionBatch.customize=function(command,visu){
+    visu.getElementById(command.elementId).style(command.style);
   };
 
   commandsAction.addStaticLegendEntry = function (command) {
@@ -141,9 +148,10 @@ cytoscapeTelescopeJs
       visu = visuWithId(visuIDs[i]);
       visu.startBatch();
       for( var j = 0; j<cmds.length ; j ++){
-        visu.getElementById(cmds[j].elementId).style(cmds[j].style);
+        commandsActionBatch[cmds[j].command](cmds[j],visu);
       }
       visu.endBatch();
+visu.fit();
     }
   }
 
