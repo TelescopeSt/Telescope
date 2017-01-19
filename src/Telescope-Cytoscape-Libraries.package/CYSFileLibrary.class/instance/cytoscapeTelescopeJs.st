@@ -360,7 +360,7 @@ console.log("needNotify",needNotify, i);
       menu: self["menu"]
     };
     edges = self.connectedEdges();
-    children= self.children;//visu.$("#"+newData.id+" *");
+    children= self.children();//visu.$("#"+newData.id+" *");
     self.remove();
     toCustomize=visu.add(newNode); 
     customizeElement(toCustomize, commandParametersForElement);
