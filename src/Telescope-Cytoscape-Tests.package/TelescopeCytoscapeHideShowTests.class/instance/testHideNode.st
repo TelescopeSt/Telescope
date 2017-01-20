@@ -1,6 +1,5 @@
 tests
 testHideNode
-	self skip.
   ^'describe("#element", function() {
     it("hide node", function(done) {
       nodes=telescope.visus[0].visu.nodes();
