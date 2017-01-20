@@ -155,7 +155,6 @@ cytoscapeTelescopeJs
         commandsActionBatch[cmds[j].command](cmds[j],visu);
       }
       visu.endBatch();
-visu.fit();
     }
   }
 
