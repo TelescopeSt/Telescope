@@ -12,6 +12,12 @@ baseline01: spec
 								className: #ConfigurationOfTelescope;
 								versionString: #development;
 								repository: 'http://smalltalkhub.com/mc/Moose/Telescope/main/' ];
+				project: 'Neo'
+					with: [ 
+							spec
+								className: #ConfigurationOfNeoJSON;
+								versionString: #stable;
+								repository: 'http://smalltalkhub.com/mc/SvenVanCaekenberghe/Neo/main' ];
 				project: 'MochaJSTest'
 					with: [ 
 							spec
@@ -30,6 +36,6 @@ baseline01: spec
 			spec package: 'Telescope-Cytoscape-Libraries' with: [ spec requires: #('Seaside3') ].
 			spec
 				package: 'Telescope-Cytoscape'
-				with: [ spec requires: #('Telescope' 'Zinc-WebSocket-Core' 'Telescope-Cytoscape-Libraries') ].
+				with: [ spec requires: #('Telescope' 'Zinc-WebSocket-Core' 'Telescope-Cytoscape-Libraries' 'Neo') ].
 			spec package: 'Telescope-Cytoscape-Tests' with: [ spec requires: #('Telescope-Cytoscape' 'MochaJSTest') ].
 			spec group: 'Core' with: #('Telescope-Cytoscape') ]
