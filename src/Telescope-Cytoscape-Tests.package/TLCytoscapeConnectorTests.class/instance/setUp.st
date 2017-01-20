@@ -1,3 +1,4 @@
 as yet unclassified
 setUp
-	connector := TLCytoscapeConnector new
+	connector := TLCytoscapeConnector new.
+	self synCrLog: testSelector.
