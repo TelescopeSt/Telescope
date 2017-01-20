@@ -1,3 +1,3 @@
-running
+tests
 requiredLib
   ^ {JQDeploymentLibrary. CYSFileLibrary}

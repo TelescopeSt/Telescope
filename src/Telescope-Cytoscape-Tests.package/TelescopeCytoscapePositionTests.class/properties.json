@@ -1,6 +1,6 @@
 {
 	"commentStamp" : "",
-	"super" : "TelescopeCytoscapeTestsAbstract",
+	"super" : "MochaJSTestCase",
 	"category" : "Telescope-Cytoscape-Tests-Client",
 	"classinstvars" : [ ],
 	"pools" : [ ],

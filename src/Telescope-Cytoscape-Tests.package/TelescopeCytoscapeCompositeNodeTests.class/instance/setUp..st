@@ -1,4 +1,4 @@
-running
+as yet unclassified
 setUp: html
 	self wait: 'telescope.onMessageEnd(function(){telescope.removeMessageEnd(this);console.log("mocha run after message telescope"); mocha.run()})'.
 	self testSelector synCrLog: self testSelector .
