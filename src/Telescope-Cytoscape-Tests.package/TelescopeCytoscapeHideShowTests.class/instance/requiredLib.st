@@ -1,3 +1,0 @@
-tests
-requiredLib
-  ^ {JQDeploymentLibrary. CYSFileLibrary}
