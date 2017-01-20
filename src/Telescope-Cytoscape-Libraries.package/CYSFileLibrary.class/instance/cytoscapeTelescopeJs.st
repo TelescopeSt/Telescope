@@ -8,7 +8,7 @@ cytoscapeTelescopeJs
   var self = {};
   var tryReconnect=true;
   //time in ms before an event like mouse over.
-  self.reactTime=100;
+  self.reactTime=150;
 
   function visuWithId(aVisuId) {
     for (var i in visus) {
