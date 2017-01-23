@@ -1,3 +1,3 @@
 *Telescope-Cytoscape
 forCytoscape
-	^ '#' , self asHexString
+	^ ['#' , self asHexString ]on: MessageNotUnderstood do:[self asHTMLColor ]
