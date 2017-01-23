@@ -1,3 +1,3 @@
 tests
 setUp
-	self synCrLog: testSelector.
+	self crLog: testSelector.
