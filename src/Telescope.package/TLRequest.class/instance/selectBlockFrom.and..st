@@ -1,3 +1,3 @@
 private
 selectBlockFrom: aBlockClosure and: aTypeBlock
-	^ [ :drawable | (aTypeBlock cull: drawable) and: [ aBlockClosure cull: drawable cull: drawable isEntity ] ]
+	^ [ :drawable | (aTypeBlock cull: drawable) and: [ aBlockClosure cull: drawable ] ]
