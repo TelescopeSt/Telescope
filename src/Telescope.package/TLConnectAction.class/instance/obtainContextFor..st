@@ -1,3 +1,4 @@
 action
 obtainContextFor: aConnectable
-	^ self context ifNil: [ aConnectable visualization ]
+	self flag: #Question. "Should we limit to visibles nodes?"
+	^ self context value ifNil: [ aConnectable visualization obtain recursively nodes ]
