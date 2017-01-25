@@ -15,6 +15,7 @@ default
 		childrenLayout: (TLLinearLayout gap: 5 maximumDimension: 50);
 		takeAllSpace: false;
 		triggerPosition: #right;
+		labelSize: 14;
 		yourself.
 	defaultStyleSheet > #shapeInteraction
 		backgroundColor: Color lightBlue;
