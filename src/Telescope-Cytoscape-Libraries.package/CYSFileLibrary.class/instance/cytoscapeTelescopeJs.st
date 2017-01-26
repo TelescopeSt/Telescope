@@ -91,6 +91,7 @@ cytoscapeTelescopeJs
   function removeWaitingForVisuId(aVisuId) {
     try {
       waitingDivByVisu[aVisuId].parentNode.removeChild(waitingDivByVisu[aVisuId]);
+      waitingDivByVisu[aVisuId]=null;
     } catch (err) {
       //Here the waiting has been removed a previous time
     }
@@ -149,7 +150,9 @@ cytoscapeTelescopeJs
   commandsAction.error = function (command) {
     if(handleServerError[command.detail]){
       handleServerError[command.detail](command);//usefull to display messages
-    }else {
+    }else if(waitingDivByVisu[command.visuId] != null){
+      waitingDivByVisu[command.visuId].innerHTML= "An Error has occured."
+      notify("An Error has occured");
       console.log("message error have no display");
       console.log(command);
     }
@@ -157,7 +160,7 @@ cytoscapeTelescopeJs
   }
 
   handleServerError.noVisu= function(command){
-    console.log("notfound", command.visuId)
+    notify("An Error has occured: "+command.visuId+ " was not found.");
     waitingDivByVisu[command.visuId].innerHTML= "<h1>"+command.message+"</h1>"
   }
 
@@ -431,13 +434,46 @@ cytoscapeTelescopeJs
     }
   }
 
+  function enableUserNotification() {
+    function showNot(message){
+      new Notification(message)
+    }
+
+    if ( !( "Notification" in window ) ) {
+      return;
+    } else if ( Notification.permission === "granted" ) {
+       notify=showNot;
+    } else if ( Notification.permission !== "denied" ) {
+      Notification.requestPermission( function ( permission ) {
+        if ( permission === "granted" ) {
+           notify=showNot;
+        } else {
+          return ;
+        }
+      } );
+    } else {
+      return ;
+    }
+  };
+
+  function disableUserNotification() {
+    notify= function(message) {
+      console.log(message)
+    }
+  }
+
+  var notify;
+  enableUserNotification();
+
   cytoscape("collection", "changeData", changeData);
 
   self.useExternalTrigger = useExternalTrigger;
   self.visuWithId = visuWithId;
   self.loadVisuIn = loadVisuIn;
   self.onMessageEnd = onMessageEnd;
-  self.removeMessageEnd= removeMessageEnd
+  self.removeMessageEnd = removeMessageEnd;
+  self.enableUserNotification = enableUserNotification;
+  self.disableUserNotification = disableUserNotification;
 
   return self;
 })();
