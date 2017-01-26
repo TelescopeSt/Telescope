@@ -228,6 +228,7 @@ cytoscapeTelescopeJs
       element["dropInteraction"] = commandParametersForElement.dropInteraction;
     // here we define a popup if the element has one
     if (commandParametersForElement.popUp) {
+      element.popUp=commandParametersForElement.popUp;
       element.qtip(commandParametersForElement.popUp);
     }
     // here we define a menu if element has one
@@ -383,9 +384,10 @@ cytoscapeTelescopeJs
       style: self.style()
     };
     commandParametersForElement={
-      mouseOverInteraction: self["mouseOverInteraction"] ,
-      dropInteraction: self["dropInteraction"],
-      menu: self["menu"]
+      mouseOverInteraction: self[0]["mouseOverInteraction"] ,
+      dropInteraction: self[0]["dropInteraction"],
+      menu: self[0]["menu"],
+      popUp: self[0]["popUp"]
     };
     edges = self.connectedEdges();
     children= self.children();//visu.$("#"+newData.id+" *");
@@ -443,5 +445,4 @@ cytoscapeTelescopeJs
 visuWithId = function (id) {
   console.log("visuWithId is deprecated. Use telescope.visuWithId instead.");
   return telescope.visuWithId(id);
-};
-'
+};'
