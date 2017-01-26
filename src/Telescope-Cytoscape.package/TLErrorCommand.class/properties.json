@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "<historical>",
+	"super" : "TLVisualizationClientsCommand",
+	"category" : "Telescope-Cytoscape-Commands",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"droppedNodeId",
+		"targetNodeId",
+		"error"
+	],
+	"name" : "TLErrorCommand",
+	"type" : "normal"
+}

@@ -1,0 +1,1 @@
+I am a command when to signal error to client
