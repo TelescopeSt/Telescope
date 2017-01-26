@@ -1,3 +1,3 @@
 as yet unclassified
-visuId
-	^ visuId
+type
+  ^'noVisu'

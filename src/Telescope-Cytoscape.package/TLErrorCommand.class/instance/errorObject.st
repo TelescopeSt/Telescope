@@ -1,3 +1,3 @@
 as yet unclassified
-error
+errorObject
 	^ error
