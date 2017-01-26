@@ -98,7 +98,8 @@ cytoscapeTelescopeJs
 
   commandsAction = {};
   commandsActionBatch ={};
-  
+  handleServerError={};
+
   function toBacthCommand(command, visu,toUpdate){
     toUpdate[command.visuId]= toUpdate[command.visuId] || [];
     toUpdate[command.visuId].push(command);
@@ -144,7 +145,22 @@ cytoscapeTelescopeJs
   commandsAction.generated = function (command) {
     removeWaitingForVisuId(command.visuId);
   }
-  
+
+  commandsAction.error = function (command) {
+    if(handleServerError[command.detail]){
+      handleServerError[command.detail](command);//usefull to display messages
+    }else {
+      console.log("message error have no display");
+      console.log(command);
+    }
+    onError();//generic handle Error
+  }
+
+  handleServerError.noVisu= function(command){
+    console.log("notfound", command.visuId)
+    waitingDivByVisu[command.visuId].innerHTML= "<h1>"+command.message+"</h1>"
+  }
+
   function customizeAll(toUpdate){
     visuIDs= Object.keys(toUpdate);
     for ( var i = 0; i<visuIDs.length ; i ++){
@@ -179,7 +195,6 @@ cytoscapeTelescopeJs
     customizeAll(toUpdate);
     needNotify= Object.keys(needNotify);
     for(i=0;i<needNotify.length;i++){
-console.log("needNotify",needNotify, i);
       notifyMessageEnd(needNotify[i]);
     }
     notifyMessageEnd("onAll");
@@ -234,6 +249,7 @@ console.log("needNotify",needNotify, i);
   function onError(evt) {
     tryReconnect=false;
   }
+
 
   function displayMenuForElement(element, visuId, position) {
     var menu = [];
@@ -294,7 +310,7 @@ console.log("needNotify",needNotify, i);
   function createEventFunction(visuWithId) {
     return function (evt) {
       clearOverInteraction();
-      if(evt.cyTarget.id != null){ 
+      if(evt.cyTarget.id != null){
         // server interaction processing
         if ((!evt.cyTarget["mouseOverInteraction"]) && ((evt.type == "mouseover") || (evt.type == "mouseout"))) {
 
@@ -308,7 +324,7 @@ console.log("needNotify",needNotify, i);
       }
     };
   }
-   
+
    function  delaisEvtFunction(evtFunction) {
     return function (evt) {
       clearOverInteraction();
@@ -340,7 +356,7 @@ console.log("needNotify",needNotify, i);
   }
 
   function createDragEventFunction(visuWithId) {
-    return function (evt) { 
+    return function (evt) {
       //We only send a moveNode command if it is not considered as a drop
       if (!isDropActionOnANode(visuWithId, evt.cy.elements(), this.renderedPosition(), evt.cyTarget))
         websocket.send(JSON.stringify([{id: visuWithId.visuId, nodeId: evt.cyTarget.id(), command: "moveNode", position: evt.cyTarget.position()}]));
@@ -374,13 +390,13 @@ console.log("needNotify",needNotify, i);
     edges = self.connectedEdges();
     children= self.children();//visu.$("#"+newData.id+" *");
     self.remove();
-    toCustomize=visu.add(newNode); 
+    toCustomize=visu.add(newNode);
     customizeElement(toCustomize, commandParametersForElement);
     edges.restore();
     children.restore();
   }
 
-  /* useful for test with mocha 
+  /* useful for test with mocha
    * callback parameter : ()
    */
   function onMessageEnd(callback, id){
@@ -388,18 +404,18 @@ console.log("needNotify",needNotify, i);
        if(toNotifyMessage[id] ==null)
          toNotifyMessage[id] =  [ ]
        toNotifyMessage[id].push(callback);
-    }else { 
+    }else {
       onMessageEnd(callback, "onAll");
     }
   }
 
-  
+
   function removeMessageEnd(callback, id, optArrToAdd){
     if(id !=null){
        if(toNotifyMessage[id] ==null)
          return;
        toNotifyMessage[id].splice( toNotifyMessage[id].indexOf(callback), 1 );
-    }else { 
+    }else {
       removeMessageEnd(callback, "onAll");
     }
   }
@@ -427,4 +443,5 @@ console.log("needNotify",needNotify, i);
 visuWithId = function (id) {
   console.log("visuWithId is deprecated. Use telescope.visuWithId instead.");
   return telescope.visuWithId(id);
-};'
+};
+'
