@@ -6,6 +6,7 @@ renderContentOn: html
 		id: visuId;
 		style: self style;
 		attributeAt: #isTelescopeVisu put: 'true';
+		attributeAt: #'data-port' put: TLCytoscapeWebSocketDelegate port ;
 		class: 'telescopeVisu';
 		with: [ 
 					html div

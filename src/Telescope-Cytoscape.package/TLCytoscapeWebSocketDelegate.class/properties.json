@@ -4,7 +4,8 @@
 	"category" : "Telescope-Cytoscape",
 	"classinstvars" : [
 		"singleton",
-		"development"
+		"development",
+		"defaultPort"
 	],
 	"pools" : [ ],
 	"classvars" : [ ],
