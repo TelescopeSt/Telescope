@@ -1,7 +1,7 @@
 libs
 cytoscapeTelescopeJs
 	^ 'var telescope = (function () {
-  var wsUri = "ws://" + location.hostname + ":1701";
+  var wsPort = "1701";// default
   var websocket;
   var timeoutId; //use to delais interaction
   var toNotifyMessage={};
@@ -22,6 +22,7 @@ cytoscapeTelescopeJs
     for (var i = 0; i < visuDivs.length; i++) {
       visus.push({visuId: visuDivs[i].getAttribute("id"), visu: createVisu(visuDivs[i])});
     }
+    wsPort= visuDivs[0].dataset.port || wsPort;
 
     parametrizeWebsocket(visus);
 
@@ -33,7 +34,7 @@ cytoscapeTelescopeJs
     self.visus = [];
     visus= self.visus; // make closure as soon as possible to clean API
     waitingDivByVisu = [];
-    loadVisuIn(document, websocket);
+    loadVisuIn(document);
   }
 
   function createVisu(visuDiv) {
@@ -52,7 +53,7 @@ cytoscapeTelescopeJs
   }
 
   function parametrizeWebsocket(visus) {
-    websocket = new WebSocket(wsUri);
+    websocket = new WebSocket( "ws://" + location.hostname + ":"+wsPort);
 
     websocket.onclose = function (evt) {
       onClose(evt);
