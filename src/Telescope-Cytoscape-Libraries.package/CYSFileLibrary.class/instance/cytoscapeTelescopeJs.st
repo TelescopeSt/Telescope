@@ -133,7 +133,7 @@ cytoscapeTelescopeJs
   };
 
   commandsAction.removeLegend = function (command) {
-    $("#" + command.visuId + "legend").remove();
+    $("#" + command.visuId + "legend").find("table").children().remove();
   };
 
   commandsAction.refreshNode = function (command, visu) {
@@ -248,15 +248,28 @@ cytoscapeTelescopeJs
     }
   }
 
-  function addStaticLegendEntry(visuId, html) {
-    var div = document.getElementById(visuId + "legend");
-    if (!div) {
-      div = $("<div>", {id: visuId + "legend", class: "tlLegend"})
-              .html("<table></table>")[0];
-      document.getElementById(visuId).appendChild(div);
+    function addStaticLegendEntry(visuId, html) {
+        var div = document.getElementById(visuId + "legend");
+        if (!div) {
+            div = $(''<div>'', {id: visuId + "legend", class: "tlLegend"})
+                .html(''<span style="font-weight:bold;">Legend</span><img data-fold style="float: right; cursor: pointer;" src="/files/CYSFileLibrary/arrowUp.png" onclick="telescope.toggleLegend(this);"><table></table>'')[0];
+            document.getElementById(visuId).appendChild(div);
+        }
+        div.getElementsByTagName("table")[0].insertRow(-1).innerHTML = html;
     }
-    div.firstChild.insertRow(-1).innerHTML = html;
-  }
+
+    function toggleLegend(button) {
+        var table = $(button.parentNode.getElementsByTagName("table")[0]);
+        if (button.dataset.fold) {
+            table.fadeIn();
+            button.setAttribute("src", "/files/CYSFileLibrary/arrowUp.png");
+            button.dataset.fold = "";
+        } else {
+            table.fadeOut();
+            button.setAttribute("src", "/files/CYSFileLibrary/arrowDown.png");
+            button.dataset.fold = "true";
+        }
+    }
 
   function onError(evt) {
     tryReconnect=false;
@@ -482,6 +495,7 @@ cytoscapeTelescopeJs
   self.removeMessageEnd = removeMessageEnd;
   self.enableUserNotification = enableUserNotification;
   self.disableUserNotification = disableUserNotification;
+  self.toggleLegend = toggleLegend;
 
   return self;
 })();
