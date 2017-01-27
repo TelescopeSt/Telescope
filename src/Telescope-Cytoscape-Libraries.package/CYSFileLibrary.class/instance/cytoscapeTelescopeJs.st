@@ -78,7 +78,7 @@ cytoscapeTelescopeJs
       if(document.getElementById(visus[i].visuId)!=null)
         messages.push({id: visus[i].visuId, command: "generate"});
 
-    sendCommand(messages);
+    websocket.send(JSON.stringify(messages));
   }
 
   function onClose(evt) {
