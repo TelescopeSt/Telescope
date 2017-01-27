@@ -78,7 +78,7 @@ cytoscapeTelescopeJs
       if(document.getElementById(visus[i].visuId)!=null)
         messages.push({id: visus[i].visuId, command: "generate"});
 
-    websocket.send(JSON.stringify(messages));
+    sendCommand(messages);
   }
 
   function onClose(evt) {
@@ -174,6 +174,7 @@ cytoscapeTelescopeJs
         commandsActionBatch[cmds[j].command](cmds[j],visu);
       }
       visu.endBatch();
+      visu.container().style.cursor= "";
     }
   }
 
@@ -201,6 +202,12 @@ cytoscapeTelescopeJs
       notifyMessageEnd(needNotify[i]);
     }
     notifyMessageEnd("onAll");
+  }
+
+  function sendCommand(jsonArr){
+    for(var i=0; i< jsonArr.length; i++)
+      visuWithId(jsonArr[0].id).container().style.cursor= "progress";
+    websocket.send(JSON.stringify(jsonArr));
   }
 
   function post(path, cbId, openInNewTab) {
@@ -258,25 +265,25 @@ cytoscapeTelescopeJs
   function displayMenuForElement(element, visuId, position) {
     var menu = [];
     var fun = function (name, evt) {
-      websocket.send(JSON.stringify([
+      sendCommand([
         {"id": visuId,
           "drawableId": element.id(),
           "command": "menuInteraction",
           "kind": "menu",
           "entry": ($(evt.target).index() + 1)
-        }]));
+        }]);
     };
 
     var subFun = function (name, evt) {
       var selected = evt.currentTarget;
-      websocket.send(JSON.stringify([
+      sendCommand([
         {"id": visuId,
           "drawableId": element.id(),
           "command": "multiMenuInteraction",
           "kind": "menu",
           "entry": ($(selected.parentNode.parentNode).index() + 1),
           "selection": ($(selected).index() + 1)
-        }]));
+        }]);
     };
 
     for (var i = 0; i < element.menu.length; i++) {
@@ -299,7 +306,7 @@ cytoscapeTelescopeJs
   }
 
   function useExternalTrigger(evt, visuId, triggerId) {
-    websocket.send(JSON.stringify([{id: visuId, command: "externalTrigger", triggerId:triggerId, kind: (eventsWithInteractions[evt.type]|| evt.type)}]));
+    sendCommand([{id: visuId, command: "externalTrigger", triggerId:triggerId, kind: (eventsWithInteractions[evt.type]|| evt.type)}]);
   }
 
   eventsWithInteractions = {"tap": "click", "cxttap": "rightClick", "mouseover": "mouseOver", "mouseout": "mouseOut"};
@@ -323,7 +330,7 @@ cytoscapeTelescopeJs
           if (evt.type == "cxttap" && evt.cyTarget["menu"]) {
             displayMenuForElement(evt.cyTarget, visuWithId.visuId, {x: evt.originalEvent.clientX, y: evt.originalEvent.clientY});
           }
-          websocket.send(JSON.stringify([{id: visuWithId.visuId, drawableId: evt.cyTarget.id(), command: "interaction", kind: (eventsWithInteractions[evt.type])}]));
+          sendCommand([{id: visuWithId.visuId, drawableId: evt.cyTarget.id(), command: "interaction", kind: (eventsWithInteractions[evt.type])}]);
         }
       }
     };
@@ -353,7 +360,7 @@ cytoscapeTelescopeJs
 
     // if we found a target and this one has a drop interaction then we request the server
     if (target && target.dropInteraction) {
-      websocket.send(JSON.stringify([{id: visuWithId.visuId, nodeId: droppedNode.id(), command: "dropNode", targetNode: target.id()}]));
+      sendCommand([{id: visuWithId.visuId, nodeId: droppedNode.id(), command: "dropNode", targetNode: target.id()}]);
       return true;
     } else
       return false;
@@ -363,7 +370,7 @@ cytoscapeTelescopeJs
     return function (evt) {
       //We only send a moveNode command if it is not considered as a drop
       if (!isDropActionOnANode(visuWithId, evt.cy.elements(), this.renderedPosition(), evt.cyTarget))
-        websocket.send(JSON.stringify([{id: visuWithId.visuId, nodeId: evt.cyTarget.id(), command: "moveNode", position: evt.cyTarget.position()}]));
+        sendCommand([{id: visuWithId.visuId, nodeId: evt.cyTarget.id(), command: "moveNode", position: evt.cyTarget.position()}]);
     };
   }
 
