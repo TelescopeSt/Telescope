@@ -251,8 +251,8 @@ cytoscapeTelescopeJs
     function addStaticLegendEntry(visuId, html) {
         var div = document.getElementById(visuId + "legend");
         if (!div) {
-            div = $(''<div>'', {id: visuId + "legend", class: "tlLegend"})
-                .html(''<span style="font-weight:bold;">Legend</span><img data-fold style="float: right; cursor: pointer;" src="/files/CYSFileLibrary/arrowUp.png" onclick="telescope.toggleLegend(this);"><table></table>'')[0];
+            div = $("<div>", {id: visuId + "legend", class: "tlLegend"})
+                .html("<span style=\"font-weight:bold;\">Legend</span><img data-fold style=\"float: right; cursor: pointer;\" src=\"/files/CYSFileLibrary/arrowUp.png\" onclick=\"telescope.toggleLegend(this);\"><table></table>")[0];
             document.getElementById(visuId).appendChild(div);
         }
         div.getElementsByTagName("table")[0].insertRow(-1).innerHTML = html;
@@ -340,11 +340,12 @@ cytoscapeTelescopeJs
         if ((!evt.cyTarget["mouseOverInteraction"]) && ((evt.type == "mouseover") || (evt.type == "mouseout"))) {
 
         } else {
-        // menu management
+          sendCommand([{id: visuWithId.visuId, drawableId: evt.cyTarget.id(), command: "interaction", kind: (eventsWithInteractions[evt.type])}]);
+          // menu management
           if (evt.type == "cxttap" && evt.cyTarget["menu"]) {
             displayMenuForElement(evt.cyTarget, visuWithId.visuId, {x: evt.originalEvent.clientX, y: evt.originalEvent.clientY});
+            visuWithId.visu.container().style.cursor= "";
           }
-          sendCommand([{id: visuWithId.visuId, drawableId: evt.cyTarget.id(), command: "interaction", kind: (eventsWithInteractions[evt.type])}]);
         }
       }
     };
