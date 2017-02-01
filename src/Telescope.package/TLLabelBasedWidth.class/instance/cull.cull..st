@@ -1,5 +1,9 @@
 evaluating
 cull: anEntity cull: aNode
-	^ [ 2 + ((aNode effectiveStyleSheet nodeLabel cull: anEntity cull: aNode) size * 10) ]
-		on: MessageNotUnderstood
-		do: [ self defaultWidth ifNil: [ TLStyleSheetLabelBasedWidthBadlyUsed signalForEntity: anEntity ] ]
+	
+	| stringLabel |
+	stringLabel := aNode effectiveStyleSheet nodeLabel cull: anEntity cull: aNode.
+	^ stringLabel isEmptyOrNil
+		ifFalse: [ 2 + (stringLabel size * 10) ]
+		ifTrue: [ self defaultWidth ifNil: [ TLStyleSheetLabelBasedWidthBadlyUsed signalForEntity: anEntity ] ] 
+		
