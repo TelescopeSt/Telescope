@@ -1,3 +1,3 @@
-as yet unclassified
+accessing
 defaultPort: aNumber
 	defaultPort := aNumber

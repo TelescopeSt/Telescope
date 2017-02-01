@@ -1,3 +1,3 @@
-as yet unclassified
+accessing
 port
 	^ self singleton port
