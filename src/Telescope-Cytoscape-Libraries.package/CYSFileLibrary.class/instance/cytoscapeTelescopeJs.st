@@ -153,7 +153,7 @@ cytoscapeTelescopeJs
   };
 
   commandsAction.refreshNode = function (command, visu) {
-   setTimeout(function(){ visu.$("#" + command.data.id).changeData(command.data);}, 3000);
+   setTimeout(function(){ visu.$("#" + command.data.id).changeData(command);}, 3000);
   };
 
   commandsAction.callback = function (command, visu) {
@@ -197,7 +197,6 @@ cytoscapeTelescopeJs
 
   function onMessage(evt) {
     commands = JSON.parse(evt.data);
-//console.log("commands", commands);
     toUpdate = {};
     needNotify = {};
     for (var i in commands) {
@@ -413,25 +412,19 @@ cytoscapeTelescopeJs
   window.addEventListener("load", init, false);
 
   //extend collection to redraw a node with new data like change parent
-  function changeData(newData) {
+  function changeData(command) {
     var self = this;
     visu = self.cy();
     newNode = {group: self.group(),
       position: self.position(),
-      data: newData,
+      data: command.data,
       style: self.style()
-    };
-    commandParametersForElement={
-      mouseOverInteraction: self[0]["mouseOverInteraction"] ,
-      dropInteraction: self[0]["dropInteraction"],
-      menu: self[0]["menu"],
-      popUp: self[0]["popUp"]
     };
     edges = self.connectedEdges();
     children= self.children();//visu.$("#"+newData.id+" *");
     self.remove();
     toCustomize=visu.add(newNode);
-    customizeElement(toCustomize, commandParametersForElement);
+    customizeElement(toCustomize, command);
     edges.restore();
     children.restore();
   }
