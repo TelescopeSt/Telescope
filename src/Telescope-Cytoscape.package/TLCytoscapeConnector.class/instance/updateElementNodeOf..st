@@ -1,7 +1,7 @@
 updating - node
 updateElementNodeOf: aDrawable
 	| element |
-	element := self elementFromTLDrawable: aDrawable.
+	element := self elementFromTLDrawable: aDrawable. 
 	aDrawable hierarchyChanged
 		ifTrue: [ 
 			self
@@ -18,4 +18,5 @@ updateElementNodeOf: aDrawable
 						virtualNode: element;
 						mouseOverInteraction: (aDrawable allInteractions anySatisfy: #isMouseOver);
 						visuId: self visuId;
-						style: (aDrawable effectiveStyleSheet cytoscapeNodeStyleFor: aDrawable)) ]
+						style: (aDrawable effectiveStyleSheet cytoscapeNodeStyleFor: aDrawable)) ].
+		self commandsQueue managePositioningOf: element triggers

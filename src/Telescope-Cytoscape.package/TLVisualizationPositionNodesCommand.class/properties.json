@@ -6,7 +6,8 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"nodes"
+		"nodes",
+		"triggers"
 	],
 	"name" : "TLVisualizationPositionNodesCommand",
 	"type" : "normal"

@@ -2,4 +2,5 @@ accessing
 initialize
 	super initialize.
 	self children: (TLVirtualGroup new composite: self).
-	self userFixedPosition: false
+	self userFixedPosition: false.
+	triggers:= OrderedCollection new 

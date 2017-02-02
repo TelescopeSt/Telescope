@@ -5,4 +5,5 @@ addAllNodes: aCollectionOfTLVirtualElements
 			anElement isNode
 				ifTrue: [ 
 					self nodes add: anElement.
-					self addAllNodes: anElement children ] ]
+					self addAllNodes: anElement children.
+					self addAllTriggers: anElement triggers ] ]

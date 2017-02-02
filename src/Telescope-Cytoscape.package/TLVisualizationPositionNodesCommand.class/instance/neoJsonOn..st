@@ -12,9 +12,4 @@ neoJsonOn: writer
 					(#animationDuration -> 1500).
 					(#positions
 						->
-							(self nodes reject: #hasChildren
-								thenCollect: [ :aNode | 
-									aNode nodeId asString
-										->
-											{(#x -> aNode cytoscapePosition x).
-											(#y -> aNode cytoscapePosition y)} asDictionary ]) asDictionary)} asDictionary ]
+							self allElementsPositions asDictionary)} asDictionary ]

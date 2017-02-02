@@ -12,7 +12,8 @@
 		"compositeMargin",
 		"attributes",
 		"encompassingRectangle",
-		"userFixedPosition"
+		"userFixedPosition",
+		"triggers"
 	],
 	"name" : "TLVirtualNode",
 	"commentStamp" : "GuillaumeLarcheveque 12/21/2015 16:08",
