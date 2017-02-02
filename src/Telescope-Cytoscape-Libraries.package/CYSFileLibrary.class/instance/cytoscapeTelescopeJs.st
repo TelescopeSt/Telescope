@@ -197,7 +197,7 @@ cytoscapeTelescopeJs
 
   function onMessage(evt) {
     commands = JSON.parse(evt.data);
-console.log("commands", commands);
+//console.log("commands", commands);
     toUpdate = {};
     needNotify = {};
     for (var i in commands) {
