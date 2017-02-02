@@ -17,17 +17,29 @@ cytoscapeTelescopeJs
     }
   }
 
+  function getVisusDivs(htmlElement){
+    htmlElement= htmlElement || document;
+    return htmlElement.getElementsByClassName("telescopeVisu");
+  }
+
+  function pageHaveVisu(visuDivs){
+    visuDivs = visuDivs || getVisusDivs();
+    return visuDivs.length >0
+  }
+
   function loadVisuIn(htmlElement) {
-    visuDivs = htmlElement.getElementsByClassName("telescopeVisu");
-    for (var i = 0; i < visuDivs.length; i++) {
-      visus.push({visuId: visuDivs[i].getAttribute("id"), visu: createVisu(visuDivs[i])});
+    visuDivs = getVisusDivs(htmlElement);
+    if(pageHaveVisu(visuDivs) ){
+      for (var i = 0; i < visuDivs.length; i++) {
+        visus.push({visuId: visuDivs[i].getAttribute("id"), visu: createVisu(visuDivs[i])});
+      }
+      wsPort= visuDivs[0].dataset.port || wsPort;
+
+      parametrizeWebsocket(visus);
+
+      for (var j in visus)
+        parametrizeInteractionsListenerForVisu(visus[j]);
     }
-    wsPort= visuDivs[0].dataset.port || wsPort;
-
-    parametrizeWebsocket(visus);
-
-    for (var j in visus)
-      parametrizeInteractionsListenerForVisu(visus[j]);
   }
 
   function init() {
@@ -82,9 +94,13 @@ cytoscapeTelescopeJs
     websocket.send(JSON.stringify(messages));
   }
 
+  function onError(evt) {
+    tryReconnect=false;
+  }
+
   function onClose(evt) {
+    tryReconnect = tryReconnect && pageHaveVisu();
     if(tryReconnect){
-      console.log("retry connection");
       parametrizeWebsocket(visus);
     }
   }
@@ -181,6 +197,7 @@ cytoscapeTelescopeJs
 
   function onMessage(evt) {
     commands = JSON.parse(evt.data);
+console.log("commands", commands);
     toUpdate = {};
     needNotify = {};
     for (var i in commands) {
@@ -270,10 +287,6 @@ cytoscapeTelescopeJs
             button.dataset.fold = "true";
         }
     }
-
-  function onError(evt) {
-    tryReconnect=false;
-  }
 
 
   function displayMenuForElement(element, visuId, position) {
