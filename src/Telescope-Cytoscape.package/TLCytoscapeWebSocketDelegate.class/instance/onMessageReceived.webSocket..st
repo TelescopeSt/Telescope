@@ -14,5 +14,5 @@ onMessageReceived: message webSocket: aWebSocket
 				on: Error
 				do: [ :e | 
 					self class development
-						ifFalse: [ TLErrorCommand new: (aCommandDictionary at: #id) withError: e on:  aWebSocket]
+						ifFalse: [ TLErrorCommand new: (aCommandDictionary at: #id) withError: e on: aWebSocket ]
 						ifTrue: [ e pass ] ] ]
