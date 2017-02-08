@@ -5,11 +5,11 @@ executeInteraction: aKindOfInteraction onDrawableId: aDrawableId
 	interactions := drawable allInteractions
 		select: [ :anInteraction | anInteraction shouldOccursOn: aKindOfInteraction with: drawable ].
 	interactions ifEmpty: [ self sendAcknowledgeReceiptFor: drawable referencedElement ]
-		ifNotEmptyDo: [ :anInteraction | 
+		ifNotEmpty:[ interactions do: [ :anInteraction | 
 			self flag: 'dirty, will need a refactor'.
 			aKindOfInteraction = #mouseOver
 				ifTrue: [ self executeRegularInteraction: anInteraction forDrawable: drawable ]
 				ifFalse: [ 
 					aKindOfInteraction = #mouseOut
 						ifTrue: [ self executeReverseInteraction: anInteraction forDrawable: drawable ]
-						ifFalse: [ self executeInteraction: anInteraction forDrawable: drawable referencedElement ] ] ]
+						ifFalse: [ self executeInteraction: anInteraction forDrawable: drawable referencedElement ] ] ] ]
