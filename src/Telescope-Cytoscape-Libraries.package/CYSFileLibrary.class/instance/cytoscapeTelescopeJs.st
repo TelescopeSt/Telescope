@@ -130,6 +130,11 @@ cytoscapeTelescopeJs
     }
   };
 
+
+  //just register visu to remove cursor progress
+  commandsAction.acknoledgeReceipt= toBacthCommand;
+  commandsActionBatch.acknoledgeReceipt= function(){};
+
   commandsAction.remove = toBacthCommand;
   commandsActionBatch.remove=function(command,visu){
     visu.remove(visu.getElementById(command.nodeId));
@@ -197,7 +202,6 @@ cytoscapeTelescopeJs
 
   function onMessage(evt) {
     commands = JSON.parse(evt.data);
-    console.log("command",commands)
     toUpdate = {};
     needNotify = {};
     for (var i in commands) {
