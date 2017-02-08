@@ -197,6 +197,7 @@ cytoscapeTelescopeJs
 
   function onMessage(evt) {
     commands = JSON.parse(evt.data);
+    console.log("command",commands)
     toUpdate = {};
     needNotify = {};
     for (var i in commands) {
@@ -221,9 +222,10 @@ cytoscapeTelescopeJs
     notifyMessageEnd("onAll");
   }
 
-  function sendCommand(jsonArr){
-    for(var i=0; i< jsonArr.length; i++)
-      visuWithId(jsonArr[0].id).container().style.cursor= "progress";
+  function sendCommand(jsonArr,progress){
+    if(progress!== false) // strict equality to accept null as true value for progress
+      for(var i=0; i< jsonArr.length; i++)
+        visuWithId(jsonArr[0].id).container().style.cursor= "progress";
     websocket.send(JSON.stringify(jsonArr));
   }
 
@@ -397,7 +399,7 @@ cytoscapeTelescopeJs
     return function (evt) {
       //We only send a moveNode command if it is not considered as a drop
       if (!isDropActionOnANode(visuWithId, evt.cy.elements(), this.renderedPosition(), evt.cyTarget))
-        sendCommand([{id: visuWithId.visuId, nodeId: evt.cyTarget.id(), command: "moveNode", position: evt.cyTarget.position()}]);
+        sendCommand([{id: visuWithId.visuId, nodeId: evt.cyTarget.id(), command: "moveNode", position: evt.cyTarget.position()}], false);
     };
   }
 
