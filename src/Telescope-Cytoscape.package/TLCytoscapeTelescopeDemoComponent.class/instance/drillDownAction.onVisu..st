@@ -11,9 +11,7 @@ drillDownAction: html onVisu: visuId
 										ifEmpty: [ true ]
 										ifNotEmpty: [ drawable childrenNodes anySatisfy: [ :child | child isVisible not ] ] ] ] ];
 		onExternalTrigger.
-	html mdlButton
+	html button
 		onClick: (interaction externalTriggerForVisuId: visuId);
-		raised;
-		primaryColor;
 		with: 'Click to unfoldComposite'.
 	^ interaction
