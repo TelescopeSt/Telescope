@@ -1,8 +1,10 @@
 action
 regularActionOn: aNode
-	| newNodes targetNodes |
-	(self obtain: self property on: aNode entity)
-		ifNotEmpty: [ :children | 
+	| newNodes targetNodes children |
+	(children := self obtain: self property on: aNode entity) isCollection
+		ifFalse: [ TLWrongUsedFunctionalityException signal: 'The property of the ExpandCollapseNodesAction should be a collection.' ].
+	children
+		ifNotEmpty: [ 
 			newNodes := TLDrawableCollection new.
 			targetNodes := self obtainNodesWhereNew: newNodes fromEntities: children withOriginNode: aNode.
 			self parentToChildren at: aNode put: newNodes.
