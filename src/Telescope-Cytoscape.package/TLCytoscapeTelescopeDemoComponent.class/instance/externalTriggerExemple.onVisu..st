@@ -1,4 +1,4 @@
-as yet unclassified
+rendering
 externalTriggerExemple: html onVisu: visuId
 	| interaction |
 	interaction := ((TLStyleCustomizationAction custom: [ :style | style borderColor: Color red ])
@@ -6,5 +6,4 @@ externalTriggerExemple: html onVisu: visuId
 	html button
 		onClick: (interaction externalTriggerForVisuId: visuId);
 		with: 'Click on me to color composite in red'.	"(interaction triggerOnLeavesForVisuId: visuId)"
-	^interaction 	
-		
+	^ interaction
