@@ -173,8 +173,8 @@ cytoscapeTelescopeJs
     if(handleServerError[command.detail]){
       handleServerError[command.detail](command);//usefull to display messages
     }else if(waitingDivByVisu[command.visuId] != null){
-      waitingDivByVisu[command.visuId].innerHTML= "An Error has occured."
-      notify("An Error has occured");
+      waitingDivByVisu[command.visuId].innerHTML= "An error has occured."
+      notify("An arror has occured");
       console.log("message error have no display");
       console.log(command);
     }
@@ -182,7 +182,7 @@ cytoscapeTelescopeJs
   }
 
   handleServerError.noVisu= function(command){
-    notify("An Error has occured: "+command.visuId+ " was not found.");
+    notify("An error has occured: "+command.visuId+ " was not found.");
     waitingDivByVisu[command.visuId].innerHTML= "<h1>"+command.message+"</h1>"
   }
 
@@ -461,7 +461,7 @@ cytoscapeTelescopeJs
 
   function notifyMessageEnd(visuId){
     if(toNotifyMessage[visuId] ==null)
-      toNotifyMessage[visuId] =  [ ]
+      toNotifyMessage[visuId] =  [ ];
     for(i=0; i< toNotifyMessage.onAll.length;i++){
       console.log(toNotifyMessage[visuId],i);
       toNotifyMessage[visuId][i]();
