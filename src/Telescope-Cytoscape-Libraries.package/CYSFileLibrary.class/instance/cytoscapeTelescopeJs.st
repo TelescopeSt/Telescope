@@ -174,7 +174,7 @@ cytoscapeTelescopeJs
       handleServerError[command.detail](command);//usefull to display messages
     }else if(waitingDivByVisu[command.visuId] != null){
       waitingDivByVisu[command.visuId].innerHTML= "An error has occured."
-      notify("An arror has occured");
+      notify("An error has occured");
       console.log("message error have no display");
       console.log(command);
     }
