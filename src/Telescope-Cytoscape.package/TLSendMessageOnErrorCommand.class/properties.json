@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "TLErrorCommand",
+	"category" : "Telescope-Cytoscape-Commands",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "TLSendMessageOnErrorCommand",
+	"type" : "normal"
+}
