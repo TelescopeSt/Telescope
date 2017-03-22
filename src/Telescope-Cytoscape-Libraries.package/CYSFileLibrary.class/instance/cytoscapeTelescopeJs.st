@@ -186,6 +186,10 @@ cytoscapeTelescopeJs
     waitingDivByVisu[command.visuId].innerHTML= "<h1>"+command.message+"</h1>"
   }
 
+  handleServerError.messageOnError= function(command){
+    notify(command.visuId + " : " + command.message);
+  }
+
   function customizeAll(toUpdate){
     visuIDs= Object.keys(toUpdate);
     for ( var i = 0; i<visuIDs.length ; i ++){
@@ -420,6 +424,8 @@ cytoscapeTelescopeJs
   //extend collection to redraw a node with new data like change parent
   function changeData(command) {
     var self = this;
+    if(command.style)
+      self.style(command.style);
     visu = self.cy();
     newNode = {group: self.group(),
       position: self.position(),
@@ -427,12 +433,15 @@ cytoscapeTelescopeJs
       style: self.style()
     };
     edges = self.connectedEdges();
-    children= self.children();//visu.$("#"+newData.id+" *");
-    self.remove();
-    toCustomize=visu.add(newNode);
-    customizeElement(toCustomize, command);
-    edges.restore();
-    children.restore();
+    children= self.children();
+    //log("changedata node", self)
+    //log("changedata debug",edges.length, "edges", edges)
+    //uncomment the follow lines when we will understand why edges is empty.
+    //self.remove();
+    //toCustomize=visu.add(newNode);
+    //customizeElement(toCustomize, command);
+    //edges.restore();
+    //children.restore();
   }
 
   /* useful for test with mocha
