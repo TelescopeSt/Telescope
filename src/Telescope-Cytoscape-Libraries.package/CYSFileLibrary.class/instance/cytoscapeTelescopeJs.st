@@ -478,24 +478,24 @@ cytoscapeTelescopeJs
   }
 
   function enableUserNotification() {
-    function showNot(message){
+    function showNotification(message){
       new Notification(message)
     }
 
     if ( !( "Notification" in window ) ) {
-      return;
+      disableUserNotification();
     } else if ( Notification.permission === "granted" ) {
-       notify=showNot;
+       notify=showNotification;
     } else if ( Notification.permission !== "denied" ) {
       Notification.requestPermission( function ( permission ) {
         if ( permission === "granted" ) {
-           notify=showNot;
+           notify=showNotification;
         } else {
-          return ;
+          disableUserNotification();
         }
       } );
     } else {
-      return ;
+      disableUserNotification();
     }
   };
 
