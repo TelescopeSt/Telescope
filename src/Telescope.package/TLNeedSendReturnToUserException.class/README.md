@@ -1,1 +1,0 @@
-I am an exception that occurs when a vizualization don't break but stop the crrent task ask by user. I am handle  by connector to  send a return to user.
