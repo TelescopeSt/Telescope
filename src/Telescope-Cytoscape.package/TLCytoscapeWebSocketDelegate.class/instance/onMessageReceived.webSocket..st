@@ -12,7 +12,7 @@ onMessageReceived: message webSocket: aWebSocket
 			self associateSocket: aWebSocket toVisuId: (aCommandDictionary at: #id).	"then execute command"
 			(TLVisualizationClientsCommand createFrom: aCommandDictionary)
 				executeOnVisu: (self visualizationByIdDictionary at: (aCommandDictionary at: #id)) ]
-				on: TLNeedSendReturnToUserException
+				on: TLNothingToDoException
 				do: [ :e | TLSendMessageOnErrorCommand new: (aCommandDictionary at: #id) withError: e on: aWebSocket ] ]
 				on: Error
 				do: [ :e | 
