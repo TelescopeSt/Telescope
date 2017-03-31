@@ -158,7 +158,7 @@ cytoscapeTelescopeJs
   };
 
   commandsAction.refreshNode = function (command, visu) {
-   setTimeout(function(){ visu.$("#" + command.data.id).changeData(command);}, 3000);
+    visu.$("#" + command.data.id).changeData(command);
   };
 
   commandsAction.callback = function (command, visu) {
@@ -167,28 +167,28 @@ cytoscapeTelescopeJs
 
   commandsAction.generated = function (command) {
     removeWaitingForVisuId(command.visuId);
-  }
+  };
 
   commandsAction.error = function (command) {
     if(handleServerError[command.detail]){
       handleServerError[command.detail](command);//usefull to display messages
     }else if(waitingDivByVisu[command.visuId] != null){
-      waitingDivByVisu[command.visuId].innerHTML= "An error has occured."
+      waitingDivByVisu[command.visuId].innerHTML= "An error has occured.";
       notify("An error has occured");
       console.log("message error have no display");
       console.log(command);
     }
     onError();//generic handle Error
-  }
+  };
 
   handleServerError.noVisu= function(command){
     notify("An error has occured: "+command.visuId+ " was not found.");
-    waitingDivByVisu[command.visuId].innerHTML= "<h1>"+command.message+"</h1>"
-  }
+    waitingDivByVisu[command.visuId].innerHTML= "<h1>"+command.message+"</h1>";
+  };
 
   handleServerError.messageOnError= function(command){
-    notify(command.visuId + " : " + command.message);
-  }
+    notify( command.message);
+  };
 
   function customizeAll(toUpdate){
     visuIDs= Object.keys(toUpdate);
@@ -200,17 +200,17 @@ cytoscapeTelescopeJs
         commandsActionBatch[cmds[j].command](cmds[j],visu);
       }
       visu.endBatch();
-      visu.container().style.cursor= "";
     }
   }
 
   function onMessage(evt) {
     commands = JSON.parse(evt.data);
+//    console.log(commands);
     toUpdate = {};
     needNotify = {};
     for (var i in commands) {
       command = commands[i];
-      if(needNotify[command.visuId]){
+      if(command.visuId){
          needNotify[command.visuId]=true;
       }
       visu = visuWithId(command.visuId);
@@ -224,8 +224,10 @@ cytoscapeTelescopeJs
     //customize in one visu rendering all element toUpdate
     customizeAll(toUpdate);
     needNotify= Object.keys(needNotify);
-    for(i=0;i<needNotify.length;i++){
+//    console.log(needNotify);
+    for(var i=0; i<needNotify.length;i++){
       notifyMessageEnd(needNotify[i]);
+      visuWithId(needNotify[i]).container().style.cursor= "";
     }
     notifyMessageEnd("onAll");
   }
@@ -469,12 +471,10 @@ cytoscapeTelescopeJs
   }
 
   function notifyMessageEnd(visuId){
-    if(toNotifyMessage[visuId] ==null)
-      toNotifyMessage[visuId] =  [ ];
-    for(i=0; i< toNotifyMessage.onAll.length;i++){
-      console.log(toNotifyMessage[visuId],i);
-      toNotifyMessage[visuId][i]();
-    }
+    if(toNotifyMessage[visuId] !=null)
+      for(i=0; i< toNotifyMessage[visuId].length;i++){
+        toNotifyMessage[visuId][i]();
+      }
   }
 
   function enableUserNotification() {
