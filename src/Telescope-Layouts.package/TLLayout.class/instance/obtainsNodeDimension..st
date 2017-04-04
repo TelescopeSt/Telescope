@@ -1,3 +1,3 @@
 as yet unclassified
 obtainsNodeDimension: aNode
-	^ self obtainsNodeDimension: aNode forAngle: self angle
+	^ aNode dimension	"^ self obtainsNodeDimension: aNode forAngle: self angle"
