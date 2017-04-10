@@ -1,3 +1,5 @@
 as yet unclassified
 obtainsNodeDimension: aNode
-	^ aNode dimension	"^ self obtainsNodeDimension: aNode forAngle: self angle"
+	aNode isNode
+		ifTrue: [ aNode children ifNotEmpty: [ ^ self obtainsNodeDimension: aNode forAngle: 0 ] ].
+	^ self obtainsNodeDimension: aNode forAngle: self angle
