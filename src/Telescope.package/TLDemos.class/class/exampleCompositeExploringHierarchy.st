@@ -8,7 +8,7 @@ exampleCompositeExploringHierarchy
 		compositeProperty: #subclasses.
 	visualization styleSheet
 		childrenLayout: (TLLinearLayout gap: 20 maximumDimension: 300);
-		nodeLabel: [ :c | c name asString ];
+		nodeLabel: #asString;
 		width: 200;
 		compositeExpandedByDefault: true;
 		backgroundColor: [ :class | 

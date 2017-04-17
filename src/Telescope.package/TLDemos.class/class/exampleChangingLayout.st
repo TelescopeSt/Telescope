@@ -23,5 +23,5 @@ exampleChangingLayout
 				block: [ :aNode | 
 					visu > #group2 layout: aNode entity.
 					visu update ]) onClick.
-	(visu > #group1) styleSheet nodeLabel: #name.
+	(visu > #group1) styleSheet nodeLabel: #asString.
 	^ visu
