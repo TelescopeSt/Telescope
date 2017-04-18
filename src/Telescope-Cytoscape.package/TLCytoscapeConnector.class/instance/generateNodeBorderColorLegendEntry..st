@@ -11,6 +11,6 @@ generateNodeBorderColorLegendEntry: aLegendEntry
 					(TLVisualizationAddLegendEntryCommand
 						visuId: self visuId
 						html:
-							'<td class="tlLegendIcon" style="border: 1px solid ' , labelAndColor value forCytoscape
+							'<td class="tlLegendIcon" style="border: 2px solid ' , labelAndColor value forCytoscape
 								, '"></td><td class="tlLegendLabel">' , labelAndColor key , '</td>') ].
 	^ aLegendEntry
