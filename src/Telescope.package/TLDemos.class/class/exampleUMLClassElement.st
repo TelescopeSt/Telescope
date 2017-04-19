@@ -1,6 +1,7 @@
 demos
 exampleUMLClassElement
 	<script: 'self exampleUMLClassElement open'>
+	<tlFilter: #layout>
 	
 	"for FAMIXTypeGroup:
 	 TLUMLClassElement new

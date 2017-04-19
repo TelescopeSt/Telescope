@@ -1,14 +1,16 @@
 demos
 exampleChangingLayout
 	<script: 'self exampleChangingLayout open'>
+	<tlFilter: #layout>
 	| visu |
 	visu := TLVisualization new.
 	(visu > #group1) styleSheet
 		width: 200;
 		height: 50.
-		(visu > #group2) styleSheet
+	(visu > #group2) styleSheet
 		width: 30;
-		height: 30; shape: TLRhomboid .
+		height: 30;
+		shape: TLRhomboid.
 	visu > #group1 layout: TLLinearLayout topToBottom.
 	visu > #group1
 		addNodesFromEntities:

@@ -1,6 +1,8 @@
 demos
 exampleCompositeExploringHierarchy
 	<script: 'self exampleCompositeExploringHierarchy open'>
+	<tlFilter: #layout>
+	<tlFilter: #composite>
 	| visualization |
 	visualization := TLVisualization new.
 	visualization nodeCreationStrategy

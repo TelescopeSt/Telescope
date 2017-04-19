@@ -1,6 +1,7 @@
 demos
 exampleDistributionMapAuthorsOfCollection
 	<script: 'self exampleDistributionMapAuthorsOfCollection open'>
+	<tlFilter: #layout>
 
 	| visualization |
 	visualization := TLDistributionMap new

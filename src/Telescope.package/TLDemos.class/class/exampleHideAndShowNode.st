@@ -1,6 +1,7 @@
 demos
 exampleHideAndShowNode
 	<script: 'self exampleHideAndShowNode open'>
+	<tlFilter: #interaction>
 
 	| visualization oneNode secondNode  |
 	visualization := TLVisualization new.

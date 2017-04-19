@@ -1,6 +1,8 @@
 demos
 exampleButterflyUsingStyleFunctionnality
 	<script: 'self exampleButterflyUsingStyleFunctionnality open'>
+	<tlFilter: #style>
+	<tlFilter: #layout>
 
 	| butterfly |
 	butterfly := TLButterfly new

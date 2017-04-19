@@ -1,6 +1,8 @@
 demos
 exampleConnectionsCustomization
 	<script: 'self exampleConnectionsCustomization open'>
+	<tlFilter: #style>
+	<tlFilter: #group>
 
 	| visualization source group2 |
 	visualization := TLVisualization new.

@@ -1,6 +1,8 @@
 demos
 exampleHighlightElements
 	<script: 'self exampleHighlightElements open'>
+	<tlFilter: #interaction>
+	<tlFilter: #style>
 	| visualization highlightInteraction |
 	visualization := TLVisualization new.
 	highlightInteraction := (TLStyleCustomizationAction

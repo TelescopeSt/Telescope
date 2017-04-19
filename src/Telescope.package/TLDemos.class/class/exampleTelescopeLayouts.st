@@ -1,6 +1,7 @@
 demos
 exampleTelescopeLayouts
 	<script: 'self exampleTelescopeLayouts open'>
+	<tlFilter: #layout>
 	| visualization |
 	visualization := TLVisualization new.
 	visualization addNodesFromEntities: (1 to: 360).

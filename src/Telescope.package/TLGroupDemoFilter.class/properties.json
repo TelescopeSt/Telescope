@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "TLAbstractDemoFilter",
+	"category" : "Telescope-Demos",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "TLGroupDemoFilter",
+	"type" : "normal"
+}

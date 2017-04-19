@@ -1,6 +1,7 @@
 demos
 exampleMovingNodeChangeEntity
 	<script: 'self exampleMovingNodeChangeEntity open'>
+	<tlFilter: #interaction>
 	| visu |
 	visu := TLVisualization new.
 	visu addNodesFromEntities: ((1 to: 5) collect: [ :i | (i * 20) @ (i * 20) ]).

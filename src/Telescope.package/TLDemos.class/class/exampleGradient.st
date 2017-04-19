@@ -1,6 +1,7 @@
 demos
 exampleGradient
 	<script: 'self exampleGradient open'>
+	<tlFilter: #style>
 	| visu |
 	visu := TLVisualization new.
 	visu styleSheet

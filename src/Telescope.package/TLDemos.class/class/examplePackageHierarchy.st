@@ -1,6 +1,7 @@
 not working demos
 examplePackageHierarchy
 	<script: 'self exampleOverallHierarchy open'>
+	<tlFilter: #layout>
 	
 	self flag: 'Invalid demo; cannot run like this'.
 		

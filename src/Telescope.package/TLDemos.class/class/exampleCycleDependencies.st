@@ -1,6 +1,7 @@
 demos
 exampleCycleDependencies
 	<script: 'self exampleCycleDependencies open'>
+	<tlFilter: #layout>
 
 	"for FAMIXNamespaceGroup:
 	 TLCycleDependencies new

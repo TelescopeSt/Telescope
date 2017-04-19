@@ -1,6 +1,7 @@
 demos
 exampleTreeExplorerCollectionHierarchy
 	<script: 'self exampleTreeExplorerCollectionHierarchy open'>
+	<tlFilter: #layout>
 
 	| visualization |
 	visualization := TLTreeExplorer root: Collection expandProperty: #subclasses.

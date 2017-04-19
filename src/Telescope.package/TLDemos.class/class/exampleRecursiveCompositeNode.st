@@ -1,6 +1,9 @@
 demos
 exampleRecursiveCompositeNode
 	<script: 'self exampleRecursiveCompositeNode open'>
+	<tlFilter: #interaction>
+	<tlFilter: #style>
+	<tlFilter: #composite>
 
 	| visualization |
 	"nodeBuilder childrenNodeBuilder childrenNodeBuilder addInteraction: TLNodeBasicInteraction popup.

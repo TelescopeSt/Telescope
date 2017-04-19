@@ -1,6 +1,7 @@
 demos
 exampleCustomMultiChoiceAction
 	<script: 'self exampleCustomMultiChoiceAction open'>
+	<tlFilter: #interaction>
 	"print on Transcript selected node and selected item in the menu"
 
 	| visu |

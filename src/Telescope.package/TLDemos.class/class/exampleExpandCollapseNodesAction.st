@@ -1,6 +1,8 @@
 demos
 exampleExpandCollapseNodesAction
 	<script: 'self exampleExpandCollapseNodesAction open'>
+	<tlFilter: #interaction>
+	<tlFilter: #layout>
 	| visu |
 	(visu := TLVisualization new)
 		addNodesFromEntities: (1 to: 9);

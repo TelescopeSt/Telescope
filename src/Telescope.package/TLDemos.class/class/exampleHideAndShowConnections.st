@@ -1,6 +1,7 @@
 demos
 exampleHideAndShowConnections
 	<script: 'self exampleHideAndShowConnections open'>
+	<tlFilter: #interaction>
 
 	| visualization oneNode twoNode connection |
 	visualization := TLVisualization new.

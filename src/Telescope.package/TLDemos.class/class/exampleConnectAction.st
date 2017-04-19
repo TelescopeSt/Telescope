@@ -1,6 +1,7 @@
 demos
 exampleConnectAction
 	<script: 'self exampleConnectAction open'>
+	<tlFilter: #interaction>
 	| visu |
 	(visu := TLVisualization new)
 		addNodesFromEntities: (1 to: 60);

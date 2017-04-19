@@ -1,6 +1,7 @@
 demos
 exampleMovingNodeToFirstPosition
 	<script: 'self exampleMovingNodeToFirstPosition open'>
+	<tlFilter: #interaction>
 
 	| visualization |
 	visualization := TLVisualization new.

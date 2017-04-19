@@ -1,6 +1,7 @@
 demos
 exampleDistributionMapCycloComplexOfCollection
 	<script: 'self exampleDistributionMapCycloComplexOfCollection open'>
+	<tlFilter: #layout>
 
 	| visualization |
 	visualization := TLDistributionMap new

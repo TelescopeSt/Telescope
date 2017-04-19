@@ -1,6 +1,7 @@
 demos
 exampleAdaptNodeWidthFromLabel
 	<script: 'self exampleAdaptNodeWidthFromLabel open'>
+	<tlFilter: #style>
 	| visu |
 	visu := TLVisualization new.
 	visu styleSheet

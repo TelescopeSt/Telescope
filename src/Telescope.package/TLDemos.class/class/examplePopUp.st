@@ -1,6 +1,7 @@
 demos
 examplePopUp
 	<script: 'self examplePopUp open'>
+	<tlFilter: #interaction>
 	| visu |
 	visu := TLVisualization new.
 	visu addInteraction: (TLPopUpAction text: #asString position: TLPosition  left bottom) onMouseOver.

@@ -1,6 +1,8 @@
 demos
 exampleVisualizationWithCompositeChildrenConnectionsShowing
 	<script: 'self exampleVisualizationWithCompositeChildrenConnectionsShowing open'>
+	<tlFilter: #interaction>
+	<tlFilter: #composite>
 
 	| visualization |
 	visualization := TLVisualization new.

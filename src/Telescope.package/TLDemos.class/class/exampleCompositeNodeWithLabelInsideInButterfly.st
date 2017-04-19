@@ -1,6 +1,7 @@
 demos
 exampleCompositeNodeWithLabelInsideInButterfly
 	<script: 'self exampleCompositeNodeWithLabelInsideInButterfly open'>
+	<tlFilter: #composite>
 	| butterfly |
 	
 	butterfly := TLButterfly new

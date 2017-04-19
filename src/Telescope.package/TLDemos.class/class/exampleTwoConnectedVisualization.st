@@ -1,6 +1,7 @@
 multi-visus-demos
 exampleTwoConnectedVisualization
 	<script: 'self exampleTwoConnectedVisualization'>
+	<tlFilter: #interaction>
 	
 	|visu1 visu2|
 	visu1 := TLVisualization new.
