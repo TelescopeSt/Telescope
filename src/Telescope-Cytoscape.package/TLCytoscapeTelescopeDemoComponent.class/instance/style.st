@@ -256,7 +256,7 @@ li.isSelected:hover{
 }
 
 #tldemo .telescopeVisu{
-height: calc(100% - 20px);
+height: calc(100% - 36px);
 }
 
 .hljs {
