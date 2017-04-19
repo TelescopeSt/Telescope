@@ -1,6 +1,8 @@
 *Telescope-Cytoscape
 exampleConnectionStyle
 	<script: 'self exampleConnectionStyle open'>
+	<tlFilter: #style>
+	<tlFilter: #group>
 	| visualization firstNode |
 	visualization := TLVisualization new layout: (TLLinearLayout gap: 150).
 	(TLSimpleShape allSubclasses select: #availableForCytoscapeConnection)

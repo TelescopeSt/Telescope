@@ -1,4 +1,4 @@
-rendering
+visu
 externalTriggerExemple: html onVisu: visuId
 	| interaction |
 	interaction := ((TLStyleCustomizationAction custom: [ :style | style borderColor: Color red ])

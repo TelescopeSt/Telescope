@@ -1,15 +1,13 @@
 *Telescope-Cytoscape
 exampleBackgroundImages
 	<script: 'self exampleBackgroundImages open'>
+	<tlFilter: #style>
 	| visualization |
 	visualization := TLVisualization new.
 	visualization styleSheet
 		shape: TLStar;
 		backgroundColor: Color pink.
-	{'Stphane-Ducasse'.
-	'USMAN-BHATTI'.
-	'nicolas-anquetil'.
-	'Photo_Philippe_Valenza'}
+	{'Stphane-Ducasse' . 'USMAN-BHATTI' . 'nicolas-anquetil' . 'Photo_Philippe_Valenza'}
 		do: [ :aName | 
 			(visualization addNodeFromEntity: aName) styleSheet
 				backgroundImageUrl: 'http://synectique.eu/images/' , aName , '.jpg';

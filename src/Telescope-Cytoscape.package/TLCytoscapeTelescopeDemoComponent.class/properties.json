@@ -6,8 +6,9 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"selection",
-		"method"
+		"filters",
+		"method",
+		"debugVisu"
 	],
 	"name" : "TLCytoscapeTelescopeDemoComponent",
 	"type" : "normal"

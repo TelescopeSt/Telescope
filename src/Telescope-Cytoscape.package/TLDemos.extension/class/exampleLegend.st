@@ -1,6 +1,7 @@
 *Telescope-Cytoscape
 exampleLegend
 	<script: 'self exampleLegend open'>
+	<tlFilter: #legend>
 	| visualization |
 	visualization := TLVisualization new.
 	visualization addNodesFromEntities: (1 to: 100).

@@ -1,4 +1,4 @@
-rendering
+visu
 drillDownAction: html onVisu: visuId
 	| interaction |
 	interaction := TLExpandCollapseCompositeNodeAction new

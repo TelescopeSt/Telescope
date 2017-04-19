@@ -1,6 +1,8 @@
 *Telescope-Cytoscape
 exampleLineStyle
 	<script: 'self exampleLineStyle open'>
+	<tlFilter: #style>
+	<tlFilter: #group>
 	| visualization |
 	visualization := TLVisualization new layout: (TLLinearLayout gap: 150).
 	TLLineStyle allSubclasses

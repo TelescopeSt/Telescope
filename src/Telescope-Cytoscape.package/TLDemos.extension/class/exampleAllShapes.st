@@ -1,6 +1,7 @@
 *Telescope-Cytoscape
 exampleAllShapes
 	<script: 'self exampleAllShapes open'>
+	<tlFilter: #style>
 	| visualization |
 	visualization := TLVisualization new.
 	visualization styleSheet
