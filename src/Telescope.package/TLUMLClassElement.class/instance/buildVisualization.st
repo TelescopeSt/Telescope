@@ -11,7 +11,7 @@ buildVisualization
 		compositeExpandedByDefault: true;
 		backgroundColor: Color white;
 		borderColor: Color black;
-		nodeLabel: #name position: #inside.	"for variables and methods groups"
+		nodeLabel: #asString position: #inside.	"for variables and methods groups"
 	(self styleSheet > #children)
 		borderColor: Color white;
 		noNodeLabel.	"for variables and methods separately"
