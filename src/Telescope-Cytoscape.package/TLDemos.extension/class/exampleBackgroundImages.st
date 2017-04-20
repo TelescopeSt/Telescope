@@ -7,10 +7,10 @@ exampleBackgroundImages
 	visualization styleSheet
 		shape: TLStar;
 		backgroundColor: Color pink.
-	{'Stphane-Ducasse' . 'USMAN-BHATTI' . 'nicolas-anquetil' . 'Photo_Philippe_Valenza'}
+	#('fillon' 'lepen' 'macron' 'jlm')
 		do: [ :aName | 
 			(visualization addNodeFromEntity: aName) styleSheet
-				backgroundImageUrl: 'http://synectique.eu/images/' , aName , '.jpg';
+				backgroundImageUrl: (CYSDemoFileLibrary urlOf: aName , 'Png') asUrl;
 				width: 250;
 				height: 250 ].
 	visualization nodes allButLast do: [ :node | node connectTo: visualization nodes last ].

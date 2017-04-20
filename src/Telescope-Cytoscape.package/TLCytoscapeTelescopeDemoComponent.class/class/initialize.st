@@ -4,4 +4,5 @@ initialize
 	app := WAAdmin register: self asApplicationAt: 'TelescopeWebDemo'.
 	app
 		addLibrary: JQDeploymentLibrary;
-		addLibrary: CYSFileLibrary.
+		addLibrary: CYSFileLibrary;
+		addLibrary: CYSDemoFileLibrary
