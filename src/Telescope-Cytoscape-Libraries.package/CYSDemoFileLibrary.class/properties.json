@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "WAFileLibrary",
+	"category" : "Telescope-Cytoscape-Libraries",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "CYSDemoFileLibrary",
+	"type" : "normal"
+}
