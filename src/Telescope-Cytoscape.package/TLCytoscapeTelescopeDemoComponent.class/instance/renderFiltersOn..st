@@ -1,18 +1,19 @@
 rendering
 renderFiltersOn: html
+	self
+		renderChipLabelled: 'All'
+		selected: self filters size = self allFilters size
+		doing: [ self filters addAll: self allFilters ]
+		on: html.
+	self
+		renderChipLabelled: 'Remove All'
+		selected: self filters isEmpty
+		doing: [ self filters removeAll ]
+		on: html.
 	self allFilters
 		do: [ :filter | 
-			html span
-				class: #chip;
-				class: #isSelected if: (self filters includes: filter);
-				onClick:
-					(html jQuery
-						script: [ :s | 
-							s
-								<<
-									((html jQuery id: #'telescope-filters') load
-										html: [ :r | 
-											self toggleFilter: filter.
-											self renderFiltersOn: r ]).
-							s << ((html jQuery id: #'telescope-selection__list') load html: [ :r | self renderListContentOn: r ]) ]);
-				with: [ html span: filter filterSymbol capitalized ] ]
+			self
+				renderChipLabelled: filter filterSymbol capitalized
+				selected: (self filters includes: filter)
+				doing: [ self toggleFilter: filter ]
+				on: html ]
