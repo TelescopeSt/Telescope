@@ -1,4 +1,5 @@
-as yet unclassified
+enumerating
 allNodesRecursivelyDo: aBlock
 	self nodesDo: aBlock.
-	self subGroups ifNotEmptyDo: [ :aSubGroup | aSubGroup allNodesRecursivelyDo: aBlock ]
+	self subGroups
+		ifNotEmpty: [ :aSubGroup | aSubGroup allNodesRecursivelyDo: aBlock ]
