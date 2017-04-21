@@ -3,14 +3,16 @@ exampleConnectionStyle
 	<script: 'self exampleConnectionStyle open'>
 	<tlFilter: #style>
 	<tlFilter: #group>
-	| visualization firstNode |
+	| visualization lastNode |
 	visualization := TLVisualization new layout: (TLLinearLayout gap: 150).
 	(TLSimpleShape allSubclasses select: #availableForCytoscapeConnection)
 		doWithIndex: [ :aShape :i | 
-			firstNode := visualization > #group1 addNodeFromEntity: 'first'.
-			((visualization > #group1 addNodeFromEntity: i) connectTo: (visualization > #group2 addNodeFromEntity: i)) styleSheet
-				> #head shape: aShape ].
-	(firstNode connectTo: (visualization > #group2 addNodeFromEntity: 'last')) styleSheet curveStyle: TLSegmentsCurve.
+			| node1 node2 |
+			node1 := visualization > #group1 addNodeFromEntity: i.
+			node2 := visualization > #group2 addNodeFromEntity: i.
+			(node1 connectTo: node2) styleSheet > #head shape: aShape ].
+	lastNode := visualization > #group1 addNodeFromEntity: 'last'.
+	(lastNode connectTo: (visualization > #group2 addNodeFromEntity: 'last')) styleSheet curveStyle: TLSegmentsCurve.
 	visualization > #group1 layout: TLLinearLayout topToBottom.
 	visualization > #group2 layout: TLLinearLayout topToBottom.
 	^ visualization
