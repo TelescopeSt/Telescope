@@ -20,6 +20,6 @@ exampleBackgroundImages
 			(TLCustomAction
 				block: [ :node | 
 					visualization nodes removeAllConnections.
-					visualization nodes \ {node} connectTo: node ]) onClick.
+					(visualization nodes copyWithout: node) connectTo: node ]) onClick.
 	visualization layout: TLTreeLayout.
 	^ visualization
