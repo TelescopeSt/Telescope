@@ -14,6 +14,6 @@ exampleButterflyUsingStyleFunctionnality
 		borderWidth: 0.1.
 	(butterfly styleSheet > #redBackground)
 		backgroundColor: Color red;
-		textColor: Color white.
+		textColor: Color red.
 	butterfly > #left addStyle: #redBackground.
 	^ butterfly
