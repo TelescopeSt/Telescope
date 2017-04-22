@@ -11,7 +11,7 @@ exampleButterflyUsingStyleFunctionnality
 	butterfly styleSheet
 		shape: TLEllipse;
 		width: 40;
-		borderWidth: 0.1.
+		borderWidth: 0.5.
 	(butterfly styleSheet > #redBackground)
 		backgroundColor: Color red;
 		textColor: Color red.
