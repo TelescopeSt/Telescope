@@ -13,5 +13,5 @@ drillDownAction: html onVisu: visuId
 		onExternalTrigger.
 	html button
 		onClick: (interaction externalTriggerForVisuId: visuId);
-		with: 'Click to unfoldComposite'.
+		with: 'Click to unfold Composite'.
 	^ interaction
