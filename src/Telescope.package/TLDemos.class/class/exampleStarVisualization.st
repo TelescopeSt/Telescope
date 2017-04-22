@@ -1,7 +1,7 @@
 demos
 exampleStarVisualization
 	<script: 'self exampleStarVisualization open'>
-	<tlFilter: #layout>
+	<tlFilter: #visuTemplate>
 	<tlFilter: #style>
 	| visu |
 	visu := TLStarVisualization new.

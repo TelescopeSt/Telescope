@@ -1,3 +1,3 @@
 layout
 configLayout
-	self > #containers layout: (TLLinearLayout maximumDimension: 500)
+	self > #containers layout: (TLLinearLayout gap: 20 ratio: 16/9)

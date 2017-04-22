@@ -2,12 +2,16 @@ demos
 exampleCustomMultiChoiceAction
 	<script: 'self exampleCustomMultiChoiceAction open'>
 	<tlFilter: #interaction>
-	"print on Transcript selected node and selected item in the menu"
-
 	| visu |
 	visu := TLVisualization new.
-	visu nodeLabel: #asString.
+	visu layout: (TLLinearLayout gap: 40).
+	visu styleSheet nodeLabel: #asString position: #top.
 	visu addNodesFromEntities: #(Henry John Catherine Paule Isabel).
-	visu addInteraction:
-		((TLCustomWithParameterAction block: [:node :choice | Transcript show: node entity asString , ' wants ' , choice , String cr]) withMultipleChoices: [ :aNode | #('french fries' 'potatoes' 'mashed potatoes' 'baked potatoes') ]	menu: 'Choose your dish').
+
+	"Print on Transcript selected node and selected item in the menu obtains from a right click."
+	visu
+		addInteraction:
+			((TLCustomWithParameterAction block: [ :node :choice | Transcript show: node entity asString , ' wants ' , choice , String cr ])
+				withMultipleChoices: [ :aNode | #('french fries' 'potatoes' 'mashed potatoes' 'baked potatoes') ]
+				menu: 'Choose your dish').
 	^ visu

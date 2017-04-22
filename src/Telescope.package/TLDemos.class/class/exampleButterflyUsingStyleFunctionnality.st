@@ -2,7 +2,7 @@ demos
 exampleButterflyUsingStyleFunctionnality
 	<script: 'self exampleButterflyUsingStyleFunctionnality open'>
 	<tlFilter: #style>
-	<tlFilter: #layout>
+	<tlFilter: #visuTemplate>
 	| butterfly |
 	butterfly := TLButterfly new
 		mainEntity: 10;

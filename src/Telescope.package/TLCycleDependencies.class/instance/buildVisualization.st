@@ -23,4 +23,4 @@ buildVisualization
 		addNodesFromEntities: self entities;
 		connectFollowingProperty: self property;
 		addInteraction: TLPopUpAction onMouseOver;
-		layout: TLTreeLayout .
+		layout: TLTreeLayout

@@ -1,7 +1,7 @@
 demos
 exampleSystemComplexityMultipleRoots
 	<script: 'self exampleSystemComplexityMultipleRoots open'>
-	<tlFilter: #layout>
+	<tlFilter: #visuTemplate>
 	
 	"for FAMIXTypeGroup:
 	 TLSystemComplexityMultipleRoots new

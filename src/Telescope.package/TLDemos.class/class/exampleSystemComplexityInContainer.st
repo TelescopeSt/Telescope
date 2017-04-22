@@ -1,7 +1,7 @@
 demos
 exampleSystemComplexityInContainer
 	<script: 'self exampleSystemComplexityInContainer open'>
-	<tlFilter: #layout>
+	<tlFilter: #visuTemplate>
 	| visualization |
 	visualization := TLSystemComplexity new
 		root: Collection;

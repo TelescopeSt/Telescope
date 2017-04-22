@@ -1,7 +1,7 @@
 demos
 exampleFLowControl
 	<script: 'self exampleFLowControl open'>
-	<tlFilter: #layout>
+	<tlFilter: #visuTemplate>
 
 	| a b c d e f g visu |
 	a := TLBasicBlock new title: 'a'.

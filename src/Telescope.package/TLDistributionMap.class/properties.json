@@ -9,7 +9,8 @@
 		"containerEntities",
 		"innerEntities",
 		"property",
-		"colorToProperty"
+		"colorToProperty",
+		"innerEntitiesPopupBlock"
 	],
 	"name" : "TLDistributionMap",
 	"type" : "normal"

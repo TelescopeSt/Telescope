@@ -1,12 +1,12 @@
 demos
 exampleDistributionMapAbstractMethodsCollection
 	<script: 'self exampleDistributionMapAbstractMethodsCollection open'>
-	<tlFilter: #layout>
-
+	<tlFilter: #visuTemplate>
 	| visualization |
 	visualization := TLDistributionMap new
-		containerEntities: Collection withAllSubclasses;
+		containerEntities: TLDrawable withAllSubclasses;
 		innerEntities: #methods;
+		innerEntitiesPopupBlock: [ :method | method name asString ];
 		property: #isAbstract;
 		yourself.
 	^ visualization

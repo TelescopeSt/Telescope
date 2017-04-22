@@ -4,6 +4,7 @@ exampleRecursiveCompositeNode
 	<tlFilter: #interaction>
 	<tlFilter: #style>
 	<tlFilter: #composite>
+	<tlFilter: #visuTemplate>
 
 	| visualization |
 	"nodeBuilder childrenNodeBuilder childrenNodeBuilder addInteraction: TLNodeBasicInteraction popup.

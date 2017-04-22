@@ -1,11 +1,11 @@
 demos
-exampleDistributionMapAuthorsOfCollection
+exampleDistributionMapAuthors
 	<script: 'self exampleDistributionMapAuthorsOfCollection open'>
-	<tlFilter: #layout>
+	<tlFilter: #visuTemplate>
 
 	| visualization |
 	visualization := TLDistributionMap new
-		containerEntities: Collection withAllSubclasses;
+		containerEntities: TLObject withAllSubclasses;
 		innerEntities: #authors;
 		property: #yourself;
 		yourself.

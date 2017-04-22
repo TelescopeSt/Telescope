@@ -1,7 +1,7 @@
 demos
 examplePathBuilder
 	<script: 'self examplePathBuilder open'>
-	<tlFilter: #layout>
+	<tlFilter: #visuTemplate>
 
 	| visualization |
 	visualization := TLPathBuilder new

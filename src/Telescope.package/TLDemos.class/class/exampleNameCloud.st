@@ -1,7 +1,7 @@
 demos
 exampleNameCloud
 	<script: 'self exampleNameCloud open'>
-	<tlFilter: #layout>
+	<tlFilter: #visuTemplate>
 		
 	^ TLNameCloud new
 		entities: TLDrawable withAllSubclasses;
