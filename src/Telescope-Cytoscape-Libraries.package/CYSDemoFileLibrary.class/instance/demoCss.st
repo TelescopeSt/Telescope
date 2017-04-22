@@ -203,7 +203,7 @@ overflow: hidden;
   cursor:ew-resize
 }
 
-ul{
+#telescope-selection ul{
   height: 100%;
   width: 100%;
   margin: 0;
@@ -214,11 +214,11 @@ ul{
   overflow: hidden;
 }
 
-ul:hover{
+#telescope-selection ul:hover{
   overflow-y: auto;
 }
 
-li{
+#telescope-selection li{
   width: calc(100% -15px);
   padding-left: 15px;
   white-space: nowrap;
@@ -229,24 +229,24 @@ li{
   overflow: hidden;
 }
 
-li:hover {
+#telescope-selection li:hover {
     background-color: #EEEEEE;
 }
 
-li:nth-child(2n){
+#telescope-selection li:nth-child(2n){
   background-color: #F5F5F5;
 }
 
-li:nth-child(2n):hover{
+#telescope-selection li:nth-child(2n):hover{
   background-color: #E0E0E0;
 }
 
-li.isSelected{
+#telescope-selection li.isSelected{
   background-color: #80CBC4;
   color: #FFF;
 }
 
-li.isSelected:hover{
+#telescope-selection li.isSelected:hover{
   background-color: #26A69A;
   color: #FFF;
 }
