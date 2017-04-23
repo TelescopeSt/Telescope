@@ -2,13 +2,16 @@ demos
 exampleHideAndShowNode
 	<script: 'self exampleHideAndShowNode open'>
 	<tlFilter: #interaction>
-
-	| visualization oneNode secondNode  |
+	| visualization secondNode firstNode thirdNode |
 	visualization := TLVisualization new.
-	oneNode := visualization addNodeFromEntity: 1.
-	oneNode nodeLabel: 'Click on me!'.
-	secondNode := visualization addNodeFromEntity: 2.
-	oneNode addInteraction: (TLHideAction on: secondNode) onClick.
+	visualization layout: (TLLinearLayout gap: 50).
+	firstNode := visualization addNodeFromEntity: 2.
+	secondNode := visualization addNodeFromEntity: 1.
+	secondNode styleSheet nodeLabel: 'Click on me!' position: #top.
+	thirdNode := visualization addNodeFromEntity: 3.
+	thirdNode hide.
+	secondNode
+		addInteractions:
+			{(TLHideAction on: firstNode) onClick.
+			(TLShowAction on: thirdNode) onClick}.
 	^ visualization
-	
-	

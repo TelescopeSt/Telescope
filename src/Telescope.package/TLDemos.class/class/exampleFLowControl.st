@@ -4,13 +4,13 @@ exampleFLowControl
 	<tlFilter: #visuTemplate>
 
 	| a b c d e f g visu |
-	a := TLBasicBlock new title: 'a'.
-	b := TLBasicBlock new title: 'b'.
-	c := TLBasicBlock new title: 'c'.
-	d := TLBasicBlock new title: 'd'.
-	e := TLBasicBlock new title: 'e'.
-	f := TLBasicBlock new title: 'f'.
-	g := TLBasicBlock new title: 'g'.
+	a := TLBasicBlock title: 'a'.
+	b := TLBasicBlock title: 'b'.
+	c := TLBasicBlock title: 'c'.
+	d := TLBasicBlock title: 'd'.
+	e := TLBasicBlock title: 'e'.
+	f := TLBasicBlock title: 'f'.
+	g := TLBasicBlock title: 'g'.
 	
 	a next: { b. c . f }.
 	b next: { d }.

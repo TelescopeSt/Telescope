@@ -4,24 +4,23 @@ exampleHighlightElements
 	<tlFilter: #interaction>
 	<tlFilter: #style>
 	| visualization highlightInteraction |
-	visualization := TLVisualization new.
+	visualization := TLVisualization fromEntities: ($a to: $z).
 	highlightInteraction := (TLStyleCustomizationAction
 		custom: [ :style | 
 			style
 				borderColor: Color red lighter;
 				color: Color red lighter ]) onMouseOver.
-	visualization addInteraction: highlightInteraction.
 	visualization
-		addInteraction:
+		addInteractions:
+			{highlightInteraction.
 			(TLCustomAction
 				block: [ :drawable | 
 					visualization close.
 					TLVisualization new
 						addNodeFromEntity: drawable entity;
-						open ]) onClick.	"
-	visualization layout: RTCircleLayout new."
-	visualization addNodesFromEntities: ($a to: $z).	"By default connections do not inherit interactions so I have to define it"
-	(visualization
-		connectFollowingProperty: [ :aChar | (1 to: (0 to: 3) atRandom) collect: [ :i | (($a to: $z) \ {aChar}) atRandom ] ])
-		addInteraction: highlightInteraction.
+						open ]) onClick}.
+	visualization layout: TLCircularLayout new.	
+	"By default connections do not inherit interactions so I have to define it"
+	(visualization 
+		connectFollowingProperty: [ :aChar | (1 to: (0 to: 3) atRandom) collect: [ :i | (($a to: $z) copyWithout: aChar) atRandom ] ]) addInteraction: highlightInteraction.
 	^ visualization

@@ -18,6 +18,5 @@ exampleCompositeExploringHierarchy
 				ifTrue: [ MDLColor teal alpha: 0.3 ]
 				ifFalse: [ MDLColor white ] ].
 	visualization addNodeFromEntity: Collection.
-	(visualization addInteraction: (TLExpandCollapseCompositeNodeAction condition: [ :drawable | drawable isNode and: [ drawable isComposite and: [ drawable hasChildren ] ] ]) onClick)
-		propagateToChildren.
+	(visualization addInteraction: TLExpandCollapseCompositeNodeAction onCompositeNodeWithChildren onClick) propagateToChildren.
 	^ visualization

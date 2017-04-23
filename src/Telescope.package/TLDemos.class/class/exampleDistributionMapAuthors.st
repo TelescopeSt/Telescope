@@ -1,12 +1,12 @@
 demos
 exampleDistributionMapAuthors
-	<script: 'self exampleDistributionMapAuthorsOfCollection open'>
+	<script: 'self exampleDistributionMapAuthors open'>
 	<tlFilter: #visuTemplate>
-
 	| visualization |
 	visualization := TLDistributionMap new
 		containerEntities: TLObject withAllSubclasses;
-		innerEntities: #authors;
-		property: #yourself;
+		innerEntities: #methods;
+		innerEntitiesPopupBlock: [ :method | method author , ' wrote: ' , method name ];
+		property: #author;
 		yourself.
 	^ visualization

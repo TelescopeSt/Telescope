@@ -7,5 +7,5 @@ buildVisualization
 	((self > #containers) styleSheet > #children) noNodeLabel.
 	self > #containers addNodesFromEntities: self containerEntities.
 	(self > #containers) allChildrenNodes addInteraction: (TLPopUpAction text: [ :entity | self obtain: self innerEntitiesPopupBlock on: entity ]) onMouseOver.
-	(self addInteraction: (TLExpandCollapseCompositeNodeAction condition: [ :drawable | drawable isNode and: [ drawable isComposite and: [ drawable hasChildren ] ] ]) onClick) propagateToChildren.
-	self legend backGroundDescription: [ :entity | (property cull: entity) asString ] forNodes: (self > #containers) allChildrenNodes
+	(self addInteraction: TLExpandCollapseCompositeNodeAction onCompositeNodeWithChildren onClick) propagateToChildren.
+	super buildVisualization
