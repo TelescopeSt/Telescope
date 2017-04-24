@@ -2,13 +2,11 @@ demos
 exampleMovingNodeToFirstPosition
 	<script: 'self exampleMovingNodeToFirstPosition open'>
 	<tlFilter: #interaction>
-
 	| visualization |
-	visualization := TLVisualization new.
+	visualization := TLVisualization fromEntities: ($a to: $f).
 	visualization styleSheet nodeLabel: #asString.
-	visualization 
+	visualization
 		layout: TLLinearLayout topToBottom;
-		addNodesFromEntities: ($a to: $f);
-		addInteraction: (TLCustomAction block: [:aNode | visualization moveToFirstPosition: aNode]) onClick;
-		addInteraction: (TLStyleCustomizationAction custom: [:style | style backgroundColor: Color red]) onMouseOver.
+		addInteraction: (TLCustomAction block: [ :aNode | visualization moveToFirstPosition: aNode ]) onClick;
+		addInteraction: (TLStyleCustomizationAction custom: [ :style | style backgroundColor: Color red ]) onMouseOver.
 	^ visualization

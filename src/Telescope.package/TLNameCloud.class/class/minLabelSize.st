@@ -1,0 +1,3 @@
+accessing
+minLabelSize
+	^ 6

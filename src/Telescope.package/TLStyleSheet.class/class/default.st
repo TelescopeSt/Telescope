@@ -15,15 +15,15 @@ default
 		childrenLayout: (TLLinearLayout gap: 5 maximumDimension: 50);
 		takeAllSpace: false;
 		triggerPosition: #right;
-		labelSize: 14;
+		labelSize: self defaultLabelSize;
 		yourself.
-	defaultStyleSheet > #shapeInteraction
+	(defaultStyleSheet > #shapeInteraction)
 		backgroundColor: Color lightBlue;
 		shape: TLEllipse;
 		noNodeLabel;
 		width: 8;
 		height: 8.
-	defaultStyleSheet > #connection
+	(defaultStyleSheet > #connection)
 		color: Color gray;
 		curveStyle: TLBezierCurve;
 		width: 1.

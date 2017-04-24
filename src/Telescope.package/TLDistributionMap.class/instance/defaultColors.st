@@ -4,6 +4,6 @@ defaultColors
 		inject: OrderedCollection new
 		into: [ :coll :color | 
 			coll
-				add: (MDLColor tint: color code: #'300');
-				add: (MDLColor tint: color code: #'700');
+				add: (MDLColor tint: color code: #'200');
+				add: (MDLColor tint: color code: #'800');
 				yourself ]

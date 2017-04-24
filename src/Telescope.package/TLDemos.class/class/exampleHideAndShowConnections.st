@@ -4,7 +4,7 @@ exampleHideAndShowConnections
 	<tlFilter: #interaction>
 	| visualization secondNode firstNode thirdNode connection connection2 |
 	visualization := TLVisualization new.
-	visualization layout: (TLLinearLayout gap: 50).
+	visualization layout gap: 50.
 	firstNode := visualization addNodeFromEntity: 2.
 	secondNode := visualization addNodeFromEntity: 1.
 	secondNode styleSheet nodeLabel: 'Click on me!' position: #top.
