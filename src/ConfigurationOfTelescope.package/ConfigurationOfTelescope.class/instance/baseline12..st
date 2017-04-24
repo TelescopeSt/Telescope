@@ -13,6 +13,12 @@ baseline12: spec
 								className: #ConfigurationOfBabyMock2;
 								versionString: #stable;
 								repository: 'http://smalltalkhub.com/mc/zeroflag/BabyMock2/main/' ];
+				project: 'MosseAlgos'
+					with: [ 
+							spec
+								className: #ConfigurationOfMooseAlgos;
+								versionString: #stable;
+								repository: 'http://smalltalkhub.com/mc/Moose/MooseAlgos/main/' ];
 				project: 'Geometry'
 					with: [ 
 							spec
@@ -41,6 +47,6 @@ baseline12: spec
 			spec
 				package: 'XMenuModel';
 				package: 'Telescope'
-					with: [ spec requires: #('Stylesheet' 'Geometry' 'XMenuModel' 'MaterialDesignLite' 'TelescopeLayouts') ];
+					with: [ spec requires: #('Stylesheet' 'Geometry' 'XMenuModel' 'MaterialDesignLite' 'TelescopeLayouts' 'MooseAlgos') ];
 				package: 'Telescope-Tests' with: [ spec requires: #('Telescope') ].
 			spec group: 'Core' with: #('Telescope' 'XMenuModel') ]
