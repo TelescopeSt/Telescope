@@ -1,12 +1,14 @@
 demos
 exampleMovingNodeToAnotherGroup
 	<script: 'self exampleMovingNodeToAnotherGroup open'>
+	<tlFilter: #group>
+	<tlFilter: #interaction>
 
 	| visualization |
 	visualization := TLVisualization new.
 	visualization styleSheet nodeLabel: #asString.
 	visualization > #group1
-		layout: RTVerticalLineLayout;
+		layout: TLLinearLayout topToBottom;
 		addNodesFromEntities: ($a to: $d);
 		addInteraction: (TLMoveConnectableAction destination: visualization > #group2) onClick;
 		addInteraction: (TLStyleCustomizationAction custom: [:style | style backgroundColor: Color red]) onMouseOver.

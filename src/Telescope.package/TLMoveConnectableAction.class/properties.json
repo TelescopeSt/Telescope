@@ -1,13 +1,12 @@
 {
-	"commentStamp" : "GuillaumeLarcheveque 7/9/2015 11:30",
+	"commentStamp" : "CyrilFerlicot 4/25/2017 00:10",
 	"super" : "TLReversibleNodeAction",
 	"category" : "Telescope-Actions",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"destinationGroup",
-		"movedConnectableDictionary"
+		"destinationGroup"
 	],
 	"name" : "TLMoveConnectableAction",
 	"type" : "normal"
