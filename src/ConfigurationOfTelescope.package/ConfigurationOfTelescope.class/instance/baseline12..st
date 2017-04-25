@@ -13,12 +13,11 @@ baseline12: spec
 								className: #ConfigurationOfBabyMock2;
 								versionString: #stable;
 								repository: 'http://smalltalkhub.com/mc/zeroflag/BabyMock2/main/' ];
-				project: 'MosseAlgos'
-					with: [ 
-							spec
-								className: #ConfigurationOfMooseAlgos;
-								versionString: #stable;
-								repository: 'http://www.smalltalkhub.com/mc/Moose/MooseAlgos/main' ];
+			project: 'MooseAlgos' with: [
+				spec
+					className: #ConfigurationOfMooseAlgos;
+					versionString: #'development';
+					repository: 'http://smalltalkhub.com/mc/Moose/MooseAlgos/main/' ];
 				project: 'Geometry'
 					with: [ 
 							spec
