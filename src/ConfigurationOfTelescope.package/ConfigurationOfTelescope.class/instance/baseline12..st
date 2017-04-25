@@ -18,7 +18,7 @@ baseline12: spec
 							spec
 								className: #ConfigurationOfMooseAlgos;
 								versionString: #stable;
-								repository: 'http://smalltalkhub.com/mc/Moose/MooseAlgos/main/' ];
+								repository: 'http://www.smalltalkhub.com/mc/Moose/MooseAlgos/main' ];
 				project: 'Geometry'
 					with: [ 
 							spec
