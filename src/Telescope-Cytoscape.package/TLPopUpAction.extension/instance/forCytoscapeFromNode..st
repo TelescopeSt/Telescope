@@ -1,10 +1,12 @@
 *Telescope-Cytoscape
 forCytoscapeFromNode: aTLNode
+	| pos |
+	pos := self obtainsPositionFrom: aTLNode.
 	^ {('content' -> (self obtainTextFromNode: aTLNode)).
 	('position'
 		->
-			{('my' -> self popUpArrowPosition forQTip).
-			('at' -> self position forQTip)} asDictionary).
+			{('my' -> pos reversed forQTip).	"This is for the arrow of the popup"
+			('at' -> pos forQTip)} asDictionary).
 	('styles'
 		->
 			{('classes' -> 'qtip-bootstrap').

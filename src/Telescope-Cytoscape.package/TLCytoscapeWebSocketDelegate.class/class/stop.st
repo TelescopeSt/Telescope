@@ -1,6 +1,5 @@
 starting/stopping
 stop
 	<script>
-	singleton
-		stop.
+	singleton ifNotNil: #stop.
 	singleton := nil
