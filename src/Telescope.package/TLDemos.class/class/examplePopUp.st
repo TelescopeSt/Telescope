@@ -4,6 +4,15 @@ examplePopUp
 	<tlFilter: #interaction>
 	| visu |
 	visu := TLVisualization new.
-	visu addInteraction: (TLPopUpAction text: #asString position: TLPosition  left bottom) onMouseOver.
-	visu addNodesFromEntities: (1 to: 20).
+	#(top center bottom) do: [ :vert | #(left center right) do: [ :hor | visu addNodeFromEntity: vert -> hor ] ].
+	visu layout: (TLLinearLayout perLine: 3).
+	visu
+		addInteraction:
+			(TLPopUpAction
+				text: #asString
+				position: [ :each | 
+					TLPosition new
+						horizontal: each value;
+						vertical: each key;
+						yourself ]) onMouseOver.
 	^ visu
