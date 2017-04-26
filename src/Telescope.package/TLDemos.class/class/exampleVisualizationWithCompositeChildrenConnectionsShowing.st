@@ -3,9 +3,12 @@ exampleVisualizationWithCompositeChildrenConnectionsShowing
 	<script: 'self exampleVisualizationWithCompositeChildrenConnectionsShowing open'>
 	<tlFilter: #interaction>
 	<tlFilter: #composite>
+	<tlFilter: #legend>
 	| visualization node1 node2 |
 	visualization := TLVisualization new.
-	visualization styleSheet nodeLabel: #value; childrenLayout: (TLLinearLayout gap: 20 ratio: 9/16).
+	visualization styleSheet
+		nodeLabel: #value;
+		childrenLayout: (TLLinearLayout gap: 20 ratio: 9 / 16).
 	visualization layout gap: 30.
 	visualization childrenProperty: #primeFactors.	"; showChildrenConnectionsOnParent"
 	node1 := visualization addNodeFromEntity: (((1 to: 40) select: #isPrime) reduce: [ :a :b | a * b ]).
@@ -19,5 +22,21 @@ exampleVisualizationWithCompositeChildrenConnectionsShowing
 			i > 20
 				ifTrue: [ i \\ 20 ]
 				ifFalse: [ 0 ] ].
-	visualization addInteraction: TLExpandCollapseCompositeNodeAction onCompositeNodeWithChildren onClick propagateToChildren.
+	visualization
+		addInteraction: TLExpandCollapseCompositeNodeAction onCompositeNodeWithChildren onClick propagateToChildren;
+		addInteraction: (TLStyleCustomizationAction custom: [ :d | d color: MDLColor red ] target: #incomingConnections) onMouseOver propagateToChildren;
+		addInteraction: (TLStyleCustomizationAction custom: [ :d | d color: MDLColor blue ] target: #outgoingConnections) onMouseOver propagateToChildren.
+	visualization legend
+		description: 'Outgoing'
+			forConnectionStyle:
+			(TLStyleSheet new
+				color: MDLColor blue;
+				fontSize: '2em')
+			icon: '→';
+		description: 'Incoming'
+			forConnectionStyle:
+			(TLStyleSheet new
+				color: MDLColor orange;
+				fontSize: '2em')
+			icon: '→'.
 	^ visualization
