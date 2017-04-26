@@ -8,7 +8,9 @@
 	"instvars" : [
 		"entities",
 		"nameProperty",
-		"property"
+		"property",
+		"widthProperty",
+		"heightProperty"
 	],
 	"name" : "TLPackageHierarchy",
 	"type" : "normal"

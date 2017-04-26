@@ -1,0 +1,3 @@
+accessing
+widthProperty
+	^ widthProperty
