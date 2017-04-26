@@ -16,7 +16,7 @@ buildVisualization
 		borderColor: Color white;
 		noNodeLabel.	"for variables and methods separately"
 	(self styleSheet > #children > #children)
-		nodeLabel: #name;
+		nodeLabel: #asString;
 		onlyLabelForNodes.
 	self > #default addNodeFromEntity: self entity.
 	self > #default

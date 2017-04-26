@@ -14,6 +14,7 @@ exampleSystemComplexityMultipleRoots
 		open."
 	
 	| visualization |
+	self flag: #clean.	"BROKEN FOR NOW."
 	visualization := TLSystemComplexityMultipleRoots new
 		roots: Collection withAllSubclasses;
 		widthBlock: [ :each | each numberOfVariables max: 5 ];

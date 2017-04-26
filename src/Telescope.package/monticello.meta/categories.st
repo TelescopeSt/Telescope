@@ -5,7 +5,6 @@ SystemOrganization addCategory: 'Telescope-Debugging'!
 SystemOrganization addCategory: 'Telescope-Demos'!
 SystemOrganization addCategory: 'Telescope-Exceptions'!
 SystemOrganization addCategory: 'Telescope-Interactions'!
-SystemOrganization addCategory: 'Telescope-Interactions-Old'!
 SystemOrganization addCategory: 'Telescope-Model'!
 SystemOrganization addCategory: 'Telescope-Model-Legend'!
 SystemOrganization addCategory: 'Telescope-Model-Request'!

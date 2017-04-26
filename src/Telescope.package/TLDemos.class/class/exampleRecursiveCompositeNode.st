@@ -5,29 +5,21 @@ exampleRecursiveCompositeNode
 	<tlFilter: #style>
 	<tlFilter: #composite>
 	<tlFilter: #visuTemplate>
-
 	| visualization |
-	"nodeBuilder childrenNodeBuilder childrenNodeBuilder addInteraction: TLNodeBasicInteraction popup.
-"
 	visualization := TLButterfly new
-		mainEntity: TLObject;
+		mainEntity: TLDrawable;
 		leftEntities: #superclass;
 		rightEntities: #subclasses.
-	(visualization
-		childrenProperty: #dependentClasses) childrenProperty: #methods.
+	(visualization childrenProperty: #dependentClasses) childrenProperty: #methods.
 	visualization styleSheet
 		shape: TLRectangle;
-		
 		nodeLabel: #name position: #inside.
-	visualization styleSheet > #children
+	(visualization styleSheet > #children)
 		layout: TLLinearLayout topToBottom;
-		compositeExpandedByDefault: false;
 		nodeLabel: #name position: #inside;
 		backgroundColor: Color white.
 	visualization
-		addInteraction: TLNodeBasicInteraction draggable;
+		addInteraction: TLExpandCollapseCompositeNodeAction onCompositeNodeWithChildren onClick propagateToChildren;
 		addInteraction: (TLInspectAction withMenu: 'Inspect');
-		addInteraction:
-				((TLCustomAction block: [ :node | node entity browse ] condition: [ :node | node entity numberOfMethods < 5 ])
-						withMenu: 'Browse').
+		addInteraction: ((TLCustomAction block: [ :node | node entity browse ] condition: [ :node | node entity numberOfMethods < 5 ]) withMenu: 'Browse').
 	^ visualization

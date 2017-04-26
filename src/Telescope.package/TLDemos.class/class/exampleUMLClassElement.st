@@ -11,6 +11,7 @@ exampleUMLClassElement
 		open"
 	
 	| visualization |
+	self flag: #clean.	"Broken https://github.com/TelescopeSt/Telescope/issues/33."
 	visualization := TLUMLClassElement new
 		entity: TLConnection;
 		attributesBlock: #allInstVarNames;

@@ -1,16 +1,15 @@
-as yet unclassified
+building
 buildVisualization
 	| showNodesAction |
-	self title: 'Synectique Functional Sequencing'.
 	self defineStructure.
 	
-	self styleSheet
-		nodeLabel: #name position: #top.
+	self styleSheet nodeLabel: #asString position: #top.
 	
 	self > #callNodes addNodeFromEntity: self origin.
 	
 	showNodesAction := TLCustomAction block: [ :aNode | self showNodesFor: aNode ].
-	self > #callNodes
+	(self > #callNodes)
 		addInteraction: (showNodesAction withMenu: 'Show links (left click)');
 		addInteraction: showNodesAction onClick.
-		self defineLinkedCallsInteractions.
+		
+	self defineLinkedCallsInteractions
