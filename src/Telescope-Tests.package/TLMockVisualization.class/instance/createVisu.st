@@ -11,7 +11,6 @@ createVisu
 	visu styleSheet > #children backgroundColor: Color yellow.
 	visu
 		addInteraction: TLPopUpAction onMouseOver;
-		addInteraction: (TLInspectAction withMenu: 'Inspect');
-		addInteraction: TLNodeBasicInteraction draggable.
+		addInteraction: (TLInspectAction withMenu: 'Inspect').
 	visu addNodeFromEntity: 42.
 	^ visu
