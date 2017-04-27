@@ -65,6 +65,7 @@ button:hover {
 
 #telescope-content{
   min-height: 200px;
+  height: 100%;
   flex: 1 1 auto;
   width: 100%;
   display: flex;
@@ -85,8 +86,6 @@ button:hover {
 #telescope-panel{
 	height: 100%;
 	flex: 1 1 auto;
-	display: flex;
-   flex-direction: column;
 }
 
 #telescope-panel__tabs{
@@ -148,8 +147,8 @@ overflow: hidden;
 }
 
 #telescope-panel .panel{
-	flex: 1 1 auto;
 	display: none;
+	height: calc(100% - 48px);
 }
 
 #telescope-panel .panel.isActive{
