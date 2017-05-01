@@ -1,3 +1,0 @@
-accessing
-allFilters
-	^ TLAbstractDemoFilter allSubclasses
