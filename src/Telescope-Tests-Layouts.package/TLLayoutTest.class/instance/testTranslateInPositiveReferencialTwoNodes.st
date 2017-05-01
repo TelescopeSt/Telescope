@@ -1,4 +1,4 @@
-as yet unclassified
+tests
 testTranslateInPositiveReferencialTwoNodes
 	| node1 node2 |
 	node1 := context mock: 'node1'.
@@ -6,12 +6,24 @@ testTranslateInPositiveReferencialTwoNodes
 		receive: #dimension;
 		answers: 4 @ 4.
 	node1 should
+		receive: #isNode;
+		answers: true.
+	node1 should
+		receive: #children;
+		answers: {}.
+	node1 should
 		receive: #position:;
 		with: 2 @ 9.
 	node2 := context mock: 'node2'.
 	node2 should
 		receive: #dimension;
 		answers: 6 @ 4.
+	node2 should
+		receive: #isNode;
+		answers: true.
+	node2 should
+		receive: #children;
+		answers: {}.
 	node2 should
 		receive: #position:;
 		with: 4 @ 2.

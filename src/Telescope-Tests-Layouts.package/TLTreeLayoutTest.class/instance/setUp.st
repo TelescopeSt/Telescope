@@ -1,4 +1,4 @@
-as yet unclassified
+initialization
 setUp
 	layout := TLTreeLayout new.
 	layout useOutgoingLinks 

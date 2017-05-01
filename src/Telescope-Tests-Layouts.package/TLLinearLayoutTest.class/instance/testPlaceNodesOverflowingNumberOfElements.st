@@ -10,6 +10,12 @@ testPlaceNodesOverflowingNumberOfElements
 				receive: #dimension;
 				answers: 10 @ 10.
 			mock can
+				receive: #isNode;
+				answers: true.
+			mock can
+				receive: #children;
+				answers: {}.
+			mock can
 				receive: #occupyMaxSpace;
 				answers: false.
 			mock ].

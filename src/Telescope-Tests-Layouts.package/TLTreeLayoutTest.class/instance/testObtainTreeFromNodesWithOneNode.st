@@ -1,4 +1,4 @@
-as yet unclassified
+tests
 testObtainTreeFromNodesWithOneNode
 	| node trees |
 	node := context mock: #root.

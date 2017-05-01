@@ -1,4 +1,4 @@
-as yet unclassified
+tests
 testObtainTreeFromNodesWithThreeNodesInTwoBranches
 	| node trees root child |
 	child := context mock: 'child'.

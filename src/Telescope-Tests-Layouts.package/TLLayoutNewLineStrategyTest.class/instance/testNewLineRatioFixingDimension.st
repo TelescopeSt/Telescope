@@ -16,9 +16,15 @@ testNewLineRatioFixingDimension
 			node can
 				receive: #dimension;
 				answers: 10 @ 10.
+			node can
+				receive: #isNode;
+				answers: true.
+			node can
+				receive: #children;
+				answers: {}.
 			node ].
 	layout can
 		receive: #obtainsNodeDimension:;
 		answers: 10 @ 10.
 	strategy prepareFor: nodes onLayout: layout.
-	self assert: strategy maxDimension equals: 55 "4 nodes of 10 + 3 gap of 5"
+	self assert: strategy maxDimension equals: 55	"4 nodes of 10 + 3 gap of 5"
