@@ -8,7 +8,8 @@ testShowNodeAfterHide
       // launch the second click
       telescope.onMessageEnd(
         function(){
-          telescope.removeMessageEnd(this); 
+console.log(this[0])
+          telescope.removeMessageEnd(this[0]); 
 
           //test
           telescope.onMessageEnd(

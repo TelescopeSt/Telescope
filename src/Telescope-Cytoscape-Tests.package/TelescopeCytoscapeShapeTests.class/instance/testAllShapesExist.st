@@ -18,30 +18,34 @@ testAllShapesExist
     });
 
     it("octagon", function() {
-      expect(telescope.visus[0].visu.nodes()[4].style().shape).to.equal("octagon");
+      expect(telescope.visus[0].visu.nodes()[4].style().shape).to.equal("polygon");
+    });
+
+    it("octagon", function() {
+      expect(telescope.visus[0].visu.nodes()[5].style().shape).to.equal("octagon");
     });
 
     it("pentagon", function() {
-      expect(telescope.visus[0].visu.nodes()[5].style().shape).to.equal("pentagon");
+      expect(telescope.visus[0].visu.nodes()[6].style().shape).to.equal("pentagon");
     });
 
     it("rectangle", function() {
-      expect(telescope.visus[0].visu.nodes()[6].style().shape).to.equal("rectangle");
+      expect(telescope.visus[0].visu.nodes()[7].style().shape).to.equal("rectangle");
     });
 
     it("rhomboid", function() {
-      expect(telescope.visus[0].visu.nodes()[7].style().shape).to.equal("rhomboid");
+      expect(telescope.visus[0].visu.nodes()[8].style().shape).to.equal("rhomboid");
     });
 
     it("star", function() {
-      expect(telescope.visus[0].visu.nodes()[8].style().shape).to.equal("star");
+      expect(telescope.visus[0].visu.nodes()[9].style().shape).to.equal("star");
     });
 
     it("triangle", function() {
-      expect(telescope.visus[0].visu.nodes()[9].style().shape).to.equal("triangle");
+      expect(telescope.visus[0].visu.nodes()[10].style().shape).to.equal("triangle");
     });
 
     it("vee", function() {
-      expect(telescope.visus[0].visu.nodes()[10].style().shape).to.equal("vee");
+      expect(telescope.visus[0].visu.nodes()[11].style().shape).to.equal("vee");
     });
   });'
