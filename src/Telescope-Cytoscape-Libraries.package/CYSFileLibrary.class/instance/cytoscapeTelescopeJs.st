@@ -205,7 +205,6 @@ cytoscapeTelescopeJs
 
   function onMessage(evt) {
     commands = JSON.parse(evt.data);
-//    console.log(commands);
     toUpdate = {};
     needNotify = {};
     for (var i in commands) {
@@ -359,11 +358,15 @@ cytoscapeTelescopeJs
   function createEventFunction(visuWithId) {
     return function (evt) {
       clearOverInteraction();
-      if(evt.cyTarget.id != null){
+      if(evt.cyTarget.id != null &&  !visuWithId.protectDoubleFire[evt.type] && !visuWithId.visu.animated() ){
         // server interaction processing
         if ((!evt.cyTarget["mouseOverInteraction"]) && ((evt.type == "mouseover") || (evt.type == "mouseout"))) {
 
         } else {
+          visuWithId.protectDoubleFire[evt.type] =true;
+          setTimeout(function() {
+            visuWithId.protectDoubleFire[evt.type] =false;
+          }, self.reactTime*4);
           sendCommand([{id: visuWithId.visuId, drawableId: evt.cyTarget.id(), command: "interaction", kind: (eventsWithInteractions[evt.type])}]);
           // menu management
           if (evt.type == "cxttap" && evt.cyTarget["menu"]) {
@@ -414,6 +417,7 @@ cytoscapeTelescopeJs
   }
 
   function parametrizeInteractionsListenerForVisu(visuWithId) {
+    visuWithId.protectDoubleFire = {};
     evtFunction= createEventFunction(visuWithId)
     evtFunctionWithDelais= delaisEvtFunction(evtFunction);
     visuWithId.visu.on("tap mouseout cxttap",  evtFunction);
@@ -525,4 +529,4 @@ cytoscapeTelescopeJs
 visuWithId = function (id) {
   console.log("visuWithId is deprecated. Use telescope.visuWithId instead.");
   return telescope.visuWithId(id);
-};'
+	};'
