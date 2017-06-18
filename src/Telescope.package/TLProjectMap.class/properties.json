@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "CyrilFerlicot 6/18/2017 15:45",
+	"super" : "TLVisualization",
+	"category" : "Telescope-Visualizations",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"version"
+	],
+	"name" : "TLProjectMap",
+	"type" : "normal"
+}
