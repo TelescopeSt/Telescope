@@ -6,8 +6,6 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"droppedNodeId",
-		"targetNodeId",
 		"error",
 		"message"
 	],

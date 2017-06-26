@@ -6,9 +6,6 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"droppedNodeId",
-		"targetNodeId",
-		"kind",
 		"triggerId"
 	],
 	"name" : "TLExternalTriggerCommand",
