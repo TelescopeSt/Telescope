@@ -161,8 +161,13 @@ cytoscapeTelescopeJs
     visu.$("#" + command.data.id).changeData(command);
   };
 
-  commandsAction.callback = function (command, visu) {
+  commandsAction.callbackUrl = function (command, visu) {
     sendCallBack(command.callbackUrl, command.openInNewTab);
+  };
+
+
+  commandsAction.ajax = function (command, visu) {
+    $(command.cssQuery).load(command.callbackUrl);
   };
 
   commandsAction.generated = function (command) {
