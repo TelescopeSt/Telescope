@@ -1,3 +1,3 @@
 command
 command
-	^ #callbackUrl
+	^ #ajax

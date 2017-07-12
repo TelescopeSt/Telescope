@@ -1,5 +1,5 @@
 {
-	"commentStamp" : "YannLesage 7/11/2017 16:51",
+	"commentStamp" : "YannLesage 7/11/2017 16:52",
 	"super" : "TLVisualizationServerCommand",
 	"category" : "Telescope-Cytoscape-Commands",
 	"classinstvars" : [ ],
@@ -7,8 +7,8 @@
 	"classvars" : [ ],
 	"instvars" : [
 		"callbackUrl",
-		"openInNewTab"
+		"cssQuery"
 	],
-	"name" : "TLVisualizationRequireCallBackExecutionCommand",
+	"name" : "TLVisualizationAJAXCallBackExecutionCommand",
 	"type" : "normal"
 }

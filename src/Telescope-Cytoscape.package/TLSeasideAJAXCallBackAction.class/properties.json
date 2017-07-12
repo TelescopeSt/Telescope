@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "",
+	"super" : "TLDrawableAction",
+	"category" : "Telescope-Cytoscape-Actions",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"cssQuery",
+		"url",
+		"beforeBlock"
+	],
+	"name" : "TLSeasideAJAXCallBackAction",
+	"type" : "normal"
+}

@@ -1,0 +1,1 @@
+I am a command that ask the client to execute the provided callback with a ajax call to the serveur.
