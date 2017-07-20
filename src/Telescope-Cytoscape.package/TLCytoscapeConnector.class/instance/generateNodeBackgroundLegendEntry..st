@@ -12,5 +12,5 @@ generateNodeBackgroundLegendEntry: aTLNodeBackgroundLegendEntry
 						visuId: self visuId
 						html:
 							'<td class="tlLegendIcon" style="background-color:' , labelAndColor value forCytoscape
-								, '"></td><td class="tlLegendLabel">' , labelAndColor key , '</td>') ].
+								, ';box-shadow: 0px 0px 5px -1px rgba(0,0,0,0.4);"></td><td class="tlLegendLabel">' , labelAndColor key , '</td>') ].
 	^ aTLNodeBackgroundLegendEntry
