@@ -18,4 +18,4 @@ displayVisu
 	self styleSheet nodeLabel: [ :node | node entity asString ].
 	self styleSheet > #simpleNode backgroundColor: MDLColor yellow.
 	self styleSheet > #compositeNode backgroundColor: MDLColor orange.
-	self legend backGroundDescription: [ :node | node class asString ]
+	self legend backgroundDescription: [ :node | node class asString ]
