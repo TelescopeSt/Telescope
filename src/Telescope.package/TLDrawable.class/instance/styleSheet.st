@@ -1,3 +1,3 @@
 style
 styleSheet
-	^ styleSheet
+	^ styleSheet ifNil: [ styleSheet := self styleSheetClass new ]

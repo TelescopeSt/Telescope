@@ -1,3 +1,3 @@
 private
 areChildrenGenerated
-	^ self state at: #childrenGenerated ifAbsent: [ false ]
+	^ childrenGenerated ifNil: [ childrenGenerated := false ]
