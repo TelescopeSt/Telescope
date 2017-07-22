@@ -1,7 +1,7 @@
 initialization
 initialize
 	super initialize.
-	state := Dictionary new.
+	state := SmallDictionary new.
 	self initializeStyle.
 	interactions := OrderedCollection new.
 	isUpdateRequired := false.
