@@ -1,5 +1,5 @@
 {
-	"commentStamp" : "",
+	"commentStamp" : "CyrilFerlicot 10/24/2017 15:48",
 	"super" : "TLDrawableAction",
 	"category" : "Telescope-Cytoscape-Actions",
 	"classinstvars" : [ ],
