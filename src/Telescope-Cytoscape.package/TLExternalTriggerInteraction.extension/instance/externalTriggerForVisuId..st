@@ -1,3 +1,3 @@
 *Telescope-Cytoscape
 externalTriggerForVisuId: visuId
-  ^'telescope.useExternalTrigger(event, "',visuId,'","',self triggerId,'");' 
+  ^'telescope.useExternalTrigger({"type":"externalTrigger"}, "',visuId,'","',self triggerId,'");' 
