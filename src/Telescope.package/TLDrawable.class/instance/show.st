@@ -3,4 +3,4 @@ show
 	self isVisible ifTrue: [ ^ self ].
 	
 	self isVisible: true.
-	self generateWith: self generator
+	"self generateWith: self generator"
