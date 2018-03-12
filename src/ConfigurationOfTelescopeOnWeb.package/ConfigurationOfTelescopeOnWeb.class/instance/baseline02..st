@@ -5,7 +5,6 @@ baseline02: spec
 		for: #common
 		do: [ 
 			spec blessing: #baseline.
-			spec preLoadDoIt: #testInOrderToCleanMooseAlgoLoading.
 			spec
 				project: 'Telescope'
 					with: [ 
