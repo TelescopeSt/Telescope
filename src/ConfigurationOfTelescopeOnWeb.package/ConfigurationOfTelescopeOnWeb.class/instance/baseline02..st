@@ -35,7 +35,7 @@ baseline02: spec
 				project: 'WebSocket'
 					with: [ spec
 						className: 'ConfigurationOfZincHTTPComponents';
-						version: #'bleedingEdge';
+						version: #'stable';
 						loads: #('WebSocket');
 						repository: 'http://mc.stfx.eu/ZincHTTPComponents' ].
 			spec
