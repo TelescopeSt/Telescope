@@ -8,7 +8,7 @@ customizeFromInteractions: aCollectionOfInteractions forNode: aTLNode
 	self
 		popUp:
 			(aCollectionOfInteractions
-				detect: [ :interaction | interaction action isPopUp ]
+				detect: [ :interaction | interaction action isPopUp and: [interaction condition value: aTLNode] ]
 				ifFound: [ :interaction | 
 					[ interaction forCytoscapeFromNode: aTLNode ]
 						on: TLNilOrEmptyTextException
