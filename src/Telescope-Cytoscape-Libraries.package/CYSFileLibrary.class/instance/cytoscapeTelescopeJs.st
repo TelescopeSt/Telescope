@@ -146,7 +146,9 @@ cytoscapeTelescopeJs
 
   commandsAction.customize = toBacthCommand;
   commandsActionBatch.customize=function(command,visu){
-    visu.getElementById(command.elementId).style(command.style);
+    var element = visu.getElementById(command.elementId);
+    element.style(command.style);
+    element.mouseOverInteraction = command.mouseOverInteraction;
   };
 
   commandsAction.addStaticLegendEntry = function (command) {
