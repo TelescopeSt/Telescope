@@ -30,4 +30,6 @@ cytoscapeNodeStyleFor: aNode
 		ifFalse: [ styleDictionary at: #shape put: #polygon ].
 	(aNode isComposite and: [ aNode hasChildrenToDisplay ])
 		ifTrue: [ self adaptStyleForComposite: styleDictionary ].
+	"If we do not give an empty label to cytoscape when there is no label, it zill not remove a potential current label."
+	styleDictionary at: 'label' ifAbsentPut: [ '' ].
 	^ styleDictionary
