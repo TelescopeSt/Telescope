@@ -1,0 +1,3 @@
+accessing
+unregisterShapeForDrawable: aDrawable
+	self shapeByDrawable removeKey: aDrawable

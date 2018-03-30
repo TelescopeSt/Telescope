@@ -3,7 +3,7 @@ removeSimpleNode: aNode
 	[ | element |
 	element := self elementFromTLDrawable: aNode.
 	self removeElementFromView: element associatedToDrawable: aNode.
-	self shapeByDrawable removeKey: aNode.
+	self unregisterShapeForDrawable: aNode.
 	self removeInteractionsOf: aNode.
 	aNode connections
 		do: [ :aConnection | 

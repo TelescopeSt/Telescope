@@ -4,5 +4,5 @@ removeConnection: aTLConnection
 	
 	shape := self elementFromTLDrawable: aTLConnection.
 	self removeElementConnectionFromView: shape.
-	self shapeByDrawable removeKey: aTLConnection.
+	self unregisterShapeForDrawable: aTLConnection.
 	self removeInteractionsOf: aTLConnection
