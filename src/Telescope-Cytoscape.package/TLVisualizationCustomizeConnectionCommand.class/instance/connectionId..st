@@ -1,3 +1,3 @@
 accessing
-connectionId: anObject
-	connectionId := anObject
+connectionId: aString
+	connectionId := aString
