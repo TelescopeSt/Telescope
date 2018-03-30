@@ -20,15 +20,7 @@ updateGroup: aTLGroup
 			"adding phase"
 			graphicGroup
 				addAllFirstUnlessAlreadyPresent:
-					(aTLGroup select: #isVisible
-						thenCollect: [ :aTLDrawable | 
-							[ 
-							| element |
-						element := self elementFromTLDrawable: aTLDrawable.
-							aTLDrawable updateWith: self.
-							element ]
-								on: NotFound
-								do: [ aTLDrawable generate ] ]).	
+					(aTLGroup select: #isVisible thenCollect: [ :aTLDrawable |  self elementFromTLDrawable: aTLDrawable ifPresent: [ :element | aTLDrawable updateWith: self. element ] ifNone: [ aTLDrawable generate ] ]).	
 			"sorting phase"
 			order := aTLGroup select: #isVisible
 						thenCollect: [ :aTLDrawable | self elementFromTLDrawable: aTLDrawable ].
