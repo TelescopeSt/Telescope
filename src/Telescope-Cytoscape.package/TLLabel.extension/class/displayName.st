@@ -1,3 +1,0 @@
-*Telescope-Cytoscape
-displayName
-	^ 'Label'
