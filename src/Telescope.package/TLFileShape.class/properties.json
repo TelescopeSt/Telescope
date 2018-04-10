@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "CyrilFerlicot 4/10/2018 15:13",
+	"super" : "TLSimpleShape",
+	"category" : "Telescope-Shape",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "TLFileShape",
+	"type" : "normal"
+}
