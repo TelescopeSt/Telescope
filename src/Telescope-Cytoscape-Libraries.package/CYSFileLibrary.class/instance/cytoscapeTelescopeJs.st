@@ -141,7 +141,7 @@ cytoscapeTelescopeJs
   };
 
   commandsAction.positioning = function (command, visu) {
-    visu.layout(command.layout);
+    visu.layout(command.layout).run();
   };
 
   commandsAction.customize = toBacthCommand;
@@ -169,6 +169,8 @@ cytoscapeTelescopeJs
 
 
   commandsAction.ajax = function (command, visu) {
+	console.log("DO WE CALL THAT ?!");
+	console.log($(command.cssQuery));
     $(command.cssQuery).load(command.callbackUrl);
   };
 
@@ -365,19 +367,19 @@ cytoscapeTelescopeJs
   function createEventFunction(visuWithId) {
     return function (evt) {
       clearOverInteraction();
-      if(evt.cyTarget.id != null &&  !visuWithId.protectDoubleFire[evt.type] && !visuWithId.visu.animated() ){
+      if(evt.target.id != null &&  !visuWithId.protectDoubleFire[evt.type] && !visuWithId.visu.animated() ){
         // server interaction processing
-        if ((!evt.cyTarget["mouseOverInteraction"]) && ((evt.type == "mouseover") || (evt.type == "mouseout"))) {
+        if ((!evt.target["mouseOverInteraction"]) && ((evt.type == "mouseover") || (evt.type == "mouseout"))) {
 
         } else {
           visuWithId.protectDoubleFire[evt.type] =true;
           setTimeout(function() {
             visuWithId.protectDoubleFire[evt.type] =false;
           }, self.reactTime*4);
-          sendCommand([{id: visuWithId.visuId, drawableId: evt.cyTarget.id(), command: "interaction", kind: (eventsWithInteractions[evt.type])}]);
+          sendCommand([{id: visuWithId.visuId, drawableId: evt.target.id(), command: "interaction", kind: (eventsWithInteractions[evt.type])}]);
           // menu management
-          if (evt.type == "cxttap" && evt.cyTarget["menu"]) {
-            displayMenuForElement(evt.cyTarget, visuWithId.visuId, {x: evt.originalEvent.clientX, y: evt.originalEvent.clientY});
+          if (evt.type == "cxttap" && evt.target["menu"]) {
+            displayMenuForElement(evt.target, visuWithId.visuId, {x: evt.originalEvent.clientX, y: evt.originalEvent.clientY});
             visuWithId.visu.container().style.cursor= "";
           }
         }
@@ -389,7 +391,7 @@ cytoscapeTelescopeJs
     return function (evt) {
       clearOverInteraction();
       timeoutId = setTimeout(function() {
-        evt.cyTarget.onmouseover= null;
+        evt.target.onmouseover= null;
         evtFunction(evt);
       }, self.reactTime);
     };
@@ -418,8 +420,8 @@ cytoscapeTelescopeJs
   function createDragEventFunction(visuWithId) {
     return function (evt) {
       //We only send a moveNode command if it is not considered as a drop
-      if (!isDropActionOnANode(visuWithId, evt.cy.elements(), this.renderedPosition(), evt.cyTarget))
-        sendCommand([{id: visuWithId.visuId, nodeId: evt.cyTarget.id(), command: "moveNode", position: evt.cyTarget.position()}], false);
+      if (!isDropActionOnANode(visuWithId, evt.cy.elements(), this.renderedPosition(), evt.target))
+        sendCommand([{id: visuWithId.visuId, nodeId: evt.target.id(), command: "moveNode", position: evt.target.position()}], false);
     };
   }
 
