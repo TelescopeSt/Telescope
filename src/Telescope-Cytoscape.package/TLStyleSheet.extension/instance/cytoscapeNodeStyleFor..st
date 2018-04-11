@@ -18,7 +18,9 @@ cytoscapeNodeStyleFor: aNode
 			(#'background-opacity' -> [ :t | [ :e :n | (t obtainValue: #backgroundColor forEntity: e inNode: n) alpha ] ]).
 			(#label -> #nodeLabel).
 			(#color -> #textColor).
-			(#'font-size' -> #labelSize)}
+			(#'font-size' -> #labelSize).
+			(#'text-wrap' -> #nodeLabelWrap).
+			(#'text-max-width' -> #nodeLabelMaxWidth)}
 		for: aNode
 		converter: #forCytoscapeNode.
 	styleDictionary
