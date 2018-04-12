@@ -1,10 +1,13 @@
 {
-	"commentStamp" : "GuillaumeLarcheveque 12/15/2015 15:45",
+	"commentStamp" : "CyrilFerlicot 4/12/2018 11:18",
 	"super" : "TLVisualizationServerCommand",
 	"category" : "Telescope-Cytoscape-Commands",
 	"classinstvars" : [ ],
 	"pools" : [ ],
-	"classvars" : [ ],
+	"classvars" : [
+		"AnimateLayoutApplicationDuringGeneration",
+		"AnimationDuration"
+	],
 	"instvars" : [
 		"nodes",
 		"triggers"

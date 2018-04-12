@@ -1,4 +1,4 @@
-as yet unclassified
+accessing
 allElementsPositions
 	"ensure that positions of nodes are refresh before the position of triggers"
 

@@ -1,4 +1,4 @@
-as yet unclassified
+json
 neoJsonOn: writer
 	writer
 		writeMapStreamingDo: [ :jsonMapWriter | 
@@ -9,7 +9,7 @@ neoJsonOn: writer
 				value:
 					{(#name -> 'preset').
 					(#animate -> true).
-					(#animationDuration -> 1500).
+					(#animationDuration -> self animationDuration).
 					(#positions
 						->
 							self allElementsPositions asDictionary)} asDictionary ]

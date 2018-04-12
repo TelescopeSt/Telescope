@@ -1,3 +1,3 @@
-as yet unclassified
+command
 command
 	^ #generated
