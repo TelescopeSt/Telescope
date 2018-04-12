@@ -25,7 +25,7 @@ default
 		height: 8.
 	(defaultStyleSheet > #connection)
 		color: Color gray;
-		curveStyle: TLBezierCurve;
+		curveStyle: TLDirectCurve;
 		width: 1.
 	defaultStyleSheet > #connection > #head shape: TLTriangle.
 	^ defaultStyleSheet

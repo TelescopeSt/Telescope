@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "CyrilFerlicot 4/12/2018 11:54",
+	"super" : "TLCurveStyle",
+	"category" : "Telescope-Style",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "TLDirectCurve",
+	"type" : "normal"
+}
