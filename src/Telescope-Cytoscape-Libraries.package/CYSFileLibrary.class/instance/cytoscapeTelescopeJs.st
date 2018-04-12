@@ -54,6 +54,7 @@ cytoscapeTelescopeJs
     waitingDivByVisu[visuDiv.getAttribute("id")] = visuDiv.getElementsByClassName("tlWaiting")[0];
     //visuDiv.removeChild(waitingDivByVisu[aDivId]);
     return cytoscape({
+		pixelRatio: 1,
       container: visuDiv.firstChild,
       layout: {name: "preset"}
     });
@@ -214,6 +215,7 @@ cytoscapeTelescopeJs
 
   function onMessage(evt) {
     commands = JSON.parse(evt.data);
+    //console.log(commands);
     toUpdate = {};
     needNotify = {};
     for (var i in commands) {
@@ -367,11 +369,9 @@ cytoscapeTelescopeJs
   function createEventFunction(visuWithId) {
     return function (evt) {
       clearOverInteraction();
-      if(evt.target.id != null &&  !visuWithId.protectDoubleFire[evt.type] && !visuWithId.visu.animated() ){
+      if(evt.target.id != null &&  !visuWithId.protectDoubleFire[evt.type] && (!visuWithId.visu.animated() || (evt.type == "mouseout")) ){
         // server interaction processing
-        if ((!evt.target["mouseOverInteraction"]) && ((evt.type == "mouseover") || (evt.type == "mouseout"))) {
-
-        } else {
+        if (!((!evt.target["mouseOverInteraction"]) && ((evt.type == "mouseover") || (evt.type == "mouseout")))) {
           visuWithId.protectDoubleFire[evt.type] =true;
           setTimeout(function() {
             visuWithId.protectDoubleFire[evt.type] =false;
