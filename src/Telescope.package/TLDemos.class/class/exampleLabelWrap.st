@@ -21,10 +21,10 @@ exampleLabelWrap
 	forcedWrap styleSheet
 		nodeLabelWrap: 'wrap';
 		nodeLabelMaxWidth: 100;
-		nodeLabel: [ :string | string insertLineReturnEvery: 6 ].
+		nodeLabel: [ :string | string insertLineReturnEvery: 8 ].
 	ellipsis := visualization addNodeFromEntity: 'This is a node with an ellipsed label blablablablablabla'.
 	self flag: #todo. "It is possible this one does not work yet since it require a more recent cytoscape that what we have."
 	ellipsis styleSheet
 		nodeLabelWrap: 'ellipsis';
-		nodeLabelMaxWidth: 200.
+		nodeLabelMaxWidth: 250.
 	^ visualization

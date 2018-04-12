@@ -4,4 +4,5 @@ generateWith: aTLConnector
 	self buildVisualization.
 	generated := aTLConnector generateVisualization: self.
 	self hierarchyChangeManaged.
+	self hasBeenGenerated: true.
 	^ generated
