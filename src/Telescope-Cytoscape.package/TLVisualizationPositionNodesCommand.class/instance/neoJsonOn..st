@@ -10,6 +10,4 @@ neoJsonOn: writer
 					{(#name -> 'preset').
 					(#animate -> true).
 					(#animationDuration -> self animationDuration).
-					(#positions
-						->
-							self allElementsPositions asDictionary)} asDictionary ]
+					(#positions -> self allElementsPositions asDictionary)} asDictionary ]
