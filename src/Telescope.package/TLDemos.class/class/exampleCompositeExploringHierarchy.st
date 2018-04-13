@@ -9,8 +9,16 @@ exampleCompositeExploringHierarchy
 		beRecursive;
 		compositeProperty: #subclasses.
 	visualization styleSheet
-		childrenLayout: (TLLinearLayout gap: 20 maximumDimension: 1200);
+		childrenLayout:
+			((TLLinearLayout maximumDimension: 1200)
+				horizontalGap: 30;
+				verticalGap: 60;
+				yourself);
 		nodeLabel: #asString;
+		nodeLabelPosition: [ :e :n | 
+			n hasChildrenToDisplay
+				ifTrue: [ #bottom ]
+				ifFalse: [ #inside ] ];
 		width: 250;
 		compositeExpandedByDefault: true;
 		backgroundColor: [ :class | 
