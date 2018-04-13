@@ -1,7 +1,7 @@
 *Telescope-Cytoscape
 cytoscapeNodeStyleFor: aNode
 	| nodeLabelPosition styleDictionary shape |
-	nodeLabelPosition := self obtainValue: #nodeLabelPosition forEntity: aNode entity inNode: aNode.
+	nodeLabelPosition := TLPosition for: (self obtainValue: #nodeLabelPosition forEntity: aNode entity inNode: aNode).
 	styleDictionary := Dictionary new.
 	self
 		fillStyleDictionary: styleDictionary
