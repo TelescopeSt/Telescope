@@ -2,9 +2,7 @@
 	"commentStamp" : "<historical>",
 	"super" : "WAComponent",
 	"category" : "Telescope-Cytoscape",
-	"classinstvars" : [
-		"id"
-	],
+	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
@@ -12,7 +10,8 @@
 		"connector",
 		"visuDivId",
 		"waitingMessage",
-		"style"
+		"style",
+		"addDownloadButton"
 	],
 	"name" : "TLCytoscapeComponent",
 	"type" : "normal"

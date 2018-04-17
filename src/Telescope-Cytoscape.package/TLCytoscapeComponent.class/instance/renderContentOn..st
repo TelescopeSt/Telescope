@@ -6,19 +6,13 @@ renderContentOn: html
 		id: visuId;
 		style: self style;
 		attributeAt: #isTelescopeVisu put: 'true';
-		attributeAt: #'data-port' put: TLCytoscapeWebSocketDelegate port ;
+		attributeAt: #'data-port' put: TLCytoscapeWebSocketDelegate port;
 		class: 'telescopeVisu';
-		with: [ 
-					html div
-						class: 'visualization';
-						style: 'height: 100%; width: 100%;'.
-					self waitingMessage value: html.
-					html div
-						class: 'fitButton';
-						with: [ 
-							html anchor
-								onClick: 'telescope.visuWithId(' , self visuDivId asString , ').fit();';
-								with: 'Reset' ] ];
+		with: [ html div
+				class: 'visualization';
+				style: 'height: 100%; width: 100%;'.
+			self waitingMessage value: html.
+			self renderOptionalButtonsOn: html ];
 		yourself.
 	callback := WAValueCallback new.
 	TLCytoscapeWebSocketDelegate
@@ -26,5 +20,5 @@ renderContentOn: html
 		underId: visuId
 		withCallBack: callback
 		callbackUrl:
-			{(html actionUrl asString).
+			{html actionUrl asString.
 			(div storeCallback: callback)}
