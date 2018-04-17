@@ -88,9 +88,11 @@ cytoscapeTelescopeJs
 
   function onOpen(evt, visus) {
     messages = [];
-    for (var i in visus)
-      if(document.getElementById(visus[i].visuId)!=null)
+    for (var i in visus) { 
+      if(document.getElementById(visus[i].visuId)!=null) {
         messages.push({id: visus[i].visuId, command: "generate"});
+      }
+    }
 
     websocket.send(JSON.stringify(messages));
   }
@@ -190,8 +192,11 @@ cytoscapeTelescopeJs
   };
 
   handleServerError.noVisu= function(command){
-    notify("An error has occured: "+command.visuId+ " was not found.");
-    waitingDivByVisu[command.visuId].innerHTML= "<h1>"+command.message+"</h1>";
+    //If the waitingDivByVisu variable is not initialized it probably means that the page was refresh and the old visu was discarded. In that case just silence the error.
+    if(!waitingDivByVisu=="undefined") {
+      notify("An error has occured: "+command.visuId+ " was not found.");
+      waitingDivByVisu[command.visuId].innerHTML= "<h1>"+command.message+"</h1>";
+    }
   };
 
   handleServerError.messageOnError= function(command){
