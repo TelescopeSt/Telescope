@@ -168,10 +168,8 @@ cytoscapeTelescopeJs
     sendCallBack(command.callbackUrl, command.openInNewTab);
   };
 
-
+  // Called when we execute a Seaside ajax callback interaction
   commandsAction.ajax = function (command, visu) {
-	console.log("DO WE CALL THAT ?!");
-	console.log($(command.cssQuery));
     $(command.cssQuery).load(command.callbackUrl);
   };
 
