@@ -46,6 +46,9 @@ cytoscapeTelescopeJs
     self.visus = [];
     visus= self.visus; // make closure as soon as possible to clean API
     waitingDivByVisu = [];
+	 if(document.getElementsByClassName("telescopeVisu")[0]){
+      wsPort = document.getElementsByClassName("telescopeVisu")[0].dataset.port
+	 }
     loadVisuIn(document);
   }
 
