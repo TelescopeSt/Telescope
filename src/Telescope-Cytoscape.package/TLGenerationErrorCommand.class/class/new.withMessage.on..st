@@ -1,4 +1,4 @@
-as yet unclassified
+instance creation
 new: id withMessage: anError on: aSocket
 	self new
 		visuId: id;

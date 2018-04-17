@@ -1,3 +1,3 @@
-as yet unclassified
+accessing
 message
 	^ message ifNil:[ self errorObject messageText ]
