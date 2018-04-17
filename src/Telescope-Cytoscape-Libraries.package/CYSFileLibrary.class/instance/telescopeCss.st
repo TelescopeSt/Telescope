@@ -14,11 +14,18 @@ telescopeCss
 }
 
 .telescopeVisu .fitButton{
+	display: flex;
    position: absolute;
    top: 5px;
    right: 5px;
 	cursor: pointer;
-	width: 25px;
+	line-height: 34px;
+}
+
+.telescopeVisu .fitButton img{
+	margin: 5px;
+	height: 24px;
+	width: 24px;
 }
 
 .telescopeVisu  .tlWaiting{
