@@ -7,4 +7,8 @@ renderDemoPanelOn: html
 	visu addInteraction: (self externalTriggerExemple: html onVisu: visuId).
 	visu addInteraction: (self drillDownAction: html onVisu: visuId).
 	visu addInteraction: ((TLCustomWithParameterAction block: [ :aDrawable :aDroppedDrawable | aDroppedDrawable parentNode: aDrawable ]) updateAlso: debugVisu) onDrop.
-	html render: (TLCytoscapeComponent visualization: visu id: visuId)
+	html
+		render:
+			((TLCytoscapeComponent visualization: visu id: visuId)
+				addDownloadButton: true;
+				yourself)
