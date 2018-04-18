@@ -10,5 +10,9 @@ renderDemoPanelOn: html
 	html
 		render:
 			((TLCytoscapeComponent visualization: visu id: visuId)
-				addDownloadButton: true;
+				exportStrategy:
+					(TLCytoscapeCompositeExportStrategy
+						withAll:
+							{TLCytoscapePngExportStrategy new.
+							TLCytoscapeJSONExportStrategy new});
 				yourself)
