@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "CyrilFerlicot 4/18/2018 14:47",
+	"super" : "TLCytoscapeImageExportStrategy",
+	"category" : "Telescope-Cytoscape-Export",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"quality"
+	],
+	"name" : "TLCytoscapeJpgExportStrategy",
+	"type" : "normal"
+}

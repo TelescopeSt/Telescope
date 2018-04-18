@@ -3,4 +3,5 @@ SystemOrganization addCategory: 'Telescope-Cytoscape-Actions'!
 SystemOrganization addCategory: 'Telescope-Cytoscape-Commands'!
 SystemOrganization addCategory: 'Telescope-Cytoscape-Connector'!
 SystemOrganization addCategory: 'Telescope-Cytoscape-Exception'!
+SystemOrganization addCategory: 'Telescope-Cytoscape-Export'!
 SystemOrganization addCategory: 'Telescope-Cytoscape-Virtual'!

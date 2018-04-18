@@ -11,7 +11,7 @@
 		"visuDivId",
 		"waitingMessage",
 		"style",
-		"addDownloadButton"
+		"exportStrategy"
 	],
 	"name" : "TLCytoscapeComponent",
 	"type" : "normal"

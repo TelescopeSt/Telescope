@@ -1,4 +1,4 @@
 initialization
 initialize
 	super initialize.
-	self addDownloadButton: false
+	self exportStrategy: TLCytoscapeNullExportStrategy new

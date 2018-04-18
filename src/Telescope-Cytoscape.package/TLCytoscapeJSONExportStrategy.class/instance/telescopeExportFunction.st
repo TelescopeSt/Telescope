@@ -1,0 +1,3 @@
+export
+telescopeExportFunction
+	^ 'downloadJSON'
