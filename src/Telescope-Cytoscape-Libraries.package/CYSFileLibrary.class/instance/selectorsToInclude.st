@@ -1,3 +1,0 @@
-accessing
-selectorsToInclude
-	^ #(cytoscapeminJs cytoscapeTelescopeJs telescopeCss cytoscapeQtipJs jqueryqtipminCss jqueryqtipminJs contextMenuMinJs contextMenuCss downloadingJs)

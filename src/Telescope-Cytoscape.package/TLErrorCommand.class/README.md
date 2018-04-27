@@ -1,1 +1,0 @@
-I am the abstract superclass for all error commands sent to the client

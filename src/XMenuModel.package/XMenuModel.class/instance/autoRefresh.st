@@ -1,4 +1,0 @@
-protocol
-autoRefresh
-
-	^ autoRefresh value

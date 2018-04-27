@@ -1,3 +1,0 @@
-generation - interaction
-generateMovedInteraction: aTLNodeMovedInteraction onDrawable: aDrawable targetingDrawable: aTargetDrawable
-	self subclassResponsibility

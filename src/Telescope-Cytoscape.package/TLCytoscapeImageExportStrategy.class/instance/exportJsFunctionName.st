@@ -1,3 +1,0 @@
-export
-exportJsFunctionName
-	^ self subclassResponsibility

@@ -1,3 +1,0 @@
-commands
-addCommand: aTLVisualizationServerCommand
-	self commandsQueue addCommand: aTLVisualizationServerCommand

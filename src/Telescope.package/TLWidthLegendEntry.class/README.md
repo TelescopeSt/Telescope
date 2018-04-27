@@ -1,1 +1,0 @@
-I am the legend entry for nodes width

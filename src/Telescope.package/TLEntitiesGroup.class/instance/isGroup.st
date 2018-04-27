@@ -1,3 +1,0 @@
-test
-isGroup
-	^ true

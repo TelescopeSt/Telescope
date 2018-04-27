@@ -1,3 +1,0 @@
-accessing
-connectionsByNode
-	^ connectionsByNode

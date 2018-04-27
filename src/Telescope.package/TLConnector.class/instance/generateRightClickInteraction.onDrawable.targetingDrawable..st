@@ -1,3 +1,0 @@
-generation - interaction
-generateRightClickInteraction: aRightClickInteraction onDrawable: aTLDrawable targetingDrawable: anObject
-	self subclassResponsibility

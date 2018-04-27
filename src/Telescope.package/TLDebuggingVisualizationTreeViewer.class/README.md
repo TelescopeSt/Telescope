@@ -1,1 +1,0 @@
-I am a really simple visualization that show the model of another visualization as a tree

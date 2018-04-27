@@ -1,3 +1,0 @@
-connect
-connectChildrenFollowingProperty: aBlockOrSymbol
-	^ self childrenNodes connectFollowingProperty: aBlockOrSymbol

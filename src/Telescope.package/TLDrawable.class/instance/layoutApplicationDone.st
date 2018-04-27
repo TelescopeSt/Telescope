@@ -1,3 +1,0 @@
-state
-layoutApplicationDone
-	self isLayoutApplicationRequired: false

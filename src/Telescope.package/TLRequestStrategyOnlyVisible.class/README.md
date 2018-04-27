@@ -1,1 +1,0 @@
-I am a strategy that will restrain the request result to the visible elements in the visualization

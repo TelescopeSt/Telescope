@@ -1,1 +1,0 @@
-I am an action that show a popup with the provided text or block with the node entity.

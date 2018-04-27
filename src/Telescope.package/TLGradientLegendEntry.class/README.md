@@ -1,1 +1,0 @@
-I am a legend entry explaining a gradient

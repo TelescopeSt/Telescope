@@ -1,3 +1,0 @@
-generation-legendEntry
-generateTLStyleSheetLegendEntry: aTLStyleSheetLegendEntry 
-	^ self subclassResponsibility 

@@ -1,1 +1,0 @@
-I am a command that contains many adding commands to faster the execution on the client side

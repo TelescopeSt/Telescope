@@ -1,5 +1,0 @@
-as yet unclassified
-withTriggerStyled: aStyleOrStyleSheetCustomizationBlock thatBecome: anotherStyleOrStyleSheetCustomizationBlock
-	self shapeTrigger
-		initialStyle: aStyleOrStyleSheetCustomizationBlock;
-		secondStyle: anotherStyleOrStyleSheetCustomizationBlock

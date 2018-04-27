@@ -1,3 +1,0 @@
-instance creation
-closeVisualization
-	TLCytoscapeNotSupportedFunctionalityException signal: 'Impossible to close visualization in cytoscape'

@@ -1,3 +1,0 @@
-initialization
-defaultVisualization
-	^TLVisualization new.

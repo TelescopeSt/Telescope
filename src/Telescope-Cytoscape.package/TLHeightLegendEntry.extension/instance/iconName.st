@@ -1,3 +1,0 @@
-*Telescope-Cytoscape
-iconName
-	^ #telescopeHeightPng

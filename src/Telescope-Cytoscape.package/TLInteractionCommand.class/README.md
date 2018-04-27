@@ -1,1 +1,0 @@
-I am the command sent by the client after an interaction occurs (click, mouseOver...)

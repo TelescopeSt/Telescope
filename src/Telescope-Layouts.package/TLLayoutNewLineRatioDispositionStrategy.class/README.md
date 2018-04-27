@@ -1,1 +1,0 @@
-I am a strategy that will try to put elements in a rectangle with dimension as close as the desired ratio as possible. My behaviour is to define my max dimension before starting to place lines of nodes

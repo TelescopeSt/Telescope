@@ -1,4 +1,0 @@
-protocol
-shortcut
-
-	^ shortcut value

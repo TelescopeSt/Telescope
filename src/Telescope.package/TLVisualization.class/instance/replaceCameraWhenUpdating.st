@@ -1,3 +1,0 @@
-camera
-replaceCameraWhenUpdating
-	shouldReplaceCameraWhenUpdating := true

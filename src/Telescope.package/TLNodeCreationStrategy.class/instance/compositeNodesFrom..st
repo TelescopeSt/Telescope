@@ -1,3 +1,0 @@
-accessing
-compositeNodesFrom: aValuableOrCollection
-	self compositeProperty: aValuableOrCollection

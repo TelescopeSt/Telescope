@@ -1,4 +1,0 @@
-generation - connection
-generateIfNecessaryConnectionsOf: aNode
-	self generateIfNecessaryIncomingConnectionsOf: aNode.
-	self generateIfNecessaryOutgoingConnectionsOf: aNode

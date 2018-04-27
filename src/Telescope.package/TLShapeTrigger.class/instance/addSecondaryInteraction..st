@@ -1,3 +1,0 @@
-interactions
-addSecondaryInteraction: aTLInteraction
-	super addInteraction: aTLInteraction

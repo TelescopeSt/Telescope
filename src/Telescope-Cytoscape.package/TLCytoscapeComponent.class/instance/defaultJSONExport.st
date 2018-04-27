@@ -1,3 +1,0 @@
-exports
-defaultJSONExport
-	self exportStrategy: TLCytoscapeJSONExportStrategy new

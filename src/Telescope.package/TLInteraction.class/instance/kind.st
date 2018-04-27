@@ -1,3 +1,0 @@
-private
-kind
-	^ self subclassResponsibility 

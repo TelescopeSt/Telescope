@@ -1,1 +1,0 @@
-This visualization represents the visualization of package dependencies and cycle identification from Moose.

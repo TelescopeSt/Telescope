@@ -1,3 +1,0 @@
-accessing
-labelShape
-	^ labelShape

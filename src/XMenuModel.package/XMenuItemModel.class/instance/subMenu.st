@@ -1,4 +1,0 @@
-protocol
-subMenu
-
-	^ subMenu value

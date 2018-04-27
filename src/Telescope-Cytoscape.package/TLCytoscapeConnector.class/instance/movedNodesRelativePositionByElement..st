@@ -1,3 +1,0 @@
-accessing
-movedNodesRelativePositionByElement: anObject
-	movedNodesRelativePositionByElement := anObject

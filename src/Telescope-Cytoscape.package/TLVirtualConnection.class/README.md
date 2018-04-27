@@ -1,1 +1,0 @@
-I represent a virtual connection used to compute layout

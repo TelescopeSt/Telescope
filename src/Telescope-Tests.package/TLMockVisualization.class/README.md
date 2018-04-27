@@ -1,1 +1,0 @@
-Creates a mock visualization for tests.

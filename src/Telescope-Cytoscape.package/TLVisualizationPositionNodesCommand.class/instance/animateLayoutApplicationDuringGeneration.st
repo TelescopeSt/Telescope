@@ -1,3 +1,0 @@
-accessing
-animateLayoutApplicationDuringGeneration
-	^ self class animateLayoutApplicationDuringGeneration

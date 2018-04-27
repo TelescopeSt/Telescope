@@ -1,1 +1,0 @@
-I am a command that ask the client to execute the provided callback by load a new page

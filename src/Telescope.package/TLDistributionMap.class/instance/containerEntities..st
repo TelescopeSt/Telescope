@@ -1,3 +1,0 @@
-accessing
-containerEntities: aCollectionOfObjects
-	containerEntities := aCollectionOfObjects

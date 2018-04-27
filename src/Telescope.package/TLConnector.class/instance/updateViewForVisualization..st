@@ -1,3 +1,0 @@
-view
-updateViewForVisualization: aTLVisualization
-	self subclassResponsibility

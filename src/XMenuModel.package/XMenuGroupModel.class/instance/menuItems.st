@@ -1,4 +1,0 @@
-protocol
-menuItems
-
-	^ items value

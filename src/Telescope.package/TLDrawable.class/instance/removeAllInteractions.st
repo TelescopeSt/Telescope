@@ -1,3 +1,0 @@
-interactions
-removeAllInteractions
-	self interactions removeAll

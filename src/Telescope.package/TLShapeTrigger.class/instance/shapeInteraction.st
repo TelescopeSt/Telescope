@@ -1,3 +1,0 @@
-accessing
-shapeInteraction
-	^ shapeInteraction

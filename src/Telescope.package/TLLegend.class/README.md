@@ -1,1 +1,0 @@
-I am a legend for Telescope. I am composed of entries that i will display one after the other

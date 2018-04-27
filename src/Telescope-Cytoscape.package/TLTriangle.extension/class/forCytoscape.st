@@ -1,3 +1,0 @@
-*Telescope-Cytoscape
-forCytoscape
-	^ 'triangle'

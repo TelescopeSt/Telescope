@@ -1,1 +1,0 @@
-TLViewConnector is an abstract class that will manage a generic rendering known as view. 

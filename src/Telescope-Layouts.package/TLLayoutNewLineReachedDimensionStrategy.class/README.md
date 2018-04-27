@@ -1,1 +1,0 @@
-I am a strategy to answer if new line should be created depending on a maximum width

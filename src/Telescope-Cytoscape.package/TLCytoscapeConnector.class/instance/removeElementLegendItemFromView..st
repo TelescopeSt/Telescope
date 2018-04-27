@@ -1,3 +1,0 @@
-view
-removeElementLegendItemFromView: element
-	self shouldBeImplemented

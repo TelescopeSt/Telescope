@@ -1,1 +1,0 @@
-I am an abstract exception for all detected wrong usage of Telescope

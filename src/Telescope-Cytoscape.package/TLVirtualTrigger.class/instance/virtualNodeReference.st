@@ -1,3 +1,0 @@
-accessing
-virtualNodeReference
-	^ virtualNodeReference

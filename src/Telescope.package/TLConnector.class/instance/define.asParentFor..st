@@ -1,3 +1,0 @@
-generation - node
-define: parentCompositeElement asParentFor: aCollectionOfChildrenElements
-	self subclassResponsibility

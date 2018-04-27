@@ -1,3 +1,0 @@
-accessing
-connectionStyle
-	^ connectionStyle

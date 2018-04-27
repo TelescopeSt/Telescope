@@ -1,4 +1,0 @@
-connect
-removeIncomingConnection: aTLConnection
-	self incomingConnections remove: aTLConnection.
-	self requireUpdateForConnections

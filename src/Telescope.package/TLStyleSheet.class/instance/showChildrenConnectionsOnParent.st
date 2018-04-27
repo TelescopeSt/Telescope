@@ -1,3 +1,0 @@
-composite
-showChildrenConnectionsOnParent
-	self shouldBeImplemented.

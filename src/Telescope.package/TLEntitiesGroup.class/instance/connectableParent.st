@@ -1,3 +1,0 @@
-connect
-connectableParent
-	^ self parent

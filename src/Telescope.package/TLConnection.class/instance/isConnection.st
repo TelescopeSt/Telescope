@@ -1,3 +1,0 @@
-testing
-isConnection
-	^ true

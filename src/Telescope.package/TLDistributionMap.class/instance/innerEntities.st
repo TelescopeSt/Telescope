@@ -1,3 +1,0 @@
-accessing
-innerEntities
-	^ innerEntities

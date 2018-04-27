@@ -1,3 +1,0 @@
-accessing
-levelForColors
-	^ levelForColors

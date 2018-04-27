@@ -1,3 +1,0 @@
-style
-styles
-	^ styles

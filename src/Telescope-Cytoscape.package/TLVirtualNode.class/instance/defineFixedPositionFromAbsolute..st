@@ -1,3 +1,0 @@
-position
-defineFixedPositionFromAbsolute: aPosition
-	self defineFixedRelativePosition: (self calculateRelativePositionFromAbsolute: aPosition)

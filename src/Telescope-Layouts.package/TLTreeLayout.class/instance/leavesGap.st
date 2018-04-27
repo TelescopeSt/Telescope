@@ -1,3 +1,0 @@
-accessing
-leavesGap
-	^ leavesGap

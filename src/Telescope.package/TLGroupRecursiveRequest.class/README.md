@@ -1,1 +1,0 @@
-I will apply the request recursively through groups. I will stop if i encounter a leaf or a composite

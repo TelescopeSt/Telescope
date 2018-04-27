@@ -1,3 +1,0 @@
-accessing
-totalDimension
-	^ totalDimension

@@ -1,3 +1,0 @@
-private-connector
-updateWith: aGenerator
-	self subclassResponsibility

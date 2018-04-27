@@ -1,4 +1,0 @@
-protocol
-menuGroups
-
-	^ groups value

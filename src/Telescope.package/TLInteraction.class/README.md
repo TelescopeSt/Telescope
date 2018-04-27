@@ -1,1 +1,0 @@
-a TLInteraction is the superclass for every interactions. It contains a TLAction that will be executed on trigger.

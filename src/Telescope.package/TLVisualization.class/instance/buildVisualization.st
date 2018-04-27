@@ -1,3 +1,0 @@
-building
-buildVisualization
-	self buildLegend 

@@ -1,3 +1,0 @@
-generation - interaction
-generateMouseOverInteraction: aTLMouseOverInteraction onDrawable: aTLDrawable targetingDrawable: anObject 
-	self subclassResponsibility

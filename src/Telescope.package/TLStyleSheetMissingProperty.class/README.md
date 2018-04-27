@@ -1,1 +1,0 @@
-I am an exception sent when is required a property absent in the stylesheet

@@ -1,3 +1,0 @@
-export
-telescopeExportFunction
-	^ self subclassResponsibility

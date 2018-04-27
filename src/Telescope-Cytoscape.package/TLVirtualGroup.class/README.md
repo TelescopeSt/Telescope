@@ -1,1 +1,0 @@
-I am a virtual group used to compute positions of my elements on the server side when the display is done elsewhere. The goal is to apply layouts on me to then send the right positions to the client.

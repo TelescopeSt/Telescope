@@ -1,3 +1,0 @@
-position
-cytoscapePosition
-	^ self position

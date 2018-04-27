@@ -1,3 +1,0 @@
-testing
-isMultiChoiceMenu
-	^ true

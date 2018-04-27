@@ -1,3 +1,0 @@
-connect
-connectFollowingProperty: aBlockOrSymbol
-	^ self connectFollowingProperty: aBlockOrSymbol context: self

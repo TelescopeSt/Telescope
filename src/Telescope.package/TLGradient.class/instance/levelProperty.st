@@ -1,3 +1,0 @@
-accessing
-levelProperty
-	^ levelProperty

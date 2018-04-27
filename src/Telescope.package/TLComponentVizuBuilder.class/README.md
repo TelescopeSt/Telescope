@@ -1,1 +1,0 @@
-The purpose of the component builder is to show containers and their children arranged inside with a vertical layout. This can be useful to show, for example, packages and their classes inside. Each package, in this case, is collapsable. The interactions are not show (yet).

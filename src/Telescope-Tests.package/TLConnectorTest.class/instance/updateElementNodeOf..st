@@ -1,3 +1,0 @@
-updating - node
-updateElementNodeOf: aTLSimpleNode 
-	

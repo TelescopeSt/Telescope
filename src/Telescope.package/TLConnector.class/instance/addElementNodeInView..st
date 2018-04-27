@@ -1,3 +1,0 @@
-view
-addElementNodeInView: element
-	self subclassResponsibility

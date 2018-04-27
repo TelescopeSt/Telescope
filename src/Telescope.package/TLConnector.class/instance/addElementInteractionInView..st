@@ -1,3 +1,0 @@
-view
-addElementInteractionInView: element
-	self subclassResponsibility

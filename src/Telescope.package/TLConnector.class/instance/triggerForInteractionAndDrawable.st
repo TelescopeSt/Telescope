@@ -1,3 +1,0 @@
-accessing
-triggerForInteractionAndDrawable
-	^ triggerForInteractionAndDrawable

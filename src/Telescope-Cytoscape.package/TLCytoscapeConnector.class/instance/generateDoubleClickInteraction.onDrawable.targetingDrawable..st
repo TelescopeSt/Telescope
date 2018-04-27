@@ -1,3 +1,0 @@
-generation - interaction
-generateDoubleClickInteraction: aDoubleClickInteraction onDrawable: aTLDrawable targetingDrawable: anObject
-	self shouldBeImplemented

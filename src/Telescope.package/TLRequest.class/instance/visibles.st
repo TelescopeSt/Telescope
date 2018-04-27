@@ -1,3 +1,0 @@
-strategies
-visibles
-	self strategies add: TLRequestStrategyOnlyVisible

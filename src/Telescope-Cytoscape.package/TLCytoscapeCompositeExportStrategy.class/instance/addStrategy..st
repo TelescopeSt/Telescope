@@ -1,3 +1,0 @@
-adding
-addStrategy: aTLCytoscapeExportStrategy
-	self strategies add: aTLCytoscapeExportStrategy

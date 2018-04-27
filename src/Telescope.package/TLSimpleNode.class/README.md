@@ -1,1 +1,0 @@
-I am just a simple node.

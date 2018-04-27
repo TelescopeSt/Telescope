@@ -1,3 +1,0 @@
-positions
-insideCentered
-	self inside

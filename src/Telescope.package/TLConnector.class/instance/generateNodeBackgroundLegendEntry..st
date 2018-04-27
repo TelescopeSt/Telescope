@@ -1,3 +1,0 @@
-generation-legendEntry
-generateNodeBackgroundLegendEntry: aTLNodeBackgroundLegendEntry 
-	^ self subclassResponsibility

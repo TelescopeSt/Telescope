@@ -1,1 +1,0 @@
-I am an abstract class for all curve styles in Telescope

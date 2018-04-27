@@ -1,1 +1,0 @@
-This visualization represents the visualization of a name cloud for a moose group on Moose.

@@ -1,3 +1,0 @@
-view
-updateViewForVisualization: aTLVisualization
-	TLCytoscapeWebSocketDelegate delegate sendCommands: self removeAllCommands forVisu: aTLVisualization

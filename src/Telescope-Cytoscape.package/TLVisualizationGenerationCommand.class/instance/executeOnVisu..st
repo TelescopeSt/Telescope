@@ -1,3 +1,0 @@
-execution
-executeOnVisu: aTLVisualization 
-	aTLVisualization generate

@@ -1,3 +1,0 @@
-accessing
-rootSource
-	^ self source

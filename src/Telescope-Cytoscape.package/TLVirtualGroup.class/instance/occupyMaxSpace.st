@@ -1,3 +1,0 @@
-dimension
-occupyMaxSpace
-	^ false

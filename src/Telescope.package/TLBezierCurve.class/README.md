@@ -1,1 +1,0 @@
-I am the enum value for using Bezier lines

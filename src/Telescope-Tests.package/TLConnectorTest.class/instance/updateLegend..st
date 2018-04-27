@@ -1,3 +1,0 @@
-updating - legend
-updateLegend: aTLStaticLegend 
-	

@@ -1,1 +1,0 @@
-I define the basic structure of a node for the Telescope vizualisations

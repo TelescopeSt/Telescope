@@ -1,3 +1,0 @@
-private
-reverseKind
-	^ self kind

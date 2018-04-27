@@ -1,3 +1,0 @@
-view
-addElementLegendItemInView: legendItem
-	self shouldBeImplemented

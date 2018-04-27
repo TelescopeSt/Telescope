@@ -1,3 +1,0 @@
-generation-legendEntry
-generateTLColorLegendEntry: aTLColorLegendEntry 
-	^ self subclassResponsibility
