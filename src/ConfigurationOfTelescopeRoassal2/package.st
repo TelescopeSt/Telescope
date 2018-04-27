@@ -1,1 +1,0 @@
-Package { #name : #ConfigurationOfTelescopeRoassal2 }
