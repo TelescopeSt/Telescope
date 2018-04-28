@@ -23,7 +23,7 @@ Class {
 		'openingDimension',
 		'shouldReplaceCameraWhenUpdating'
 	],
-	#category : 'Telescope-Visualizations'
+	#category : #'Telescope-Model'
 }
 
 { #category : #'instance creation' }

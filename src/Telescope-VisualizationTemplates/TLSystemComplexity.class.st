@@ -11,7 +11,7 @@ Class {
 		'container',
 		'requirePropertyApplication'
 	],
-	#category : 'Telescope-Visualizations'
+	#category : #'Telescope-VisualizationTemplates'
 }
 
 { #category : #building }

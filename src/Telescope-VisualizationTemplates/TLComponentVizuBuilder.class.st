@@ -7,7 +7,7 @@ Class {
 	#instVars : [
 		'componentsToDisplay'
 	],
-	#category : 'Telescope-Visualizations'
+	#category : #'Telescope-VisualizationTemplates'
 }
 
 { #category : #building }

@@ -24,7 +24,7 @@ Class {
 		'entryPoint',
 		'nextProperty'
 	],
-	#category : 'Telescope-Visualizations'
+	#category : #'Telescope-VisualizationTemplates'
 }
 
 { #category : #private }

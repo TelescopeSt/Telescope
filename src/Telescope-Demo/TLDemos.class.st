@@ -5,7 +5,7 @@ A TLDemos class is a class regrouping all the demos of Telescope on the class si
 Class {
 	#name : #TLDemos,
 	#superclass : #TLObject,
-	#category : 'Telescope-Demos'
+	#category : #'Telescope-Demo'
 }
 
 { #category : #accessing }

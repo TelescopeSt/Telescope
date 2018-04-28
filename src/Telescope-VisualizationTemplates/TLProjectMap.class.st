@@ -29,7 +29,7 @@ Class {
 	#instVars : [
 		'version'
 	],
-	#category : 'Telescope-Visualizations'
+	#category : #'Telescope-VisualizationTemplates'
 }
 
 { #category : #'instance creation' }

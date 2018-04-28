@@ -1,7 +1,7 @@
 Class {
 	#name : #TLInteractionDemoFilter,
 	#superclass : #TLAbstractDemoFilter,
-	#category : 'Telescope-Demos'
+	#category : #'Telescope-Demo'
 }
 
 { #category : #accessing }

@@ -20,7 +20,7 @@ Class {
 		'attributesBlock',
 		'methodsBlock'
 	],
-	#category : 'Telescope-Visualizations'
+	#category : #'Telescope-VisualizationTemplates'
 }
 
 { #category : #accessing }

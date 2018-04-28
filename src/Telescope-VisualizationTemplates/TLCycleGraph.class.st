@@ -29,7 +29,7 @@ Class {
 		'rank',
 		'objectAdded'
 	],
-	#category : 'Telescope-Visualizations'
+	#category : #'Telescope-VisualizationTemplates'
 }
 
 { #category : #'as yet unclassified' }

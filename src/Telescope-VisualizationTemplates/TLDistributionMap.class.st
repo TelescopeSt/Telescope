@@ -32,7 +32,7 @@ Class {
 		'colorToProperty',
 		'innerEntitiesPopupBlock'
 	],
-	#category : 'Telescope-Visualizations'
+	#category : #'Telescope-VisualizationTemplates'
 }
 
 { #category : #creation }

@@ -1,7 +1,7 @@
 Class {
 	#name : #TLVisualizationTemplateDemoFilter,
 	#superclass : #TLAbstractDemoFilter,
-	#category : 'Telescope-Demos'
+	#category : #'Telescope-Demo'
 }
 
 { #category : #accessing }

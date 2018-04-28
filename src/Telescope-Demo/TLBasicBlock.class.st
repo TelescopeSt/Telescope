@@ -11,7 +11,7 @@ Class {
 		'next',
 		'title'
 	],
-	#category : 'Telescope-Demos'
+	#category : #'Telescope-Demo'
 }
 
 { #category : #'instance creation' }
