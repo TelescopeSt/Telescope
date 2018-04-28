@@ -1,0 +1,15 @@
+language: smalltalk
+sudo: false
+
+os:
+- linux
+- osx
+
+smalltalk:
+  - Pharo-7.0
+  - Pharo-6.1
+  
+matrix:
+  fast_finish: true
+  allow_failures:
+    - smalltalk: Pharo-7.0
