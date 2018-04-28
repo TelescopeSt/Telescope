@@ -43,9 +43,9 @@ BaselineOfTelescope >> baseline: spec [
 
 			"Packages"
 			spec
-				package: 'Telescope' with: [ spec requires: #('Stylesheet' 'Telescope-Layouts') ];
+				package: 'Telescope' with: [ spec requires: #('Stylesheet' 'Telescope-Layouts' 'MaterialColors') ];
 				package: 'Telescope-VisualizationTemplates' with: [ spec requires: #('Telescope' 'MooseAlgos') ];
-				package: 'Telescope-Demo' with: [ spec requires: #('Telescope' 'Telescope-VisualizationTemplates' 'MaterialColors') ];
+				package: 'Telescope-Demo' with: [ spec requires: #('Telescope' 'Telescope-VisualizationTemplates') ];
 				package: 'Telescope-Tests' with: [ spec requires: #('Telescope' 'BabyMock2') ];
 				package: 'Telescope-Layouts';
 				package: 'Telescope-Tests-Layouts' with: [ spec requires: #(#'Telescope-Layouts' 'BabyMock') ].
