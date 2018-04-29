@@ -13,6 +13,14 @@ Class {
 
 { #category : #'instance creation' }
 TLLayout class >> angle: anAngle [
+	"The angle to rotate the layout in degree CCW. 
+	
+	0 is a vector from left to right
+	90 is from top to bottom
+	180 is a vector from right to left
+	270 is bottom to top
+	"
+	
 	^ self new
 		angle: anAngle;
 		yourself
@@ -52,12 +60,27 @@ TLLayout class >> topToBottom [
 
 { #category : #accessing }
 TLLayout >> angle [
-	"the angle in degree, 0 is a vector from left to right and 90 from top to bottom"
+	"The angle to rotate the layout in degree CCW. 
+	
+	0 is a vector from left to right
+	90 is from top to bottom
+	180 is a vector from right to left
+	270 is bottom to top
+	"
+	
 	^ angle
 ]
 
 { #category : #accessing }
 TLLayout >> angle: anObject [
+	"The angle to rotate the layout in degree CCW. 
+	
+	0 is a vector from left to right
+	90 is from top to bottom
+	180 is a vector from right to left
+	270 is bottom to top
+	"
+	
 	angle := anObject
 ]
 
@@ -189,12 +212,15 @@ TLLayout >> rightToLeft [
 ]
 
 { #category : #placing }
-TLLayout >> rotateResult: aResult [
-	^ aResult
-		collect: [ :aPosition | 
-			self angle = 0
-				ifTrue: [ aPosition ]
-				ifFalse: [ aPosition rotateBy: (self angleInRadians: self angle) about: 0 @ 0 ] ]
+TLLayout >> rotatePoint: aPosition [
+	^ self angle = 0
+		ifTrue: [ aPosition ]
+		ifFalse: [ aPosition rotateBy: (self angleInRadians: self angle) about: 0 @ 0 ]
+]
+
+{ #category : #placing }
+TLLayout >> rotateResult: aCollectionOfPoints [
+	^ aCollectionOfPoints collect: [ :aPosition | self rotatePoint: aPosition ]
 ]
 
 { #category : #angle }

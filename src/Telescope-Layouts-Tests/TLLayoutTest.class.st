@@ -13,6 +13,29 @@ TLLayoutTest >> setUp [
 ]
 
 { #category : #tests }
+TLLayoutTest >> testRotatePoint [
+	"The `00000000000001` are due to float calculation"
+
+	layout angle: 90.
+	self assert: (layout rotatePoint: 5 @ 5) equals: -5.0 @ 5.000000000000001.
+	layout angle: 180.
+	self assert: (layout rotatePoint: 5 @ 5) equals: -5.000000000000001 @ -5.0.
+	layout angle: 270.
+	self assert: (layout rotatePoint: 5 @ 5) equals: 5.0 @ -5.000000000000001
+]
+
+{ #category : #tests }
+TLLayoutTest >> testRotateResult [
+	"The `00000000000001` are due to float calculation"
+	layout angle: 90.
+	self assertCollection: (layout rotateResult: {(5 @ 5)}) hasSameElements: {(-5.0 @ 5.000000000000001)}.
+	layout angle: 180.
+	self assertCollection: (layout rotateResult: {(5 @ 5)}) hasSameElements: {(-5.000000000000001 @ -5.0)}.
+	layout angle: 270.
+	self assertCollection: (layout rotateResult: {(5 @ 5)}) hasSameElements: {(5.0 @ -5.000000000000001)}.
+]
+
+{ #category : #tests }
 TLLayoutTest >> testTranslateInPositiveReferencialOneNode [
 	| node |
 	node := context mock: 'node'.
@@ -64,25 +87,4 @@ TLLayoutTest >> testTranslateInPositiveReferencialTwoNodes [
 		translateInPositiveReferencial:
 			{(node1 -> (-5 @ -1)).
 			(node2 -> (-3 @ -8))} asDictionary
-]
-
-{ #category : #tests }
-TLLayoutTest >> testWithAngle [
-	layout angle: 90.	
-	"This is due to float calculation"
-	self assert: (layout rotateResult: {5 @ 5}) first equals: 5.000000000000001 @ -5.0
-]
-
-{ #category : #tests }
-TLLayoutTest >> testWithAngle2 [
-	layout angle: 180.
-	"This is due to float calculation"
-	self assert: (layout rotateResult: {5 @ 5}) first equals:  -5.0 @ -5.000000000000001
-]
-
-{ #category : #tests }
-TLLayoutTest >> testWithAngle3 [
-	layout angle: 90.
-	"This is due to float calculation"
-	self assert: (layout rotateResult: {5 @ 5}) first equals:  -4.0 @ 4.000000000000001
 ]
