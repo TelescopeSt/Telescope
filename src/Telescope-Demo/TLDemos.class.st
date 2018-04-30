@@ -682,15 +682,13 @@ TLDemos class >> exampleSystemComplexityMultipleRoots [
 		heightBlock: [ :each | each numberOfMethods max: 5 ];
 		backgroundColorBlock: #numberOfLinesOfCode;
 		property: #directSubclasses;
-		scopeBlock: [ :each | each entities asSet ];
 		open."
 	
 	| visualization |
-	self flag: #clean.	"BROKEN FOR NOW."
 	visualization := TLSystemComplexityMultipleRoots new
 		roots: Collection withAllSubclasses;
-		widthBlock: [ :each | each numberOfVariables max: 5 ];
-		heightBlock: [ :each | each numberOfMethods max: 5 ];
+		widthBlock: [ :each | (each instanceVariables size) * 10 ];
+		heightBlock: [ :each | each numberOfMethods * 3 ];
 		backgroundColorBlock: #linesOfCode;
 		property: #subclasses;
 		scopeBlock: #yourself.

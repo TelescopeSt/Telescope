@@ -30,15 +30,11 @@ TLSystemComplexityMultipleRoots >> buildVisualization [
 	self styleSheet
 		width: self widthBlock;
 		height: self heightBlock;
-		backgroundColor:
-				(RTGrayLinearColor new
-						command: self backgroundColorBlock;
-						scope: ( self scopeBlock value: self roots ));
+		backgroundColor: ((MDLColor white property: self backgroundColorBlock gradientAt: 0) to: MDLColor black at: 360);
 		borderColor: Color black.
 	self > #default addNodesFromEntities: self roots.
 	self > #default connectFollowingProperty: self property.
-	self > #default layout: RTTreeLayout.
-	
+	self > #default layout: (TLTreeLayout angle: 180)
 ]
 
 { #category : #accessing }
@@ -74,11 +70,6 @@ TLSystemComplexityMultipleRoots >> roots [
 { #category : #accessing }
 TLSystemComplexityMultipleRoots >> roots: anObject [
 	roots := anObject
-]
-
-{ #category : #accessing }
-TLSystemComplexityMultipleRoots >> scopeBlock [
-	^ scopeBlock
 ]
 
 { #category : #accessing }
