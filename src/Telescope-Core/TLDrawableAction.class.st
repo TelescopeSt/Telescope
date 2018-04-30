@@ -25,6 +25,11 @@ TLDrawableAction class >> onDoubleClick [
 ]
 
 { #category : #interactions }
+TLDrawableAction class >> onExternalTrigger [
+	^ self new onExternalTrigger
+]
+
+{ #category : #interactions }
 TLDrawableAction class >> onMove [
 	^ self new onMove
 ]
@@ -79,14 +84,6 @@ TLDrawableAction >> onExternalTrigger [
 	^ TLExternalTriggerInteraction new action: self 
 ]
 
-{ #category : #'as yet unclassified' }
-TLDrawableAction >> onExternalTriggerOnId: aString [
-	| interaction |
-	interaction := self onExternalTrigger.
-	(TLCytoscapeWebSocketDelegate visualizationWithId: aString) addInteraction: interaction.
-	^ interaction
-]
-
 { #category : #interactions }
 TLDrawableAction >> onMove [
 	^ TLNodeMovedInteraction new action: self 
@@ -97,12 +94,12 @@ TLDrawableAction >> onRightClick [
 	^ TLRightClickInteraction new action: self 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #interactions }
 TLDrawableAction >> onShiftMouseOver [
 	^ TLShiftMouseOverInteraction new action: self 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #action }
 TLDrawableAction >> regularActionIfNecessaryOn: aTLDrawable [
 	"The default behavior is to always perform action"
 	self actionOn: aTLDrawable
