@@ -73,7 +73,7 @@ TLDrawable >> asTLDrawableCollection [
 	^ TLDrawableCollection with: self
 ]
 
-{ #category : #'style-color' }
+{ #category : #style }
 TLDrawable >> backgroundColor: aColor [ 
 	self styleSheet backgroundColor: aColor
 ]

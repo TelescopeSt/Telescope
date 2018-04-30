@@ -139,9 +139,9 @@ TLDemos class >> exampleCompositeExploringHierarchy [
 
 { #category : #'not working demos' }
 TLDemos class >> exampleCompositeNodeWithLabelInsideInButterfly [
-	<script: 'self exampleCompositeNodeWithLabelInsideInButterfly open'>
+	"<script: 'self exampleCompositeNodeWithLabelInsideInButterfly open'>
 	<tlFilter: #composite>
-	<tlFilter: #visuTemplate>
+	<tlFilter: #visuTemplate>"
 	| butterfly |
 	self flag: 'Invalid demo; cannot run like this. #addCompositeDefaultCollapseInteraction is broken because of Triggers.'.
 	butterfly := TLButterfly new
@@ -262,6 +262,18 @@ TLDemos class >> exampleCycleDependencies [
 ]
 
 { #category : #demos }
+TLDemos class >> exampleDistributionMap [
+	<script: 'self exampleDistributionMap open'>
+	<tlFilter: #visuTemplate>
+	^ TLDistributionMap new
+		containerEntities: TLObject withAllSubclasses;
+		innerEntities: #methods;
+		innerEntitiesPopupBlock: [ :method | method name , ' have ' , method numArgs asString , ' arguments' ];
+		property: [ :method | method numArgs ];
+		yourself
+]
+
+{ #category : #demos }
 TLDemos class >> exampleDistributionMapAbstractMethodsCollection [
 	<script: 'self exampleDistributionMapAbstractMethodsCollection open'>
 	<tlFilter: #visuTemplate>
@@ -270,18 +282,6 @@ TLDemos class >> exampleDistributionMapAbstractMethodsCollection [
 		innerEntities: #methods;
 		innerEntitiesPopupBlock: [ :method | method name asString ];
 		property: #isAbstract;
-		yourself
-]
-
-{ #category : #demos }
-TLDemos class >> exampleDistributionMapAuthors [
-	<script: 'self exampleDistributionMapAuthors open'>
-	<tlFilter: #visuTemplate>
-	^ TLDistributionMap new
-		containerEntities: TLObject withAllSubclasses;
-		innerEntities: #methods;
-		innerEntitiesPopupBlock: [ :method | method author , ' wrote: ' , method name ];
-		property: #author;
 		yourself
 ]
 
@@ -337,13 +337,16 @@ TLDemos class >> exampleGradient [
 	<script: 'self exampleGradient open'>
 	<tlFilter: #style>
 	| visu |
-	visu := TLVisualization fromEntities: (1 to: 60).
-	visu styleSheet
+	visu := TLVisualization new.
+	visu > #color addNodesFromEntities: (1 to: 60).
+	(visu > #color) styleSheet
 		backgroundColor:
 			((MDLColor red property: #yourself gradientAt: 5)
 				to: MDLColor orange at: 15;
 				to: MDLColor yellow at: 30;
 				to: MDLColor green at: 50).
+	visu > #gray addNodesFromEntities: (1 to: 10).
+	(visu > #gray) styleSheet backgroundColor: ((MDLColor white property: #yourself gradientAt: 1) to: MDLColor black at: 10).
 	^ visu
 ]
 
@@ -461,7 +464,7 @@ TLDemos class >> exampleLayoutsAngle [
 				block: [ :node | 
 					visualization layout angle: node entity.
 					visualization requireLayoutApplication ]) onClick.
-	visualization addInteraction: TLPopUpAction onMouseOver.
+	visualization addInteraction: (TLPopUpAction text: [ :e | 'Turn to an angle of ', e asString , '°' ]) onMouseOver.
 	^ visualization
 ]
 
@@ -557,12 +560,12 @@ TLDemos class >> exampleNameCloud [
 	<script: 'self exampleNameCloud open'>
 	<tlFilter: #visuTemplate>
 	^ TLNameCloud new
-		entities: TLDrawable withAllSubclasses;
-		nameProperty: #name;
+		entities: (TLDrawable withAllSubclasses flatCollect: #methods);
+		nameProperty: #selector;
 		yourself
 ]
 
-{ #category : #'not working demos' }
+{ #category : #demos }
 TLDemos class >> examplePackageHierarchy [
 	<script: 'self exampleOverallHierarchy open'>
 	<tlFilter: #visuTemplate>
@@ -648,7 +651,6 @@ TLDemos class >> exampleSystemComplexity [
 	<script: 'self exampleSystemComplexity open'>
 	<tlFilter: #visuTemplate>
 	| visualization |
-	self flag: #clean.	"BROKEN FOR NOW."
 	visualization := TLSystemComplexity new
 		root: Collection;
 		property: #subclasses.
@@ -661,12 +663,11 @@ TLDemos class >> exampleSystemComplexityInContainer [
 	<script: 'self exampleSystemComplexityInContainer open'>
 	<tlFilter: #visuTemplate>
 	| visualization |
-	self flag: #clean.	"BROKEN FOR NOW."
 	visualization := TLSystemComplexity new
 		root: Collection;
 		property: #subclasses;
 		container: #package.
-	visualization addInteraction: TLPopUpAction onMouseOver.
+	visualization addInteraction: (TLPopUpAction text: [ :entity | entity name ]) onMouseOver propagateToChildren.
 	^ visualization
 ]
 
@@ -696,11 +697,11 @@ TLDemos class >> exampleSystemComplexityMultipleRoots [
 	^ visualization
 ]
 
-{ #category : #demos }
+{ #category : #'not working demos' }
 TLDemos class >> exampleTreeExplorerCollectionHierarchy [
-	<script: 'self exampleTreeExplorerCollectionHierarchy open'>
+	"<script: 'self exampleTreeExplorerCollectionHierarchy open'>
 	<tlFilter: #visuTemplate>
-
+"
 	| visualization |
 	self flag: #clean.	"BROKEN FOR NOW. Because of triggers"
 	visualization := TLTreeExplorer root: Collection expandProperty: #subclasses.

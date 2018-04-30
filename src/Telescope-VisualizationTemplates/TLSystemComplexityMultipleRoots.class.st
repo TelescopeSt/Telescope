@@ -30,7 +30,7 @@ TLSystemComplexityMultipleRoots >> buildVisualization [
 	self styleSheet
 		width: self widthBlock;
 		height: self heightBlock;
-		backgroundColor: ((MDLColor white property: self backgroundColorBlock gradientAt: 0) to: MDLColor black at: 360);
+		backgroundColor: ((MDLColor white property: self backgroundColorBlock gradientAt: 0) to: MDLColor black at: (self roots collect: [ :e | self backgroundColorBlock value: e ]) max);
 		borderColor: Color black.
 	self > #default addNodesFromEntities: self roots.
 	self > #default connectFollowingProperty: self property.

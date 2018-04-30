@@ -84,7 +84,7 @@ TLConnector >> applyLayoutOf: aTLGroup on: group [
 	self subclassResponsibility
 ]
 
-{ #category : #'instance creation' }
+{ #category : #initialization }
 TLConnector >> closeVisualization [
 	self subclassResponsibility
 ]
@@ -514,7 +514,7 @@ TLConnector >> open: aTLVisualization inWindowSized: aDimension titled: aString 
 	self subclassResponsibility 
 ]
 
-{ #category : #placing }
+{ #category : #layout }
 TLConnector >> placeElement: anAssociation correspondingToTrigger: aTLShapeTrigger relativeToDrawable: aTLSimpleNode [ 
 	self subclassResponsibility 
 ]

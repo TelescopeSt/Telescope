@@ -15,16 +15,22 @@ Class {
 }
 
 { #category : #building }
+TLSystemComplexity >> buildLegend [
+	super buildLegend.
+	self legend
+		descriptionForHeight: 'Number of methods';
+		descriptionForWidth: 'Number of instance variables';
+		description: 'Few lines of code' forColor: MDLColor white;
+		description: 'Lot of lines of code' forColor: MDLColor black
+]
+
+{ #category : #building }
 TLSystemComplexity >> buildVisualization [
+	super buildVisualization.
 	self styleSheet
 		expandCompositeNodes;
-		backgroundColor: Color veryPaleRed.
+		backgroundColor: (MDLColor tint: #light_blue code: #'100').
 	self styleSheet > #connection > #head shape: TLNoShape.
-	(self container ifNil: [ self styleSheet > #roots ] ifNotNil: [ self styleSheet > #children > #roots ])
-		width: [ :c | c instVarNames size * 5 max: 5 ];
-		height: [ :c | c numberOfMethods max: 5 ];
-		backgroundColor: ((MDLColor black property: #linesOfCode gradientAt: 1) to: MDLColor white at: (self roots collect: #linesOfCode) max);
-		borderColor: Color black.
 	(self container
 		ifNotNil: [ :c | 
 	(self roots groupedBy: c)
@@ -43,7 +49,12 @@ TLSystemComplexity >> buildVisualization [
 				addNodesFromEntities: self roots;
 				yourself ])
 		addStyle: #roots;
-		connectFollowingProperty: self property
+		connectFollowingProperty: self property.
+	(self container ifNil: [ self styleSheet > #roots ] ifNotNil: [ self styleSheet > #node ])
+		width: [ :c | c instVarNames size * 5 max: 5 ];
+		height: [ :c | c numberOfMethods ];
+		backgroundColor: ((MDLColor white property: #linesOfCode gradientAt: 1) to: MDLColor black at: (self obtain recursively simpleNodes collect: [ :n | n entity linesOfCode ]) max);
+		borderColor: Color black
 ]
 
 { #category : #accessing }

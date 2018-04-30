@@ -42,7 +42,7 @@ TLNameCloud >> buildVisualization [
 		backgroundColor: Color transparent;
 		borderColor: Color transparent;
 		adaptNodeWidthFromLabel;
-		labelSize: [ :each | self relativeSizeOf: each value withMin: minOcc andMax: maxOcc ].
+		labelSize: [ :each | | size | size := self relativeSizeOf: each value withMin: minOcc andMax: maxOcc. size logCr. size ].
 	(self > #names)
 		addNodesFromEntities: objects;
 		addInteraction: (TLPopUpAction text: [ :each | each value asString, ' occurences.' ]) onMouseOver;
