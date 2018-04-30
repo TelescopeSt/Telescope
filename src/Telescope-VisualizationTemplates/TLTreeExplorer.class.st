@@ -30,7 +30,7 @@ TLTreeExplorer class >> root: aRootEntity expandProperty: expandPropertyBlockOrS
 		yourself
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #building }
 TLTreeExplorer >> buildLegend [
 	self legend description: 'Expand' forColor: Color red.
 	self legend description: 'Collapse' forColor: Color blue
@@ -66,11 +66,6 @@ TLTreeExplorer >> configureInteractions [
 								((element state at: #expanded ifAbsent: [ false ])
 										ifTrue: [ Color blue ]
 										ifFalse: [ Color red ]) ]) onClick
-]
-
-{ #category : #'as yet unclassified' }
-TLTreeExplorer >> defaultEdgeBuilder [
-	^ TLEdgeLineBuilder newWithGenerator: self generator
 ]
 
 { #category : #default }
