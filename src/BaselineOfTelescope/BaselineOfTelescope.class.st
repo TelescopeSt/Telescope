@@ -37,6 +37,7 @@ BaselineOfTelescope >> baseline: spec [
 			self
 				babyMock: spec;
 				babyMock2: spec;
+				deepTraverser: spec;
 				mooseAlgo: spec;
 				styleSheet: spec;
 				materialColors: spec.
@@ -44,7 +45,7 @@ BaselineOfTelescope >> baseline: spec [
 			"Packages"
 			spec
 				package: 'Telescope-Core' with: [ spec requires: #('Stylesheet' 'Telescope-Layouts' 'MaterialColors') ];
-				package: 'Telescope-VisualizationTemplates' with: [ spec requires: #('Telescope-Core' 'MooseAlgos') ];
+				package: 'Telescope-VisualizationTemplates' with: [ spec requires: #('Telescope-Core' 'MooseAlgos' 'DeepTraverser') ];
 				package: 'Telescope-Demo' with: [ spec requires: #('Telescope-Core' 'Telescope-VisualizationTemplates') ];
 				package: 'Telescope-Core-Tests' with: [ spec requires: #('Telescope-Core' 'BabyMock2') ];
 				package: 'Telescope-Layouts';
@@ -60,6 +61,16 @@ BaselineOfTelescope >> baseline: spec [
 				group: 'layout-core' with: #('Telescope-Layouts');
 				group: 'minimal' with: #('Telescope-Core');
 				group: 'tests' with: #('Telescope-Core-Tests' 'Telescope-Layouts-Tests') ]
+]
+
+{ #category : #dependencies }
+BaselineOfTelescope >> deepTraverser: spec [
+	spec
+		project: 'DeepTraverser' with: [
+				spec
+					className: 'ConfigurationOfDeepTraverser';
+					version: #stable;
+					repository: 'http://www.smalltalkhub.com/mc/Moose/DeepTraverser/main' ]
 ]
 
 { #category : #dependencies }
