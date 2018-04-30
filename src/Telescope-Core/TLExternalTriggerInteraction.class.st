@@ -9,15 +9,24 @@ Class {
 		'id'
 	],
 	#classInstVars : [
-		'id'
+		'lastId'
 	],
 	#category : #'Telescope-Core-Interactions'
 }
 
-{ #category : #'as yet unclassified' }
-TLExternalTriggerInteraction class >> generateId [
-	id ifNil: [ id := 0 ].
-	^ (id := id + 1) asString
+{ #category : #initialization }
+TLExternalTriggerInteraction class >> initialize [
+	lastId := 0
+]
+
+{ #category : #accessing }
+TLExternalTriggerInteraction class >> lastId [
+	^ lastId
+]
+
+{ #category : #accessing }
+TLExternalTriggerInteraction class >> nextId [
+	^ (lastId := self lastId + 1) asString
 ]
 
 { #category : #generate }
@@ -38,5 +47,5 @@ TLExternalTriggerInteraction >> kind [
 
 { #category : #accessor }
 TLExternalTriggerInteraction >> triggerId [
-	^ id ifNil:[ id:= TLExternalTriggerInteraction generateId ]
+	^ id ifNil: [ id := self class nextId ]
 ]
