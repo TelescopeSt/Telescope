@@ -70,6 +70,7 @@ BaselineOfTelescope >> deepTraverser: spec [
 				spec
 					className: 'ConfigurationOfDeepTraverser';
 					version: #stable;
+					loads: #('Core');
 					repository: 'http://www.smalltalkhub.com/mc/Moose/DeepTraverser/main' ]
 ]
 
