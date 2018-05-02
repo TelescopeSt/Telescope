@@ -1,0 +1,107 @@
+"
+I am a baseline of Telescope. Read more at: https://github.com/TelescopeSt/Telescope
+"
+Class {
+	#name : #BaselineOfTelescope,
+	#superclass : #BaselineOf,
+	#category : #BaselineOfTelescope
+}
+
+{ #category : #dependencies }
+BaselineOfTelescope >> babyMock2: spec [
+	spec
+		project: 'BabyMock2'
+		with: [ spec
+				className: #ConfigurationOfBabyMock2;
+				versionString: #stable;
+				repository: 'http://smalltalkhub.com/mc/zeroflag/BabyMock2/main/' ]
+]
+
+{ #category : #dependencies }
+BaselineOfTelescope >> babyMock: spec [
+	spec
+		project: 'BabyMock'
+		with: [ spec
+				className: #ConfigurationOfBabyMock;
+				versionString: #stable;
+				repository: 'http://smalltalkhub.com/mc/zeroflag/BabyMock/main/' ]
+]
+
+{ #category : #baseline }
+BaselineOfTelescope >> baseline: spec [
+	<baseline>
+	spec
+		for: #common
+		do: [
+			"Dependencies"
+			self
+				babyMock: spec;
+				babyMock2: spec;
+				deepTraverser: spec;
+				mooseAlgo: spec;
+				styleSheet: spec;
+				materialColors: spec.
+
+			"Packages"
+			spec
+				package: 'Telescope-Core' with: [ spec requires: #('Stylesheet' 'Telescope-Layouts' 'MaterialColors') ];
+				package: 'Telescope-VisualizationTemplates' with: [ spec requires: #('Telescope-Core' 'MooseAlgos' 'DeepTraverser') ];
+				package: 'Telescope-Demo' with: [ spec requires: #('Telescope-Core' 'Telescope-VisualizationTemplates') ];
+				package: 'Telescope-Core-Tests' with: [ spec requires: #('Telescope-Core' 'BabyMock2') ];
+				package: 'Telescope-Layouts';
+				package: 'Telescope-Layouts-Tests' with: [ spec requires: #(#'Telescope-Layouts' 'BabyMock') ].
+
+			"Groups"
+			spec
+				group: 'all' with: #('default');
+				group: 'core' with: #('Telescope-Core' 'Telescope-VisualizationTemplates');
+				group: 'default' with: #('core' 'tests' 'demo');
+				group: 'demo' with: #('Telescope-Demo');
+				group: 'layout' with: #('Telescope-Layouts' 'Telescope-Layouts-Tests');
+				group: 'layout-core' with: #('Telescope-Layouts');
+				group: 'minimal' with: #('Telescope-Core');
+				group: 'tests' with: #('Telescope-Core-Tests' 'Telescope-Layouts-Tests') ]
+]
+
+{ #category : #dependencies }
+BaselineOfTelescope >> deepTraverser: spec [
+	spec
+		project: 'DeepTraverser' with: [
+				spec
+					className: 'ConfigurationOfDeepTraverser';
+					version: #stable;
+					loads: #('Core');
+					repository: 'http://www.smalltalkhub.com/mc/Moose/DeepTraverser/main' ]
+]
+
+{ #category : #dependencies }
+BaselineOfTelescope >> materialColors: spec [
+	spec baseline: 'MaterialColors' with: [ spec repository: 'github://DuneSt/MaterialColors:v1.x.x/src' ]
+]
+
+{ #category : #dependencies }
+BaselineOfTelescope >> mooseAlgo: spec [
+	spec
+		project: 'MooseAlgos'
+		with: [ spec
+				className: #ConfigurationOfMooseAlgos;
+				versionString: #development;
+				repository: 'http://smalltalkhub.com/mc/Moose/MooseAlgos/main/' ]
+]
+
+{ #category : #accessing }
+BaselineOfTelescope >> projectClass [
+	^ [ self class environment at: #MetacelloCypressBaselineProject ]
+		on: NotFound
+		do: [ super projectClass ]
+]
+
+{ #category : #dependencies }
+BaselineOfTelescope >> styleSheet: spec [
+	spec
+		project: 'Stylesheet'
+		with: [ spec
+				className: #ConfigurationOfStylesheet;
+				versionString: #development;
+				repository: 'http://smalltalkhub.com/mc/RMoD/Stylesheet/main/' ]
+]
