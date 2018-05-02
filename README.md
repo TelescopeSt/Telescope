@@ -35,6 +35,7 @@ To install Telescope on your Pharo image you can just execute the following scri
     	githubUser: 'TelescopeSt' project: 'Telescope' commitish: 'v1.x.x' path: 'src';
     	baseline: 'Telescope';
     	onWarningLog;
+		onUpgrade: [ :e | e useIncoming ];
     	load
 ```
 
