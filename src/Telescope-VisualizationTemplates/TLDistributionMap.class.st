@@ -30,7 +30,9 @@ Class {
 		'innerEntities',
 		'property',
 		'colorToProperty',
-		'innerEntitiesPopupBlock'
+		'innerEntitiesPopupBlock',
+		'propertySortingBlock',
+		'propertiesOrder'
 	],
 	#category : #'Telescope-VisualizationTemplates'
 }
@@ -46,18 +48,27 @@ TLDistributionMap class >> containerEntities: aCollectionOfEntities innerEntitie
 { #category : #building }
 TLDistributionMap >> buildLegend [
 	super buildLegend.
-	self legend backgroundDescription: [ :entity | (property cull: entity) asString ] forNodes: (self > #containers) allChildrenNodes
+	self legend
+		backgroundDescription: [ :entity | (property cull: entity) asString ]
+		forNodes: [ (self > #containers) allChildrenNodes
+				sorted:
+					[ :node1 :node2 | (self propertiesOrder indexOf: (self property cull: node1 entity)) <= (self propertiesOrder indexOf: (self property cull: node2 entity)) ] ]
 ]
 
 { #category : #building }
 TLDistributionMap >> buildVisualization [
 	self > #containers nodeBackgroundColor: Color white.
-	self > #containers nodeChildrenProperty: self innerEntities.
+	self > #containers
+		nodeChildrenProperty: [ :containerEntity | 
+			(self innerEntities cull: containerEntity)
+				sorted:
+					[ :innerEntity1 :innerEntity2 | (self propertiesOrder indexOf: (self property cull: innerEntity1)) < (self propertiesOrder indexOf: (self property cull: innerEntity2)) ] ].
 	(self > #containers) styleSheet > #children backgroundColor: self createColorBlock.
 	(self > #containers) styleSheet nodeLabel: #asString position: #top.
 	((self > #containers) styleSheet > #children) noNodeLabel.
 	self > #containers addNodesFromEntities: self containerEntities.
-	(self > #containers) allChildrenNodes addInteraction: (TLPopUpAction text: [ :entity | self obtain: self innerEntitiesPopupBlock on: entity ]) onMouseOver.
+	(self > #containers) allChildrenNodes
+		addInteraction: (TLPopUpAction text: [ :entity | self obtain: self innerEntitiesPopupBlock on: entity ]) onMouseOver.
 	(self addInteraction: TLExpandCollapseCompositeNodeAction onCompositeNodeWithChildren onClick) propagateToChildren.
 	super buildVisualization
 ]
@@ -70,6 +81,19 @@ TLDistributionMap >> colorToProperty [
 { #category : #accessing }
 TLDistributionMap >> colorToProperty: anObject [
 	colorToProperty := anObject
+]
+
+{ #category : #accessing }
+TLDistributionMap >> computePropertiesOrder [
+	| unsortedProperties |
+	self assert: self innerEntities notNil description: 'Inner entities required'.
+	self assert: self property notNil description: 'Property required'.
+	unsortedProperties := self containerEntities
+		flatCollectAsSet: [ :containerEntity | (self innerEntities cull: containerEntity) collect: [ :innerEntity | self property cull: innerEntity ] ].
+	self flag: #TODO.	"Find a better way to manage properties not supporting #<="
+	^ [ unsortedProperties sorted: self propertySortingBlock ]
+		on: MessageNotUnderstood
+		do: [ unsortedProperties ]
 ]
 
 { #category : #layout }
@@ -121,6 +145,11 @@ TLDistributionMap >> defaultColors [
 				yourself ]
 ]
 
+{ #category : #accessing }
+TLDistributionMap >> defaultPropertySortingBlock [
+	^ [ :property1 :property2 | property1 < property2 ]
+]
+
 { #category : #default }
 TLDistributionMap >> defaultTitle [
 	^ 'Distribution Map'
@@ -153,6 +182,12 @@ TLDistributionMap >> innerEntitiesPopupBlock: anObject [
 ]
 
 { #category : #accessing }
+TLDistributionMap >> propertiesOrder [
+	propertiesOrder ifNil: [ propertiesOrder := self computePropertiesOrder ].
+	^ propertiesOrder
+]
+
+{ #category : #accessing }
 TLDistributionMap >> property [
 	^ property
 ]
@@ -160,4 +195,15 @@ TLDistributionMap >> property [
 { #category : #accessing }
 TLDistributionMap >> property: anObject [
 	property := anObject
+]
+
+{ #category : #accessing }
+TLDistributionMap >> propertySortingBlock [
+	propertySortingBlock ifNil: [ propertySortingBlock := self defaultPropertySortingBlock ].
+	^ propertySortingBlock
+]
+
+{ #category : #accessing }
+TLDistributionMap >> propertySortingBlock: anObject [
+	propertySortingBlock := anObject
 ]
