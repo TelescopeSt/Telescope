@@ -108,6 +108,9 @@ TLDistributionMap >> containerEntities [
 
 { #category : #accessing }
 TLDistributionMap >> containerEntities: aCollectionOfObjects [
+	self
+		assert: aCollectionOfObjects isCollection
+		description: 'Container entities must be a collection'.
 	containerEntities := aCollectionOfObjects
 ]
 
