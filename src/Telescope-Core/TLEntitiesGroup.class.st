@@ -126,11 +126,6 @@ TLEntitiesGroup >> applySortingStrategy [
 	self sortingStrategy sortNodes: self telescopeEntities.
 ]
 
-{ #category : #'node-building' }
-TLEntitiesGroup >> buildNodeFromEntity: anEntity withStrategy: aTLNodeCreationStrategy [
-	^ aTLNodeCreationStrategy createNodeFromEntity: anEntity
-]
-
 { #category : #'node - creation' }
 TLEntitiesGroup >> childrenProperty: aValuableOrCollection [
 	"Ensure that we will not modify an upper level strategy"
