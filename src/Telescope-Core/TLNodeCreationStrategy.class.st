@@ -8,7 +8,8 @@ Class {
 		'childrenStrategy',
 		'compositeProperty',
 		'compositeChildrenLayout',
-		'nodeStyle'
+		'nodeStyle',
+		'childrenSortingStrategy'
 	],
 	#category : #'Telescope-Core-Strategy'
 }
@@ -48,6 +49,16 @@ TLNodeCreationStrategy >> beRecursive [
 TLNodeCreationStrategy >> childrenProperty: aString [ 
 	self flag: 'Only one should remain'.
 	^ self compositeProperty: aString
+]
+
+{ #category : #accessing }
+TLNodeCreationStrategy >> childrenSortingStrategy [
+	^ childrenSortingStrategy
+]
+
+{ #category : #accessing }
+TLNodeCreationStrategy >> childrenSortingStrategy: anObject [
+	childrenSortingStrategy := anObject
 ]
 
 { #category : #accessing }
@@ -116,12 +127,13 @@ TLNodeCreationStrategy >> customizeNode: node [
 	(node isComposite and: self compositeChildrenLayout notNil)
 		ifTrue: [ node childrenLayout: self compositeChildrenLayout ].
 	self nodeStyle
-		ifNotNil: [ 
-			node
+		ifNotNil: [ node
 				addStyle:
 					(self nodeStyle isBlock
 						ifTrue: [ self nodeStyle cull: node entity cull: node ]
-						ifFalse: self nodeStyle) ]
+						ifFalse: self nodeStyle) ].
+	(node isComposite and: self childrenSortingStrategy notNil)
+		ifTrue: [ node childrenGroup sortingStrategy: self childrenSortingStrategy ]
 ]
 
 { #category : #initialization }
