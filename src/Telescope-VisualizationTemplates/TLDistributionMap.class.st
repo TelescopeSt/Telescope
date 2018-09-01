@@ -59,17 +59,20 @@ TLDistributionMap >> buildLegend [
 TLDistributionMap >> buildVisualization [
 	self > #containers nodeBackgroundColor: Color white.
 	self > #containers
-		nodeChildrenProperty: [ :containerEntity | 
-			(self innerEntities cull: containerEntity)
-				sorted:
-					[ :innerEntity1 :innerEntity2 | (self propertiesOrder indexOf: (self property cull: innerEntity1)) < (self propertiesOrder indexOf: (self property cull: innerEntity2)) ] ].
+		nodeChildrenProperty: [ :containerEntity | self innerEntities cull: containerEntity ].
+	(self > #containers) nodeCreationStrategy
+		childrenSortingStrategy: (TLPropertyBasedStrategy onProperty: self property).
 	(self > #containers) styleSheet > #children backgroundColor: self createColorBlock.
 	(self > #containers) styleSheet nodeLabel: #asString position: #top.
 	((self > #containers) styleSheet > #children) noNodeLabel.
 	self > #containers addNodesFromEntities: self containerEntities.
 	(self > #containers) allChildrenNodes
-		addInteraction: (TLPopUpAction text: [ :entity | self obtain: self innerEntitiesPopupBlock on: entity ]) onMouseOver.
-	(self addInteraction: TLExpandCollapseCompositeNodeAction onCompositeNodeWithChildren onClick) propagateToChildren.
+		addInteraction:
+			(TLPopUpAction text: [ :entity | self obtain: self innerEntitiesPopupBlock on: entity ])
+				onMouseOver.
+	(self
+		addInteraction: TLExpandCollapseCompositeNodeAction onCompositeNodeWithChildren onClick)
+		propagateToChildren.
 	super buildVisualization
 ]
 
