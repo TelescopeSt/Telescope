@@ -170,7 +170,8 @@ TLLayout >> obtainsDimension: nodeDimension forAngle: anAngleInDegree [
 { #category : #'as yet unclassified' }
 TLLayout >> obtainsNodeDimension: aNode [
 	aNode isNode
-		ifTrue: [ aNode children ifNotEmpty: [ ^ self obtainsNodeDimension: aNode forAngle: 0 ] ].
+		ifTrue: [ aNode children size > 0
+				ifTrue: [ ^ self obtainsNodeDimension: aNode forAngle: 0 ] ].
 	^ self obtainsNodeDimension: aNode forAngle: self angle
 ]
 
