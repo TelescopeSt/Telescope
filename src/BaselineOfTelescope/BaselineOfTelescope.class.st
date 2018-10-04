@@ -98,10 +98,5 @@ BaselineOfTelescope >> projectClass [
 
 { #category : #dependencies }
 BaselineOfTelescope >> styleSheet: spec [
-	spec
-		project: 'Stylesheet'
-		with: [ spec
-				className: #ConfigurationOfStylesheet;
-				versionString: #development;
-				repository: 'http://smalltalkhub.com/mc/RMoD/Stylesheet/main/' ]
+	spec baseline: 'Stylesheet' with: [ spec repository: 'github://pharo-contribution/Stylesheet:v1.x.x/src' ]
 ]
