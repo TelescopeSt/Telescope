@@ -98,5 +98,5 @@ BaselineOfTelescope >> projectClass [
 
 { #category : #dependencies }
 BaselineOfTelescope >> styleSheet: spec [
-	spec baseline: 'Stylesheet' with: [ spec repository: 'github://pharo-contribution/Stylesheet:v1.x.x/src' ]
+	spec baseline: 'Stylesheet' with: [ spec repository: 'github://pharo-contributions/Stylesheet:v1.x.x/src' ]
 ]
