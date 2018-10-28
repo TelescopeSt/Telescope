@@ -65,7 +65,12 @@ TLDistributionMap >> buildVisualization [
 	(self > #containers) styleSheet > #children backgroundColor: self createColorBlock.
 	(self > #containers) styleSheet nodeLabel: #asString position: #top.
 	((self > #containers) styleSheet > #children) noNodeLabel.
+
 	self > #containers addNodesFromEntities: self containerEntities.
+	"sort the containers AFTER they are all added to the visualization because the
+	sorting is rather heavy, we want to do it once for all"
+	self > #containers sortingStrategy: (TLDistributionMapContainerSortingStrategy onDistributionMap: self).
+
 	(self > #containers) allChildrenNodes
 		addInteraction:
 			(TLPopUpAction text: [ :entity | self obtain: self innerEntitiesPopupBlock on: entity ])
@@ -93,6 +98,7 @@ TLDistributionMap >> computePropertiesOrder [
 	self assert: self property notNil description: 'Property required'.
 	unsortedProperties := self containerEntities
 		flatCollectAsSet: [ :containerEntity | (self innerEntities cull: containerEntity) collect: [ :innerEntity | self property cull: innerEntity ] ].
+
 	self flag: #TODO.	"Find a better way to manage properties not supporting #<="
 	^ [ unsortedProperties sorted: self propertySortingBlock ]
 		on: MessageNotUnderstood
@@ -146,14 +152,14 @@ TLDistributionMap >> defaultColors [
 		inject: OrderedCollection new
 		into: [ :coll :color | 
 			coll
-				add: (MDLColor tint: color code: #'200');
+				"add: (MDLColor tint: color code: #'200');"
 				add: (MDLColor tint: color code: #'800');
 				yourself ]
 ]
 
 { #category : #accessing }
 TLDistributionMap >> defaultPropertySortingBlock [
-	^ [ :property1 :property2 | property1 < property2 ]
+	^ [ :property1 :property2 | property1 <= property2 ]
 ]
 
 { #category : #default }

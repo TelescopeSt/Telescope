@@ -144,6 +144,11 @@ TTLDrawableCollection >> removeAllConnections [
 	self allNodesRecursivelyDo: #removeAllConnection
 ]
 
+{ #category : #requirements }
+TTLDrawableCollection >> sortingStrategy [
+	self explicitRequirement
+]
+
 { #category : #accessing }
 TTLDrawableCollection >> subGroups [
 	^ self collection

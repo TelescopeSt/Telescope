@@ -1,3 +1,6 @@
+"
+Sorting startegies according to the order of a property they have
+"
 Class {
 	#name : #TLPropertyBasedStrategy,
 	#superclass : #TLSortingStrategy,

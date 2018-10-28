@@ -116,14 +116,20 @@ TLEntitiesGroup >> addNodesFromEntities: aGroupOfEntities [
 
 { #category : #adding }
 TLEntitiesGroup >> addNodesFromEntities: aGroupOfEntities withStrategy: aTLNodeCreationStrategy [
-	^ aGroupOfEntities
-		collect: [ :anEntity | self addNodeFromEntity: anEntity withStrategy: aTLNodeCreationStrategy ]
-		as: TLDrawableCollection
+	| aGroupOfNodes |
+	aGroupOfNodes := aGroupOfEntities
+									collect: [ :anEntity |
+										self addNodeFromEntity: anEntity withStrategy: aTLNodeCreationStrategy ]
+									as: TLDrawableCollection.
+	^ 	self sortingStrategy notNil
+			ifTrue: [ aGroupOfNodes sortingStrategy: self sortingStrategy ]
+			ifFalse: [ aGroupOfNodes  ]
+
 ]
 
 { #category : #sorting }
 TLEntitiesGroup >> applySortingStrategy [
-	self sortingStrategy sortNodes: self telescopeEntities.
+	self sortingStrategy sortNodes: self collection.
 ]
 
 { #category : #'node - creation' }
@@ -332,15 +338,15 @@ TLEntitiesGroup >> sort: aBlockClosure [
 	self collection sort: aBlockClosure 
 ]
 
-{ #category : #accessing }
+{ #category : #requirements }
 TLEntitiesGroup >> sortingStrategy [
 	^ sortingStrategy
 ]
 
-{ #category : #accessing }
+{ #category : #requirements }
 TLEntitiesGroup >> sortingStrategy: anObject [
 	sortingStrategy := anObject.
-	self applySortingStrategy.
+	self collection ifNotEmpty: [self applySortingStrategy].
 	
 ]
 

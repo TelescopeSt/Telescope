@@ -10,4 +10,5 @@ Class {
 { #category : #sorting }
 TLKeepingOrderStrategy >> sortNodes: aCollectionOfTLNodes [
 	"I do nothing"
+	^ aCollectionOfTLNodes
 ]
