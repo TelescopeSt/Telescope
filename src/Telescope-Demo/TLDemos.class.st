@@ -274,18 +274,6 @@ TLDemos class >> exampleDistributionMap [
 ]
 
 { #category : #demos }
-TLDemos class >> exampleDistributionMapAbstractMethodsCollection [
-	<script: 'self exampleDistributionMapAbstractMethodsCollection open'>
-	<tlFilter: #visuTemplate>
-	^ TLDistributionMap new
-		containerEntities: TLDrawable withAllSubclasses;
-		innerEntities: #methods;
-		innerEntitiesPopupBlock: [ :method | method name asString ];
-		property: #isAbstract;
-		yourself
-]
-
-{ #category : #demos }
 TLDemos class >> exampleExpandCollapseNodesAction [
 	<script: 'self exampleExpandCollapseNodesAction open'>
 	<tlFilter: #interaction>

@@ -43,7 +43,8 @@ TLDistributionMapContainerSortingStrategy >> sortNodes: aCollectionOfTLNodes [
 	| dims vectors clust dendrogram |
 	dims := self getVectorsDimensions: aCollectionOfTLNodes.
 	vectors := aCollectionOfTLNodes asOrderedCollection collect: [ :node | self vectorDescription: node forDimensions: dims ].
-	clust := MalClusterEngine with: vectors using: [ :v1 :v2 | v1 cosine: v2].
+	"clustering expects a distance metric and #cosine: is a similarity in [0,1]"
+	clust := MalClusterEngine with: vectors using: [ :v1 :v2 | 1 - (v1 cosine: v2)].
 	dendrogram := clust singleLinkage orderLeafs.
 
 	"now re-order elements WITHIN aCollectionOfTLNodes"
