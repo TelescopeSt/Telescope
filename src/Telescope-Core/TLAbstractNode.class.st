@@ -80,6 +80,18 @@ TLAbstractNode >> connectFromNode: aTLNode [
 ]
 
 { #category : #connect }
+TLAbstractNode >> connectIfNotFollowingProperty: aBlockOrSymbol context: aTLEntitiesGroup [
+	| target |
+	target := aBlockOrSymbol value: self entity.
+	^ (target isCollection and: [ target isString not ])
+		ifTrue: [ {(self connectIfNotTo: (aTLEntitiesGroup nodesForEntities: target))} ]
+		ifFalse: [ 
+			[ {(self connectIfNotTo: (aTLEntitiesGroup nodeForEntity: target))} ]
+				on: NotFound
+				do: [ #() ] ]
+]
+
+{ #category : #connect }
 TLAbstractNode >> connectIfNotFromNode: aTLNode [
 	^ aTLNode connectIfNotToNode: self
 ]

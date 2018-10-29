@@ -1,11 +1,14 @@
 "
-A TLNodeCollection is a collection of drawable that provide in addition of Collection API all the telescope API about connecting...
+A TLNodeCollection is a collection of drawable that provides in addition to the usual Collection API, all the telescope API about connecting...
 "
 Class {
 	#name : #TLDrawableCollection,
 	#superclass : #OrderedCollection,
 	#traits : 'TTLConnectable - {#connectTo:. #connectIfNotTo:. #connectTo:entity:} + TTLDrawableCollection',
 	#classTraits : 'TTLConnectable classTrait + TTLDrawableCollection classTrait',
+	#instVars : [
+		'sortingStrategy'
+	],
 	#category : #'Telescope-Core-Model'
 }
 
@@ -56,7 +59,7 @@ TLDrawableCollection >> nodesDo: aBlock [
 		select: #isNode thenDo: aBlock
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #removing }
 TLDrawableCollection >> removeAllConnections [
 	self allNodesRecursivelyDo: #removeAllConnections
 ]

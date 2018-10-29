@@ -28,6 +28,16 @@ TTLConnectable >> connectFrom: aTLEntity entity: anObject [
 ]
 
 { #category : #connect }
+TTLConnectable >> connectIfNotFollowingProperty: aBlockOrSymbol [
+	^ self connectIfNotFollowingProperty: aBlockOrSymbol context: self
+]
+
+{ #category : #connect }
+TTLConnectable >> connectIfNotFollowingProperty: aBlockOrSymbol context: aTLEntitiesGroup [
+	^ self flatCollect: [ :tlEntity | tlEntity connectIfNotFollowingProperty: aBlockOrSymbol context: aTLEntitiesGroup ]
+]
+
+{ #category : #connect }
 TTLConnectable >> connectIfNotTo: aTLEntity [
 	^ self explicitRequirement
 ]

@@ -16,7 +16,8 @@ Class {
 	#instVars : [
 		'telescopeEntities',
 		'subGroupsDictionary',
-		'nodeCreationStrategy'
+		'nodeCreationStrategy',
+		'sortingStrategy'
 	],
 	#category : #'Telescope-Core-Model'
 }
@@ -86,6 +87,7 @@ TLEntitiesGroup >> addCompositeNodeFromEntity: aParentEntity children: aCollecti
 { #category : #adding }
 TLEntitiesGroup >> addDrawable: aTLDrawable [
 	aTLDrawable parent: self.
+	self applySortingStrategy.
 	^ aTLDrawable 
 ]
 
@@ -114,14 +116,12 @@ TLEntitiesGroup >> addNodesFromEntities: aGroupOfEntities [
 
 { #category : #adding }
 TLEntitiesGroup >> addNodesFromEntities: aGroupOfEntities withStrategy: aTLNodeCreationStrategy [
-	^ aGroupOfEntities
-		collect: [ :anEntity | self addNodeFromEntity: anEntity withStrategy: aTLNodeCreationStrategy ]
-		as: TLDrawableCollection
+	^ aGroupOfEntities collect: [ :anEntity | self addNodeFromEntity: anEntity withStrategy: aTLNodeCreationStrategy ] as: TLDrawableCollection
 ]
 
-{ #category : #'node-building' }
-TLEntitiesGroup >> buildNodeFromEntity: anEntity withStrategy: aTLNodeCreationStrategy [
-	^ aTLNodeCreationStrategy createNodeFromEntity: anEntity
+{ #category : #sorting }
+TLEntitiesGroup >> applySortingStrategy [
+	self sortingStrategy sortNodes: self collection.
 ]
 
 { #category : #'node - creation' }
@@ -218,6 +218,7 @@ TLEntitiesGroup >> initialize [
 	super initialize.
 	telescopeEntities := TLDrawableCollection new.
 	subGroupsDictionary := Dictionary new.
+	sortingStrategy := TLKeepingOrderStrategy new
 ]
 
 { #category : #test }
@@ -322,6 +323,23 @@ TLEntitiesGroup >> select: aValuable thenCollect: anotherValuable [
 { #category : #accessing }
 TLEntitiesGroup >> size [
 	^ self telescopeEntities size
+]
+
+{ #category : #sorting }
+TLEntitiesGroup >> sort: aBlockClosure [ 
+	self collection sort: aBlockClosure 
+]
+
+{ #category : #'as yet unclassified' }
+TLEntitiesGroup >> sortingStrategy [
+	^ sortingStrategy
+]
+
+{ #category : #requirements }
+TLEntitiesGroup >> sortingStrategy: anObject [
+	sortingStrategy := anObject.
+	self collection ifNotEmpty: [self applySortingStrategy].
+	
 ]
 
 { #category : #accessing }

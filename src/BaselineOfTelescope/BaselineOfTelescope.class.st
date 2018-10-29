@@ -76,7 +76,7 @@ BaselineOfTelescope >> deepTraverser: spec [
 
 { #category : #dependencies }
 BaselineOfTelescope >> materialColors: spec [
-	spec baseline: 'MaterialColors' with: [ spec repository: 'github://DuneSt/MaterialColors:v1.x.x/src' ]
+	spec baseline: 'MaterialColors' with: [ spec repository: 'github://DuneSt/MaterialColors:v2.x.x/src' ]
 ]
 
 { #category : #dependencies }

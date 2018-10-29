@@ -282,6 +282,7 @@ TLDemos class >> exampleDistributionMapAbstractMethodsCollection [
 		innerEntities: #methods;
 		innerEntitiesPopupBlock: [ :method | method name asString ];
 		property: #isAbstract;
+		propertySortingBlock: [ :boolean1 :boolean2 | boolean1 ];
 		yourself
 ]
 
@@ -643,6 +644,36 @@ TLDemos class >> exampleRecursiveCompositeNode [
 		addInteraction: TLExpandCollapseCompositeNodeAction onCompositeNodeWithChildren onClick propagateToChildren;
 		addInteraction: (TLInspectAction withMenu: 'Inspect');
 		addInteraction: ((TLCustomAction block: [ :node | node entity browse ] condition: [ :node | node entity numberOfMethods < 5 ]) withMenu: 'Browse').
+	^ visualization
+]
+
+{ #category : #demos }
+TLDemos class >> exampleSortingChildren [
+	<script: 'self exampleSortingChildren open'>
+	<tlFilter: #composite>
+	| visualization |
+	visualization := TLVisualization new.
+	
+	visualization nodeCreationStrategy
+		compositeProperty: [ :entity | entity methods ];
+		compositeChildrenLayout: (TLLinearLayout gap: 50 ratio: 16 / 9);
+		childrenSortingStrategy:
+			((TLPropertyBasedStrategy onProperty: [ :method | method numArgs ])
+				descending;
+				yourself).
+				
+	visualization addNodesFromEntities: TLConnectable withAllSubclasses.
+	
+	visualization styleSheet
+		layout: (TLLinearLayout gap: 200 ratio: 16 / 9);
+		nodeLabel: #asString position: #top;
+		compositeExpandedByDefault: true;
+		backgroundColor: [ :class | MDLColor transparent ].
+	(visualization styleSheet > #node)
+		nodeLabel: #selector position: #top;
+		width: [ :method | method numArgs * 30 + 30 ];
+		backgroundColor: [ :method | (Color wheel: 10) at: method numArgs + 1 ].
+		
 	^ visualization
 ]
 

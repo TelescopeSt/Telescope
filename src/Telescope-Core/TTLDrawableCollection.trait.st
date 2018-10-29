@@ -129,7 +129,7 @@ TTLDrawableCollection >> nodesForEntities: aCollectionOfEntities [
 	^ self flatCollect: [ :aTelescopeEntity | aTelescopeEntity nodesForEntities: aCollectionOfEntities ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 TTLDrawableCollection >> obtain [
 	^ TLObtainRequest source: self
 ]
