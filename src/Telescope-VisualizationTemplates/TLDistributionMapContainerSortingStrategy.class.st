@@ -10,7 +10,7 @@ Class {
 	#instVars : [
 		'innerEntitiesBlock'
 	],
-	#category : #'Telescope-Core-Strategy'
+	#category : #'Telescope-VisualizationTemplates'
 }
 
 { #category : #'as yet unclassified' }
@@ -49,7 +49,7 @@ TLDistributionMapContainerSortingStrategy >> sortNodes: aCollectionOfTLNodes [
 
 	"now re-order elements WITHIN aCollectionOfTLNodes"
 	aCollectionOfTLNodes removeAll.
-	^aCollectionOfTLNodes addAll: (dendrogram elements collect: #item)
+	aCollectionOfTLNodes addAll: (dendrogram elements collect: #item)
 
 ]
 

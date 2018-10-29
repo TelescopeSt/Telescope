@@ -29,10 +29,8 @@ Class {
 		'containerEntities',
 		'innerEntities',
 		'property',
-		'colorToProperty',
 		'innerEntitiesPopupBlock',
-		'propertySortingBlock',
-		'propertiesOrder'
+		'propertySortingBlock'
 	],
 	#category : #'Telescope-VisualizationTemplates'
 }
@@ -48,61 +46,33 @@ TLDistributionMap class >> containerEntities: aCollectionOfEntities innerEntitie
 { #category : #building }
 TLDistributionMap >> buildLegend [
 	super buildLegend.
-	self legend
-		backgroundDescription: [ :entity | (property cull: entity) asString ]
-		forNodes: [ (self > #containers) allChildrenNodes
-				sorted:
-					[ :node1 :node2 | (self propertiesOrder indexOf: (self property cull: node1 entity)) <= (self propertiesOrder indexOf: (self property cull: node2 entity)) ] ]
+	self legend backgroundDescription: [ :entity | (property cull: entity) asString ] forNodes: [ (self > #containers) allChildrenNodes ]
 ]
 
 { #category : #building }
 TLDistributionMap >> buildVisualization [
-	self > #containers nodeBackgroundColor: Color white.
-	self > #containers
-		nodeChildrenProperty: [ :containerEntity | self innerEntities cull: containerEntity ].
+	super buildVisualization.
+	
 	(self > #containers) nodeCreationStrategy
-		childrenSortingStrategy: (TLPropertyBasedStrategy onProperty: self property).
-	(self > #containers) styleSheet > #children backgroundColor: self createColorBlock.
-	(self > #containers) styleSheet nodeLabel: #asString position: #top.
-	((self > #containers) styleSheet > #children) noNodeLabel.
-
+		childrenProperty: [ :containerEntity | self innerEntities cull: containerEntity ];
+		childrenSortingStrategy: (self propertySortingBlock ifNil: [ (TLPropertyBasedStrategy onProperty: self property) ] ifNotNil: [ :blk | TLSortingBlockStrategy sortingBlock: [ :node1 :node2 | blk value: (self property value: node1 entity) value: (self property value: node2 entity) ] ]).
+		
+	((self > #containers) styleSheet > #children)
+		backgroundColor: self createColorBlock;
+		noNodeLabel.
+	(self > #containers) styleSheet
+		nodeLabel: #asString position: #top;
+		backgroundColor: Color white.
+		
 	self > #containers addNodesFromEntities: self containerEntities.
+	
 	"sort the containers AFTER they are all added to the visualization because the
 	sorting is rather heavy, we want to do it once for all"
 	self > #containers sortingStrategy: (TLDistributionMapContainerSortingStrategy onDistributionMap: self).
-
-	(self > #containers) allChildrenNodes
-		addInteraction:
-			(TLPopUpAction text: [ :entity | self obtain: self innerEntitiesPopupBlock on: entity ])
-				onMouseOver.
-	(self
-		addInteraction: TLExpandCollapseCompositeNodeAction onCompositeNodeWithChildren onClick)
-		propagateToChildren.
-	super buildVisualization
-]
-
-{ #category : #accessing }
-TLDistributionMap >> colorToProperty [
-	^ colorToProperty
-]
-
-{ #category : #accessing }
-TLDistributionMap >> colorToProperty: anObject [
-	colorToProperty := anObject
-]
-
-{ #category : #accessing }
-TLDistributionMap >> computePropertiesOrder [
-	| unsortedProperties |
-	self assert: self innerEntities notNil description: 'Inner entities required'.
-	self assert: self property notNil description: 'Property required'.
-	unsortedProperties := self containerEntities
-		flatCollectAsSet: [ :containerEntity | (self innerEntities cull: containerEntity) collect: [ :innerEntity | self property cull: innerEntity ] ].
-
-	self flag: #TODO.	"Find a better way to manage properties not supporting #<="
-	^ [ unsortedProperties sorted: self propertySortingBlock ]
-		on: MessageNotUnderstood
-		do: [ unsortedProperties ]
+	
+	(self > #containers) allChildrenNodes addInteraction: (TLPopUpAction text: [ :entity | self obtain: self innerEntitiesPopupBlock on: entity ]) onMouseOver.
+	
+	(self addInteraction: TLExpandCollapseCompositeNodeAction onCompositeNodeWithChildren onClick) propagateToChildren
 ]
 
 { #category : #layout }
@@ -125,40 +95,18 @@ TLDistributionMap >> containerEntities: aCollectionOfObjects [
 
 { #category : #private }
 TLDistributionMap >> createColorBlock [
-	| frequencyDictionary sortedProperties |
-	frequencyDictionary := Dictionary new.
-	(self containerEntities flatCollect: self innerEntities)
-		do: [ :anEntity | 
-			frequencyDictionary
-				at: (self property value: anEntity)
-				put: (frequencyDictionary at: (self property value: anEntity) ifAbsent: [ 0 ]) + 1 ].
-	sortedProperties := (frequencyDictionary associations sort: [ :a :b | a value > b value ]) collect: #key.
-	self colorToProperty: ((self defaultColors first: (sortedProperties size min: self defaultColors size))
-		collectWithIndex: [ :aColor :anIndex | (sortedProperties at: anIndex) -> aColor ]) asDictionary.
+	| sortedProperties colorsMap |
+	sortedProperties := ((self containerEntities flatCollect: self innerEntities) collectAsSet: [ :e | self property value: e ]) asArray.
+	colorsMap := ((Color wheel: sortedProperties size) collectWithIndex: [ :aColor :anIndex | (sortedProperties at: anIndex) -> aColor ]) asDictionary.
 	^ [ :anEntity | 
 	| color |
-	color := self colorToProperty at: (self property value: anEntity) ifAbsent: [ self defaultColor ].
+	color := colorsMap at: (self property value: anEntity) ifAbsent: [ self defaultColor ].
 	color ]
 ]
 
 { #category : #default }
 TLDistributionMap >> defaultColor [
 	^ Color gray
-]
-
-{ #category : #default }
-TLDistributionMap >> defaultColors [
-	^ MDLColor colors keys
-		inject: OrderedCollection new
-		into: [ :coll :color | 
-			coll
-				add: (MDLColor tint: color code: #'800');
-				yourself ]
-]
-
-{ #category : #accessing }
-TLDistributionMap >> defaultPropertySortingBlock [
-	^ [ :property1 :property2 | property1 <= property2 ]
 ]
 
 { #category : #default }
@@ -193,12 +141,6 @@ TLDistributionMap >> innerEntitiesPopupBlock: anObject [
 ]
 
 { #category : #accessing }
-TLDistributionMap >> propertiesOrder [
-	propertiesOrder ifNil: [ propertiesOrder := self computePropertiesOrder ].
-	^ propertiesOrder
-]
-
-{ #category : #accessing }
 TLDistributionMap >> property [
 	^ property
 ]
@@ -210,11 +152,10 @@ TLDistributionMap >> property: anObject [
 
 { #category : #accessing }
 TLDistributionMap >> propertySortingBlock [
-	propertySortingBlock ifNil: [ propertySortingBlock := self defaultPropertySortingBlock ].
 	^ propertySortingBlock
 ]
 
 { #category : #accessing }
-TLDistributionMap >> propertySortingBlock: anObject [
-	propertySortingBlock := anObject
+TLDistributionMap >> propertySortingBlock: aBlock [
+	propertySortingBlock := aBlock
 ]

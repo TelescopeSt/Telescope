@@ -59,7 +59,7 @@ TLDrawableCollection >> nodesDo: aBlock [
 		select: #isNode thenDo: aBlock
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #removing }
 TLDrawableCollection >> removeAllConnections [
 	self allNodesRecursivelyDo: #removeAllConnections
 ]
@@ -67,14 +67,4 @@ TLDrawableCollection >> removeAllConnections [
 { #category : #style }
 TLDrawableCollection >> removeStyle: aStyle [
 	self do: [ :aDrawable | aDrawable removeStyle: aStyle ]
-]
-
-{ #category : #requirements }
-TLDrawableCollection >> sortingStrategy [
-	^ sortingStrategy
-]
-
-{ #category : #requirements }
-TLDrawableCollection >> sortingStrategy: anObject [
-	sortingStrategy := anObject
 ]

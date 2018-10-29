@@ -129,7 +129,7 @@ TTLDrawableCollection >> nodesForEntities: aCollectionOfEntities [
 	^ self flatCollect: [ :aTelescopeEntity | aTelescopeEntity nodesForEntities: aCollectionOfEntities ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 TTLDrawableCollection >> obtain [
 	^ TLObtainRequest source: self
 ]
@@ -142,11 +142,6 @@ TTLDrawableCollection >> parentNodes [
 { #category : #removing }
 TTLDrawableCollection >> removeAllConnections [
 	self allNodesRecursivelyDo: #removeAllConnection
-]
-
-{ #category : #requirements }
-TTLDrawableCollection >> sortingStrategy [
-	self explicitRequirement
 ]
 
 { #category : #accessing }

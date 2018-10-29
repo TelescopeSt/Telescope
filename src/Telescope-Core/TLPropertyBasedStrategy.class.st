@@ -58,7 +58,9 @@ TLPropertyBasedStrategy >> sortNodes: aCollectionOfTLNodes [
 		sort: [ :node1 :node2 | 
 			node1Value := self property value: node1 entity.
 			node2Value := self property value: node2 entity.
-			self isAscending
+			[ self isAscending
 				ifTrue: [ node1Value <= node2Value ]
 				ifFalse: [ node1Value >= node2Value ] ]
+				on: MessageNotUnderstood
+				do: [ false ] ]
 ]

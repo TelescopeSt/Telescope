@@ -116,15 +116,7 @@ TLEntitiesGroup >> addNodesFromEntities: aGroupOfEntities [
 
 { #category : #adding }
 TLEntitiesGroup >> addNodesFromEntities: aGroupOfEntities withStrategy: aTLNodeCreationStrategy [
-	| aGroupOfNodes |
-	aGroupOfNodes := aGroupOfEntities
-									collect: [ :anEntity |
-										self addNodeFromEntity: anEntity withStrategy: aTLNodeCreationStrategy ]
-									as: TLDrawableCollection.
-	^ 	self sortingStrategy notNil
-			ifTrue: [ aGroupOfNodes sortingStrategy: self sortingStrategy ]
-			ifFalse: [ aGroupOfNodes  ]
-
+	^ aGroupOfEntities collect: [ :anEntity | self addNodeFromEntity: anEntity withStrategy: aTLNodeCreationStrategy ] as: TLDrawableCollection
 ]
 
 { #category : #sorting }
@@ -338,7 +330,7 @@ TLEntitiesGroup >> sort: aBlockClosure [
 	self collection sort: aBlockClosure 
 ]
 
-{ #category : #requirements }
+{ #category : #'as yet unclassified' }
 TLEntitiesGroup >> sortingStrategy [
 	^ sortingStrategy
 ]
