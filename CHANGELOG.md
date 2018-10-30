@@ -1,3 +1,9 @@
+# [v1.1.1](https://github.com/TelescopeSt/Telescope/compare/v1.1.0...v1.1.1) (2018-10-30)
+
+## Enhancement
+
+* Rename `connectIfNotFollowingProperty:` into `#connectIfNotAlreadyFollowingProperty:`. ([84a32a](https://github.com/TelescopeSt/Telescope/commit/84a32a68f0f58af387092501fc70dace62837cdd))
+
 # [v1.1.0](https://github.com/TelescopeSt/Telescope/compare/v1.0.1...v1.1.0) (2018-10-29)
 
 ## Features

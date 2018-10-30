@@ -80,7 +80,7 @@ TLAbstractNode >> connectFromNode: aTLNode [
 ]
 
 { #category : #connect }
-TLAbstractNode >> connectIfNotFollowingProperty: aBlockOrSymbol context: aTLEntitiesGroup [
+TLAbstractNode >> connectIfNotAlreadyFollowingProperty: aBlockOrSymbol context: aTLEntitiesGroup [
 	| target |
 	target := aBlockOrSymbol value: self entity.
 	^ (target isCollection and: [ target isString not ])
@@ -89,6 +89,16 @@ TLAbstractNode >> connectIfNotFollowingProperty: aBlockOrSymbol context: aTLEnti
 			[ {(self connectIfNotTo: (aTLEntitiesGroup nodeForEntity: target))} ]
 				on: NotFound
 				do: [ #() ] ]
+]
+
+{ #category : #connect }
+TLAbstractNode >> connectIfNotFollowingProperty: aBlockOrSymbol context: aTLEntitiesGroup [
+	self
+		deprecated: 'The name of this method is not repersentative of what it does, please use #connectIfNotAlreadyFollowingProperty:context: instead.'
+		transformWith:
+			'`@receiver connectIfNotFollowingProperty: `@statements1 context: `@statements2'
+				-> '`@receiver connectIfNotAlreadyFollowingProperty: `@statements1 context: `@statements2'.
+	^ self connectIfNotAlreadyFollowingProperty: aBlockOrSymbol context: aTLEntitiesGroup
 ]
 
 { #category : #connect }
