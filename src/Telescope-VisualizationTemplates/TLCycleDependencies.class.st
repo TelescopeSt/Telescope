@@ -1,5 +1,10 @@
 "
-This visualization represents the visualization of package dependencies and cycle identification from Moose.
+This visualization shows entities and their dependencies and identifies and handles cyclic dependencies.
+
+Properties to set:
+- #entities: list of entities to show
+- #property: block to compute the dependencies of each entity
+- #WidthBlock: / #heightBlock: block to compute the width/height of each entity displayed
 "
 Class {
 	#name : #TLCycleDependencies,
