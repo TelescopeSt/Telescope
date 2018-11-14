@@ -65,13 +65,7 @@ BaselineOfTelescope >> baseline: spec [
 
 { #category : #dependencies }
 BaselineOfTelescope >> deepTraverser: spec [
-	spec
-		project: 'DeepTraverser' with: [
-				spec
-					className: 'ConfigurationOfDeepTraverser';
-					version: #stable;
-					loads: #('Core');
-					repository: 'http://www.smalltalkhub.com/mc/Moose/DeepTraverser/main' ]
+	spec baseline: 'DeepTraverser' with: [ spec repository: 'github://pharo-contributions/DeepTraverser:v1.x.x/src' ]
 ]
 
 { #category : #dependencies }
