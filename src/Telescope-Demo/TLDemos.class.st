@@ -21,31 +21,6 @@ TLDemos class >> allDemoVisualizations [
 ]
 
 { #category : #demos }
-TLDemos class >> example0RCA [
-	<script: 'self example0RCA open'>
-	<tlFilter: #style>
-	| visu model nodeLabel |
-	model := MooseModel root allModels last.
-	nodeLabel := [:p | (p mooseName withoutPrefix: 'org::rcaexplore::') copyReplaceAll: '::' with: '.'].
-	visu := TLCycleDependencies new.
-	visu
-		entities: model allModelNamespaces ;
-		property: [ :each | (each queryAllOutgoing atScope: FAMIXNamespace) withoutSelfLoops ] ;
-		widthBlock: #numberOfClasses;
-		heightBlock: [ :each | each numberOfMethods / 10 max: 5 ].
-	visu styleSheet nodeLabel:  nodeLabel position: #top.
-	visu
-		addInteraction:
-			(TLPopUpAction
-				text: nodeLabel
-				position: (TLPosition new
-						horizontal: #center;
-						vertical: #top;
-						yourself) ) onMouseOver.
-	^ visu
-]
-
-{ #category : #demos }
 TLDemos class >> exampleAdaptNodeWidthFromLabel [
 	<script: 'self exampleAdaptNodeWidthFromLabel open'>
 	<tlFilter: #style>
