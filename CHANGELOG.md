@@ -1,4 +1,4 @@
-# [v2.0.0](https://github.com/TelescopeSt/Telescope/compare/v2.0.0...v1.1.1) (2018-11-15)
+# [v2.0.0](https://github.com/TelescopeSt/Telescope/compare/v1.1.1...v2.0.0) (2018-11-15)
 
 ## Infrastructure
 
