@@ -66,12 +66,10 @@ BaselineOfTelescope >> baseline: spec [
 { #category : #dependencies }
 BaselineOfTelescope >> deepTraverser: spec [
 	spec
-		project: 'DeepTraverser' with: [
-				spec
-					className: 'ConfigurationOfDeepTraverser';
-					version: #stable;
-					loads: #('Core');
-					repository: 'http://www.smalltalkhub.com/mc/Moose/DeepTraverser/main' ]
+		baseline: 'DeepTraverser'
+		with: [ spec
+				loads: 'Core';
+				repository: 'github://pharo-contributions/DeepTraverser:v1.x.x/src' ]
 ]
 
 { #category : #dependencies }
@@ -82,11 +80,10 @@ BaselineOfTelescope >> materialColors: spec [
 { #category : #dependencies }
 BaselineOfTelescope >> mooseAlgo: spec [
 	spec
-		project: 'MooseAlgos'
+		baseline: 'MooseAlgos'
 		with: [ spec
-				className: #ConfigurationOfMooseAlgos;
-				versionString: #development;
-				repository: 'http://smalltalkhub.com/mc/Moose/MooseAlgos/main/' ]
+				loads: 'Core';
+				repository: 'github://moosetechnology/MooseAlgos:v1.x.x/src' ]
 ]
 
 { #category : #accessing }
