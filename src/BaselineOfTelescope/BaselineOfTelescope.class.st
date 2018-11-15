@@ -75,12 +75,7 @@ BaselineOfTelescope >> materialColors: spec [
 
 { #category : #dependencies }
 BaselineOfTelescope >> mooseAlgo: spec [
-	spec
-		project: 'MooseAlgos'
-		with: [ spec
-				className: #ConfigurationOfMooseAlgos;
-				versionString: #development;
-				repository: 'http://smalltalkhub.com/mc/Moose/MooseAlgos/main/' ]
+	spec baseline: 'MooseAlgos' with: [ spec repository: 'github://moosetechnology/MooseAlgos:v1.x.x/src' ]
 ]
 
 { #category : #accessing }
