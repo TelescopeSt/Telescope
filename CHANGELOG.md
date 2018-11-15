@@ -1,3 +1,10 @@
+# [v1.2.0](https://github.com/TelescopeSt/Telescope/compare/v1.1.1...v1.2.0) (2018-11-15)
+
+## Infrastructure
+
+* Migrate to DeepTraverser from github. ([c0d0e56](https://github.com/TelescopeSt/Telescope/commit/c0d0e566c99b7b3b4467fe5f34d38fdc00e368ef))
+* Migrate to MooseAlgos from github. ([03355f2](https://github.com/TelescopeSt/Telescope/commit/03355f22729ba33159d33c8eb94945cf2a38255d))
+
 # [v1.1.1](https://github.com/TelescopeSt/Telescope/compare/v1.1.0...v1.1.1) (2018-10-30)
 
 ## Enhancement
