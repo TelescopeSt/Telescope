@@ -24,7 +24,7 @@ Class {
 		'leftEntities',
 		'rightEntities'
 	],
-	#category : #'Telescope-VisualizationTemplates'
+	#category : #'Telescope-VisualizationTemplates-Core'
 }
 
 { #category : #'instance-creation' }

@@ -27,19 +27,19 @@ Class {
 	#superclass : #TLVisualization,
 	#instVars : [
 		'containerEntities',
-		'innerEntities',
 		'property',
 		'innerEntitiesPopupBlock',
-		'propertySortingBlock'
+		'propertySortingBlock',
+		'innerEntitiesSelector'
 	],
-	#category : #'Telescope-VisualizationTemplates'
+	#category : #'Telescope-VisualizationTemplates-Core'
 }
 
 { #category : #creation }
 TLDistributionMap class >> containerEntities: aCollectionOfEntities innerEntities: innerEntitiesPropertyOrBlock property: legendProperty [
 	^ self new
 		containerEntities: aCollectionOfEntities;
-		innerEntities: innerEntitiesPropertyOrBlock;
+		innerEntitiesSelector: innerEntitiesPropertyOrBlock;
 		property: legendProperty
 ]
 
@@ -54,7 +54,7 @@ TLDistributionMap >> buildVisualization [
 	super buildVisualization.
 	
 	(self > #containers) nodeCreationStrategy
-		childrenProperty: [ :containerEntity | self innerEntities cull: containerEntity ];
+		childrenProperty: [ :containerEntity | self innerEntitiesSelector cull: containerEntity ];
 		childrenSortingStrategy: (self propertySortingBlock ifNil: [ (TLPropertyBasedStrategy onProperty: self property) ] ifNotNil: [ :blk | TLSortingBlockStrategy sortingBlock: [ :node1 :node2 | blk value: (self property value: node1 entity) value: (self property value: node2 entity) ] ]).
 		
 	((self > #containers) styleSheet > #children)
@@ -71,8 +71,6 @@ TLDistributionMap >> buildVisualization [
 	self > #containers sortingStrategy: (TLDistributionMapContainerSortingStrategy onDistributionMap: self).
 	
 	(self > #containers) allChildrenNodes addInteraction: (TLPopUpAction text: [ :entity | self obtain: self innerEntitiesPopupBlock on: entity ]) onMouseOver.
-	
-	(self addInteraction: TLExpandCollapseCompositeNodeAction onCompositeNodeWithChildren onClick) propagateToChildren
 ]
 
 { #category : #layout }
@@ -96,11 +94,15 @@ TLDistributionMap >> containerEntities: aCollectionOfObjects [
 { #category : #private }
 TLDistributionMap >> createColorBlock [
 	| sortedProperties colorsMap |
-	sortedProperties := ((self containerEntities flatCollect: self innerEntities) collectAsSet: [ :e | self property value: e ]) asArray.
-	colorsMap := ((Color wheel: sortedProperties size) collectWithIndex: [ :aColor :anIndex | (sortedProperties at: anIndex) -> aColor ]) asDictionary.
+	sortedProperties := self obtainPropertyValuesSortedByFrequency.
+	colorsMap := ((Color wheel: sortedProperties size)
+		collectWithIndex: [ :aColor :anIndex | (sortedProperties at: anIndex) -> aColor ])
+		asDictionary.
 	^ [ :anEntity | 
 	| color |
-	color := colorsMap at: (self property value: anEntity) ifAbsent: [ self defaultColor ].
+	color := colorsMap
+		at: (self property value: anEntity)
+		ifAbsent: [ self defaultColor ].
 	color ]
 ]
 
@@ -121,16 +123,6 @@ TLDistributionMap >> initialize [
 ]
 
 { #category : #accessing }
-TLDistributionMap >> innerEntities [
-	^ innerEntities
-]
-
-{ #category : #accessing }
-TLDistributionMap >> innerEntities: anObject [
-	innerEntities := anObject
-]
-
-{ #category : #accessing }
 TLDistributionMap >> innerEntitiesPopupBlock [
 	^ innerEntitiesPopupBlock ifNil: [ innerEntitiesPopupBlock := #asString ]
 ]
@@ -138,6 +130,33 @@ TLDistributionMap >> innerEntitiesPopupBlock [
 { #category : #accessing }
 TLDistributionMap >> innerEntitiesPopupBlock: anObject [
 	innerEntitiesPopupBlock := anObject
+]
+
+{ #category : #accessing }
+TLDistributionMap >> innerEntitiesSelector [
+	^ innerEntitiesSelector
+]
+
+{ #category : #accessing }
+TLDistributionMap >> innerEntitiesSelector: anObject [
+	innerEntitiesSelector := anObject
+]
+
+{ #category : #private }
+TLDistributionMap >> obtainPropertyValuesSortedByFrequency [
+	| frequencyDictionary |
+	frequencyDictionary := Dictionary new.
+	self containerEntities
+		do: [ :container | 
+			(self innerEntitiesSelector value: container)
+				do: [ :innerEntity | 
+					| foundProperty |
+					foundProperty := self property value: innerEntity.
+					frequencyDictionary
+						at: foundProperty
+						ifPresent: [ :frequency | frequencyDictionary at: foundProperty put: frequency + 1 ]
+						ifAbsentPut: [ 1 ] ] ].
+	^ (frequencyDictionary associations sorted: [ :a :b | a value > b value ]) collect: #key
 ]
 
 { #category : #accessing }

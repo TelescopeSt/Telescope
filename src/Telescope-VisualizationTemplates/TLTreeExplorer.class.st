@@ -19,7 +19,7 @@ Class {
 		'root',
 		'property'
 	],
-	#category : #'Telescope-VisualizationTemplates'
+	#category : #'Telescope-VisualizationTemplates-Core'
 }
 
 { #category : #creation }

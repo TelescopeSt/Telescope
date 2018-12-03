@@ -10,13 +10,13 @@ Class {
 	#instVars : [
 		'innerEntitiesBlock'
 	],
-	#category : #'Telescope-VisualizationTemplates'
+	#category : #'Telescope-VisualizationTemplates-Core'
 }
 
 { #category : #'as yet unclassified' }
 TLDistributionMapContainerSortingStrategy class >> onDistributionMap: aTLVisualization [
 	^self new
-		innerEntitiesBlock: aTLVisualization innerEntities ;
+		innerEntitiesBlock: aTLVisualization innerEntitiesSelector ;
 		property: aTLVisualization property ;
 		yourself
 ]
@@ -42,7 +42,7 @@ TLDistributionMapContainerSortingStrategy >> innerEntitiesBlock: aBlock [
 TLDistributionMapContainerSortingStrategy >> sortNodes: aCollectionOfTLNodes [
 	| dims vectors clust dendrogram |
 	dims := self getVectorsDimensions: aCollectionOfTLNodes.
-	vectors := aCollectionOfTLNodes asOrderedCollection collect: [ :node | self vectorDescription: node forDimensions: dims ].
+	vectors := aCollectionOfTLNodes collect: [ :node | self vectorDescription: node forDimensions: dims ].
 	"clustering expects a distance metric and #cosine: is a similarity in [0,1]"
 	clust := MalClusterEngine with: vectors using: [ :v1 :v2 | 1 - (v1 cosine: v2)].
 	dendrogram := clust singleLinkage orderLeafs.

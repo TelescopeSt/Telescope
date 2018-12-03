@@ -12,7 +12,7 @@ Class {
 		'heightBlock',
 		'backgroundColorBlock'
 	],
-	#category : #'Telescope-VisualizationTemplates'
+	#category : #'Telescope-VisualizationTemplates-Core'
 }
 
 { #category : #accessing }
