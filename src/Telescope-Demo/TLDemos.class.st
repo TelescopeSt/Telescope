@@ -265,11 +265,11 @@ TLDemos class >> exampleCycleDependencies [
 TLDemos class >> exampleDistributionMap [
 	<script: 'self exampleDistributionMap open'>
 	<tlFilter: #visuTemplate>
-	^ TLDistributionMap new
-		containerEntities: TLObject withAllSubclasses;
-		innerEntities: #methods;
+	^ (TLDistributionMap
+		containerEntities: TLObject withAllSubclasses
+		innerEntities: #methods
+		property: #numArgs)
 		innerEntitiesPopupBlock: [ :method | method name , ' have ' , method numArgs asString , ' arguments' ];
-		property: [ :method | method numArgs ];
 		yourself
 ]
 
@@ -277,11 +277,11 @@ TLDemos class >> exampleDistributionMap [
 TLDemos class >> exampleDistributionMapAbstractMethodsCollection [
 	<script: 'self exampleDistributionMapAbstractMethodsCollection open'>
 	<tlFilter: #visuTemplate>
-	^ TLDistributionMap new
-		containerEntities: TLDrawable withAllSubclasses;
-		innerEntities: #methods;
+	^ (TLDistributionMap
+		containerEntities: TLDrawable withAllSubclasses
+		innerEntities: #methods
+		property: #isAbstract)
 		innerEntitiesPopupBlock: [ :method | method name asString ];
-		property: #isAbstract;
 		propertySortingBlock: [ :boolean1 :boolean2 | boolean1 ];
 		yourself
 ]
