@@ -32,7 +32,7 @@ To install Telescope on your Pharo image you can just execute the following scri
 
 ```Smalltalk
     Metacello new
-    	githubUser: 'TelescopeSt' project: 'Telescope' commitish: 'v1.x.x' path: 'src';
+    	githubUser: 'TelescopeSt' project: 'Telescope' commitish: 'v2.x.x' path: 'src';
     	baseline: 'Telescope';
     	onWarningLog;
 		onUpgrade: [ :e | e useIncoming ];
@@ -44,10 +44,10 @@ To add Telescope to your baseline just add this:
 ```Smalltalk
     spec
     	baseline: 'Telescope'
-    	with: [ spec repository: 'github://TelescopeSt/Telescope:v1.x.x/src' ]
+    	with: [ spec repository: 'github://TelescopeSt/Telescope:v2.x.x/src' ]
 ```
 
-Note that you can replace the v1.x.x tag by a branch as #master or #development or a tag as #v1.0.0, #v1.? or #v1.0.x or a commit SHA.
+Note that you can replace the v2.x.x tag by a branch as #master or #development or a tag as #v1.0.0, #v1.? or #v1.0.x or a commit SHA.
 
 ## Connectors
 
