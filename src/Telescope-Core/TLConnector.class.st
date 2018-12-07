@@ -241,16 +241,14 @@ TLConnector >> generateCompositeNode: aCompositeNode [
 { #category : #'generation - connection' }
 TLConnector >> generateConnection: aTLConnection [
 	| shape |
-	aTLConnection isVisible
-		ifTrue: [ 
-			shape := self
-				createElementConnection: aTLConnection
-				From: aTLConnection fromNode
-				to: aTLConnection toNode.
-			self addElementConnectionInView: shape.
-			self registerShape: shape forDrawable: aTLConnection.
-			self generateInteractionsOf: aTLConnection targetingDrawable: aTLConnection.
-			^ shape ]
+	aTLConnection isVisible ifFalse: [ ^ self ].
+
+	shape := self createElementConnection: aTLConnection From: aTLConnection fromNode to: aTLConnection toNode.
+	self
+		addElementConnectionInView: shape;
+		registerShape: shape forDrawable: aTLConnection;
+		generateInteractionsOf: aTLConnection targetingDrawable: aTLConnection.
+	^ shape
 ]
 
 { #category : #'generation - interaction' }
@@ -380,7 +378,7 @@ TLConnector >> generateNodeBackgroundLegendEntry: aTLNodeBackgroundLegendEntry [
 ]
 
 { #category : #'generation-legendEntry' }
-TLConnector >> generateNodeBorderLegendEntry: aLegendEntry [
+TLConnector >> generateNodeBorderColorLegendEntry: aLegendEntry [
 	^ self subclassResponsibility
 ]
 
@@ -587,10 +585,10 @@ TLConnector >> removeElementnteractionFromView: element [
 
 { #category : #'removing - group' }
 TLConnector >> removeGroup: aTLGroup [
-	"We delete the group only if the connector generated it before"
-	(self shapeByDrawable includesKey: aTLGroup) ifTrue: [ 
+	(self shapeByDrawable includesKey: aTLGroup) ifFalse: [ ^ self ].
+
 	aTLGroup telescopeEntities do: [ :aTLConnectable | aTLConnectable removeWith: self ].
-	self unregisterShapeForDrawable: aTLGroup]
+	self unregisterShapeForDrawable: aTLGroup
 ]
 
 { #category : #'removing - interaction' }
@@ -666,31 +664,6 @@ TLConnector >> unregisterShapeForDrawable: aDrawable [
 	self shapeByDrawable removeKey: aDrawable
 ]
 
-{ #category : #'updating - shape' }
-TLConnector >> update: shape withCompositeLabelShape: aTLCompositeLabelShape [
-	self subclassResponsibility
-]
-
-{ #category : #'updating - shape' }
-TLConnector >> update: shape withEllipseShape: aTLEllipseShape [
-	self subclassResponsibility
-]
-
-{ #category : #'updating - shape' }
-TLConnector >> update: shape withLabelShape: aTLLabelShape [
-	self subclassResponsibility 
-]
-
-{ #category : #'updating - shape' }
-TLConnector >> update: shape withRectangleShape: aTLRectangleShape [
-	self subclassResponsibility 
-]
-
-{ #category : #'updating - shape' }
-TLConnector >> update: shape withTLShape: aTLShape [
-	aTLShape update: shape with: self
-]
-
 { #category : #'updating - connection' }
 TLConnector >> updateAllConnections [
 	self shapeByDrawable copy
@@ -710,12 +683,12 @@ TLConnector >> updateChildrenOf: aCompositeNode [
 
 { #category : #'updating - node' }
 TLConnector >> updateCompositeNode: aNode [
-	aNode isUpdateRequired
-		ifTrue: [ 
-			self updateSimpleNode: aNode.
-			aNode expanded
-				ifTrue: [ self updateChildrenOf: aNode ]
-				ifFalse: [ self removeChildrenOf: aNode ] ]
+	aNode isUpdateRequired ifFalse: [ ^ self ].
+
+	self updateSimpleNode: aNode.
+	aNode expanded
+		ifTrue: [ self updateChildrenOf: aNode ]
+		ifFalse: [ self removeChildrenOf: aNode ]
 ]
 
 { #category : #'updating - connection' }
@@ -809,13 +782,13 @@ TLConnector >> updateShapeTrigger: aTLShapeTrigger [
 { #category : #'updating - node' }
 TLConnector >> updateSimpleNode: aNode [
 	self generateIfNecessaryConnectionsOf: aNode.
+
+	aNode isUpdateRequired ifFalse: [ ^ self ].
 	
-	aNode isUpdateRequired ifTrue: [
-		self updateInteractionsOf: aNode.
-		self updateElementNodeOf: aNode.
-		self updateConnectionsOf: aNode.
-		aNode updateDone
-	]
+	self updateInteractionsOf: aNode.
+	self updateElementNodeOf: aNode.
+	self updateConnectionsOf: aNode.
+	aNode updateDone
 ]
 
 { #category : #view }
