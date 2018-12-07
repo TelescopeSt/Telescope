@@ -1,3 +1,18 @@
+# [v2.1.0](https://github.com/TelescopeSt/Telescope/compare/v2.0.1...v2.1.0) (2018-12-07)
+
+## Features
+
+* Add polygon descriptions to most nodes shapes ([729961f](https://github.com/TelescopeSt/Telescope/commit/729961fe93fb0441c8736a79f47ec38f715c55af))
+
+## Enhancement
+
+* Add a World Menu entry for Telescope ([939dd46](https://github.com/TelescopeSt/Telescope/commit/939dd46c06aa19cbe83d521d28602334b1c4b8e1))
+
+## Cleaning
+
+* Remove dead methods in TLConnector ([46f7b5b](https://github.com/TelescopeSt/Telescope/commit/46f7b5b2f19bea24f0050b1cd543afefe2590fc4))
+* Telescope demos should not depends on Cytoscape connector ([8510408](https://github.com/TelescopeSt/Telescope/commit/8510408c52347776e1d32c6ff13cd97be2203efa))
+
 # [v2.0.1](https://github.com/TelescopeSt/Telescope/compare/v2.0.0...v2.0.1) (2018-12-07)
 
 ## Enhancement
