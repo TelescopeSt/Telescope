@@ -7,7 +7,7 @@ Class {
 	#instVars : [
 		'anotherVisualization'
 	],
-	#category : #'Telescope-Core-Debugging'
+	#category : #'Telescope-Core-Utils'
 }
 
 { #category : #'instance-creation' }

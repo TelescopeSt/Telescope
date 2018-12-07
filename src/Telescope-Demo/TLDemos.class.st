@@ -807,3 +807,20 @@ TLDemos class >> exampleVisualizationWithCompositeChildrenConnectionsShowing [
 TLDemos class >> executeDemo: method [
 	^ TLDemos perform: method 
 ]
+
+{ #category : #'world menu' }
+TLDemos class >> menuCommandOn: aBuilder [
+	"Add a custom menu item to the world menu"
+
+	<worldMenu>
+	(aBuilder item: #'Open demo class')
+		order: 1;
+		iconName: #nautilus;
+		parent: #Telescope;
+		help: 'Browse the demo class of Telescope';
+		action: [ self browse ]
+]
+
+{ #category : #'see class side' }
+TLDemos >> seeClassSide [
+]
