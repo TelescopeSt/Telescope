@@ -509,7 +509,7 @@ TLConnector >> menuInteractionByDrawable: anObject [
 
 { #category : #accessing }
 TLConnector >> nodesShapesAvailableForConnector [
-	"I should return all TL shape that can apply on a node for this connector."
+	"I should return all Telescope shapes that can apply on a node for this connector."
 	
 	^ self subclassResponsibility
 ]
