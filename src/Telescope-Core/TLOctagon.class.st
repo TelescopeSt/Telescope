@@ -7,3 +7,8 @@ Class {
 	#superclass : #TLSimpleShape,
 	#category : #'Telescope-Core-Shape'
 }
+
+{ #category : #'instance creation' }
+TLOctagon class >> polygonPoints [
+	^ self regularPolygonePointsOfSize: 8
+]
