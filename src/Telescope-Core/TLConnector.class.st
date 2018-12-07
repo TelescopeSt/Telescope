@@ -507,6 +507,13 @@ TLConnector >> menuInteractionByDrawable: anObject [
 	menuInteractionByDrawable := anObject
 ]
 
+{ #category : #accessing }
+TLConnector >> nodesShapesAvailableForConnector [
+	"I should return all Telescope shapes that can apply on a node for this connector."
+	
+	^ self subclassResponsibility
+]
+
 { #category : #opening }
 TLConnector >> open: aTLVisualization inWindowSized: aDimension titled: aString [ 
 	self subclassResponsibility 

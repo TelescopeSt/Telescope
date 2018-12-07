@@ -44,13 +44,7 @@ TLDemos class >> exampleAllShapes [
 		nodeLabel: #displayName.
 	visualization layout: TLCircularLayout.
 	visualization legend nodeShapeDescription: #displayName forNodes: [ visualization obtain recursively nodes ].
-	TLSimpleShape
-		allSubclassesDo: [ :aSubclass | 
-			self flag: #todo.	"Remove dependency to Cytoscape. Maybe implement TLShape class>>#isForNode and TLShape class>>#isForConnection?"
-			[ aSubclass forCytoscapeNode.
-			(visualization addNodeFromEntity: aSubclass) styleSheet shape: aSubclass ]
-				on: TLNotSupportedFunctionalityException
-				do: [  ] ].
+	visualization generator nodesShapesAvailableForConnector do: [ :aSubclass | (visualization addNodeFromEntity: aSubclass) styleSheet shape: aSubclass ].
 	^ visualization
 ]
 
