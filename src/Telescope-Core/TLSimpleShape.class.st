@@ -32,3 +32,13 @@ TLSimpleShape class >> polygonPoints [
 
 	^ self subclassResponsibility
 ]
+
+{ #category : #'instance creation' }
+TLSimpleShape class >> regularPolygonePointsOfSize: aNumber [
+	"I retrun the polygon point for a regular polygon with a number of segment given as parameter."
+
+	| angle encompassingCircleRadius |
+	angle := 2 * Float pi / aNumber.
+	encompassingCircleRadius := 0.5.
+	^ (1 to: aNumber) collect: [ :index | ((encompassingCircleRadius + index) * angle) sin @ ((encompassingCircleRadius + index) * angle) cos negated ] as: Array
+]

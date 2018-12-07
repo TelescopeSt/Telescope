@@ -7,3 +7,8 @@ Class {
 	#superclass : #TLSimpleShape,
 	#category : #'Telescope-Core-Shape'
 }
+
+{ #category : #'instance creation' }
+TLRectangle class >> polygonPoints [
+	^ self regularPolygonePointsOfSize: 4
+]
