@@ -3,6 +3,7 @@
 ## Enhancement
 
 * `TLLabel>>polygonPoints` should be in Telescope instead of TelescopeCytoscape ([98e3acc](https://github.com/TelescopeSt/Telescope/commit/98e3accec79aedc1d06666dbb05209d5fdbfff5b))
+* Improve `DistributionMap` API ([76d12d0](https://github.com/TelescopeSt/Telescope/commit/76d12d096d48ee37c21d3ac9e0983c33e4112c23))
 
 # [v2.0.0](https://github.com/TelescopeSt/Telescope/compare/v1.1.1...v2.0.0) (2018-11-15)
 
