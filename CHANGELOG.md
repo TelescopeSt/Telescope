@@ -1,3 +1,9 @@
+# [v2.0.1](https://github.com/TelescopeSt/Telescope/compare/v2.0.0...v2.0.1) (2018-12-07)
+
+## Enhancement
+
+* `TLLabel>>polygonPoints` should be in Telescope instead of TelescopeCytoscape ([98e3acc](https://github.com/TelescopeSt/Telescope/commit/98e3accec79aedc1d06666dbb05209d5fdbfff5b))
+
 # [v2.0.0](https://github.com/TelescopeSt/Telescope/compare/v1.1.1...v2.0.0) (2018-11-15)
 
 ## Infrastructure
