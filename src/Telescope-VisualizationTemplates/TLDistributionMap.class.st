@@ -123,6 +123,18 @@ TLDistributionMap >> initialize [
 ]
 
 { #category : #accessing }
+TLDistributionMap >> innerEntities [
+	self deprecated: 'Use #innerEntitiesSelector' transformWith: '`@receiver innerEntities `@statements' -> '`@receiver innerEntitiesSelector'.
+	^ self innerEntitiesSelector
+]
+
+{ #category : #accessing }
+TLDistributionMap >> innerEntities: anObject [
+	self deprecated: 'Use #innerEntitiesSelector:' transformWith: '`@receiver innerEntities: `@statements' -> '`@receiver innerEntitiesSelector: `@statements'.
+	^ self innerEntitiesSelector: anObject
+]
+
+{ #category : #accessing }
 TLDistributionMap >> innerEntitiesPopupBlock [
 	^ innerEntitiesPopupBlock ifNil: [ innerEntitiesPopupBlock := #asString ]
 ]
