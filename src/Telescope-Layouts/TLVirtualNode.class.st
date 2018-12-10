@@ -77,12 +77,6 @@ TLVirtualNode >> compositeMargin: anObject [
 ]
 
 { #category : #position }
-TLVirtualNode >> cytoscapePosition [
-	"Cytoscape require the center of the node and Telescope works with center too"
-	^ self absolutePosition
-]
-
-{ #category : #position }
 TLVirtualNode >> defineFixedPositionFromAbsolute: aPosition [
 	self defineFixedRelativePosition: (self calculateRelativePositionFromAbsolute: aPosition)
 ]
@@ -107,12 +101,6 @@ TLVirtualNode >> dimension [
 TLVirtualNode >> dimension: anObject [
 	dimension := anObject.
 	self clearEncompassingRectangle
-]
-
-{ #category : #accessing }
-TLVirtualNode >> encompassingCytoscapeRectangle [
-	| encompassingCytoscapeRectangle |
-	^ encompassingCytoscapeRectangle ifNil: [ encompassingCytoscapeRectangle := Rectangle origin: self cytoscapePosition extent: self dimension ]
 ]
 
 { #category : #accessing }
@@ -165,12 +153,6 @@ TLVirtualNode >> isNode [
 { #category : #dimension }
 TLVirtualNode >> occupyMaxSpace [
 	^ self tlNode effectiveStyleSheet takeAllSpace
-]
-
-{ #category : #dimension }
-TLVirtualNode >> originalWidth [
-	self flag: #TODO.	"Save Demeter"
-	^ self tlNode effectiveStyleSheet obtainValue: #width forEntity: self tlNode entity inNode: self tlNode
 ]
 
 { #category : #adjacent }
