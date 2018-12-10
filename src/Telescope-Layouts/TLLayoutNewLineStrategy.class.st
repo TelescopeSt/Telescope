@@ -4,7 +4,7 @@ I am the superclass for all strategies able to answer if a new line should be cr
 Class {
 	#name : #TLLayoutNewLineStrategy,
 	#superclass : #Object,
-	#category : 'Telescope-Layouts'
+	#category : #'Telescope-Layouts-Core'
 }
 
 { #category : #preparation }

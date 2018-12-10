@@ -7,7 +7,7 @@ Class {
 	#instVars : [
 		'totalDimension'
 	],
-	#category : 'Telescope-Layouts'
+	#category : #'Telescope-Layouts-Core'
 }
 
 { #category : #accessing }
