@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'layout'
 	],
-	#category : #'Telescope-Layouts-Tests'
+	#category : #'Telescope-Layouts-Tests-Core'
 }
 
 { #category : #initialization }

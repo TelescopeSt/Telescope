@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'strategy'
 	],
-	#category : #'Telescope-Layouts-Tests'
+	#category : #'Telescope-Layouts-Tests-Core'
 }
 
 { #category : #tests }
