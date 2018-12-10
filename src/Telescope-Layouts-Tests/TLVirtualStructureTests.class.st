@@ -9,7 +9,7 @@ TLVirtualStructureTests >> testLayoutApplication [
 	| nodes |
 	nodes := (1 to: 10)
 		collect: [ :i | 
-			TLVirtualNode new
+			TLVirtualStubNode new
 				dimension: 5 @ 8;
 				tlNode:
 					((TLSimpleNode withEntity: i)
@@ -66,7 +66,7 @@ TLVirtualStructureTests >> testNodeInCompositePosition [
 { #category : #tests }
 TLVirtualStructureTests >> testNodeWithDimension [
 	| node |
-	node := TLVirtualNode new dimension: 6 @ 10.
+	node := TLVirtualStubNode new dimension: 6 @ 10.
 	node position: 42 @ 47.
 	self assert: node absolutePosition equals: 42 @ 47.
 	self assert: node extent equals: 6 @ 10.
@@ -135,13 +135,13 @@ TLVirtualStructureTests >> testRemoveNodeFromAGroupThenAddToAnotherWithParentSel
 { #category : #tests }
 TLVirtualStructureTests >> testTwoNodesInCompositePosition [
 	| parent child1 child2 |
-	parent := TLVirtualNode new dimension: 50 @ 40.
+	parent := TLVirtualStubNode new dimension: 50 @ 40.
 	parent compositeMargin: 0@0.
-	child1 := TLVirtualNode new dimension: 6 @ 10.
+	child1 := TLVirtualStubNode new dimension: 6 @ 10.
 	child1 parent: parent.
 	child1 position: 3@5.
 	
-	child2 := TLVirtualNode new dimension: 8 @ 16.
+	child2 := TLVirtualStubNode new dimension: 8 @ 16.
 	child2 parent: parent.
 	child2 position: 26@40.
 	
