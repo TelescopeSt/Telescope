@@ -1,5 +1,5 @@
 Class {
 	#name : #TLCircularTreeLayout,
 	#superclass : #TLTreeLayout,
-	#category : #'Telescope-Layouts-Core'
+	#category : 'Telescope-Layouts'
 }

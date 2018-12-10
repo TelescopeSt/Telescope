@@ -9,7 +9,7 @@ Class {
 		'leavesGap',
 		'incomingUsed'
 	],
-	#category : #'Telescope-Layouts-Core'
+	#category : 'Telescope-Layouts'
 }
 
 { #category : #testing }

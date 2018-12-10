@@ -8,7 +8,7 @@ Class {
 		'angle',
 		'cache'
 	],
-	#category : #'Telescope-Layouts-Core'
+	#category : 'Telescope-Layouts'
 }
 
 { #category : #'instance creation' }

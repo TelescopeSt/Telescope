@@ -8,7 +8,7 @@ Class {
 	#instVars : [
 		'arcGap'
 	],
-	#category : #'Telescope-Layouts-Core'
+	#category : 'Telescope-Layouts'
 }
 
 { #category : #'as yet unclassified' }

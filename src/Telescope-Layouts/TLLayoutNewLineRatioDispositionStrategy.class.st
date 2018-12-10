@@ -7,7 +7,7 @@ Class {
 	#instVars : [
 		'ratio'
 	],
-	#category : #'Telescope-Layouts-Core'
+	#category : 'Telescope-Layouts'
 }
 
 { #category : #accessing }

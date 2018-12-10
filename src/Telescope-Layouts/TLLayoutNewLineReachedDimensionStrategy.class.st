@@ -7,7 +7,7 @@ Class {
 	#instVars : [
 		'maxDimension'
 	],
-	#category : #'Telescope-Layouts-Core'
+	#category : 'Telescope-Layouts'
 }
 
 { #category : #'instance-creation' }
