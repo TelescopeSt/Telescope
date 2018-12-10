@@ -106,8 +106,7 @@ TLLayout >> cache: anObject [
 
 { #category : #'as yet unclassified' }
 TLLayout >> changeNode: aNode dimension: aNewDimension [
-	aNode dimension: (self obtainsDimension: aNewDimension forAngle: self angle negated).
-	TLNodeDimensionChanged signalForNode: aNode.
+	aNode dimension: (self obtainsDimension: aNewDimension forAngle: self angle negated)
 ]
 
 { #category : #placing }

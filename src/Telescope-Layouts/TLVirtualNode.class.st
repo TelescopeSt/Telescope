@@ -100,7 +100,15 @@ TLVirtualNode >> dimension [
 { #category : #accessing }
 TLVirtualNode >> dimension: anObject [
 	dimension := anObject.
-	self clearEncompassingRectangle
+	self clearEncompassingRectangle.
+	self dimensionChangedHook
+]
+
+{ #category : #accessing }
+TLVirtualNode >> dimensionChangedHook [
+	"My subclasses should override me to apply the dimension change to their real nodes to match the dimensions of the tlNode."
+	
+	self subclassResponsibility
 ]
 
 { #category : #accessing }
