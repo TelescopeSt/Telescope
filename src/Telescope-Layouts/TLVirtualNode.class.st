@@ -15,7 +15,6 @@ Class {
 		'children',
 		'compositeMargin',
 		'encompassingRectangle',
-		'userFixedPosition',
 		'triggers',
 		'tlNode'
 	],
@@ -74,20 +73,6 @@ TLVirtualNode >> compositeMargin [
 { #category : #accessing }
 TLVirtualNode >> compositeMargin: anObject [
 	compositeMargin := anObject
-]
-
-{ #category : #position }
-TLVirtualNode >> defineFixedPositionFromAbsolute: aPosition [
-	self defineFixedRelativePosition: (self calculateRelativePositionFromAbsolute: aPosition)
-]
-
-{ #category : #position }
-TLVirtualNode >> defineFixedRelativePosition: aPosition [
-	self userFixedPosition: false.
-	aPosition
-		ifNotNil: [ 
-			self position: aPosition.
-			self userFixedPosition: true ]
 ]
 
 { #category : #accessing }
@@ -149,7 +134,6 @@ TLVirtualNode >> incomingAdjacentNodes [
 TLVirtualNode >> initialize [
 	super initialize.
 	self children: (TLVirtualGroup new composite: self).
-	self userFixedPosition: false.
 	triggers:= OrderedCollection new 
 ]
 
@@ -191,8 +175,7 @@ TLVirtualNode >> position [
 
 { #category : #accessing }
 TLVirtualNode >> position: anObject [
-	self userFixedPosition
-		ifFalse: [ position := anObject ].
+	position := anObject.
 	self clearEncompassingRectangle
 ]
 
@@ -228,16 +211,6 @@ TLVirtualNode >> tlNode: anObject [
 { #category : #accessing }
 TLVirtualNode >> triggers [
 	^ triggers
-]
-
-{ #category : #accessing }
-TLVirtualNode >> userFixedPosition [
-	^ userFixedPosition
-]
-
-{ #category : #accessing }
-TLVirtualNode >> userFixedPosition: anObject [
-	userFixedPosition := anObject
 ]
 
 { #category : #accessing }
