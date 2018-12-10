@@ -447,7 +447,7 @@ TLDemos class >> exampleLabelWrap [
 
 { #category : #demos }
 TLDemos class >> exampleLayoutsAngle [
-	<script: 'self exampleTelescopeLayouts open'>
+	<script: 'self exampleLayoutsAngle open'>
 	<tlFilter: #layout>
 	| visualization |
 	visualization := TLVisualization fromEntities: (0 to: 359).

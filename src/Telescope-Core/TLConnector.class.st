@@ -108,13 +108,11 @@ TLConnector >> createElementNodeFromNode: aNode [
 
 { #category : #'generation - node' }
 TLConnector >> createElementNodeFromNode: aNode withStyleSheet: styleSheet [
-	^ self virtualNodeClass new
+	^ (self newVirtualNodeFor: aNode)
 		tlNode: aNode;
-		dimension:
-			(styleSheet obtainValue: #width forEntity: aNode entity inNode: aNode)
-				@ (styleSheet obtainValue: #height forEntity: aNode entity inNode: aNode);
-		position: 0 @ 0;
-		yourself	"temp  position for creation"
+		dimension: (styleSheet obtainValue: #width forEntity: aNode entity inNode: aNode) @ (styleSheet obtainValue: #height forEntity: aNode entity inNode: aNode);
+		position: 0 @ 0; "temp  position for creation"
+		yourself
 ]
 
 { #category : #'generation - group' }
@@ -501,6 +499,11 @@ TLConnector >> menuInteractionByDrawable [
 { #category : #accessing }
 TLConnector >> menuInteractionByDrawable: anObject [
 	menuInteractionByDrawable := anObject
+]
+
+{ #category : #'generation - node' }
+TLConnector >> newVirtualNodeFor: aTLNode [
+	^ self virtualNodeClass new
 ]
 
 { #category : #accessing }
