@@ -99,19 +99,29 @@ TLConnector >> createElementFromTrigger: aTLShapeTrigger [
 	self subclassResponsibility 
 ]
 
-{ #category : #'generation - legend' }
-TLConnector >> createElementLegendItemFrom: aTLLegendItem [
-	self subclassResponsibility 
+{ #category : #'generation - node' }
+TLConnector >> createElementNodeFromNode: aNode [
+	| styleSheet |
+	styleSheet := aNode effectiveStyleSheet.
+	^ self createElementNodeFromNode: aNode withStyleSheet: styleSheet
 ]
 
 { #category : #'generation - node' }
-TLConnector >> createElementNodeFromNode: aNode [
-	self subclassResponsibility
+TLConnector >> createElementNodeFromNode: aNode withStyleSheet: styleSheet [
+	^ self virtualNodeClass new
+		tlNode: aNode;
+		dimension:
+			(styleSheet obtainValue: #width forEntity: aNode entity inNode: aNode)
+				@ (styleSheet obtainValue: #height forEntity: aNode entity inNode: aNode);
+		position: 0 @ 0;
+		yourself	"temp  position for creation"
 ]
 
 { #category : #'generation - group' }
-TLConnector >> createGroup: aTLGroup with: anObject [
-	self subclassResponsibility
+TLConnector >> createGroup: aTLGroup with: aCollectionOfDrawableId [
+	"just have to return collection"
+	
+	^ TLVirtualGroup withAll: aCollectionOfDrawableId
 ]
 
 { #category : #'generation - legend' }
@@ -126,7 +136,7 @@ TLConnector >> createMenuFor: aTLDrawable [
 
 { #category : #'generation - node' }
 TLConnector >> define: parentCompositeElement asParentFor: aCollectionOfChildrenElements [
-	self subclassResponsibility
+	aCollectionOfChildrenElements parent: parentCompositeElement
 ]
 
 { #category : #view }
@@ -334,16 +344,6 @@ TLConnector >> generateLegend: aTLLegend [
 	^ legend
 ]
 
-{ #category : #'generation - legend' }
-TLConnector >> generateLegendItem: aTLLegendItem [
-	| legendItem |
-	legendItem := self createElementLegendItemFrom: aTLLegendItem.
-	self addElementLegendItemInView: legendItem.
-	self registerShape: legendItem forDrawable: aTLLegendItem.
-	self generateInteractionsOf: aTLLegendItem targetingDrawable: aTLLegendItem.
-	^ legendItem
-]
-
 { #category : #'generation - interaction' }
 TLConnector >> generateMenuInteraction: aMenuInteraction onDrawable: aTLDrawable targetingDrawable: aTargetDrawable [
 	| menu |
@@ -406,10 +406,6 @@ TLConnector >> generateShapeInteraction: aTLShapeInteraction onDrawable: aTLDraw
 	triggerElement := trigger generateWith: self.
 	"place it"
 	
-	self
-		placeElement: triggerElement
-		correspondingToTrigger: trigger
-		relativeToDrawable: aTLDrawable.
 	"add it to the view"
 	self addElementInteractionInView: triggerElement.
 	"register the element in the connector"
@@ -519,11 +515,6 @@ TLConnector >> open: aTLVisualization inWindowSized: aDimension titled: aString 
 	self subclassResponsibility 
 ]
 
-{ #category : #layout }
-TLConnector >> placeElement: anAssociation correspondingToTrigger: aTLShapeTrigger relativeToDrawable: aTLSimpleNode [ 
-	self subclassResponsibility 
-]
-
 { #category : #'generation - group' }
 TLConnector >> postGenerationFor: aTLVisualization [
 	
@@ -547,7 +538,10 @@ TLConnector >> registerShape: element forDrawable: aDrawable [
 
 { #category : #'removing - node' }
 TLConnector >> removeChildrenOf: aCompositeNode [
+	"First we use the double dispatch so each children will remove itself from the visualization"
 	aCompositeNode childrenGroup removeWith: self.
+	"Second we remove the children from the collection of the virtual node"
+	(self elementFromTLDrawable: aCompositeNode) children removeAll
 ]
 
 { #category : #'removing - node' }
@@ -768,12 +762,16 @@ TLConnector >> updateGroup: aTLGroup [
 
 { #category : #'updating - interaction' }
 TLConnector >> updateInteractionsOf: aDrawable [
-	self subclassResponsibility
+	self flag: #todo.	"Remove the interaction that are no longer needed and add the new ones."
+	(aDrawable allInteractions select: #isGraphicallyRepresented)
+		do: [ :aGraphicInteraction | aGraphicInteraction updateWith: self forDrawable: aDrawable ]
 ]
 
 { #category : #'updating - legend' }
 TLConnector >> updateLegend: aTLLegend [
-	self subclassResponsibility 
+	self flag: 'Can be smarter than just removing and recreating legend'.
+	aTLLegend removeWith: self.
+	aTLLegend generateWith: self.
 ]
 
 { #category : #'updating - interaction' }
@@ -783,7 +781,8 @@ TLConnector >> updateShapeInteraction: aShapeInteraction forDrawable: aDrawable 
 
 { #category : #'updating - interaction' }
 TLConnector >> updateShapeTrigger: aTLShapeTrigger [
-	self subclassResponsibility
+	self updateInteractionsOf: aTLShapeTrigger.
+	self updateTriggerOf: aTLShapeTrigger
 ]
 
 { #category : #'updating - node' }
@@ -809,4 +808,9 @@ TLConnector >> updateVisualization: aTLVisualization [
 	self updateGroup: aTLVisualization.
 	aTLVisualization legend updateWith: self.
 	self updateViewForVisualization: aTLVisualization
+]
+
+{ #category : #dependencies }
+TLConnector >> virtualNodeClass [
+	^ self subclassResponsibility 
 ]
