@@ -545,6 +545,24 @@ TLDemos class >> exampleNameCloud [
 ]
 
 { #category : #demos }
+TLDemos class >> exampleNodeLabelPosition [
+	<script: 'self exampleNodeLabelPosition open'>
+	<tlFilter: #style>
+	| visu |
+	visu := TLVisualization new.
+	#(top center bottom) do: [ :vert | #(left center right) do: [ :hor | visu addNodeFromEntity: vert -> hor ] ].
+	visu layout: (TLLinearLayout gap: 50 perLine: 3).
+	visu styleSheet
+		nodeLabel: #asString
+		position: [ :each | 
+			TLPosition new
+				horizontal: each value;
+				vertical: each key;
+				yourself ].
+	^ visu
+]
+
+{ #category : #demos }
 TLDemos class >> examplePackageHierarchy [
 	<script: 'self exampleOverallHierarchy open'>
 	<tlFilter: #visuTemplate>
