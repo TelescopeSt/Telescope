@@ -11,7 +11,7 @@ Class {
 	#category : #'Telescope-Core-Actions'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #action }
 TLPopUpAction class >> onMouseOver [
 	^ (self text: #asString) onMouseOver
 ]

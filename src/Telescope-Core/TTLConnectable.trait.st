@@ -34,25 +34,7 @@ TTLConnectable >> connectIfNotAlreadyFollowingProperty: aBlockOrSymbol [
 
 { #category : #connect }
 TTLConnectable >> connectIfNotAlreadyFollowingProperty: aBlockOrSymbol context: aTLEntitiesGroup [
-	^ self flatCollect: [ :tlEntity | tlEntity connectIfNotFollowingProperty: aBlockOrSymbol context: aTLEntitiesGroup ]
-]
-
-{ #category : #connect }
-TTLConnectable >> connectIfNotFollowingProperty: aBlockOrSymbol [
-	self
-		deprecated: 'The name of this method is not repersentative of what it does, please use #connectIfNotAlreadyFollowingProperty: instead.'
-		transformWith: '`@receiver connectIfNotFollowingProperty: `@statements1' -> '`@receiver connectIfNotAlreadyFollowingProperty: `@statements1'.
-	^ self connectIfNotAlreadyFollowingProperty: aBlockOrSymbol
-]
-
-{ #category : #connect }
-TTLConnectable >> connectIfNotFollowingProperty: aBlockOrSymbol context: aTLEntitiesGroup [
-	self
-		deprecated: 'The name of this method is not repersentative of what it does, please use #connectIfNotAlreadyFollowingProperty:context: instead.'
-		transformWith:
-			'`@receiver connectIfNotFollowingProperty: `@statements1 context: `@statements2'
-				-> '`@receiver connectIfNotAlreadyFollowingProperty: `@statements1 context: `@statements2'.
-	^ self connectIfNotAlreadyFollowingProperty: aBlockOrSymbol context: aTLEntitiesGroup
+	^ self flatCollect: [ :tlEntity | tlEntity connectIfNotAlreadyFollowingProperty: aBlockOrSymbol context: aTLEntitiesGroup ]
 ]
 
 { #category : #connect }

@@ -32,7 +32,7 @@ TLMultiChoiceMenuInteraction >> choicesBlock: anObject [
 	choicesBlock := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 TLMultiChoiceMenuInteraction >> choicesListForDrawable: aTLDrawable [
 	^ self choicesBlock cull: aTLDrawable
 ]

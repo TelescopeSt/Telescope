@@ -15,7 +15,7 @@ TLCustomWithParameterAction class >> block: anActionBlockWithTwoArguments [
 	^ self new block: anActionBlockWithTwoArguments 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #'instance-creation' }
 TLCustomWithParameterAction class >> block: anActionBlock condition: aConditionBlock [
 	^ (self block: anActionBlock ) condition: aConditionBlock
 ]

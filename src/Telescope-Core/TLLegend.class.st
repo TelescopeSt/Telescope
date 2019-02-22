@@ -22,18 +22,6 @@ TLLegend >> addLegendEntry: aLegendEntry [
 	self legendEntries addLast: aLegendEntry
 ]
 
-{ #category : #sugar }
-TLLegend >> backGroundDescription: descriptionBlock [
-	self deprecated: 'Use #backgroundDescription: instead.'.
-	self backGroundDescription: descriptionBlock forNodes: [ self visualization nodes ]
-]
-
-{ #category : #'entry-creation' }
-TLLegend >> backGroundDescription: descriptionBlock forNodes: nodesBlock [
-	self deprecated: 'Use #backgroundDescription:forNodes: instead.'.
-	self addLegendEntry: (TLNodeBackgroundLegendEntry description: descriptionBlock context: nodesBlock)
-]
-
 { #category : #'entry-creation' }
 TLLegend >> backgroundDescription: descriptionBlock [
 	self backgroundDescription: descriptionBlock forNodes: [ self visualization nodes ]

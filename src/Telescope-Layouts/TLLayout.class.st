@@ -43,7 +43,7 @@ TLLayout class >> leftToRight [
 	^ self new leftToRight
 ]
 
-{ #category : #'instance-creation' }
+{ #category : #'instance creation' }
 TLLayout class >> on: aGroup [ 
 	^ self new on: aGroup 
 ]

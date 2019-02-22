@@ -99,7 +99,7 @@ TLCompositeNode >> areChildrenGenerated [
 	^ childrenGenerated ifNil: [ childrenGenerated := false ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #transformation }
 TLCompositeNode >> becomeComposite [
 	^ self
 ]

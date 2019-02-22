@@ -45,7 +45,7 @@ TLNodeCreationStrategy >> beRecursive [
 	self childrenStrategy: self
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #'node - creation' }
 TLNodeCreationStrategy >> childrenProperty: aString [ 
 	self flag: 'Only one should remain'.
 	^ self compositeProperty: aString
@@ -98,7 +98,7 @@ TLNodeCreationStrategy >> compositeProperty: anObject [
 	^ self childrenStrategy
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #copying }
 TLNodeCreationStrategy >> copyAsSimpleStrategy [
 	"this works because we do not have other properties than composite. This is planned for future evolution to avoid duplication"
 

@@ -13,7 +13,7 @@ Class {
 	#category : #'Telescope-Core-Strategy'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #'instance creation' }
 TLPropertyBasedStrategy class >> onProperty: aProperty [
 	^ self new
 		property: aProperty;

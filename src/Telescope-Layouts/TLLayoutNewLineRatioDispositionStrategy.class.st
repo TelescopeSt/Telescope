@@ -15,7 +15,7 @@ TLLayoutNewLineRatioDispositionStrategy class >> ratio: aRatio [
 	^ self new ratio: aRatio
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 TLLayoutNewLineRatioDispositionStrategy >> obtainRatioBySimulatingLayout: aLayout on: aGroup [
 	| simulator |
 	simulator := TLLinearLayoutSimulator new
@@ -27,7 +27,7 @@ TLLayoutNewLineRatioDispositionStrategy >> obtainRatioBySimulatingLayout: aLayou
 	^ simulator ratio
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #preparation }
 TLLayoutNewLineRatioDispositionStrategy >> prepareFor: aGroup onLayout: aLayout [
 	| dimensions numberOfNodes minRatio maxRatio simulatedRatio |
 	aGroup ifEmpty: [ ^ self ].

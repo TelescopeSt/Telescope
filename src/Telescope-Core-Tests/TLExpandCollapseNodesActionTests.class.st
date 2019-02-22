@@ -7,14 +7,14 @@ Class {
 	#category : #'Telescope-Core-Tests-Actions'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #running }
 TLExpandCollapseNodesActionTests >> setUp [
 	visu := TLVisualization new
 		generator: TLConnectorTest new;
 		yourself
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #tests }
 TLExpandCollapseNodesActionTests >> testDefaultCollapse [
 	| node action |
 	node := visu addNodeFromEntity: 4.
@@ -27,7 +27,7 @@ TLExpandCollapseNodesActionTests >> testDefaultCollapse [
 	self assert: visu nodes first equals: node.
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #tests }
 TLExpandCollapseNodesActionTests >> testDefaultExpand [
 	| node |
 	node := visu addNodeFromEntity: 4.
@@ -37,7 +37,7 @@ TLExpandCollapseNodesActionTests >> testDefaultExpand [
 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #tests }
 TLExpandCollapseNodesActionTests >> testExpandInAnotherGroup [
 	| node |
 	node := visu addNodeFromEntity: 4.
