@@ -41,5 +41,5 @@ TLDynamicLegendEntry >> descriptionBlock: anObject [
 
 { #category : #resolution }
 TLDynamicLegendEntry >> obtainAssociations [
-	^ (self contextBlock value groupedBy: [ :drawable | self descriptionBlock value: drawable entity ]) sorted: #yourself ascending
+	^ (self contextBlock value groupedBy: [ :drawable | self descriptionBlock value: drawable entity ]) sorted: [ :a :b | a < b ]
 ]
