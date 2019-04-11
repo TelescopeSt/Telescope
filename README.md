@@ -10,7 +10,7 @@ Telescope is an engine for efficiently creating meaningful visualizations. The p
 
 The user can create a model of visualization and then render it via a connector to a visualization framework.
 
-**Note:** Telescope is not usable by itself. It needs to come with at least one connector. You can find the list of connectors [later in this document](#connectors).
+**Note: Telescope is not usable by itself. It needs to come with at least one connector. You can find the list of connectors [later in this document](#connectors).**
 
 # Documentation
 
