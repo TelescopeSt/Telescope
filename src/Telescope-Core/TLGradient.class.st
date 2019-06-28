@@ -22,7 +22,7 @@ TLGradient >> computeForLevel: aLevel [
 	^ max value alphaMixed: (aLevel - min key) / (max key - min key) with: min value
 ]
 
-{ #category : #evaluating }
+{ #category : #'as yet unclassified' }
 TLGradient >> cull: anEntity cull: aNode [
 	^ self computeForLevel: (self levelProperty cull: anEntity cull: aNode ) 
 ]
@@ -33,7 +33,7 @@ TLGradient >> initialize [
 	self levelForColors: SortedCollection new
 ]
 
-{ #category : #testing }
+{ #category : #'as yet unclassified' }
 TLGradient >> isEvaluable [
 	^ true
 ]
@@ -58,7 +58,7 @@ TLGradient >> levelProperty: anObject [
 	levelProperty := anObject
 ]
 
-{ #category : #accessing }
+{ #category : #'as yet unclassified' }
 TLGradient >> percentageForLevel: aLevel [
 	| low high |
 	low := self levelForColors first key.
@@ -66,7 +66,7 @@ TLGradient >> percentageForLevel: aLevel [
 	^ (aLevel - low) / (high - low)
 ]
 
-{ #category : #printing }
+{ #category : #'as yet unclassified' }
 TLGradient >> printOn: aStream [
 	super printOn: aStream.
 	aStream

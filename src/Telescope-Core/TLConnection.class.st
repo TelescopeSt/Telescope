@@ -12,7 +12,7 @@ Class {
 	#category : #'Telescope-Core-Model'
 }
 
-{ #category : #'instance creation' }
+{ #category : #'as yet unclassified' }
 TLConnection class >> from: fromNode to: toNode visualization: aTLVisualization [
 	^ self new fromNode: fromNode; toNode: toNode; parent: aTLVisualization
 ]
@@ -21,6 +21,14 @@ TLConnection class >> from: fromNode to: toNode visualization: aTLVisualization 
 TLConnection >> allInteractions [
 	"return the local interactions only"
 	^ self interactions
+]
+
+{ #category : #accessing }
+TLConnection >> color: aColorOrBlock [
+	self
+		deprecated:
+			'CyrilFerlicot - 22/04/2017: Style should be managed via the stylesheet. Use `connection styleSheet color: aColor` instead.'.
+	self styleSheet backgroundColor: aColorOrBlock
 ]
 
 { #category : #accessing }

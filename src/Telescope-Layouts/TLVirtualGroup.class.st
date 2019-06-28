@@ -188,6 +188,12 @@ TLVirtualGroup >> removeLast: n [
 	super removeLast: n 
 ]
 
+{ #category : #position }
+TLVirtualGroup >> restoreElementsPosition [
+	"Used because Roassal only translate nodes and do not set their position"
+	self do: [ :anElement | anElement position: 0@0 ]
+]
+
 { #category : #private }
 TLVirtualGroup >> species [
 	^ self class superclass

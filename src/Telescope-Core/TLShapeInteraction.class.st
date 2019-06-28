@@ -48,7 +48,7 @@ TLShapeInteraction >> onClick [
 	self shapeTrigger onClick
 ]
 
-{ #category : #removing }
+{ #category : #'as yet unclassified' }
 TLShapeInteraction >> removeWith: aTLRoassal2Connector forDrawable: aDrawable [ 
 	aTLRoassal2Connector removeShapeInteraction: self forDrawable: aDrawable
 ]
@@ -64,7 +64,7 @@ TLShapeInteraction >> shapeTrigger: aShapeTrigger [
 	aShapeTrigger shapeInteraction: self
 ]
 
-{ #category : #updating }
+{ #category : #'as yet unclassified' }
 TLShapeInteraction >> updateWith: aConnector forDrawable: aDrawable [
 	aConnector updateShapeInteraction: self forDrawable: aDrawable
 ]
@@ -80,7 +80,7 @@ TLShapeInteraction >> withTriggerStyle: aSymbolOrBlockClosure [
 		initialStyle: aSymbolOrBlockClosure
 ]
 
-{ #category : #action }
+{ #category : #'as yet unclassified' }
 TLShapeInteraction >> withTriggerStyled: aStyleOrStyleSheetCustomizationBlock thatBecome: anotherStyleOrStyleSheetCustomizationBlock [
 	self shapeTrigger
 		initialStyle: aStyleOrStyleSheetCustomizationBlock;

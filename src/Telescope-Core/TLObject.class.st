@@ -8,6 +8,11 @@ Class {
 	#category : #'Telescope-Core-Model'
 }
 
+{ #category : #'as yet unclassified' }
+TLObject class >> forCytoscape [
+	^ self forCytoscapeNode
+]
+
 { #category : #convenience }
 TLObject >> obtain: aValuableorObject on: anObject [
 	"This method will try to apply the valuable on the object; in succeed case, this method will return the result; otherwise it will return the ValuableorObject"

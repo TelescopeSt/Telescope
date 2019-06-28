@@ -447,7 +447,7 @@ TLDemos class >> exampleLabelWrap [
 
 { #category : #demos }
 TLDemos class >> exampleLayoutsAngle [
-	<script: 'self exampleLayoutsAngle open'>
+	<script: 'self exampleTelescopeLayouts open'>
 	<tlFilter: #layout>
 	| visualization |
 	visualization := TLVisualization fromEntities: (0 to: 359).
@@ -499,6 +499,22 @@ TLDemos class >> exampleLineStyle [
 ]
 
 { #category : #demos }
+TLDemos class >> exampleMovingNodeChangeEntity [
+	<script: 'self exampleMovingNodeChangeEntity open'>
+	<tlFilter: #interaction>
+	| visu |
+	visu := TLVisualization fromEntities: ((1 to: 5) collect: [ :i | (i * 20) @ (i * 20) ]).
+	visu
+		addInteractions:
+			{(TLCustomWithParameterAction block: [ :node :position | node entity: position x asInteger @ position y asInteger ]) onMove.
+			TLMemorizeNodePositionAction onMove}.
+	visu styleSheet
+		nodeLabel: #asString position: #top;
+		labelSize: 8.
+	^ visu
+]
+
+{ #category : #demos }
 TLDemos class >> exampleMovingNodeToAnotherGroup [
 	<script: 'self exampleMovingNodeToAnotherGroup open'>
 	<tlFilter: #group>
@@ -542,24 +558,6 @@ TLDemos class >> exampleNameCloud [
 		entities: (TLDrawable withAllSubclasses flatCollect: #methods);
 		nameProperty: #selector;
 		yourself
-]
-
-{ #category : #demos }
-TLDemos class >> exampleNodeLabelPosition [
-	<script: 'self exampleNodeLabelPosition open'>
-	<tlFilter: #style>
-	| visu |
-	visu := TLVisualization new.
-	#(top center bottom) do: [ :vert | #(left center right) do: [ :hor | visu addNodeFromEntity: vert -> hor ] ].
-	visu layout: (TLLinearLayout gap: 50 perLine: 3).
-	visu styleSheet
-		nodeLabel: #asString
-		position: [ :each | 
-			TLPosition new
-				horizontal: each value;
-				vertical: each key;
-				yourself ].
-	^ visu
 ]
 
 { #category : #demos }

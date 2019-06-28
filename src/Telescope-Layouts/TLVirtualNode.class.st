@@ -15,6 +15,7 @@ Class {
 		'children',
 		'compositeMargin',
 		'encompassingRectangle',
+		'userFixedPosition',
 		'triggers',
 		'tlNode'
 	],
@@ -75,6 +76,26 @@ TLVirtualNode >> compositeMargin: anObject [
 	compositeMargin := anObject
 ]
 
+{ #category : #position }
+TLVirtualNode >> cytoscapePosition [
+	"Cytoscape require the center of the node and Telescope works with center too"
+	^ self absolutePosition
+]
+
+{ #category : #position }
+TLVirtualNode >> defineFixedPositionFromAbsolute: aPosition [
+	self defineFixedRelativePosition: (self calculateRelativePositionFromAbsolute: aPosition)
+]
+
+{ #category : #position }
+TLVirtualNode >> defineFixedRelativePosition: aPosition [
+	self userFixedPosition: false.
+	aPosition
+		ifNotNil: [ 
+			self position: aPosition.
+			self userFixedPosition: true ]
+]
+
 { #category : #accessing }
 TLVirtualNode >> dimension [
 	^ self hasChildren
@@ -85,15 +106,13 @@ TLVirtualNode >> dimension [
 { #category : #accessing }
 TLVirtualNode >> dimension: anObject [
 	dimension := anObject.
-	self clearEncompassingRectangle.
-	self dimensionChangedHook
+	self clearEncompassingRectangle
 ]
 
 { #category : #accessing }
-TLVirtualNode >> dimensionChangedHook [
-	"My subclasses should override me to apply the dimension change to their real nodes to match the dimensions of the tlNode."
-	
-	self subclassResponsibility
+TLVirtualNode >> encompassingCytoscapeRectangle [
+	| encompassingCytoscapeRectangle |
+	^ encompassingCytoscapeRectangle ifNil: [ encompassingCytoscapeRectangle := Rectangle origin: self cytoscapePosition extent: self dimension ]
 ]
 
 { #category : #accessing }
@@ -134,6 +153,7 @@ TLVirtualNode >> incomingAdjacentNodes [
 TLVirtualNode >> initialize [
 	super initialize.
 	self children: (TLVirtualGroup new composite: self).
+	self userFixedPosition: false.
 	triggers:= OrderedCollection new 
 ]
 
@@ -145,6 +165,12 @@ TLVirtualNode >> isNode [
 { #category : #dimension }
 TLVirtualNode >> occupyMaxSpace [
 	^ self tlNode effectiveStyleSheet takeAllSpace
+]
+
+{ #category : #dimension }
+TLVirtualNode >> originalWidth [
+	self flag: #TODO.	"Save Demeter"
+	^ self tlNode effectiveStyleSheet obtainValue: #width forEntity: self tlNode entity inNode: self tlNode
 ]
 
 { #category : #adjacent }
@@ -175,7 +201,8 @@ TLVirtualNode >> position [
 
 { #category : #accessing }
 TLVirtualNode >> position: anObject [
-	position := anObject.
+	self userFixedPosition
+		ifFalse: [ position := anObject ].
 	self clearEncompassingRectangle
 ]
 
@@ -211,6 +238,16 @@ TLVirtualNode >> tlNode: anObject [
 { #category : #accessing }
 TLVirtualNode >> triggers [
 	^ triggers
+]
+
+{ #category : #accessing }
+TLVirtualNode >> userFixedPosition [
+	^ userFixedPosition
+]
+
+{ #category : #accessing }
+TLVirtualNode >> userFixedPosition: anObject [
+	userFixedPosition := anObject
 ]
 
 { #category : #accessing }

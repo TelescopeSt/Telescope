@@ -35,9 +35,7 @@ TLSimpleShape class >> polygonPoints [
 
 { #category : #'instance creation' }
 TLSimpleShape class >> regularPolygonePointsOfSize: aNumber [
-	"I return the polygon vertices for a regular polygon with a number of segment given as parameter.
-	
-	If Y give 8 as parameter I get an octogon."
+	"I retrun the polygon point for a regular polygon with a number of segment given as parameter."
 
 	| angle encompassingCircleRadius |
 	angle := 2 * Float pi / aNumber.

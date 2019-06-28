@@ -27,7 +27,7 @@ TLObtainRequest >> groupRecursively [
 	^ TLGroupRecursiveRequest source: self
 ]
 
-{ #category : #initialization }
+{ #category : #'as yet unclassified' }
 TLObtainRequest >> initialize [
 	super initialize.
 	self strategies: OrderedCollection new

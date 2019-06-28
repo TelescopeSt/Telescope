@@ -16,7 +16,7 @@ TLLinearLayoutSimulator >> initialize [
 	self totalDimension: 0@0
 ]
 
-{ #category : #placing }
+{ #category : #'as yet unclassified' }
 TLLinearLayoutSimulator >> on: aGroup [
 	"This error is signaled because if this method is called with ratio strategy; it will cause infinite loop"
 	self error: 'Not designed to be executed'

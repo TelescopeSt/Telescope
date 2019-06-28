@@ -43,7 +43,7 @@ TLLayout class >> leftToRight [
 	^ self new leftToRight
 ]
 
-{ #category : #'instance creation' }
+{ #category : #'instance-creation' }
 TLLayout class >> on: aGroup [ 
 	^ self new on: aGroup 
 ]
@@ -106,7 +106,8 @@ TLLayout >> cache: anObject [
 
 { #category : #'as yet unclassified' }
 TLLayout >> changeNode: aNode dimension: aNewDimension [
-	aNode dimension: (self obtainsDimension: aNewDimension forAngle: self angle negated)
+	aNode dimension: (self obtainsDimension: aNewDimension forAngle: self angle negated).
+	TLNodeDimensionChanged signalForNode: aNode.
 ]
 
 { #category : #placing }

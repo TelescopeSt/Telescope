@@ -17,12 +17,12 @@ Class {
 	#category : #'Telescope-Core-Actions'
 }
 
-{ #category : #accessing }
+{ #category : #'as yet unclassified' }
 TLCustomAction class >> block: anActionBlock [
 	^ self new actionBlock: anActionBlock 
 ]
 
-{ #category : #'instance-creation' }
+{ #category : #'as yet unclassified' }
 TLCustomAction class >> block: anActionBlock condition: aConditionBlock [
 	^ (self block: anActionBlock ) condition: aConditionBlock
 ]
@@ -37,7 +37,7 @@ TLCustomAction >> actionBlock: anObject [
 	actionBlock := anObject
 ]
 
-{ #category : #action }
+{ #category : #'as yet unclassified' }
 TLCustomAction >> actionOn: aTLDrawable [
 	self actionBlock value: aTLDrawable 
 ]

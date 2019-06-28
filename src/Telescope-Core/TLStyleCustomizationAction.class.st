@@ -42,12 +42,12 @@ Class {
 	#category : #'Telescope-Core-Actions'
 }
 
-{ #category : #'instance creation' }
+{ #category : #'as yet unclassified' }
 TLStyleCustomizationAction class >> custom: aBlock [
 	^ self new customizationBlock: aBlock; yourself
 ]
 
-{ #category : #'instance creation' }
+{ #category : #'as yet unclassified' }
 TLStyleCustomizationAction class >> custom: aBlock target: aTargetDrawable [
 	^ self new customizationBlock: aBlock; target: aTargetDrawable; yourself
 ]

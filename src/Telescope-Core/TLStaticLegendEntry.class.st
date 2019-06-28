@@ -10,7 +10,7 @@ Class {
 	#category : #'Telescope-Core-Model-Legend'
 }
 
-{ #category : #accessing }
+{ #category : #'as yet unclassified' }
 TLStaticLegendEntry class >> description: aDescription [
 	^ self new
 		label: aDescription;

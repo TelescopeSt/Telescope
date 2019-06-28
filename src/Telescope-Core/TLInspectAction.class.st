@@ -8,7 +8,7 @@ Class {
 	#category : #'Telescope-Core-Actions'
 }
 
-{ #category : #action }
+{ #category : #'as yet unclassified' }
 TLInspectAction >> actionOn: aNode [
 	aNode entity inspect
 ]

@@ -21,7 +21,7 @@ TLBasicBlock class >> title: aString [
 		yourself
 ]
 
-{ #category : #comparing }
+{ #category : #'as yet unclassified' }
 TLBasicBlock >> = aBlock [
 	^ self title = aBlock title
 ]
@@ -48,7 +48,7 @@ TLBasicBlock >> pred: anObject [
 	pred := anObject
 ]
 
-{ #category : #printing }
+{ #category : #'as yet unclassified' }
 TLBasicBlock >> printOn: aStream [
 	super printOn: aStream.
 	aStream nextPutAll: ' ('.

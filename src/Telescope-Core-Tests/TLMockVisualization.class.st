@@ -12,7 +12,7 @@ TLMockVisualization class >> create [
 	^ self new createVisu
 ]
 
-{ #category : #action }
+{ #category : #'as yet unclassified' }
 TLMockVisualization >> createVisu [
 	| visu |
 	visu := TLVisualization new.

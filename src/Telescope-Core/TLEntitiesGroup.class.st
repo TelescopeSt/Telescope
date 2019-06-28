@@ -330,7 +330,7 @@ TLEntitiesGroup >> sort: aBlockClosure [
 	self collection sort: aBlockClosure 
 ]
 
-{ #category : #accessing }
+{ #category : #'as yet unclassified' }
 TLEntitiesGroup >> sortingStrategy [
 	^ sortingStrategy
 ]
