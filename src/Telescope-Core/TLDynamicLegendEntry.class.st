@@ -11,12 +11,17 @@ Class {
 	#category : #'Telescope-Core-Model-Legend'
 }
 
-{ #category : #'instance-creation' }
+{ #category : #'instance creation' }
 TLDynamicLegendEntry class >> description: descriptionBlock context: contextBlock [
 	^ self new
 		descriptionBlock: descriptionBlock;
 		contextBlock: contextBlock;
 		yourself
+]
+
+{ #category : #testing }
+TLDynamicLegendEntry class >> isAbstract [
+	^ self = TLDynamicLegendEntry
 ]
 
 { #category : #accessing }
@@ -41,7 +46,5 @@ TLDynamicLegendEntry >> descriptionBlock: anObject [
 
 { #category : #resolution }
 TLDynamicLegendEntry >> obtainAssociations [
-	^ (self contextBlock value groupedBy: [ :drawable | self descriptionBlock value: drawable entity ]).
-	 
-
+	^ (self contextBlock value groupedBy: [ :drawable | self descriptionBlock value: drawable entity ]) sorted: #yourself ascending
 ]

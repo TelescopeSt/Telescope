@@ -7,6 +7,11 @@ Class {
 	#category : #'Telescope-Core-Model-Legend'
 }
 
+{ #category : #testing }
+TLLegendEntry class >> isAbstract [
+	^ self = TLLegendEntry
+]
+
 { #category : #style }
 TLLegendEntry >> defaultStyle [
 	^ #legendEntry
