@@ -46,5 +46,7 @@ TLDynamicLegendEntry >> descriptionBlock: anObject [
 
 { #category : #resolution }
 TLDynamicLegendEntry >> obtainAssociations [
-	^ (self contextBlock value groupedBy: [ :drawable | self descriptionBlock value: drawable entity ]) sorted: [ :a :b | a < b ]
+	self flag: #pharo6.	"In Pharo 6 what is returned is a PluggableDictionary."
+
+	^ ((self contextBlock value groupedBy: [ :drawable | self descriptionBlock value: drawable entity ]) as: OrderedDictionary) sorted: [ :a :b | a < b ]
 ]
