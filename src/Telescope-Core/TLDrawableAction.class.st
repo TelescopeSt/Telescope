@@ -50,11 +50,6 @@ TLDrawableAction class >> withShape: aShape [
 ]
 
 { #category : #interactions }
-TLDrawableAction class >> withShapeManager: aShapeManager [
-	^ self new withShapeManager: aShapeManager
-]
-
-{ #category : #interactions }
 TLDrawableAction class >> withTriggerStyle: aSymbolOrBlockClosure [ 
 	^ self new withTriggerStyle: aSymbolOrBlockClosure
 ]
@@ -118,11 +113,6 @@ TLDrawableAction >> withMenu: aTitle [
 { #category : #interactions }
 TLDrawableAction >> withShape: aShape [
 	^ TLShapeInteraction new action: self; shape: aShape
-]
-
-{ #category : #interactions }
-TLDrawableAction >> withShapeManager: aShapeManager [
-	^ TLShapeInteraction new action: self; shapeManager: aShapeManager
 ]
 
 { #category : #interactions }
