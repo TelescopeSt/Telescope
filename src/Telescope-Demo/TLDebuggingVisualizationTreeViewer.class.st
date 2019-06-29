@@ -7,10 +7,10 @@ Class {
 	#instVars : [
 		'anotherVisualization'
 	],
-	#category : #'Telescope-Core-Utils'
+	#category : #'Telescope-Demo'
 }
 
-{ #category : #'instance-creation' }
+{ #category : #'instance creation' }
 TLDebuggingVisualizationTreeViewer class >> visu: anotherVisu [
 	^ self new
 		anotherVisualization: anotherVisu;
@@ -29,21 +29,10 @@ TLDebuggingVisualizationTreeViewer >> anotherVisualization: anObject [
 
 { #category : #building }
 TLDebuggingVisualizationTreeViewer >> buildVisualization [
-	self displayVisu
-]
-
-{ #category : #building }
-TLDebuggingVisualizationTreeViewer >> displayVisu [
 	(self addNodeFromEntity: anotherVisualization) styleSheet
 		nodeLabel: 'Visualization';
 		backgroundColor: MDLColor deepOrange.
-	(self addNodesFromEntities: anotherVisualization obtain recursively nodes)
-		do: [ :aNode | 
-			aNode
-				addStyle:
-					(aNode entity isComposite
-						ifTrue: [ #compositeNode ]
-						ifFalse: [ #simpleNode ]) ].
+	(self addNodesFromEntities: anotherVisualization obtain recursively nodes) do: [ :aNode | aNode addStyle: (aNode entity isComposite ifTrue: [ #compositeNode ] ifFalse: [ #simpleNode ]) ].
 	self styleSheet > #parentRelation color: MDLColor blue.
 	self styleSheet > #compositeParentRelation color: MDLColor green.
 	(self connectFollowingProperty: #parent) addStyle: #parentRelation.
@@ -59,6 +48,6 @@ TLDebuggingVisualizationTreeViewer >> displayVisu [
 TLDebuggingVisualizationTreeViewer >> update [
 	self removeAll.
 	self legend: (TLLegend parent: self).
-	self displayVisu.
+	self buildVisualization.
 	super update
 ]
