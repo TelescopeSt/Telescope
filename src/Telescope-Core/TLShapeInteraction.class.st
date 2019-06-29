@@ -30,7 +30,7 @@ TLShapeInteraction >> generateWith: aTLConnector on: aTLDrawable targeting: aTar
 { #category : #initialization }
 TLShapeInteraction >> initialize [
 	super initialize.
-	self shapeTrigger: TLShapeTrigger new.
+	self shapeTrigger: TLShapeTrigger new
 ]
 
 { #category : #testing }
@@ -38,7 +38,7 @@ TLShapeInteraction >> isGraphicallyRepresented [
 	^ true
 ]
 
-{ #category : #accessor }
+{ #category : #private }
 TLShapeInteraction >> kind [
 	^ #shape
 ]
@@ -48,9 +48,9 @@ TLShapeInteraction >> onClick [
 	self shapeTrigger onClick
 ]
 
-{ #category : #'as yet unclassified' }
-TLShapeInteraction >> removeWith: aTLRoassal2Connector forDrawable: aDrawable [ 
-	aTLRoassal2Connector removeShapeInteraction: self forDrawable: aDrawable
+{ #category : #removing }
+TLShapeInteraction >> removeWith: aConnector forDrawable: aDrawable [ 
+	aConnector removeShapeInteraction: self forDrawable: aDrawable
 ]
 
 { #category : #accessing }
@@ -64,7 +64,7 @@ TLShapeInteraction >> shapeTrigger: aShapeTrigger [
 	aShapeTrigger shapeInteraction: self
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #updating }
 TLShapeInteraction >> updateWith: aConnector forDrawable: aDrawable [
 	aConnector updateShapeInteraction: self forDrawable: aDrawable
 ]
@@ -80,7 +80,7 @@ TLShapeInteraction >> withTriggerStyle: aSymbolOrBlockClosure [
 		initialStyle: aSymbolOrBlockClosure
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #updating }
 TLShapeInteraction >> withTriggerStyled: aStyleOrStyleSheetCustomizationBlock thatBecome: anotherStyleOrStyleSheetCustomizationBlock [
 	self shapeTrigger
 		initialStyle: aStyleOrStyleSheetCustomizationBlock;

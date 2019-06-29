@@ -105,7 +105,7 @@ TLInteraction >> regularActionIfNecessaryOn: aTLSimpleNode [
 ]
 
 { #category : #generation }
-TLInteraction >> removeWith: aTLRoassal2Connector [ 
+TLInteraction >> removeWith: aConnector [ 
 ]
 
 { #category : #removing }
