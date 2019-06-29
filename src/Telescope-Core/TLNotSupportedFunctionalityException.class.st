@@ -3,6 +3,6 @@ I am an abstract exception to subclass for each technology and signaled when thi
 "
 Class {
 	#name : #TLNotSupportedFunctionalityException,
-	#superclass : #Error,
+	#superclass : #TLError,
 	#category : #'Telescope-Core-Exceptions'
 }
