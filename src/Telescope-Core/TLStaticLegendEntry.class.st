@@ -10,11 +10,16 @@ Class {
 	#category : #'Telescope-Core-Model-Legend'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #'instance creation' }
 TLStaticLegendEntry class >> description: aDescription [
 	^ self new
 		label: aDescription;
 		yourself
+]
+
+{ #category : #testing }
+TLStaticLegendEntry class >> isAbstract [
+	^ self = TLStaticLegendEntry
 ]
 
 { #category : #testing }
