@@ -24,7 +24,7 @@ Class {
 		'incomingBlock',
 		'outgoingBlock'
 	],
-	#category : #'Telescope-VisualizationTemplates-Core'
+	#category : #'Telescope-VisualizationTemplates'
 }
 
 { #category : #building }

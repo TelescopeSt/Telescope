@@ -8,7 +8,7 @@ Class {
 		'entities',
 		'nameProperty'
 	],
-	#category : #'Telescope-VisualizationTemplates-Core'
+	#category : #'Telescope-VisualizationTemplates'
 }
 
 { #category : #accessing }

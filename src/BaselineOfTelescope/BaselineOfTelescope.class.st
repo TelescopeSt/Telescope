@@ -47,9 +47,10 @@ BaselineOfTelescope >> baseline: spec [
 				package: 'Telescope-Core' with: [ spec requires: #('Stylesheet' 'Telescope-Layouts' 'MaterialColors') ];
 				package: 'Telescope-VisualizationTemplates' with: [ spec requires: #('Telescope-Core' 'MooseAlgos' 'DeepTraverser') ];
 				package: 'Telescope-Demo' with: [ spec requires: #('Telescope-Core' 'Telescope-VisualizationTemplates') ];
-				package: 'Telescope-Core-Tests' with: [ spec requires: #('Telescope-Core' 'BabyMock2') ];
 				package: 'Telescope-Layouts';
-				package: 'Telescope-Layouts-Tests' with: [ spec requires: #(#'Telescope-Layouts' 'BabyMock') ].
+				package: 'Telescope-Core-Tests' with: [ spec requires: #('Telescope-Core' 'BabyMock2') ];
+				package: 'Telescope-Layouts-Tests' with: [ spec requires: #(#'Telescope-Layouts' 'BabyMock') ];
+				package: 'Telescope-VisualizationTemplates-Tests' with: [ spec requires: #('Telescope-VisualizationTemplates' 'Telescope-Core-Tests') ].
 
 			"Groups"
 			spec
@@ -60,7 +61,7 @@ BaselineOfTelescope >> baseline: spec [
 				group: 'layout' with: #('Telescope-Layouts' 'Telescope-Layouts-Tests');
 				group: 'layout-core' with: #('Telescope-Layouts');
 				group: 'minimal' with: #('Telescope-Core');
-				group: 'tests' with: #('Telescope-Core-Tests' 'Telescope-Layouts-Tests') ]
+				group: 'tests' with: #('Telescope-Core-Tests' 'Telescope-Layouts-Tests' 'Telescope-VisualizationTemplates-Tests') ]
 ]
 
 { #category : #dependencies }

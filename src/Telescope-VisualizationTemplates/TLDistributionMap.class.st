@@ -32,7 +32,7 @@ Class {
 		'propertySortingBlock',
 		'innerEntitiesSelector'
 	],
-	#category : #'Telescope-VisualizationTemplates-Core'
+	#category : #'Telescope-VisualizationTemplates'
 }
 
 { #category : #creation }
