@@ -10,6 +10,11 @@ Class {
 	#category : #'Telescope-Core-Connector'
 }
 
+{ #category : #testing }
+TLViewConnector class >> isRealConnector [
+	^ self ~= TLViewConnector
+]
+
 { #category : #accessing }
 TLViewConnector class >> priority [
 	^ -100

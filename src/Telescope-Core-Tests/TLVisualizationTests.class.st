@@ -19,11 +19,6 @@ TLVisualizationTests >> testChildrenNodeInVisu [
 ]
 
 { #category : #tests }
-TLVisualizationTests >> testGeneratorNotNil [
-	self assert: visualization generator notNil
-]
-
-{ #category : #tests }
 TLVisualizationTests >> testRemovedNodeHasNoConnection [
 	| node |
 	visualization > #one addNodesFromEntities: (1 to: 4).

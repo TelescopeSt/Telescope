@@ -11,6 +11,11 @@ Class {
 	#category : #'Telescope-Core-Tests'
 }
 
+{ #category : #testing }
+TLConnectorTest class >> isRealConnector [
+	^ false
+]
+
 { #category : #accessing }
 TLConnectorTest class >> priority [
 	^ 1
