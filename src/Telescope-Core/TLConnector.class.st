@@ -46,7 +46,14 @@ Class {
 
 { #category : #accessing }
 TLConnector class >> default [
-	^ self allSubclasses detectMax: #priority
+	^ (self allSubclasses select: #isRealConnector)
+		ifEmpty: [ TLNoConnectorException signal ]
+		ifNotEmpty: [ :connectors | connectors detectMax: #priority ]
+]
+
+{ #category : #testing }
+TLConnector class >> isRealConnector [
+	^ self ~= TLConnector
 ]
 
 { #category : #accessing }
