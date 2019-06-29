@@ -176,7 +176,7 @@ TLDemos class >> exampleConnectionStyle [
 	| visualization lastNode |
 	visualization := TLVisualization new.
 	visualization layout gap: 150.
-	(TLSimpleShape allSubclasses select: #availableForCytoscapeConnection)
+	visualization generator connectionHeadShapesAvailableForConnector
 		doWithIndex: [ :aShape :i | 
 			| node1 node2 connection |
 			node1 := visualization > #group1 addNodeFromEntity: i.

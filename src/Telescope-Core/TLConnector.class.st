@@ -89,6 +89,13 @@ TLConnector >> closeVisualization [
 	self subclassResponsibility
 ]
 
+{ #category : #accessing }
+TLConnector >> connectionHeadShapesAvailableForConnector [
+	"I should return all Telescope shapes that can apply on a connection heads for this connector."
+	
+	^ self subclassResponsibility
+]
+
 { #category : #'generation - connection' }
 TLConnector >> createElementConnection: aTLConnection From: fromNode to: toNode [
 	self subclassResponsibility
