@@ -10,7 +10,7 @@ Class {
 	#instVars : [
 		'innerEntitiesBlock'
 	],
-	#category : #'Telescope-VisualizationTemplates-Core'
+	#category : #'Telescope-VisualizationTemplates'
 }
 
 { #category : #'as yet unclassified' }
