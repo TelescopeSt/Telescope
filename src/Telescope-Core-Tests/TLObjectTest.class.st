@@ -13,6 +13,11 @@ TLObjectTest >> setUp [
 ]
 
 { #category : #tests }
+TLObjectTest >> testError [
+	self should: [ tlObject error: 'Test' ] raise: TLError
+]
+
+{ #category : #tests }
 TLObjectTest >> testObtainOnBlock [
 	self assert: (tlObject obtain: [ :object | {object} ] on: tlObject) equals: {tlObject}
 ]
