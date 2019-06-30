@@ -1,5 +1,5 @@
 Class {
-	#name : #TLLegendTests,
+	#name : #TLLegendTest,
 	#superclass : #TestCase,
 	#instVars : [
 		'legend'
@@ -8,7 +8,7 @@ Class {
 }
 
 { #category : #tests }
-TLLegendTests >> testAlphabeticalSortingOfLegend [
+TLLegendTest >> testAlphabeticalSortingOfLegend [
 	legend := TLDynamicLegendEntry
 		description: #yourself
 		context: (#(#guillaume #yann #cyril #usman)
@@ -18,7 +18,7 @@ TLLegendTests >> testAlphabeticalSortingOfLegend [
 ]
 
 { #category : #tests }
-TLLegendTests >> testObtainAssociationsUseDescriptionValuable [
+TLLegendTest >> testObtainAssociationsUseDescriptionValuable [
 	legend := TLDynamicLegendEntry
 		description: #capitalized
 		context: (#(#guillaume #yann #cyril #usman) collect: [ :aName | TLSimpleNode withEntity: aName ]).

@@ -10,7 +10,7 @@ Class {
 		'property',
 		'isAscending'
 	],
-	#category : #'Telescope-Core-Strategy'
+	#category : #'Telescope-Core-Strategies'
 }
 
 { #category : #'as yet unclassified' }

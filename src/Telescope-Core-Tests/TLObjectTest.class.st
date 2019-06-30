@@ -1,38 +1,38 @@
 Class {
-	#name : #TLObjectTests,
+	#name : #TLObjectTest,
 	#superclass : #TestCase,
 	#instVars : [
 		'tlObject'
 	],
-	#category : #'Telescope-Core-Tests'
+	#category : #'Telescope-Core-Tests-Model'
 }
 
 { #category : #running }
-TLObjectTests >> setUp [
+TLObjectTest >> setUp [
 	tlObject := TLObject new
 ]
 
 { #category : #tests }
-TLObjectTests >> testError [
+TLObjectTest >> testError [
 	self should: [ tlObject error: 'Test' ] raise: TLError
 ]
 
 { #category : #tests }
-TLObjectTests >> testObtainOnBlock [
+TLObjectTest >> testObtainOnBlock [
 	self assert: (tlObject obtain: [ :object | {object} ] on: tlObject) equals: {tlObject}
 ]
 
 { #category : #tests }
-TLObjectTests >> testObtainOnNonExistingMethodCall [
+TLObjectTest >> testObtainOnNonExistingMethodCall [
 	self should: [ tlObject obtain: #foo on: tlObject ] raise: MessageNotUnderstood
 ]
 
 { #category : #tests }
-TLObjectTests >> testObtainOnNonValuable [
+TLObjectTest >> testObtainOnNonValuable [
 	self assert: (tlObject obtain: (1 to: 5) on: tlObject) equals: (1 to: 5)
 ]
 
 { #category : #tests }
-TLObjectTests >> testObtainOnSimpleMethodCall [
+TLObjectTest >> testObtainOnSimpleMethodCall [
 	self assert: (tlObject obtain: #class on: tlObject) equals: TLObject
 ]

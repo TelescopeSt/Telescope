@@ -8,7 +8,7 @@ The ordering occurs within the passed collection as does Collection>>sort:
 Class {
 	#name : #TLSortingStrategy,
 	#superclass : #TLObject,
-	#category : #'Telescope-Core-Strategy'
+	#category : #'Telescope-Core-Strategies'
 }
 
 { #category : #sorting }
