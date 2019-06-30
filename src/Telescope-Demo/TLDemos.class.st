@@ -447,7 +447,7 @@ TLDemos class >> exampleLabelWrap [
 
 { #category : #demos }
 TLDemos class >> exampleLayoutsAngle [
-	<script: 'self exampleTelescopeLayouts open'>
+	<script: 'self exampleLayoutsAngle open'>
 	<tlFilter: #layout>
 	| visualization |
 	visualization := TLVisualization fromEntities: (0 to: 359).
@@ -562,7 +562,7 @@ TLDemos class >> exampleNameCloud [
 
 { #category : #demos }
 TLDemos class >> examplePackageHierarchy [
-	<script: 'self exampleOverallHierarchy open'>
+	<script: 'self examplePackageHierarchy open'>
 	<tlFilter: #visuTemplate>
 	^ TLPackageHierarchy new
 		entities: TLDrawable withAllSubclasses;
