@@ -80,7 +80,7 @@ TLVisualization >> defaultTitle [
 
 { #category : #accessing }
 TLVisualization >> fullScreenOpening [
-	self openingDimension: World fullBounds
+	self openingDimension: self currentWorld fullBounds
 ]
 
 { #category : #'private-connector' }

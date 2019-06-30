@@ -51,6 +51,11 @@ TLRequest >> compositeNodesSelect: aBlockClosure [
 		sourceSelect: (self selectBlockFrom: aBlockClosure and: [ :drawable | drawable isNode and: [ drawable isComposite ] ])
 ]
 
+{ #category : #iterating }
+TLRequest >> from: aRoot select: aBlock into: selection [
+	^ self subclassResponsibility
+]
+
 { #category : #final }
 TLRequest >> groups [
 	^ self sourceSelect: #isGroup

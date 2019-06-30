@@ -52,25 +52,28 @@ TLDistributionMap >> buildLegend [
 { #category : #building }
 TLDistributionMap >> buildVisualization [
 	super buildVisualization.
-	
+
 	(self > #containers) nodeCreationStrategy
 		childrenProperty: [ :containerEntity | self innerEntitiesSelector cull: containerEntity ];
-		childrenSortingStrategy: (self propertySortingBlock ifNil: [ (TLPropertyBasedStrategy onProperty: self property) ] ifNotNil: [ :blk | TLSortingBlockStrategy sortingBlock: [ :node1 :node2 | blk value: (self property value: node1 entity) value: (self property value: node2 entity) ] ]).
-		
+		childrenSortingStrategy:
+			(self propertySortingBlock
+				ifNil: [ TLPropertyBasedStrategy onProperty: self property ]
+				ifNotNil: [ :blk | TLSortingBlockStrategy sortingBlock: [ :node1 :node2 | blk value: (self property value: node1 entity) value: (self property value: node2 entity) ] ]).
+
 	((self > #containers) styleSheet > #children)
 		backgroundColor: self createColorBlock;
 		noNodeLabel.
 	(self > #containers) styleSheet
 		nodeLabel: #asString position: #top;
 		backgroundColor: Color white.
-		
+
 	self > #containers addNodesFromEntities: self containerEntities.
-	
+
 	"sort the containers AFTER they are all added to the visualization because the
 	sorting is rather heavy, we want to do it once for all"
 	self > #containers sortingStrategy: (TLDistributionMapContainerSortingStrategy onDistributionMap: self).
-	
-	(self > #containers) allChildrenNodes addInteraction: (TLPopUpAction text: [ :entity | self obtain: self innerEntitiesPopupBlock on: entity ]) onMouseOver.
+
+	(self > #containers) allChildrenNodes addInteraction: (TLPopUpAction text: [ :entity | self obtain: self innerEntitiesPopupBlock on: entity ]) onMouseOver
 ]
 
 { #category : #layout }
