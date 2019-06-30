@@ -91,7 +91,7 @@ TLDrawableAction >> onRightClick [
 
 { #category : #interactions }
 TLDrawableAction >> onShiftMouseOver [
-	^ TLShiftMouseOverInteraction new action: self 
+	self deprecated: 'This option never work because it calls unimplemented code. It will be removed.'
 ]
 
 { #category : #action }

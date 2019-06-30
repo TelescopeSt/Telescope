@@ -13,7 +13,7 @@ Class {
 	#category : #'Telescope-VisualizationTemplates'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #'instance creation' }
 TLDistributionMapContainerSortingStrategy class >> onDistributionMap: aTLVisualization [
 	^self new
 		innerEntitiesBlock: aTLVisualization innerEntitiesSelector ;
