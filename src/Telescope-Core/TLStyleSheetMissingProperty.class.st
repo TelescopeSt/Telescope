@@ -5,21 +5,10 @@ Class {
 	#name : #TLStyleSheetMissingProperty,
 	#superclass : #TLWrongUsedFunctionalityException,
 	#instVars : [
-		'property',
-		'entity'
+		'property'
 	],
 	#category : #'Telescope-Core-Exceptions'
 }
-
-{ #category : #accessing }
-TLStyleSheetMissingProperty >> entity [
-	^ entity
-]
-
-{ #category : #accessing }
-TLStyleSheetMissingProperty >> entity: anObject [
-	entity := anObject
-]
 
 { #category : #accessing }
 TLStyleSheetMissingProperty >> messageText [

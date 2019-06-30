@@ -4,7 +4,7 @@ A TLInvalidPosition is send when the user provide a symbol that doesn't match a 
 "
 Class {
 	#name : #TLInvalidPositionException,
-	#superclass : #Error,
+	#superclass : #TLError,
 	#category : #'Telescope-Core-Exceptions'
 }
 
