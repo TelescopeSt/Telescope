@@ -6,7 +6,7 @@ I am a Telescope error raised in case we try to get the connector for a visualiz
 "
 Class {
 	#name : #TLNoConnectorException,
-	#superclass : #Error,
+	#superclass : #TLError,
 	#category : #'Telescope-Core-Exceptions'
 }
 

@@ -3,6 +3,6 @@ I am an exception that occurs when a composite try to create children from a str
 "
 Class {
 	#name : #TLNoChildrenPropertyException,
-	#superclass : #Error,
+	#superclass : #TLError,
 	#category : #'Telescope-Core-Exceptions'
 }

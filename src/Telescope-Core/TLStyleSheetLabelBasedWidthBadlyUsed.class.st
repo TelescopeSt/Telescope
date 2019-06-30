@@ -4,9 +4,6 @@ I am an exception raised when we try to determine the width of a node from his l
 Class {
 	#name : #TLStyleSheetLabelBasedWidthBadlyUsed,
 	#superclass : #TLWrongUsedFunctionalityException,
-	#instVars : [
-		'entity'
-	],
 	#category : #'Telescope-Core-Exceptions'
 }
 
@@ -15,16 +12,6 @@ TLStyleSheetLabelBasedWidthBadlyUsed class >> signalForEntity: anEntity [
 	self new
 		entity: anEntity;
 		signal
-]
-
-{ #category : #accessing }
-TLStyleSheetLabelBasedWidthBadlyUsed >> entity [
-	^ entity
-]
-
-{ #category : #accessing }
-TLStyleSheetLabelBasedWidthBadlyUsed >> entity: anObject [
-	entity := anObject
 ]
 
 { #category : #accessing }

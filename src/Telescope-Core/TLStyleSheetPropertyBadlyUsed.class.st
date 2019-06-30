@@ -6,7 +6,6 @@ Class {
 	#superclass : #TLWrongUsedFunctionalityException,
 	#instVars : [
 		'property',
-		'entity',
 		'propertyBlock'
 	],
 	#category : #'Telescope-Core-Exceptions'
@@ -19,16 +18,6 @@ TLStyleSheetPropertyBadlyUsed class >> signalForProperty: aPropertyOrValuable pr
 		propertyBlock: result;
 		entity: anEntity;
 		signal
-]
-
-{ #category : #accessing }
-TLStyleSheetPropertyBadlyUsed >> entity [
-	^ entity
-]
-
-{ #category : #accessing }
-TLStyleSheetPropertyBadlyUsed >> entity: anObject [
-	entity := anObject
 ]
 
 { #category : #accessing }
