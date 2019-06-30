@@ -14,8 +14,9 @@ Class {
 	#category : #'Telescope-Core-Tests-Model'
 }
 
-{ #category : #tests }
+{ #category : #running }
 TLObtainRequestTest >> setUp [
+	super setUp.
 	simple := TLSimpleNode new.
 	composite := TLCompositeNode new.
 	group := TLEntitiesGroup new.

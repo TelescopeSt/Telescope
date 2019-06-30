@@ -10,6 +10,7 @@ Class {
 
 { #category : #running }
 TLVisualizationBuilderTest >> setUp [
+	super setUp.
 	visualization := TLVisualization new.
 	mockGenerator := protocol mock: 'generator'.
 	visualization generator: mockGenerator.

@@ -10,6 +10,7 @@ Class {
 
 { #category : #running }
 TLDrawableTest >> setUp [
+	super setUp.
 	drawable := TLDrawable new
 ]
 

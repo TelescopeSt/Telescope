@@ -9,6 +9,7 @@ Class {
 
 { #category : #running }
 TLAbstractNodeTest >> setUp [
+	super setUp.
 	node := TLAbstractNode new
 ]
 

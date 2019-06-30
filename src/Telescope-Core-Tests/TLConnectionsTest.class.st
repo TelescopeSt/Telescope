@@ -9,10 +9,9 @@ Class {
 
 { #category : #running }
 TLConnectionsTest >> setUp [
-	| visualization |
-	visualization := TLVisualization new.
+	super setUp.
 	group := TLEntitiesGroup new.
-	visualization addDrawable: group.
+	TLVisualization new addDrawable: group.
 	group 	addNodesFromEntities: (1 to: 4)
 ]
 
