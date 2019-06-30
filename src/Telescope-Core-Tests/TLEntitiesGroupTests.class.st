@@ -11,6 +11,7 @@ Class {
 
 { #category : #running }
 TLEntitiesGroupTests >> setUp [
+	super setUp.
 	parentMock := protocol mock: 'parent'.
 	generatorMock := protocol mock: 'generator'.
 	protocol describe

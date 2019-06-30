@@ -7,8 +7,9 @@ Class {
 	#category : #'Telescope-Layouts-Tests'
 }
 
-{ #category : #initialization }
+{ #category : #running }
 TLTreeLayoutTest >> setUp [
+	super setUp.
 	layout := TLTreeLayout new.
 	layout useOutgoingLinks 
 	

@@ -9,7 +9,8 @@ Class {
 
 { #category : #running }
 TLVisualizationTest >> setUp [
-	visualization := TLMockVisualization create.
+	super setUp.
+	visualization := TLMockVisualization create
 ]
 
 { #category : #tests }

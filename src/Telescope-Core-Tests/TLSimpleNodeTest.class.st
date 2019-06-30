@@ -9,7 +9,8 @@ Class {
 
 { #category : #running }
 TLSimpleNodeTest >> setUp [
-	node := TLSimpleNode new.
+	super setUp.
+	node := TLSimpleNode new
 ]
 
 { #category : #tests }

@@ -9,6 +9,7 @@ Class {
 
 { #category : #running }
 TLConnectorTest >> setUp [
+	super setUp.
 	connector := TLTestConnector new
 ]
 

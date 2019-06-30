@@ -11,6 +11,7 @@ Class {
 
 { #category : #running }
 TLSortingStrategiesTest >> setUp [
+	super setUp.
 	order := #(4 8 3 9 5 2 7 1 6 10).
 	group := TLEntitiesGroup new
 		addAllDrawables:

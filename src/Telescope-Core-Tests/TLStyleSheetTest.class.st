@@ -9,6 +9,7 @@ Class {
 
 { #category : #running }
 TLStyleSheetTest >> setUp [
+	super setUp.
 	stylesheet := TLStyleSheet new
 ]
 

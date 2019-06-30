@@ -9,6 +9,7 @@ Class {
 
 { #category : #running }
 TLCompositeNodeTest >> setUp [
+	super setUp.
 	node := TLCompositeNode new.
 	node childrenNodeCreationStrategy: TLNodeCreationStrategy default.
 	

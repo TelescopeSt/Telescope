@@ -9,6 +9,7 @@ Class {
 
 { #category : #running }
 TLNodeCreationStrategyTest >> setUp [
+	super setUp.
 	strategy := TLNodeCreationStrategy new
 ]
 

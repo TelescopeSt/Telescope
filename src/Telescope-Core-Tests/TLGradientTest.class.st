@@ -9,6 +9,7 @@ Class {
 
 { #category : #running }
 TLGradientTest >> setUp [
+	super setUp.
 	gradient:= TLGradient new levelProperty: #yourself.
 ]
 

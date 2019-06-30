@@ -9,6 +9,7 @@ Class {
 
 { #category : #running }
 TLObjectTest >> setUp [
+	super setUp.
 	tlObject := TLObject new
 ]
 

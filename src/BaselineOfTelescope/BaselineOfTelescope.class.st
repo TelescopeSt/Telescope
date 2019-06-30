@@ -32,8 +32,7 @@ BaselineOfTelescope >> baseline: spec [
 	<baseline>
 	spec
 		for: #common
-		do: [
-			"Dependencies"
+		do: [ "Dependencies"
 			self
 				babyMock: spec;
 				babyMock2: spec;
@@ -61,7 +60,13 @@ BaselineOfTelescope >> baseline: spec [
 				group: 'layout' with: #('Telescope-Layouts' 'Telescope-Layouts-Tests');
 				group: 'layout-core' with: #('Telescope-Layouts');
 				group: 'minimal' with: #('Telescope-Core');
-				group: 'tests' with: #('Telescope-Core-Tests' 'Telescope-Layouts-Tests' 'Telescope-VisualizationTemplates-Tests') ]
+				group: 'tests' with: #('Telescope-Core-Tests' 'Telescope-Layouts-Tests' 'Telescope-VisualizationTemplates-Tests') ].
+
+	spec
+		for: #(#'pharo6.x' #'pharo7.x')
+		do: [ spec
+				package: 'Telescope-Pharo8-Compatibility';
+				package: 'Telescope-Core' with: [ spec requires: #('Telescope-Pharo8-Compatibility') ] ]
 ]
 
 { #category : #dependencies }
