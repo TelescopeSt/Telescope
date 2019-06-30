@@ -1,5 +1,5 @@
 Class {
-	#name : #TLDrawableTests,
+	#name : #TLDrawableTest,
 	#superclass : #TestCase,
 	#instVars : [
 		'tlObject',
@@ -9,26 +9,26 @@ Class {
 }
 
 { #category : #running }
-TLDrawableTests >> setUp [
+TLDrawableTest >> setUp [
 	drawable := TLDrawable new
 ]
 
 { #category : #tests }
-TLDrawableTests >> testAddStyleRequireUpdate [
+TLDrawableTest >> testAddStyleRequireUpdate [
 	self deny: drawable isUpdateRequired.
 	drawable addStyle: #style.
 	self assert: drawable isUpdateRequired
 ]
 
 { #category : #tests }
-TLDrawableTests >> testremoveNonExistingStyleDoesNotRequireUpdate [
+TLDrawableTest >> testremoveNonExistingStyleDoesNotRequireUpdate [
 	self deny: drawable isUpdateRequired.
 	drawable removeStyle: #style.
 	self deny: drawable isUpdateRequired
 ]
 
 { #category : #tests }
-TLDrawableTests >> testremoveStyleRequireUpdateIfPresent [
+TLDrawableTest >> testremoveStyleRequireUpdateIfPresent [
 	self deny: drawable isUpdateRequired.
 	drawable addStyle: #style.
 	drawable isUpdateRequired: false.

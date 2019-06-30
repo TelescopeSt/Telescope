@@ -4,7 +4,7 @@ Creates a mock visualization for tests.
 Class {
 	#name : #TLMockVisualization,
 	#superclass : #Object,
-	#category : #'Telescope-Core-Tests'
+	#category : #'Telescope-Core-Tests-Utils'
 }
 
 { #category : #'as yet unclassified' }

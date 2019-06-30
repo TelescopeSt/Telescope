@@ -1,144 +1,84 @@
-"
-I am an implementation of the abstract class TLConnector used to create test on it.
-"
 Class {
 	#name : #TLConnectorTest,
-	#superclass : #TLConnector,
+	#superclass : #BabyMock2TestCase,
 	#instVars : [
-		'view',
-		'childrenByParent'
+		'connector'
 	],
-	#category : #'Telescope-Core-Tests'
+	#category : #'Telescope-Core-Tests-Connector'
 }
 
-{ #category : #testing }
-TLConnectorTest class >> isRealConnector [
-	^ false
+{ #category : #running }
+TLConnectorTest >> setUp [
+	connector := TLTestConnector new
 ]
 
-{ #category : #accessing }
-TLConnectorTest class >> priority [
-	^ 1
-]
-
-{ #category : #view }
-TLConnectorTest >> addElementConnectionInView: anAssociation [ 
+{ #category : #tests }
+TLConnectorTest >> testCompositeUpdatingChildNode [
+	| group  composite  |
+	group := TLEntitiesGroup new.
+	group styleSheet expandCompositeNodes.
+	group generator: connector.
+	composite := group addCompositeNodeFromEntity: #parent children: #(child1).
+	group generate.
+	self assert: connector shapeByDrawable size equals: 4.
+	"group + composite + composite children group + child1"
+	composite childrenNodes first requireUpdate.
+	self assert: composite isUpdateRequired.
+	group update.
+	self deny: composite isUpdateRequired.
+	self assert: connector shapeByDrawable size equals: 4.
 	
 ]
 
-{ #category : #view }
-TLConnectorTest >> addElementInteractionInView: element [ 
-	self view add: element
+{ #category : #tests }
+TLConnectorTest >> testGroupUpdatingAddElement [
+	| group cNode aNode bNode |
+	group := TLEntitiesGroup new.
+	group generator: connector.
+	group nodeCreationStrategy: TLNodeCreationStrategy default; layout: nil.
+	aNode := group addNodeFromEntity: $a.
+	bNode := group addNodeFromEntity: $b.
+	group generate.
+	cNode := group addNodeFromEntity: $c.
+	group update.
+	self assert: (connector elementFromTLDrawable: group) equals: {aNode -> #element . bNode -> #element . cNode -> #element } asOrderedCollection
 ]
 
-{ #category : #view }
-TLConnectorTest >> addElementLegendInView: legend [
-	"Here we have nothing to do"
+{ #category : #tests }
+TLConnectorTest >> testGroupUpdatingKeepOrder [
+	| group cNode aNode bNode |
+	group := TLEntitiesGroup new.
+	group generator: connector.
+	group nodeCreationStrategy: TLNodeCreationStrategy default; layout: nil.
+	aNode := group addNodeFromEntity: $a.
+	bNode := group addNodeFromEntity: $b.
+	cNode := group addNodeFromEntity: $c.
+	group generate.
+	group moveToFirstPosition: cNode.
+	group update.
+	self assert: (connector elementFromTLDrawable: group) equals: {cNode -> #element . aNode -> #element . bNode -> #element } asOrderedCollection
 ]
 
-{ #category : #view }
-TLConnectorTest >> addElementNodeInView: anElement [ 
-	view add: anElement
+{ #category : #tests }
+TLConnectorTest >> testNodeWithShapeInteractionCorrectlyGenerated [
+	| node interaction |
+	node := TLSimpleNode new.
+	interaction := ((TLCustomAction block: [ :aTLDrawable |  ]) withTriggerStyle: #aStyle) onClick.
+	node addInteraction: interaction.
+	node generateWith: connector.
+	self assert: connector view size equals: 2. "the node and the trigger"
+	self assert: ((connector interactionsByDrawable at: node) includes: interaction).
 ]
 
-{ #category : #layout }
-TLConnectorTest >> applyLayoutOf: aTLEntitiesGroup on: aCollection [ 
-	"doNothing"
-]
-
-{ #category : #accessing }
-TLConnectorTest >> childrenByParent [
-	^ childrenByParent
-]
-
-{ #category : #accessing }
-TLConnectorTest >> childrenByParent: anObject [
-	childrenByParent := anObject
-]
-
-{ #category : #'generation - connection' }
-TLConnectorTest >> createElementConnection: aTLConnection From: aTLSimpleNode to: aTargetTLSimpleNode [
-	^ aTLConnection -> (aTLSimpleNode -> aTargetTLSimpleNode)
-]
-
-{ #category : #'generation - interaction' }
-TLConnectorTest >> createElementFromTrigger: aTLShapeTrigger [ 
-	^ aTLShapeTrigger -> #element
-]
-
-{ #category : #'generation - node' }
-TLConnectorTest >> createElementNodeFromNode: aTLSimpleNode [ 
-	^ aTLSimpleNode -> #element
-]
-
-{ #category : #'generation - group' }
-TLConnectorTest >> createGroup: aGroup with: aCollection [ 
-	^ aCollection as: OrderedCollection 
-]
-
-{ #category : #'generation - legend' }
-TLConnectorTest >> createLegendFrom: aCollection [ 
-	"For now I do nothing. Change it if you want to test the legend"
-]
-
-{ #category : #'generation - node' }
-TLConnectorTest >> define: anAssociation asParentFor: children [ 
-	self childrenByParent at: anAssociation key put: children
-]
-
-{ #category : #'generation - interaction' }
-TLConnectorTest >> generateClickInteraction: aTLClickInteraction onDrawable: aTLShapeTrigger targetingDrawable: aTLSimpleNode [ 
+{ #category : #tests }
+TLConnectorTest >> testNodeWithShapeInteractionCorrectlyRemoved [
+	| node interaction |
+	node := TLSimpleNode new.
+	interaction := (TLCustomAction block: [ :aTLDrawable |  ]) withTriggerStyle: #aStyle.
+	node addInteraction: interaction.
+	node generateWith: connector.
+	self assert: connector view size equals: 2. "the node and the trigger"
+	node removeWith: connector.
+	self assert: connector view isEmpty
 	
-]
-
-{ #category : #initialization }
-TLConnectorTest >> initialize [
-	super initialize.
-	view := OrderedCollection new.
-	childrenByParent := Dictionary new.
-]
-
-{ #category : #placing }
-TLConnectorTest >> placeElement: anAssociation correspondingToTrigger: aTLShapeTrigger relativeToDrawable: aTLSimpleNode [ 
-	
-]
-
-{ #category : #view }
-TLConnectorTest >> removeElementConnectionFromView: anAssociation [ 
-	self shapeByDrawable removeKey: anAssociation key.
-]
-
-{ #category : #'drawing - removing' }
-TLConnectorTest >> removeElementFromView: anAssociation associatedToDrawable: aTLDrawable [
-	self view remove: anAssociation.
-]
-
-{ #category : #'updating - node' }
-TLConnectorTest >> updateElementNodeOf: aTLSimpleNode [ 
-	
-]
-
-{ #category : #'updating - interaction' }
-TLConnectorTest >> updateInteractionsOf: aTLCompositeNode [ 
-	self flag: 'No interactions test in the fake now'
-]
-
-{ #category : #'updating - legend' }
-TLConnectorTest >> updateLegend: aTLStaticLegend [ 
-	
-]
-
-{ #category : #view }
-TLConnectorTest >> updateViewForVisualization: aTLVisualization [ 
-	
-]
-
-{ #category : #accessing }
-TLConnectorTest >> view [
-	^ view
-]
-
-{ #category : #accessing }
-TLConnectorTest >> view: anObject [
-	view := anObject
 ]

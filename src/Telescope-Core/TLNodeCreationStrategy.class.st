@@ -11,7 +11,7 @@ Class {
 		'nodeStyle',
 		'childrenSortingStrategy'
 	],
-	#category : #'Telescope-Core-Strategy'
+	#category : #'Telescope-Core-Strategies'
 }
 
 { #category : #'instance-creation' }

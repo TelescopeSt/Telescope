@@ -1,5 +1,5 @@
 Class {
-	#name : #TLExpandCollapseNodesActionTests,
+	#name : #TLExpandCollapseNodesActionTest,
 	#superclass : #TestCase,
 	#instVars : [
 		'visu'
@@ -8,14 +8,14 @@ Class {
 }
 
 { #category : #'as yet unclassified' }
-TLExpandCollapseNodesActionTests >> setUp [
+TLExpandCollapseNodesActionTest >> setUp [
 	visu := TLVisualization new
-		generator: TLConnectorTest new;
+		generator: TLTestConnector new;
 		yourself
 ]
 
 { #category : #'as yet unclassified' }
-TLExpandCollapseNodesActionTests >> testDefaultCollapse [
+TLExpandCollapseNodesActionTest >> testDefaultCollapse [
 	| node action |
 	node := visu addNodeFromEntity: 4.
 	visu generate.
@@ -28,7 +28,7 @@ TLExpandCollapseNodesActionTests >> testDefaultCollapse [
 ]
 
 { #category : #'as yet unclassified' }
-TLExpandCollapseNodesActionTests >> testDefaultExpand [
+TLExpandCollapseNodesActionTest >> testDefaultExpand [
 	| node |
 	node := visu addNodeFromEntity: 4.
 	visu generate.
@@ -38,7 +38,7 @@ TLExpandCollapseNodesActionTests >> testDefaultExpand [
 ]
 
 { #category : #'as yet unclassified' }
-TLExpandCollapseNodesActionTests >> testExpandInAnotherGroup [
+TLExpandCollapseNodesActionTest >> testExpandInAnotherGroup [
 	| node |
 	node := visu addNodeFromEntity: 4.
 	visu generate.
