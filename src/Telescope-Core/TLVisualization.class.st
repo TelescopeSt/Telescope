@@ -80,6 +80,7 @@ TLVisualization >> defaultTitle [
 
 { #category : #accessing }
 TLVisualization >> fullScreenOpening [
+	self deprecated: 'This option is linked to Morphic and Pharo display. In the next major version of Pharo it will be removed. This option should be implemented in Connectors of Telescope rendering in Pharo instead.'.
 	self openingDimension: self currentWorld fullBounds
 ]
 
