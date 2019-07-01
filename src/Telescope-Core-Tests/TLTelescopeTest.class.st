@@ -5,6 +5,13 @@ Class {
 }
 
 { #category : #helpers }
+TLTelescopeTest >> demos [
+	| falsePositives |
+	falsePositives := #(#exampleTwoConnectedVisualization).
+	^ TLDemos class methods select: [ :m | (m selector beginsWith: 'example') and: [ (falsePositives includes: m selector) not ] ]
+]
+
+{ #category : #helpers }
 TLTelescopeTest >> packagesPrefix [
 	^ 'Telescope'
 ]
@@ -44,9 +51,11 @@ TLTelescopeTest >> testAndMakeSureSuperTearDownIsCalledAsLastMessageInTearDownMe
 
 { #category : #tests }
 TLTelescopeTest >> testDemoHaveRightScriptPragmas [
-	| demos falsePositives |
-	falsePositives := #(#exampleTwoConnectedVisualization).
-	demos := TLDemos class methods select: [ :m | (m selector beginsWith: 'example') and: [ (falsePositives includes: m selector) not ] ].
-	demos
+	self demos
 		do: [ :method | self assert: (method sourceCode includesSubstring: '<script: ''self ' , method selector , ' open''>') description: 'TLDemos class>>' , method selector , ' has no or wrong script pragma' ]
+]
+
+{ #category : #tests }
+TLTelescopeTest >> testSmokeTestsOnDemos [
+	self demos do: [ :demo | self shouldnt: [ TLDemos executeDemo: demo selector ] raise: Error description: 'TLDemo class>>' , demo selector , ' is failing.' ]
 ]
