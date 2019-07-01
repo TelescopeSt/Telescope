@@ -28,7 +28,7 @@ TLMouseOverInteraction >> reverseActionIfNecessaryOn: aDrawable [
 	self action reverseActionIfNecessaryOn: aDrawable.
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #testing }
 TLMouseOverInteraction >> shouldOccursOn: aKindOfInteraction with: aDrawable [
 	^ (self kind = aKindOfInteraction or: [ #mouseOut = aKindOfInteraction ]) and: [ self condition value: aDrawable ]
 ]

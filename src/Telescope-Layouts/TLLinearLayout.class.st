@@ -13,49 +13,49 @@ Class {
 	#category : 'Telescope-Layouts'
 }
 
-{ #category : #'instance-creation' }
+{ #category : #'instance creation' }
 TLLinearLayout class >> gap: aNumber [
 	^ self new
 		gap: aNumber;
 		yourself
 ]
 
-{ #category : #'instance-creation' }
+{ #category : #'instance creation' }
 TLLinearLayout class >> gap: aGap maximumDimension: aDimension [
 	^ (self gap: aGap)
 		maximumDimension: aDimension;
 		yourself
 ]
 
-{ #category : #'instance-creation' }
+{ #category : #'instance creation' }
 TLLinearLayout class >> gap: aGap perLine: anInteger [
 	^ (self gap: aGap)
 		maxElementsPerLine: anInteger;
 		yourself
 ]
 
-{ #category : #'instance-creation' }
+{ #category : #'instance creation' }
 TLLinearLayout class >> gap: aGap ratio: aRatio [
 	^ (self gap: aGap)
 		ratio: aRatio;
 		yourself
 ]
 
-{ #category : #'instance-creation' }
+{ #category : #'instance creation' }
 TLLinearLayout class >> maximumDimension: aDimension [
 	^ self new
 		maximumDimension: aDimension;
 		yourself
 ]
 
-{ #category : #'instance-creation' }
+{ #category : #'instance creation' }
 TLLinearLayout class >> perLine: anInteger [
 	^ self new
 		maxElementsPerLine: anInteger;
 		yourself
 ]
 
-{ #category : #'instance-creation' }
+{ #category : #'instance creation' }
 TLLinearLayout class >> ratio: aRatio [
 	^ self new
 		ratio: aRatio;

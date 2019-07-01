@@ -12,6 +12,11 @@ Class {
 	#category : #'Telescope-Core-Interactions'
 }
 
+{ #category : #testing }
+TLInteraction class >> isAbstract [
+	^ self = TLInteraction
+]
+
 { #category : #accessing }
 TLInteraction >> action [
 	^ action

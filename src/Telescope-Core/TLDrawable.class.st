@@ -21,6 +21,11 @@ Class {
 	#category : #'Telescope-Core-Model'
 }
 
+{ #category : #testing }
+TLDrawable class >> isAbstract [
+	^ self = TLDrawable
+]
+
 { #category : #accessing }
 TLDrawable >> addAllInteractions: aCollectionOfTLNodeInteractions [
 	aCollectionOfTLNodeInteractions do: [ :interaction | self addInteraction: interaction ]

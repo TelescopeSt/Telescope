@@ -13,6 +13,11 @@ Class {
 	#category : #'Telescope-Core-Model-Request'
 }
 
+{ #category : #testing }
+TLRequest class >> isAbstract [
+	^ self = TLRequest
+]
+
 { #category : #'instance creation' }
 TLRequest class >> source: aTLDrawableCollection [
 	^ self new

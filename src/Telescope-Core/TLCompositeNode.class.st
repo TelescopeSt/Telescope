@@ -40,7 +40,7 @@ Class {
 	#category : #'Telescope-Core-Model'
 }
 
-{ #category : #'instance-creation' }
+{ #category : #'instance creation' }
 TLCompositeNode class >> withEntity: anEntity childrenProperty: aChildrenProperty childrenNodeCreationStrategy: aChildrenNodeCreationStrategy [
 	^ (self
 		withEntity: anEntity)
@@ -99,7 +99,7 @@ TLCompositeNode >> areChildrenGenerated [
 	^ childrenGenerated ifNil: [ childrenGenerated := false ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #transformation }
 TLCompositeNode >> becomeComposite [
 	^ self
 ]

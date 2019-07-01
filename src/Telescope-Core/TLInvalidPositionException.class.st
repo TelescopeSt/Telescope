@@ -8,12 +8,12 @@ Class {
 	#category : #'Telescope-Core-Exceptions'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 TLInvalidPositionException >> description [
 	^ super description, ' (Valid positions are #top #bottom #left #right #inside)'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #initialization }
 TLInvalidPositionException >> initialize [
 	super initialize.
 	self messageText: 'Valid positions are #top #bottom #left #right #inside'
