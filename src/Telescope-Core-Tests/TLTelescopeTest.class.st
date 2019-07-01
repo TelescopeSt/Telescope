@@ -57,5 +57,5 @@ TLTelescopeTest >> testDemoHaveRightScriptPragmas [
 
 { #category : #tests }
 TLTelescopeTest >> testSmokeTestsOnDemos [
-	self demos do: [ :demo | self shouldnt: [ TLDemos perform: demo selector ] raise: Error description: 'TLDemo class>>' , demo selector , ' is failing.' ]
+	self demos do: [ :demo | self shouldnt: [ TLDemos executeDemo: demo selector ] raise: Error description: 'TLDemo class>>' , demo selector , ' is failing.' ]
 ]

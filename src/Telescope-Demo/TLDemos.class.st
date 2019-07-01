@@ -817,7 +817,7 @@ TLDemos class >> exampleVisualizationWithCompositeChildrenConnectionsShowing [
 
 { #category : #accessing }
 TLDemos class >> executeDemo: method [
-	^ TLDemos perform: method 
+	^ self perform: method 
 ]
 
 { #category : #'world menu' }
