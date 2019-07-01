@@ -46,9 +46,8 @@ Class {
 
 { #category : #accessing }
 TLConnector class >> default [
-	^ (self allSubclasses select: #isRealConnector)
-		ifEmpty: [ TLNoConnectorException signal ]
-		ifNotEmpty: [ :connectors | connectors detectMax: #priority ]
+	self deprecated: 'Use TLCurrentConnector instead' transformWith: '`@receiver default' -> 'TLCurrentConnector value'.
+	^ TLCurrentConnector value
 ]
 
 { #category : #testing }
