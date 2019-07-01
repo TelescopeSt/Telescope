@@ -41,3 +41,12 @@ TLTelescopeTest >> testAndMakeSureSuperTearDownIsCalledAsLastMessageInTearDownMe
 
 	self assertEmpty: violating
 ]
+
+{ #category : #tests }
+TLTelescopeTest >> testDemoHaveRightScriptPragmas [
+	| demos falsePositives |
+	falsePositives := #(#exampleTwoConnectedVisualization).
+	demos := TLDemos class methods select: [ :m | (m selector beginsWith: 'example') and: [ (falsePositives includes: m selector) not ] ].
+	demos
+		do: [ :method | self assert: (method sourceCode includesSubstring: '<script: ''self ' , method selector , ' open''>') description: 'TLDemos class>>' , method selector , ' has no or wrong script pragma' ]
+]
