@@ -65,7 +65,7 @@ TLVisualization >> defaultBackgroundColor [
 
 { #category : #default }
 TLVisualization >> defaultConnector [
-	^ TLConnector default new
+	^ TLCurrentConnector value new
 ]
 
 { #category : #style }

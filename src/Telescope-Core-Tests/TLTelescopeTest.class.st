@@ -1,6 +1,6 @@
 Class {
 	#name : #TLTelescopeTest,
-	#superclass : #TestCase,
+	#superclass : #TLWithTestConnectorTest,
 	#category : #'Telescope-Core-Tests-Model'
 }
 
