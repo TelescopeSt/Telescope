@@ -1,5 +1,5 @@
 Class {
-	#name : #TLGradientTests,
+	#name : #TLGradientTest,
 	#superclass : #TestCase,
 	#instVars : [
 		'gradient'
@@ -8,12 +8,13 @@ Class {
 }
 
 { #category : #running }
-TLGradientTests >> setUp [
+TLGradientTest >> setUp [
+	super setUp.
 	gradient:= TLGradient new levelProperty: #yourself.
 ]
 
 { #category : #tests }
-TLGradientTests >> testRatioForLevel [
+TLGradientTest >> testRatioForLevel [
 	gradient to: Color red at: 5.
 	gradient to: Color green at: 15.
 	self assert: (gradient value: 2) equals: Color red.

@@ -46,7 +46,13 @@ Class {
 
 { #category : #accessing }
 TLConnector class >> default [
-	^ self allSubclasses detectMax: #priority
+	self deprecated: 'Use TLCurrentConnector instead' transformWith: '`@receiver default' -> 'TLCurrentConnector value'.
+	^ TLCurrentConnector value
+]
+
+{ #category : #testing }
+TLConnector class >> isRealConnector [
+	^ self ~= TLConnector
 ]
 
 { #category : #accessing }
@@ -81,12 +87,19 @@ TLConnector >> addElementNodeInView: element [
 
 { #category : #layout }
 TLConnector >> applyLayoutOf: aTLGroup on: group [
-	self subclassResponsibility
+	aTLGroup layout on: group
 ]
 
 { #category : #initialization }
 TLConnector >> closeVisualization [
 	self subclassResponsibility
+]
+
+{ #category : #accessing }
+TLConnector >> connectionHeadShapesAvailableForConnector [
+	"I should return all Telescope shapes that can apply on a connection heads for this connector."
+	
+	^ self subclassResponsibility
 ]
 
 { #category : #'generation - connection' }

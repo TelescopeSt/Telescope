@@ -12,7 +12,7 @@ Class {
 	#category : #'Telescope-Core-Model'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #'instance creation' }
 TLConnection class >> from: fromNode to: toNode visualization: aTLVisualization [
 	^ self new fromNode: fromNode; toNode: toNode; parent: aTLVisualization
 ]

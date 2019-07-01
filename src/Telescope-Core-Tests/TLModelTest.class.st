@@ -1,11 +1,11 @@
 Class {
-	#name : #TLModelTests,
+	#name : #TLModelTest,
 	#superclass : #TestCase,
 	#category : #'Telescope-Core-Tests-Model'
 }
 
 { #category : #tests }
-TLModelTests >> testCompositeParentDefinition [
+TLModelTest >> testCompositeParentDefinition [
 	| composite node |
 	composite:= TLCompositeNode new.
 	node := TLSimpleNode new.
@@ -15,7 +15,7 @@ TLModelTests >> testCompositeParentDefinition [
 ]
 
 { #category : #tests }
-TLModelTests >> testRemoveAllFromGroup [
+TLModelTest >> testRemoveAllFromGroup [
 	| group node1 node2 |
 	group := TLEntitiesGroup new.
 	node1 := group addDrawable: (TLSimpleNode new).

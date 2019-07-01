@@ -1,5 +1,5 @@
 Class {
-	#name : #TLStyleSheetTests,
+	#name : #TLStyleSheetTest,
 	#superclass : #TestCase,
 	#instVars : [
 		'stylesheet'
@@ -8,51 +8,52 @@ Class {
 }
 
 { #category : #running }
-TLStyleSheetTests >> setUp [
+TLStyleSheetTest >> setUp [
+	super setUp.
 	stylesheet := TLStyleSheet new
 ]
 
 { #category : #tests }
-TLStyleSheetTests >> testCreation [
+TLStyleSheetTest >> testCreation [
 ]
 
 { #category : #tests }
-TLStyleSheetTests >> testObtainValueForEntityWithBlock [
+TLStyleSheetTest >> testObtainValueForEntityWithBlock [
 	stylesheet color: [:entity | Color red].
 	self assert: (stylesheet obtainValue: #color forEntity: 1 inNode: #node) equals: Color red
 ]
 
 { #category : #tests }
-TLStyleSheetTests >> testObtainValueForEntityWithDirectValue [
+TLStyleSheetTest >> testObtainValueForEntityWithDirectValue [
 	stylesheet color: Color red.
 	self assert: (stylesheet obtainValue: #color forEntity: 1 inNode: #node) equals: Color red
 ]
 
 { #category : #tests }
-TLStyleSheetTests >> testObtainValueForEntityWithGradient [
+TLStyleSheetTest >> testObtainValueForEntityWithGradient [
 	stylesheet color: (Color red property: #yourself gradientAt: 1).
 	self assert: (stylesheet obtainValue: #color forEntity: 1 inNode: #node) equals: Color red
 ]
 
 { #category : #tests }
-TLStyleSheetTests >> testObtainValueForEntityWithStringDirectValue [
+TLStyleSheetTest >> testObtainValueForEntityWithStringDirectValue [
 	stylesheet nodeLabel: 'Foo'.
 	self assert: (stylesheet obtainValue: #nodeLabel forEntity: 1 inNode: #node) equals: 'Foo'
 ]
 
 { #category : #tests }
-TLStyleSheetTests >> testObtainValueForEntityWithSymbol [
+TLStyleSheetTest >> testObtainValueForEntityWithSymbol [
 	stylesheet color: #red.
 	self assert: (stylesheet obtainValue: #color forEntity: Color inNode: #node) equals: Color red
 ]
 
 { #category : #tests }
-TLStyleSheetTests >> testObtainValueForEntityWithWrongBlock [
+TLStyleSheetTest >> testObtainValueForEntityWithWrongBlock [
 	stylesheet color: [ :entity | entity foo ].
 	self should: [ stylesheet obtainValue: #color forEntity: 1 inNode: #node ] raise: TLStyleSheetPropertyBadlyUsed
 ]
 
 { #category : #tests }
-TLStyleSheetTests >> testObtainValueWithMissingProperty [
+TLStyleSheetTest >> testObtainValueWithMissingProperty [
 	self should: [ stylesheet obtainValue: #color forEntity: 1 inNode: #node] raise: TLStyleSheetMissingProperty
 ]

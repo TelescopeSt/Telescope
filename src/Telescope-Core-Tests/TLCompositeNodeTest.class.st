@@ -1,5 +1,5 @@
 Class {
-	#name : #TLCompositeNodeTests,
+	#name : #TLCompositeNodeTest,
 	#superclass : #BabyMock2TestCase,
 	#instVars : [
 		'node'
@@ -8,14 +8,15 @@ Class {
 }
 
 { #category : #running }
-TLCompositeNodeTests >> setUp [
+TLCompositeNodeTest >> setUp [
+	super setUp.
 	node := TLCompositeNode new.
 	node childrenNodeCreationStrategy: TLNodeCreationStrategy default.
 	
 ]
 
 { #category : #tests }
-TLCompositeNodeTests >> testChildrenCreationWithBlock [
+TLCompositeNodeTest >> testChildrenCreationWithBlock [
 	node entity: 42.
 	node childrenProperty: [ :entity | 
 			self assert: entity equals: 42.
@@ -28,7 +29,7 @@ TLCompositeNodeTests >> testChildrenCreationWithBlock [
 ]
 
 { #category : #tests }
-TLCompositeNodeTests >> testChildrenCreationWithCollectionOfEntities [
+TLCompositeNodeTest >> testChildrenCreationWithCollectionOfEntities [
 	node childrenProperty: #(1 2 3).
 	node createChildrenNodes.
 	self assert: node childrenNodes size equals: 3.
@@ -38,7 +39,7 @@ TLCompositeNodeTests >> testChildrenCreationWithCollectionOfEntities [
 ]
 
 { #category : #tests }
-TLCompositeNodeTests >> testChildrenCreationWithProperty [
+TLCompositeNodeTest >> testChildrenCreationWithProperty [
 	node entity: 30.
 	node childrenProperty: #primeFactors.
 	node createChildrenNodes.
@@ -49,7 +50,7 @@ TLCompositeNodeTests >> testChildrenCreationWithProperty [
 ]
 
 { #category : #tests }
-TLCompositeNodeTests >> testMoveChildNodeFromOneParentToAnother [
+TLCompositeNodeTest >> testMoveChildNodeFromOneParentToAnother [
 	| childNode anotherNode |
 	childNode := node addChildNodeFromEntity: #child.
 	anotherNode := TLCompositeNode new.
@@ -60,7 +61,7 @@ TLCompositeNodeTests >> testMoveChildNodeFromOneParentToAnother [
 ]
 
 { #category : #tests }
-TLCompositeNodeTests >> testMoveChildNodeFromOneParentToTheSame [
+TLCompositeNodeTest >> testMoveChildNodeFromOneParentToTheSame [
 	| childNode  |
 	childNode := node addChildNodeFromEntity: #child.
 	childNode parent: node.

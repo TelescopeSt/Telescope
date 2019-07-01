@@ -65,7 +65,7 @@ TLShapeTrigger >> generateWith: aConnector [
 	^ generated
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 TLShapeTrigger >> initialStyle: aStyleOrStyleSheetCustomizationBlock [
 	aStyleOrStyleSheetCustomizationBlock isSymbol
 		ifTrue: [ self addStyle: aStyleOrStyleSheetCustomizationBlock ] 
@@ -103,12 +103,12 @@ TLShapeTrigger >> referencedElement: anObject [
 	referencedElement := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #'private-connector' }
 TLShapeTrigger >> removeWith: aTLConnector [ 
 	aTLConnector removeTrigger: self
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 TLShapeTrigger >> secondStyle: aStyleOrStyleSheetCustomizationBlock [
 	aStyleOrStyleSheetCustomizationBlock isSymbol
 		ifTrue: [ secondStateStyle := aStyleOrStyleSheetCustomizationBlock ]

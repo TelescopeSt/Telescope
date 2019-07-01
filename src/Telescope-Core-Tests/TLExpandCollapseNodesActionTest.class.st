@@ -1,5 +1,5 @@
 Class {
-	#name : #TLExpandCollapseNodesActionTests,
+	#name : #TLExpandCollapseNodesActionTest,
 	#superclass : #TestCase,
 	#instVars : [
 		'visu'
@@ -7,15 +7,16 @@ Class {
 	#category : #'Telescope-Core-Tests-Actions'
 }
 
-{ #category : #'as yet unclassified' }
-TLExpandCollapseNodesActionTests >> setUp [
+{ #category : #running }
+TLExpandCollapseNodesActionTest >> setUp [
+	super setUp.
 	visu := TLVisualization new
-		generator: TLConnectorTest new;
+		generator: TLTestConnector new;
 		yourself
 ]
 
-{ #category : #'as yet unclassified' }
-TLExpandCollapseNodesActionTests >> testDefaultCollapse [
+{ #category : #tests }
+TLExpandCollapseNodesActionTest >> testDefaultCollapse [
 	| node action |
 	node := visu addNodeFromEntity: 4.
 	visu generate.
@@ -27,8 +28,8 @@ TLExpandCollapseNodesActionTests >> testDefaultCollapse [
 	self assert: visu nodes first equals: node.
 ]
 
-{ #category : #'as yet unclassified' }
-TLExpandCollapseNodesActionTests >> testDefaultExpand [
+{ #category : #tests }
+TLExpandCollapseNodesActionTest >> testDefaultExpand [
 	| node |
 	node := visu addNodeFromEntity: 4.
 	visu generate.
@@ -37,8 +38,8 @@ TLExpandCollapseNodesActionTests >> testDefaultExpand [
 
 ]
 
-{ #category : #'as yet unclassified' }
-TLExpandCollapseNodesActionTests >> testExpandInAnotherGroup [
+{ #category : #tests }
+TLExpandCollapseNodesActionTest >> testExpandInAnotherGroup [
 	| node |
 	node := visu addNodeFromEntity: 4.
 	visu generate.

@@ -15,36 +15,29 @@ Class {
 		'widthBlock',
 		'heightBlock'
 	],
-	#category : #'Telescope-VisualizationTemplates-Core'
+	#category : #'Telescope-VisualizationTemplates'
 }
 
 { #category : #building }
 TLCycleDependencies >> buildVisualization [
-
 	| cycleCalculator |
 	cycleCalculator := MalTarjan new.
 	cycleCalculator nodes: self entities.
-	cycleCalculator edges: self entities 
-		from: #yourself
-		toAll: self property.
+	cycleCalculator edges: self entities from: #yourself toAll: self property.
 	cycleCalculator run.
 
-	( self > #packages ) styleSheet
-		width: self widthBlock;
-		height: self heightBlock;
-		backgroundColor: [ :namespace | 
-			(cycleCalculator findNode: namespace) isInCycle
-				ifTrue: [ Color red ]
-				ifFalse: [ Color white ] ].
-			
-	(self styleSheet > #connection) backgroundColor: Color veryLightGray.
+	(self > #packages) styleSheet backgroundColor: [ :namespace | (cycleCalculator findNode: namespace) isInCycle ifTrue: [ Color red ] ifFalse: [ Color white ] ].
 
-	self > #packages
+	self widthBlock ifNotNil: [ :blk | (self > #packages) styleSheet width: blk ].
+	self heightBlock ifNotNil: [ :blk | (self > #packages) styleSheet height: blk ].
+
+	self styleSheet > #connection backgroundColor: Color veryLightGray.
+
+	(self > #packages)
 		addNodesFromEntities: self entities;
 		connectFollowingProperty: self property;
 		addInteraction: TLPopUpAction onMouseOver;
 		layout: TLTreeLayout
-
 ]
 
 { #category : #accessing }

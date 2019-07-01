@@ -1,16 +1,17 @@
 Class {
-	#name : #TLSortingStrategiesTests,
+	#name : #TLSortingStrategiesTest,
 	#superclass : #TestCase,
 	#instVars : [
 		'strategy',
 		'group',
 		'order'
 	],
-	#category : #'Telescope-Core-Tests-Strategy'
+	#category : #'Telescope-Core-Tests-Strategies'
 }
 
 { #category : #running }
-TLSortingStrategiesTests >> setUp [
+TLSortingStrategiesTest >> setUp [
+	super setUp.
 	order := #(4 8 3 9 5 2 7 1 6 10).
 	group := TLEntitiesGroup new
 		addAllDrawables:
@@ -22,14 +23,14 @@ TLSortingStrategiesTests >> setUp [
 ]
 
 { #category : #tests }
-TLSortingStrategiesTests >> testComparableUsingStrategyAddNewElementAtTheEnd [
+TLSortingStrategiesTest >> testComparableUsingStrategyAddNewElementAtTheEnd [
 	group sortingStrategy: TLComparableUsingStrategy new.
 	group addDrawable: (TLSimpleNode new entity: 6).
 	self assert: (group collect: #entity) asArray equals: #(1 2 3 4 5 6 6 7 8 9 10)
 ]
 
 { #category : #tests }
-TLSortingStrategiesTests >> testComparableUsingStrategySortCorrectly [
+TLSortingStrategiesTest >> testComparableUsingStrategySortCorrectly [
 	strategy := TLComparableUsingStrategy new.
 	self assert: (group collect: #entity) asArray equals: order.
 	strategy sortNodes: group.
@@ -37,21 +38,21 @@ TLSortingStrategiesTests >> testComparableUsingStrategySortCorrectly [
 ]
 
 { #category : #tests }
-TLSortingStrategiesTests >> testComparableUsingStrategySortExistingContent [
+TLSortingStrategiesTest >> testComparableUsingStrategySortExistingContent [
 	self assert: (group collect: #entity) asArray equals: order.
 	group sortingStrategy: TLComparableUsingStrategy new.
 	self assert: (group collect: #entity) asArray equals: #(1 2 3 4 5 6 7 8 9 10)
 ]
 
 { #category : #tests }
-TLSortingStrategiesTests >> testKeepingOrderStrategyAddNewElementAtTheEnd [
+TLSortingStrategiesTest >> testKeepingOrderStrategyAddNewElementAtTheEnd [
 	group sortingStrategy: TLKeepingOrderStrategy new.
 	group addDrawable: (TLSimpleNode new entity: 6).
 	self assert: (group collect: #entity) asArray equals: order , {6}
 ]
 
 { #category : #tests }
-TLSortingStrategiesTests >> testKeepingStrategyKeepOrder [
+TLSortingStrategiesTest >> testKeepingStrategyKeepOrder [
 	strategy := TLKeepingOrderStrategy new.
 	self assert: (group collect: #entity) asArray equals: order.
 	strategy sortNodes: group.

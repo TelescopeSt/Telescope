@@ -1,5 +1,5 @@
 Class {
-	#name : #TLConnectionsTests,
+	#name : #TLConnectionsTest,
 	#superclass : #TestCase,
 	#instVars : [
 		'group'
@@ -8,30 +8,29 @@ Class {
 }
 
 { #category : #running }
-TLConnectionsTests >> setUp [
-	| visualization |
-	visualization := TLVisualization new.
+TLConnectionsTest >> setUp [
+	super setUp.
 	group := TLEntitiesGroup new.
-	visualization addDrawable: group.
+	TLVisualization new addDrawable: group.
 	group 	addNodesFromEntities: (1 to: 4)
 ]
 
 { #category : #tests }
-TLConnectionsTests >> testConnectGroupFromANode [
+TLConnectionsTest >> testConnectGroupFromANode [
 	| connections  |
 	connections := group connectFrom: TLSimpleNode new.
 	self assert: connections size equals: 4.
 ]
 
 { #category : #tests }
-TLConnectionsTests >> testConnectGroupToANode [
+TLConnectionsTest >> testConnectGroupToANode [
 	| connections  |
 	connections := group connectTo: TLSimpleNode new.
 	self assert: connections size equals: 4.
 ]
 
 { #category : #tests }
-TLConnectionsTests >> testConnectGroupWithSubgroupFromANode [
+TLConnectionsTest >> testConnectGroupWithSubgroupFromANode [
 	| connections  |
 	group > #subgroup addNodesFromEntities: (5 to: 8).
 	connections := group connectFrom: TLSimpleNode new.
@@ -39,7 +38,7 @@ TLConnectionsTests >> testConnectGroupWithSubgroupFromANode [
 ]
 
 { #category : #tests }
-TLConnectionsTests >> testConnectGroupWithSubgroupToANode [
+TLConnectionsTest >> testConnectGroupWithSubgroupToANode [
 	| connections  |
 	group > #subgroup addNodesFromEntities: (5 to: 8).
 	connections := group connectTo: TLSimpleNode new.
@@ -47,7 +46,7 @@ TLConnectionsTests >> testConnectGroupWithSubgroupToANode [
 ]
 
 { #category : #tests }
-TLConnectionsTests >> testConnectIfNotNodeToAGroup [
+TLConnectionsTest >> testConnectIfNotNodeToAGroup [
 	| connections node |
 	node := TLSimpleNode new.
 	connections := node connectIfNotTo: group.
@@ -58,7 +57,7 @@ TLConnectionsTests >> testConnectIfNotNodeToAGroup [
 ]
 
 { #category : #tests }
-TLConnectionsTests >> testConnectIfNotNodeToAnotherNode [
+TLConnectionsTest >> testConnectIfNotNodeToAnotherNode [
 	| connection nodeA nodeB |
 	nodeA := TLSimpleNode withEntity: $a.
 	nodeB := TLSimpleNode withEntity: $b.
@@ -70,14 +69,14 @@ TLConnectionsTests >> testConnectIfNotNodeToAnotherNode [
 ]
 
 { #category : #tests }
-TLConnectionsTests >> testConnectNodeFromAGroup [
+TLConnectionsTest >> testConnectNodeFromAGroup [
 	| connections  |
 	connections := TLSimpleNode new connectFrom: group.
 	self assert: connections size equals: 4.
 ]
 
 { #category : #tests }
-TLConnectionsTests >> testConnectNodeFromAnotherNode [
+TLConnectionsTest >> testConnectNodeFromAnotherNode [
 	| connection  nodeA nodeB |
 	nodeA := TLSimpleNode withEntity: $a.
 	nodeB := TLSimpleNode withEntity: $b.
@@ -88,14 +87,14 @@ TLConnectionsTests >> testConnectNodeFromAnotherNode [
 ]
 
 { #category : #tests }
-TLConnectionsTests >> testConnectNodeToAGroup [
+TLConnectionsTest >> testConnectNodeToAGroup [
 	| connections  |
 	connections := TLSimpleNode new connectTo: group.
 	self assert: connections size equals: 4.
 ]
 
 { #category : #tests }
-TLConnectionsTests >> testConnectNodeToAnotherNode [
+TLConnectionsTest >> testConnectNodeToAnotherNode [
 	| connection  nodeA nodeB |
 	nodeA := TLSimpleNode withEntity: $a.
 	nodeB := TLSimpleNode withEntity: $b.
@@ -106,7 +105,7 @@ TLConnectionsTests >> testConnectNodeToAnotherNode [
 ]
 
 { #category : #tests }
-TLConnectionsTests >> testConnectThroughWithCollection [
+TLConnectionsTest >> testConnectThroughWithCollection [
 	| connections connection |
 	connections := group connectThrough: [ :each | {each + 1} ] to: [ :each | each + 2 ].
 	self assert: connections size equals: 1.
@@ -117,7 +116,7 @@ TLConnectionsTests >> testConnectThroughWithCollection [
 ]
 
 { #category : #tests }
-TLConnectionsTests >> testConnectThroughWithNonExistingEntity [
+TLConnectionsTest >> testConnectThroughWithNonExistingEntity [
 	| connections connection |
 	connections := group connectThrough: [ :each | {each + 1 . each + 16} ] to: [ :each | each + 2 ].
 	self assert: connections size equals: 1.

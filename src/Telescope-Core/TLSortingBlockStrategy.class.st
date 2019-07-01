@@ -10,7 +10,7 @@ Class {
 	#instVars : [
 		'sortingBlock'
 	],
-	#category : #'Telescope-Core-Strategy'
+	#category : #'Telescope-Core-Strategies'
 }
 
 { #category : #'instance creation' }

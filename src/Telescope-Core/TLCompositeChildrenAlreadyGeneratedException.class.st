@@ -3,6 +3,6 @@ I am an exception thrown when a composite is asked to generate its children node
 "
 Class {
 	#name : #TLCompositeChildrenAlreadyGeneratedException,
-	#superclass : #Error,
+	#superclass : #TLError,
 	#category : #'Telescope-Core-Exceptions'
 }

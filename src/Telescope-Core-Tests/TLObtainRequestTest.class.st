@@ -1,5 +1,5 @@
 Class {
-	#name : #TLObtainRequestTests,
+	#name : #TLObtainRequestTest,
 	#superclass : #TestCase,
 	#instVars : [
 		'simple',
@@ -14,8 +14,9 @@ Class {
 	#category : #'Telescope-Core-Tests-Model'
 }
 
-{ #category : #tests }
-TLObtainRequestTests >> setUp [
+{ #category : #running }
+TLObtainRequestTest >> setUp [
+	super setUp.
 	simple := TLSimpleNode new.
 	composite := TLCompositeNode new.
 	group := TLEntitiesGroup new.
@@ -39,17 +40,17 @@ TLObtainRequestTests >> setUp [
 ]
 
 { #category : #tests }
-TLObtainRequestTests >> testObtainAll [
+TLObtainRequestTest >> testObtainAll [
 	self assert: collection obtain all size equals: 3
 ]
 
 { #category : #tests }
-TLObtainRequestTests >> testObtainCompositeNodes [
+TLObtainRequestTest >> testObtainCompositeNodes [
 	self assert: collection obtain compositeNodes asArray equals: {composite}
 ]
 
 { #category : #tests }
-TLObtainRequestTests >> testObtainCompositeRecursivelySimpleNodes [
+TLObtainRequestTest >> testObtainCompositeRecursivelySimpleNodes [
 	self
 		assert: collection obtain compositeRecursively simpleNodes asArray
 		equals:
@@ -58,7 +59,7 @@ TLObtainRequestTests >> testObtainCompositeRecursivelySimpleNodes [
 ]
 
 { #category : #tests }
-TLObtainRequestTests >> testObtainGroupRecursivelyGroups [
+TLObtainRequestTest >> testObtainGroupRecursivelyGroups [
 	self
 		assert: collection obtain groupRecursively groups asArray
 		equals:
@@ -67,17 +68,17 @@ TLObtainRequestTests >> testObtainGroupRecursivelyGroups [
 ]
 
 { #category : #tests }
-TLObtainRequestTests >> testObtainGroupRecursivelySimpleNodes [
+TLObtainRequestTest >> testObtainGroupRecursivelySimpleNodes [
 	self assert: collection obtain groupRecursively simpleNodes asArray equals: {simple . groupSimpleNode}
 ]
 
 { #category : #tests }
-TLObtainRequestTests >> testObtainGroups [
+TLObtainRequestTest >> testObtainGroups [
 	self assert: collection obtain groups asArray equals: {group}
 ]
 
 { #category : #tests }
-TLObtainRequestTests >> testObtainGroupsWithSelf [
+TLObtainRequestTest >> testObtainGroupsWithSelf [
 	self
 		assert: group obtain recursively withSelf groups asArray
 		equals:
@@ -86,7 +87,7 @@ TLObtainRequestTests >> testObtainGroupsWithSelf [
 ]
 
 { #category : #tests }
-TLObtainRequestTests >> testObtainNodes [
+TLObtainRequestTest >> testObtainNodes [
 	self
 		assert: collection obtain nodes asArray
 		equals:
@@ -95,7 +96,7 @@ TLObtainRequestTests >> testObtainNodes [
 ]
 
 { #category : #tests }
-TLObtainRequestTests >> testObtainNodesFromVisualization [
+TLObtainRequestTest >> testObtainNodesFromVisualization [
 	| visu |
 	visu := TLVisualization new.
 	visu addNodesFromEntities: (1 to: 3).
@@ -103,12 +104,12 @@ TLObtainRequestTests >> testObtainNodesFromVisualization [
 ]
 
 { #category : #tests }
-TLObtainRequestTests >> testObtainRecursivelyAll [
+TLObtainRequestTest >> testObtainRecursivelyAll [
 	self assert: collection obtain recursively all size equals: 7
 ]
 
 { #category : #tests }
-TLObtainRequestTests >> testObtainRecursivelyLowestVisiblesNodesCompositeExpanded [
+TLObtainRequestTest >> testObtainRecursivelyLowestVisiblesNodesCompositeExpanded [
 	composite expanded: true.
 	self
 		assert: collection obtain recursively lowestVisibles nodes asArray
@@ -119,7 +120,7 @@ TLObtainRequestTests >> testObtainRecursivelyLowestVisiblesNodesCompositeExpande
 ]
 
 { #category : #tests }
-TLObtainRequestTests >> testObtainRecursivelyLowestVisiblesNodesCompositeNotExpanded [
+TLObtainRequestTest >> testObtainRecursivelyLowestVisiblesNodesCompositeNotExpanded [
 	composite expanded: false.
 	self
 		assert: collection obtain recursively lowestVisibles nodes asArray
@@ -130,7 +131,7 @@ TLObtainRequestTests >> testObtainRecursivelyLowestVisiblesNodesCompositeNotExpa
 ]
 
 { #category : #tests }
-TLObtainRequestTests >> testObtainRecursivelyLowestVisiblesNodesCompositeNotExpandedGroupInvisible [
+TLObtainRequestTest >> testObtainRecursivelyLowestVisiblesNodesCompositeNotExpandedGroupInvisible [
 	composite expanded: false.
 	group hide.
 	self
@@ -141,7 +142,7 @@ TLObtainRequestTests >> testObtainRecursivelyLowestVisiblesNodesCompositeNotExpa
 ]
 
 { #category : #tests }
-TLObtainRequestTests >> testObtainRecursivelySimpleNodes [
+TLObtainRequestTest >> testObtainRecursivelySimpleNodes [
 	self
 		assert: collection obtain recursively simpleNodes asArray
 		equals:
@@ -151,14 +152,14 @@ TLObtainRequestTests >> testObtainRecursivelySimpleNodes [
 ]
 
 { #category : #tests }
-TLObtainRequestTests >> testObtainRecursivelyVisiblesNodes [
+TLObtainRequestTest >> testObtainRecursivelyVisiblesNodes [
 	simple hide.
 	composite expanded: false.
 	self assert: collection obtain recursively visibles nodes asArray equals: {composite. groupSimpleNode }
 ]
 
 { #category : #tests }
-TLObtainRequestTests >> testObtainRecursivelyVisiblesNodesCompositeExpanded [
+TLObtainRequestTest >> testObtainRecursivelyVisiblesNodesCompositeExpanded [
 	simple hide.
 	composite expanded: true.
 	self
@@ -170,12 +171,12 @@ TLObtainRequestTests >> testObtainRecursivelyVisiblesNodesCompositeExpanded [
 ]
 
 { #category : #tests }
-TLObtainRequestTests >> testObtainSimpleNodes [
+TLObtainRequestTest >> testObtainSimpleNodes [
 	self assert: collection obtain simpleNodes asArray equals: {simple}
 ]
 
 { #category : #tests }
-TLObtainRequestTests >> testObtainVisiblesNodes [
+TLObtainRequestTest >> testObtainVisiblesNodes [
 	simple hide.
 	self assert: collection obtain visibles nodes asArray equals: {composite}
 ]

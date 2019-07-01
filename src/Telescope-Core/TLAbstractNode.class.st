@@ -13,7 +13,12 @@ Class {
 	#category : #'Telescope-Core-Model'
 }
 
-{ #category : #'instance-creation' }
+{ #category : #testing }
+TLAbstractNode class >> isAbstract [
+	^ self = TLAbstractNode
+]
+
+{ #category : #'instance creation' }
 TLAbstractNode class >> withEntity: anEntity [
 	^ self new entity: anEntity
 ]

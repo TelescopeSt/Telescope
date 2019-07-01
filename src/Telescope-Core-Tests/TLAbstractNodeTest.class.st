@@ -1,5 +1,5 @@
 Class {
-	#name : #TLAbstractNodeTests,
+	#name : #TLAbstractNodeTest,
 	#superclass : #TestCase,
 	#instVars : [
 		'node'
@@ -8,12 +8,13 @@ Class {
 }
 
 { #category : #running }
-TLAbstractNodeTests >> setUp [
+TLAbstractNodeTest >> setUp [
+	super setUp.
 	node := TLAbstractNode new
 ]
 
 { #category : #tests }
-TLAbstractNodeTests >> testNotDuplicateAdjacentNodes [
+TLAbstractNodeTest >> testNotDuplicateAdjacentNodes [
    | in inOut out adjacents |
    in:= TLAbstractNode withEntity: 'in'.
    inOut:= TLAbstractNode withEntity: 'inOut'.

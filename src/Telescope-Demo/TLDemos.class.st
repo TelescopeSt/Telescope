@@ -176,7 +176,7 @@ TLDemos class >> exampleConnectionStyle [
 	| visualization lastNode |
 	visualization := TLVisualization new.
 	visualization layout gap: 150.
-	(TLSimpleShape allSubclasses select: #availableForCytoscapeConnection)
+	visualization generator connectionHeadShapesAvailableForConnector
 		doWithIndex: [ :aShape :i | 
 			| node1 node2 connection |
 			node1 := visualization > #group1 addNodeFromEntity: i.
@@ -236,16 +236,6 @@ TLDemos class >> exampleCustomMultiChoiceAction [
 TLDemos class >> exampleCycleDependencies [
 	<script: 'self exampleCycleDependencies open'>
 	<tlFilter: #visuTemplate>
-
-	"for FAMIXNamespaceGroup:
-	 TLCycleDependencies new
-		entities: self asOrderedCollection;
-		property: #providerNamespaces;
-		widthBlock: #numberOfClasses;
-		heightBlock: [ :each | each numberOfMethods / 10 max: 5 ];
-		open"
-
-	"forces every class to be in cycle, maybe think on a better property"
 
 	^ TLCycleDependencies new
 		entities: TLDrawable withAllSubclasses;
@@ -447,7 +437,7 @@ TLDemos class >> exampleLabelWrap [
 
 { #category : #demos }
 TLDemos class >> exampleLayoutsAngle [
-	<script: 'self exampleTelescopeLayouts open'>
+	<script: 'self exampleLayoutsAngle open'>
 	<tlFilter: #layout>
 	| visualization |
 	visualization := TLVisualization fromEntities: (0 to: 359).
@@ -561,8 +551,26 @@ TLDemos class >> exampleNameCloud [
 ]
 
 { #category : #demos }
+TLDemos class >> exampleNodeLabelPosition [
+	<script: 'self exampleNodeLabelPosition open'>
+	<tlFilter: #style>
+	| visu |
+	visu := TLVisualization new.
+	#(top center bottom) do: [ :vert | #(left center right) do: [ :hor | visu addNodeFromEntity: vert -> hor ] ].
+	visu layout: (TLLinearLayout gap: 50 perLine: 3).
+	visu styleSheet
+		nodeLabel: #asString
+		position: [ :each | 
+			TLPosition new
+				horizontal: each value;
+				vertical: each key;
+				yourself ].
+	^ visu
+]
+
+{ #category : #demos }
 TLDemos class >> examplePackageHierarchy [
-	<script: 'self exampleOverallHierarchy open'>
+	<script: 'self examplePackageHierarchy open'>
 	<tlFilter: #visuTemplate>
 	^ TLPackageHierarchy new
 		entities: TLDrawable withAllSubclasses;
@@ -799,7 +807,7 @@ TLDemos class >> exampleVisualizationWithCompositeChildrenConnectionsShowing [
 
 { #category : #accessing }
 TLDemos class >> executeDemo: method [
-	^ TLDemos perform: method 
+	^ self perform: method 
 ]
 
 { #category : #'world menu' }

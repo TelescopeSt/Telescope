@@ -12,6 +12,11 @@ Class {
 	#category : #'Telescope-Core-Interactions'
 }
 
+{ #category : #testing }
+TLInteraction class >> isAbstract [
+	^ self = TLInteraction
+]
+
 { #category : #accessing }
 TLInteraction >> action [
 	^ action
@@ -105,7 +110,7 @@ TLInteraction >> regularActionIfNecessaryOn: aTLSimpleNode [
 ]
 
 { #category : #generation }
-TLInteraction >> removeWith: aTLRoassal2Connector [ 
+TLInteraction >> removeWith: aConnector [ 
 ]
 
 { #category : #removing }

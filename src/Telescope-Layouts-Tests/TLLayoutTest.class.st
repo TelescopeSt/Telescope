@@ -9,6 +9,7 @@ Class {
 
 { #category : #running }
 TLLayoutTest >> setUp [
+	super setUp.
 	layout := TLLayout new
 ]
 

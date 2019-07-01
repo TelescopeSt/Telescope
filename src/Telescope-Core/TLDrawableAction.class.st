@@ -14,6 +14,11 @@ Class {
 	#category : #'Telescope-Core-Actions'
 }
 
+{ #category : #testing }
+TLDrawableAction class >> isAbstract [
+	^ self = TLDrawableAction
+]
+
 { #category : #interactions }
 TLDrawableAction class >> onClick [
 	^ self new onClick
@@ -47,11 +52,6 @@ TLDrawableAction class >> withMenu: aTitle [
 { #category : #interactions }
 TLDrawableAction class >> withShape: aShape [
 	^ self new withShape: aShape
-]
-
-{ #category : #interactions }
-TLDrawableAction class >> withShapeManager: aShapeManager [
-	^ self new withShapeManager: aShapeManager
 ]
 
 { #category : #interactions }
@@ -96,7 +96,7 @@ TLDrawableAction >> onRightClick [
 
 { #category : #interactions }
 TLDrawableAction >> onShiftMouseOver [
-	^ TLShiftMouseOverInteraction new action: self 
+	self deprecated: 'This option never work because it calls unimplemented code. It will be removed.'
 ]
 
 { #category : #action }
@@ -118,11 +118,6 @@ TLDrawableAction >> withMenu: aTitle [
 { #category : #interactions }
 TLDrawableAction >> withShape: aShape [
 	^ TLShapeInteraction new action: self; shape: aShape
-]
-
-{ #category : #interactions }
-TLDrawableAction >> withShapeManager: aShapeManager [
-	^ TLShapeInteraction new action: self; shapeManager: aShapeManager
 ]
 
 { #category : #interactions }

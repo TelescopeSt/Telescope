@@ -7,14 +7,14 @@ Class {
 	#category : #'Telescope-Core-Model-Legend'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #'instance creation' }
 TLStyleSheetLegendEntry class >> description: aDescription styleSheet: aStyleSheet [
 	^ (self description: aDescription)
 		styleSheet:  aStyleSheet;
 		yourself
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #'instance creation' }
 TLStyleSheetLegendEntry class >> description: aDescription styleSheet: aStyleSheet icon: aString [
 	^ (self description: aDescription)
 		styleSheet:  aStyleSheet;

@@ -7,3 +7,8 @@ Class {
 	#superclass : #TLDrawableAction,
 	#category : #'Telescope-Core-Actions'
 }
+
+{ #category : #testing }
+TLNodeAction class >> isAbstract [
+	^ self = TLNodeAction
+]

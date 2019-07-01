@@ -79,6 +79,13 @@ TLExpandCollapseNodesAction >> expandToOrigin [
 	expandToOrigin := true
 ]
 
+{ #category : #accessing }
+TLExpandCollapseNodesAction >> expandToOrigin: aBoolean [
+	"This property will reverse the connection created from new nodes to origin instead of origin to new nodes"
+
+	expandToOrigin := aBoolean
+]
+
 { #category : #initialization }
 TLExpandCollapseNodesAction >> initialize [
 	super initialize.

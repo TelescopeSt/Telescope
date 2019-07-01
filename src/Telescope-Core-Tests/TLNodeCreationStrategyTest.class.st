@@ -1,25 +1,26 @@
 Class {
-	#name : #TLNodeCreationStrategyTests,
+	#name : #TLNodeCreationStrategyTest,
 	#superclass : #TestCase,
 	#instVars : [
 		'strategy'
 	],
-	#category : #'Telescope-Core-Tests'
+	#category : #'Telescope-Core-Tests-Strategies'
 }
 
 { #category : #running }
-TLNodeCreationStrategyTests >> setUp [
+TLNodeCreationStrategyTest >> setUp [
+	super setUp.
 	strategy := TLNodeCreationStrategy new
 ]
 
 { #category : #tests }
-TLNodeCreationStrategyTests >> testCompositePropertyFillingAddADefaultChildrenNodeCreationStrategy [
+TLNodeCreationStrategyTest >> testCompositePropertyFillingAddADefaultChildrenNodeCreationStrategy [
 	strategy compositeProperty: #whatever.
 	self assert: strategy childrenStrategy notNil.
 ]
 
 { #category : #tests }
-TLNodeCreationStrategyTests >> testCompositeWithLayout [
+TLNodeCreationStrategyTest >> testCompositeWithLayout [
 	| node |
 	strategy := TLNodeCreationStrategy composite: [ :i | i + 1 to: i + 5 ] withLayout: #aFakeLayout.
 	node := strategy createNodeFromEntity: 6.
@@ -28,7 +29,7 @@ TLNodeCreationStrategyTests >> testCompositeWithLayout [
 ]
 
 { #category : #tests }
-TLNodeCreationStrategyTests >> testStrategyDefiningStyleForNode [
+TLNodeCreationStrategyTest >> testStrategyDefiningStyleForNode [
 	| node |
 	strategy nodeStyle: #myStyle.
 	node := strategy createNodeFromEntity: #whatever.
@@ -36,7 +37,7 @@ TLNodeCreationStrategyTests >> testStrategyDefiningStyleForNode [
 ]
 
 { #category : #tests }
-TLNodeCreationStrategyTests >> testStrategyForCompositeNodeCreation [
+TLNodeCreationStrategyTest >> testStrategyForCompositeNodeCreation [
 	| node |
 	strategy compositeProperty: (1 to: 9).
 	node := strategy createNodeFromEntity: #Digit.
@@ -46,7 +47,7 @@ TLNodeCreationStrategyTests >> testStrategyForCompositeNodeCreation [
 ]
 
 { #category : #tests }
-TLNodeCreationStrategyTests >> testStrategyForCompositeNodeCreationAlsoCreatingComposite [
+TLNodeCreationStrategyTest >> testStrategyForCompositeNodeCreationAlsoCreatingComposite [
 	| node |
 	(strategy compositeProperty: {1}) childrenProperty: [:i | i to: i + 1].
 	node := strategy createNodeFromEntity: #Digit.

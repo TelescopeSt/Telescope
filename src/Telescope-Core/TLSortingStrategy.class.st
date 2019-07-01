@@ -8,8 +8,13 @@ The ordering occurs within the passed collection as does Collection>>sort:
 Class {
 	#name : #TLSortingStrategy,
 	#superclass : #TLObject,
-	#category : #'Telescope-Core-Strategy'
+	#category : #'Telescope-Core-Strategies'
 }
+
+{ #category : #testing }
+TLSortingStrategy class >> isAbstract [
+	^ self = TLSortingBlockStrategy
+]
 
 { #category : #sorting }
 TLSortingStrategy >> sortNodes: aCollectionOfTLNodes [

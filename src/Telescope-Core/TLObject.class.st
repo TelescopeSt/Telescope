@@ -8,9 +8,11 @@ Class {
 	#category : #'Telescope-Core-Model'
 }
 
-{ #category : #'as yet unclassified' }
-TLObject class >> forCytoscape [
-	^ self forCytoscapeNode
+{ #category : #'error handling' }
+TLObject >> error: aString [ 
+	"Throw a generic Error exception."
+
+	^ TLError new signal: aString
 ]
 
 { #category : #convenience }

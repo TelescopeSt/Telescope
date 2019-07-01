@@ -3,6 +3,6 @@ I am an exception that occurs when an empty text or nil is return and should be 
 "
 Class {
 	#name : #TLNilOrEmptyTextException,
-	#superclass : #Error,
+	#superclass : #TLError,
 	#category : #'Telescope-Core-Exceptions'
 }

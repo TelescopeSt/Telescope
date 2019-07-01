@@ -22,6 +22,11 @@ TLAction class >> condition: aConditionBlock [
 	^ self new condition: aConditionBlock; yourself
 ]
 
+{ #category : #testing }
+TLAction class >> isAbstract [
+	^ self = TLAction
+]
+
 { #category : #accessing }
 TLAction >> condition [
 	^ condition ifNil: [ [ :n | true ] ]

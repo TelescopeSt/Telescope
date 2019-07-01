@@ -13,6 +13,11 @@ Class {
 	#category : #'Telescope-Core-Model-Request'
 }
 
+{ #category : #testing }
+TLRequest class >> isAbstract [
+	^ self = TLRequest
+]
+
 { #category : #'instance creation' }
 TLRequest class >> source: aTLDrawableCollection [
 	^ self new
@@ -49,6 +54,11 @@ TLRequest >> compositeNodesDo: aBlockClosure [
 TLRequest >> compositeNodesSelect: aBlockClosure [
 	^ self
 		sourceSelect: (self selectBlockFrom: aBlockClosure and: [ :drawable | drawable isNode and: [ drawable isComposite ] ])
+]
+
+{ #category : #iterating }
+TLRequest >> from: aRoot select: aBlock into: selection [
+	^ self subclassResponsibility
 ]
 
 { #category : #final }

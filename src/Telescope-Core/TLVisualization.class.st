@@ -65,7 +65,7 @@ TLVisualization >> defaultBackgroundColor [
 
 { #category : #default }
 TLVisualization >> defaultConnector [
-	^ TLConnector default new
+	^ TLCurrentConnector value new
 ]
 
 { #category : #style }
@@ -80,7 +80,8 @@ TLVisualization >> defaultTitle [
 
 { #category : #accessing }
 TLVisualization >> fullScreenOpening [
-	self openingDimension: World fullBounds
+	self deprecated: 'This option is linked to Morphic and Pharo display. In the next major version of Pharo it will be removed. This option should be implemented in Connectors of Telescope rendering in Pharo instead.'.
+	self openingDimension: self currentWorld fullBounds
 ]
 
 { #category : #'private-connector' }
@@ -143,7 +144,15 @@ TLVisualization >> legend: aTLLegend [
 
 { #category : #'instance creation' }
 TLVisualization >> open [
-	self generator open: self inWindowSized: self openingDimension titled: self title.
+	[ self generator open: self inWindowSized: self openingDimension titled: self title ]
+		on: TLNoConnectorException
+		do: [ UIManager default
+				alert:
+					'Telescope is an engine for efficiently creating meaningful visualizations but Telescope is not a project to render visualizations by itself. 
+			
+Telescope allows one to create a model of visualization and then to render them via a connector to a visualization framework.
+You are currently missing a connector to render the visualization. You can find more informations at: https://github.com/TelescopeSt/Telescope'
+				title: 'No connector present in the image' ]
 ]
 
 { #category : #accessing }

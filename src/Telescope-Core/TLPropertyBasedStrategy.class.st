@@ -10,10 +10,10 @@ Class {
 		'property',
 		'isAscending'
 	],
-	#category : #'Telescope-Core-Strategy'
+	#category : #'Telescope-Core-Strategies'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #'instance creation' }
 TLPropertyBasedStrategy class >> onProperty: aProperty [
 	^ self new
 		property: aProperty;

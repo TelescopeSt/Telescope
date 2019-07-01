@@ -11,29 +11,29 @@ Class {
 	#category : #'Telescope-Core-Style'
 }
 
-{ #category : #'creation-position' }
+{ #category : #'instance creation' }
 TLPosition class >> bottom [
 	^ self new bottom
 ]
 
-{ #category : #'instance-creation' }
+{ #category : #'instance creation' }
 TLPosition class >> for: aLabelOrPosition [
 	^ aLabelOrPosition class = self
 		ifTrue: [ aLabelOrPosition ]
 		ifFalse: [ self new perform: aLabelOrPosition ]
 ]
 
-{ #category : #'creation-position' }
+{ #category : #'instance creation' }
 TLPosition class >> left [
 	^ self new left
 ]
 
-{ #category : #'creation-position' }
+{ #category : #'instance creation' }
 TLPosition class >> right [
 	^ self new right
 ]
 
-{ #category : #'creation-position' }
+{ #category : #'instance creation' }
 TLPosition class >> top [
 	^ self new top
 ]

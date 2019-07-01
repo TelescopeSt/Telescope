@@ -11,7 +11,7 @@ Class {
 	#category : 'Telescope-Layouts'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #'instance creation' }
 TLCircularLayout class >> gap: aNumber [
 	^ self new
 		arcGap: aNumber;
@@ -41,7 +41,7 @@ TLCircularLayout >> executeOn: aGroup [
 			self definePosition: (nodeAngle cos * radius) @ (nodeAngle sin * radius) forNode: aNode ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #initialization }
 TLCircularLayout >> initialize [
 	super initialize.
 	self arcGap: 5

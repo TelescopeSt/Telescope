@@ -1,16 +1,14 @@
 # Telescope
 
-#### Linux/OSX builds
-Master: [![Build Status](https://travis-ci.org/TelescopeSt/Telescope.svg?branch=master)](https://travis-ci.org/TelescopeSt/Telescope)| Development: [![Build Status](https://travis-ci.org/TelescopeSt/Telescope.svg?branch=development)](https://travis-ci.org/TelescopeSt/Telescope)
+Master: [![Build Status](https://travis-ci.org/TelescopeSt/Telescope.svg?branch=master)](https://travis-ci.org/TelescopeSt/Telescope)
+Development: [![Build Status](https://travis-ci.org/TelescopeSt/Telescope.svg?branch=development)](https://travis-ci.org/TelescopeSt/Telescope)
 
-#### Windows builds
-Master: [![Build status](https://ci.appveyor.com/api/projects/status/qusho5y9km7wrowu/branch/master?svg=true)](https://ci.appveyor.com/project/jecisc/telescope/branch/master) | Development: [![Build status](https://ci.appveyor.com/api/projects/status/qusho5y9km7wrowu/branch/development?svg=true)](https://ci.appveyor.com/project/jecisc/telescope/branch/development)
 
 Telescope is an engine for efficiently creating meaningful visualizations. The purpose is to help the user concentrate on the problem at hand rather than understanding the nitty-gritty of a drawing library. It does so by exposing to the user to a few concepts of the domain of visualization: nodes and their contents, layouts, interactions, and update mechanism. For example, the user does not have to worry about the creation of composite or simple nodes, the engine handles it. 
 
 The user can create a model of visualization and then render it via a connector to a visualization framework.
 
-**Note:** Telescope is not usable by itself. It needs to come with at least one connector. You can find the list of connectors [later in this document](#connectors).
+**Note: Telescope is not usable by itself. It needs to come with at least one connector. You can find the list of connectors [later in this document](#connectors).**
 
 # Documentation
 
@@ -76,8 +74,8 @@ Examples can be found in the CytoscapeJs connector repository.
 | Telescope version 	| Compatible Pharo versions 	|
 |-------------------	|---------------------------	|
 | v1.x.x	   		   	| Pharo 61, 70                 	|
-| v2.x.x	   		   	| Pharo 61, 70                 	|
-| development      		| Pharo 61, 70                 	|
+| v2.x.x	   		   	| Pharo 61, 70, 80             	|
+| development      		| Pharo 61, 70, 80             	|
 
 ## Contact
 

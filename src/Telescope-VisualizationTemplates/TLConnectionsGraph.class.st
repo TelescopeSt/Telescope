@@ -15,7 +15,7 @@ Class {
 		'connectionProperty',
 		'edgeDirection'
 	],
-	#category : #'Telescope-VisualizationTemplates-Core'
+	#category : #'Telescope-VisualizationTemplates'
 }
 
 { #category : #'instance-creation' }

@@ -11,12 +11,17 @@ Class {
 	#category : #'Telescope-Core-Model-Legend'
 }
 
-{ #category : #'instance-creation' }
+{ #category : #'instance creation' }
 TLDynamicLegendEntry class >> description: descriptionBlock context: contextBlock [
 	^ self new
 		descriptionBlock: descriptionBlock;
 		contextBlock: contextBlock;
 		yourself
+]
+
+{ #category : #testing }
+TLDynamicLegendEntry class >> isAbstract [
+	^ self = TLDynamicLegendEntry
 ]
 
 { #category : #accessing }
@@ -41,7 +46,7 @@ TLDynamicLegendEntry >> descriptionBlock: anObject [
 
 { #category : #resolution }
 TLDynamicLegendEntry >> obtainAssociations [
-	^ (self contextBlock value groupedBy: [ :drawable | self descriptionBlock value: drawable entity ]).
-	 
+	self flag: #pharo6.	"In Pharo 6 what is returned is a PluggableDictionary."
 
+	^ ((self contextBlock value groupedBy: [ :drawable | self descriptionBlock value: drawable entity ]) as: OrderedDictionary) sorted: [ :a :b | a < b ]
 ]

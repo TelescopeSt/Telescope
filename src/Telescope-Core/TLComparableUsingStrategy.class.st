@@ -4,7 +4,7 @@ I am a strategy that rely on the #<= comparator method of the entity
 Class {
 	#name : #TLComparableUsingStrategy,
 	#superclass : #TLSortingStrategy,
-	#category : #'Telescope-Core-Strategy'
+	#category : #'Telescope-Core-Strategies'
 }
 
 { #category : #sorting }

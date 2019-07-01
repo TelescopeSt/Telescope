@@ -1,5 +1,5 @@
 Class {
-	#name : #TLSimpleNodeTests,
+	#name : #TLSimpleNodeTest,
 	#superclass : #BabyMock2TestCase,
 	#instVars : [
 		'node'
@@ -8,19 +8,20 @@ Class {
 }
 
 { #category : #running }
-TLSimpleNodeTests >> setUp [
-	node := TLSimpleNode new.
+TLSimpleNodeTest >> setUp [
+	super setUp.
+	node := TLSimpleNode new
 ]
 
 { #category : #tests }
-TLSimpleNodeTests >> testAddStyleRequireUpdate [
+TLSimpleNodeTest >> testAddStyleRequireUpdate [
 	self deny: node isUpdateRequired.
 	node addStyle: #style.
 	self assert: node isUpdateRequired
 ]
 
 { #category : #tests }
-TLSimpleNodeTests >> testAdjacentNodes [
+TLSimpleNodeTest >> testAdjacentNodes [
 	| nodeFrom nodeTo edgeBuilder |
 	edgeBuilder := protocol mock: 'edgeBuilder'.
 
@@ -32,14 +33,14 @@ TLSimpleNodeTests >> testAdjacentNodes [
 ]
 
 { #category : #tests }
-TLSimpleNodeTests >> testBecomeComposite [
+TLSimpleNodeTest >> testBecomeComposite [
 	self deny: node isComposite.
 	node becomeComposite.
 	self assert: node isComposite
 ]
 
 { #category : #tests }
-TLSimpleNodeTests >> testConnectionCreation [
+TLSimpleNodeTest >> testConnectionCreation [
 	| anotherNode visualization |
 	visualization := TLVisualization new.
 	visualization addDrawable: node.
@@ -52,7 +53,7 @@ TLSimpleNodeTests >> testConnectionCreation [
 ]
 
 { #category : #tests }
-TLSimpleNodeTests >> testInteractions [
+TLSimpleNodeTest >> testInteractions [
 	self assert: node interactions size equals: 0.
 	node addInteraction: TLPopUpAction onMouseOver.
 	self assert: node interactions size equals: 1.
@@ -60,12 +61,12 @@ TLSimpleNodeTests >> testInteractions [
 ]
 
 { #category : #tests }
-TLSimpleNodeTests >> testIsGroup [
+TLSimpleNodeTest >> testIsGroup [
 	self deny: node isGroup
 ]
 
 { #category : #tests }
-TLSimpleNodeTests >> testSimpleNodeBecameParent [
+TLSimpleNodeTest >> testSimpleNodeBecameParent [
 	| child |
 	child := TLSimpleNode new.
 	child parent: node.

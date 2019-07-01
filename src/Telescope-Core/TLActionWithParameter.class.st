@@ -7,6 +7,11 @@ Class {
 	#category : #'Telescope-Core-Actions'
 }
 
+{ #category : #testing }
+TLActionWithParameter class >> isAbstract [
+	^ self = TLActionWithParameter
+]
+
 { #category : #interactions }
 TLActionWithParameter class >> withMultipleChoices: aBlockOrCollection	menu: aTitle [
 	^ self new withMultipleChoices: aBlockOrCollection	menu: aTitle
