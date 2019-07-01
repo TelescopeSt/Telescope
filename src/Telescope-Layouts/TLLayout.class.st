@@ -43,7 +43,7 @@ TLLayout class >> leftToRight [
 	^ self new leftToRight
 ]
 
-{ #category : #'instance-creation' }
+{ #category : #'instance creation' }
 TLLayout class >> on: aGroup [ 
 	^ self new on: aGroup 
 ]
@@ -84,7 +84,7 @@ TLLayout >> angle: anObject [
 	angle := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 TLLayout >> angleInRadians: anAngleInDegrees [
 	^ anAngleInDegrees degreesToRadians negated
 ]
@@ -104,7 +104,7 @@ TLLayout >> cache: anObject [
 	cache := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #'node facade' }
 TLLayout >> changeNode: aNode dimension: aNewDimension [
 	aNode dimension: (self obtainsDimension: aNewDimension forAngle: self angle negated).
 	TLNodeDimensionChanged signalForNode: aNode.
@@ -145,7 +145,7 @@ TLLayout >> leftToRight [
 	self angle: 0
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #'node facade' }
 TLLayout >> obtainsDimension: nodeDimension forAngle: anAngleInDegree [
 	"Here we have optimisation to avoid creating Rectangles if result is easy to determine"
 
@@ -167,7 +167,7 @@ TLLayout >> obtainsDimension: nodeDimension forAngle: anAngleInDegree [
 								- (rotatedPoints inject: 0 into: [ :value :point | point y min: value ])) ] ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #'node facade' }
 TLLayout >> obtainsNodeDimension: aNode [
 	aNode isNode
 		ifTrue: [ aNode children size > 0
@@ -175,7 +175,7 @@ TLLayout >> obtainsNodeDimension: aNode [
 	^ self obtainsNodeDimension: aNode forAngle: self angle
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #'node facade' }
 TLLayout >> obtainsNodeDimension: aNode forAngle: anAngleInDegree [
 	^ self obtainsDimension: aNode dimension forAngle: anAngleInDegree
 ]

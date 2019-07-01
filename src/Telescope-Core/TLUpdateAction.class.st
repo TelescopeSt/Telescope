@@ -15,7 +15,7 @@ Class {
 	#category : #'Telescope-Core-Actions'
 }
 
-{ #category : #'instance-creation' }
+{ #category : #'instance creation' }
 TLUpdateAction class >> drawable: aTLDrawable action: aTLDrawableAction [
 	^ self new
 		drawable: aTLDrawable;

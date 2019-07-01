@@ -10,7 +10,7 @@ Class {
 	#category : #'Telescope-Core-Model-Legend'
 }
 
-{ #category : #creation }
+{ #category : #'instance creation' }
 TLColorLegendEntry class >> description: aString color: aColor [
 	^ (self description: aString)
 		color: aColor;

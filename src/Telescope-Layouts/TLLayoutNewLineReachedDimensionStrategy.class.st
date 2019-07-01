@@ -10,7 +10,7 @@ Class {
 	#category : 'Telescope-Layouts'
 }
 
-{ #category : #'instance-creation' }
+{ #category : #'instance creation' }
 TLLayoutNewLineReachedDimensionStrategy class >> dimension: aDimension [
 	^ self new
 		maxDimension: aDimension;

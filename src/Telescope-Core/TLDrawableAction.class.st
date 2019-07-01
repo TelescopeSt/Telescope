@@ -14,6 +14,11 @@ Class {
 	#category : #'Telescope-Core-Actions'
 }
 
+{ #category : #testing }
+TLDrawableAction class >> isAbstract [
+	^ self = TLDrawableAction
+]
+
 { #category : #interactions }
 TLDrawableAction class >> onClick [
 	^ self new onClick

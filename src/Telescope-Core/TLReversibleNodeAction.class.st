@@ -8,12 +8,17 @@ Class {
 	#category : #'Telescope-Core-Actions'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #testing }
+TLReversibleNodeAction class >> isAbstract [
+	^ self = TLReversibleNodeAction
+]
+
+{ #category : #'instance creation' }
 TLReversibleNodeAction class >> onMouseOver [
 	^ self new onMouseOver
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #updating }
 TLReversibleNodeAction class >> withTriggerStyled: aStyleOrStyleSheetCustomizationBlock thatBecome: anotherStyleOrStyleSheetCustomizationBlock [
 	^ self new withTriggerStyled: aStyleOrStyleSheetCustomizationBlock thatBecome: anotherStyleOrStyleSheetCustomizationBlock
 ]
@@ -30,7 +35,7 @@ TLReversibleNodeAction >> isReversible [
 	^ true
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #'instance creation' }
 TLReversibleNodeAction >> onMouseOver [
 	^ TLMouseOverInteraction new action: self 
 ]
@@ -63,7 +68,7 @@ TLReversibleNodeAction >> shouldTriggerReverseActionFor: aTLDrawable [
 	^ false
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #updating }
 TLReversibleNodeAction >> withTriggerStyled: aStyleOrStyleSheetCustomizationBlock thatBecome: anotherStyleOrStyleSheetCustomizationBlock [
 	^ TLShapeInteraction new action: self; withTriggerStyled: aStyleOrStyleSheetCustomizationBlock thatBecome: anotherStyleOrStyleSheetCustomizationBlock
 ]

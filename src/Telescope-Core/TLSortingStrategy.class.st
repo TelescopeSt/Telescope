@@ -11,6 +11,11 @@ Class {
 	#category : #'Telescope-Core-Strategies'
 }
 
+{ #category : #testing }
+TLSortingStrategy class >> isAbstract [
+	^ self = TLSortingBlockStrategy
+]
+
 { #category : #sorting }
 TLSortingStrategy >> sortNodes: aCollectionOfTLNodes [
 	self subclassResponsibility 

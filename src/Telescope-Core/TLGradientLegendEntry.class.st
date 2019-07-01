@@ -10,7 +10,7 @@ Class {
 	#category : #'Telescope-Core-Model-Legend'
 }
 
-{ #category : #'instance-creation' }
+{ #category : #'instance creation' }
 TLGradientLegendEntry class >> description: aDescription gradient: aGradient [
 	^ (self description: aDescription)
 		gradient: aGradient;

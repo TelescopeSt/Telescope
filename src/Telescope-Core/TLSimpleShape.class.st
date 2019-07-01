@@ -17,6 +17,11 @@ TLSimpleShape class >> displayName [
 	^ shapeName capitalized
 ]
 
+{ #category : #testing }
+TLSimpleShape class >> isAbstract [
+	^ self = TLSimpleShape
+]
+
 { #category : #'instance creation' }
 TLSimpleShape class >> new [
 	self error: 'you should not create instance of shapes, just use it as enum value'

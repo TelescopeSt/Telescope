@@ -11,19 +11,19 @@ Class {
 	#category : #'Telescope-Core-Actions'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #'instance creation' }
 TLPopUpAction class >> onMouseOver [
 	^ (self text: #asString) onMouseOver
 ]
 
-{ #category : #'instance-creation' }
+{ #category : #'instance creation' }
 TLPopUpAction class >> text: aTextBlock [
 	^ self new
 		textBlock: aTextBlock;
 		yourself
 ]
 
-{ #category : #'instance-creation' }
+{ #category : #'instance creation' }
 TLPopUpAction class >> text: aTextBlock position: aPosition [
 	^ self new
 		textBlock: aTextBlock;

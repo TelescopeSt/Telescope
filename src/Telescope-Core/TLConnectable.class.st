@@ -16,6 +16,11 @@ Class {
 	#category : #'Telescope-Core-Model'
 }
 
+{ #category : #testing }
+TLConnectable class >> isAbstract [
+	^ self = TLConnectable
+]
+
 { #category : #accessing }
 TLConnectable >> allConnections [
 	^ self subclassResponsibility
