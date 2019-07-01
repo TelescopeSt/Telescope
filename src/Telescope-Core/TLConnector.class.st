@@ -88,7 +88,7 @@ TLConnector >> addElementNodeInView: element [
 
 { #category : #layout }
 TLConnector >> applyLayoutOf: aTLGroup on: group [
-	self subclassResponsibility
+	aTLGroup layout on: group
 ]
 
 { #category : #initialization }
