@@ -56,6 +56,13 @@ TLTestConnector >> childrenByParent: anObject [
 	childrenByParent := anObject
 ]
 
+{ #category : #accessing }
+TLTestConnector >> connectionHeadShapesAvailableForConnector [
+	"I should return all Telescope shapes that can apply on a connection heads for this connector."
+
+	^ TLSimpleShape allSubclasses
+]
+
 { #category : #'generation - connection' }
 TLTestConnector >> createElementConnection: aTLConnection From: aTLSimpleNode to: aTargetTLSimpleNode [
 	^ aTLConnection -> (aTLSimpleNode -> aTargetTLSimpleNode)
@@ -96,6 +103,11 @@ TLTestConnector >> initialize [
 	super initialize.
 	view := OrderedCollection new.
 	childrenByParent := Dictionary new.
+]
+
+{ #category : #accessing }
+TLTestConnector >> nodesShapesAvailableForConnector [
+	^ TLSimpleShape allSubclasses
 ]
 
 { #category : #placing }
