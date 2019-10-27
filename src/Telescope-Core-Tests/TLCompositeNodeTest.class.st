@@ -1,6 +1,6 @@
 Class {
 	#name : #TLCompositeNodeTest,
-	#superclass : #BabyMock2TestCase,
+	#superclass : #TestCase,
 	#instVars : [
 		'node'
 	],
