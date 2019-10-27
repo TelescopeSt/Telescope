@@ -17,16 +17,6 @@ BaselineOfTelescope >> babyMock2: spec [
 				repository: 'http://smalltalkhub.com/mc/zeroflag/BabyMock2/main/' ]
 ]
 
-{ #category : #dependencies }
-BaselineOfTelescope >> babyMock: spec [
-	spec
-		project: 'BabyMock'
-		with: [ spec
-				className: #ConfigurationOfBabyMock;
-				versionString: #stable;
-				repository: 'http://smalltalkhub.com/mc/zeroflag/BabyMock/main/' ]
-]
-
 { #category : #baseline }
 BaselineOfTelescope >> baseline: spec [
 	<baseline>
@@ -34,9 +24,9 @@ BaselineOfTelescope >> baseline: spec [
 		for: #common
 		do: [ "Dependencies"
 			self
-				babyMock: spec;
 				babyMock2: spec;
 				deepTraverser: spec;
+				mocketry: spec;
 				mooseAlgo: spec;
 				styleSheet: spec;
 				materialColors: spec.
@@ -48,7 +38,7 @@ BaselineOfTelescope >> baseline: spec [
 				package: 'Telescope-Demo' with: [ spec requires: #('Telescope-Core' 'Telescope-VisualizationTemplates') ];
 				package: 'Telescope-Layouts';
 				package: 'Telescope-Core-Tests' with: [ spec requires: #('Telescope-Core' 'Telescope-Demo' 'BabyMock2') ];
-				package: 'Telescope-Layouts-Tests' with: [ spec requires: #(#'Telescope-Layouts' 'BabyMock' 'BabyMock2') ];
+				package: 'Telescope-Layouts-Tests' with: [ spec requires: #(#'Telescope-Layouts' 'Mocketry') ];
 				package: 'Telescope-VisualizationTemplates-Tests' with: [ spec requires: #('Telescope-VisualizationTemplates' 'Telescope-Core-Tests') ].
 
 			"Groups"
@@ -81,6 +71,15 @@ BaselineOfTelescope >> deepTraverser: spec [
 { #category : #dependencies }
 BaselineOfTelescope >> materialColors: spec [
 	spec baseline: 'MaterialColors' with: [ spec repository: 'github://DuneSt/MaterialColors:v2.x.x/src' ]
+]
+
+{ #category : #dependencies }
+BaselineOfTelescope >> mocketry: spec [
+	spec
+		baseline: 'Mocketry'
+		with: [ spec
+				loads: #('Core');
+				repository: 'github://dionisiydk/Mocketry:v6.0.x' ]
 ]
 
 { #category : #dependencies }
