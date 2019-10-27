@@ -1,6 +1,6 @@
 Class {
 	#name : #TLSimpleNodeTest,
-	#superclass : #BabyMock2TestCase,
+	#superclass : #TestCase,
 	#instVars : [
 		'node'
 	],
@@ -22,9 +22,7 @@ TLSimpleNodeTest >> testAddStyleRequireUpdate [
 
 { #category : #tests }
 TLSimpleNodeTest >> testAdjacentNodes [
-	| nodeFrom nodeTo edgeBuilder |
-	edgeBuilder := protocol mock: 'edgeBuilder'.
-
+	| nodeFrom nodeTo |
 	nodeFrom := TLSimpleNode new.
 	nodeTo := TLSimpleNode new "shape: shape".
 	nodeFrom connectTo: node.
