@@ -48,7 +48,7 @@ BaselineOfTelescope >> baseline: spec [
 				package: 'Telescope-Demo' with: [ spec requires: #('Telescope-Core' 'Telescope-VisualizationTemplates') ];
 				package: 'Telescope-Layouts';
 				package: 'Telescope-Core-Tests' with: [ spec requires: #('Telescope-Core' 'Telescope-Demo' 'BabyMock2') ];
-				package: 'Telescope-Layouts-Tests' with: [ spec requires: #(#'Telescope-Layouts' 'BabyMock') ];
+				package: 'Telescope-Layouts-Tests' with: [ spec requires: #(#'Telescope-Layouts' 'BabyMock' 'BabyMock2') ];
 				package: 'Telescope-VisualizationTemplates-Tests' with: [ spec requires: #('Telescope-VisualizationTemplates' 'Telescope-Core-Tests') ].
 
 			"Groups"
