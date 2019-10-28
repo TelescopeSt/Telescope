@@ -1,6 +1,6 @@
 Class {
 	#name : #TLConnectorTest,
-	#superclass : #BabyMock2TestCase,
+	#superclass : #TestCase,
 	#instVars : [
 		'connector'
 	],

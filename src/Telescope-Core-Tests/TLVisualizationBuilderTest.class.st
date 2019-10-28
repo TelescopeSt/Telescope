@@ -1,6 +1,6 @@
 Class {
 	#name : #TLVisualizationBuilderTest,
-	#superclass : #BabyMock2TestCase,
+	#superclass : #TestCase,
 	#instVars : [
 		'mockGenerator',
 		'visualization'
@@ -12,7 +12,7 @@ Class {
 TLVisualizationBuilderTest >> setUp [
 	super setUp.
 	visualization := TLVisualization new.
-	mockGenerator := protocol mock: 'generator'.
+	mockGenerator := Mock named: 'generator'.
 	visualization generator: mockGenerator.
 ]
 

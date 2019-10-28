@@ -2,7 +2,6 @@ Class {
 	#name : #TLDrawableTest,
 	#superclass : #TestCase,
 	#instVars : [
-		'tlObject',
 		'drawable'
 	],
 	#category : #'Telescope-Core-Tests-Model'
