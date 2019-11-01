@@ -1,7 +1,13 @@
 <!--
-git log --pretty="*%s ([%h](https://github.com/TelescopeSt/Telescope/commit/%H))" d820835...HEAD --grep="Merge pull"
+git log --pretty="*%s ([%h](https://github.com/TelescopeSt/Telescope/commit/%H))" v2.2.0...HEAD --grep="Merge pull"
 ('Content' copyWithRegex: 'Merge pull request #[0-9]+ from [^/]+/[0-9]*' matchesReplacedWith: '') copyReplaceAll: '-' with: ' '
 -->
+
+# [v2.2.1](https://github.com/TelescopeSt/Telescope/compare/v2.2.0...v2.2.1) (2019-11-01)
+
+## Infrastructure
+
+*  Tests migrated from BabyMock 1 and 2 to Mocketry ([6c3de95](https://github.com/TelescopeSt/Telescope/commit/6c3de958a91611e0c30a4b0f9d8132fdd4aa4a64))
 
 # [v2.2.0](https://github.com/TelescopeSt/Telescope/compare/v2.1.0...v2.2.0) (2019-07-02)
 

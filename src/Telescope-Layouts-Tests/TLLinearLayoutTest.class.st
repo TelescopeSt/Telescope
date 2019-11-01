@@ -1,6 +1,6 @@
 Class {
 	#name : #TLLinearLayoutTest,
-	#superclass : #BabyMockTestCase,
+	#superclass : #TestCase,
 	#instVars : [
 		'layout'
 	],
@@ -13,37 +13,17 @@ TLLinearLayoutTest >> testPlace5IdenticalNodes [
 	layout := TLLinearLayout gap: 5.
 	nodes := (1 to: 5)
 		collect: [ :i | 
-			| mock |
-			mock := context mock: 'Node ' , i asString.
-			mock can
-				receive: #dimension;
-				answers: 10 @ 10.
-			mock can
-				receive: #isNode;
-				answers: true.
-			mock can
-				receive: #children;
-				answers: {}.
-			mock can
-				receive: #occupyMaxSpace;
-				answers: false.
-			mock ].
-	nodes first should
-		receive: #position:;
-		with: 5 @ 5.
-	nodes second should
-		receive: #position:;
-		with: 20 @ 5.
-	nodes third should
-		receive: #position:;
-		with: 35 @ 5.
-	nodes fourth should
-		receive: #position:;
-		with: 50 @ 5.
-	nodes fifth should
-		receive: #position:;
-		with: 65 @ 5.
-	layout on: nodes
+			| node |
+			node := Mock named: 'Node' , i asString.
+			node stub dimension willReturn: 10 @ 10.
+			node stub isNode willReturn: true.
+			node stub children willReturn: {}.
+			node stub occupyMaxSpace willReturn: false.
+			node ].
+	{(5 @ 5) . (20 @ 5) . (35 @ 5) . (50 @ 5) . (65 @ 5)} doWithIndex: [ :position :ind | ((nodes at: ind) stub position: Any) willReturn: position ].
+
+	layout on: nodes.
+	nodes do: [ :node | node should receive position: Any ]
 ]
 
 { #category : #tests }
@@ -52,37 +32,17 @@ TLLinearLayoutTest >> testPlaceNodesOverflowingNumberOfElements [
 	layout := TLLinearLayout gap: 5 perLine: 3.
 	nodes := (1 to: 5)
 		collect: [ :i | 
-			| mock |
-			mock := context mock: 'Node ' , i asString.
-			mock can
-				receive: #dimension;
-				answers: 10 @ 10.
-			mock can
-				receive: #isNode;
-				answers: true.
-			mock can
-				receive: #children;
-				answers: {}.
-			mock can
-				receive: #occupyMaxSpace;
-				answers: false.
-			mock ].
-	nodes first should
-		receive: #position:;
-		with: 5 @ 5.
-	nodes second should
-		receive: #position:;
-		with: 20 @ 5.
-	nodes third should
-		receive: #position:;
-		with: 35 @ 5.
-	nodes fourth should
-		receive: #position:;
-		with: 5 @ 20.
-	nodes fifth should
-		receive: #position:;
-		with: 20 @ 20.
-	layout on: nodes
+			| node |
+			node := Mock named: 'Node' , i asString.
+			node stub dimension willReturn: 10 @ 10.
+			node stub isNode willReturn: true.
+			node stub children willReturn: {}.
+			node stub occupyMaxSpace willReturn: false.
+			node ].
+	{(5 @ 5) . (20 @ 5) . (35 @ 5) . (50 @ 5) . (65 @ 5)} doWithIndex: [ :position :ind | ((nodes at: ind) stub position: Any) willReturn: position ].
+
+	layout on: nodes.
+	nodes do: [ :node | node should receive position: Any ]
 ]
 
 { #category : #tests }
@@ -91,37 +51,17 @@ TLLinearLayoutTest >> testPlaceNodesOverflowingWidth [
 	layout := TLLinearLayout gap: 5 maximumDimension: 50.
 	nodes := (1 to: 5)
 		collect: [ :i | 
-			| mock |
-			mock := context mock: 'Node ' , i asString.
-			mock can
-				receive: #dimension;
-				answers: 10 @ 10.
-			mock can
-				receive: #isNode;
-				answers: true.
-			mock can
-				receive: #children;
-				answers: {}.
-			mock can
-				receive: #occupyMaxSpace;
-				answers: false.
-			mock ].
-	nodes first should
-		receive: #position:;
-		with: 5 @ 5.
-	nodes second should
-		receive: #position:;
-		with: 20 @ 5.
-	nodes third should
-		receive: #position:;
-		with: 35 @ 5.
-	nodes fourth should
-		receive: #position:;
-		with: 5 @ 20.
-	nodes fifth should
-		receive: #position:;
-		with: 20 @ 20.
-	layout on: nodes
+			| node |
+			node := Mock named: 'Node' , i asString.
+			node stub dimension willReturn: 10 @ 10.
+			node stub isNode willReturn: true.
+			node stub children willReturn: {}.
+			node stub occupyMaxSpace willReturn: false.
+			node ].
+	{(5 @ 5) . (20 @ 5) . (35 @ 5) . (50 @ 5) . (65 @ 5)} doWithIndex: [ :position :ind | ((nodes at: ind) stub position: Any) willReturn: position ].
+
+	layout on: nodes.
+	nodes do: [ :node | node should receive position: Any ]
 ]
 
 { #category : #tests }
@@ -130,35 +70,15 @@ TLLinearLayoutTest >> testPlaceNodesWithMultipleDimensionsCentered [
 	layout := TLLinearLayout gap: 5.
 	nodes := (1 to: 5)
 		collect: [ :i | 
-			| mock |
-			mock := context mock: 'Node ' , i asString.
-			mock can
-				receive: #dimension;
-				answers: 10 @ (i * 4).
-			mock can
-				receive: #isNode;
-				answers: true.
-			mock can
-				receive: #children;
-				answers: {}.
-			mock can
-				receive: #occupyMaxSpace;
-				answers: false.
-			mock ].
-	nodes first should
-		receive: #position:;
-		with: 5 @ 10.
-	nodes second should
-		receive: #position:;
-		with: 20 @ 10.
-	nodes third should
-		receive: #position:;
-		with: 35 @ 10.
-	nodes fourth should
-		receive: #position:;
-		with: 50 @ 10.
-	nodes fifth should
-		receive: #position:;
-		with: 65 @ 10.
-	layout on: nodes
+			| node |
+			node := Mock named: 'Node' , i asString.
+			node stub dimension willReturn: 10 @ (i * 4).
+			node stub isNode willReturn: true.
+			node stub children willReturn: {}.
+			node stub occupyMaxSpace willReturn: false.
+			node ].
+	{(5 @ 5) . (20 @ 5) . (35 @ 5) . (50 @ 5) . (65 @ 5)} doWithIndex: [ :position :ind | ((nodes at: ind) stub position: Any) willReturn: position ].
+
+	layout on: nodes.
+	nodes do: [ :node | node should receive position: Any ]
 ]
