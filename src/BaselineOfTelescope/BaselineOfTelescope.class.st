@@ -7,16 +7,6 @@ Class {
 	#category : #BaselineOfTelescope
 }
 
-{ #category : #dependencies }
-BaselineOfTelescope >> babyMock2: spec [
-	spec
-		project: 'BabyMock2'
-		with: [ spec
-				className: #ConfigurationOfBabyMock2;
-				versionString: #stable;
-				repository: 'http://smalltalkhub.com/mc/zeroflag/BabyMock2/main/' ]
-]
-
 { #category : #baseline }
 BaselineOfTelescope >> baseline: spec [
 	<baseline>
@@ -24,8 +14,6 @@ BaselineOfTelescope >> baseline: spec [
 		for: #common
 		do: [ "Dependencies"
 			self
-				flag: 'The baby mock 2 dependency is here only for compatibility with TelescopeCytoscape. It should soon be removed.';
-				babyMock2: spec;
 				deepTraverser: spec;
 				mocketry: spec;
 				mooseAlgo: spec;
@@ -39,7 +27,7 @@ BaselineOfTelescope >> baseline: spec [
 				package: 'Telescope-Demo' with: [ spec requires: #('Telescope-Core' 'Telescope-VisualizationTemplates') ];
 				package: 'Telescope-Layouts';
 				package: 'Telescope-Core-Tests' with: [ spec requires: #('Telescope-Core' 'Telescope-Demo' 'Mocketry') ];
-				package: 'Telescope-Layouts-Tests' with: [ spec requires: #(#'Telescope-Layouts' 'Mocketry') ];
+				package: 'Telescope-Layouts-Tests' with: [ spec requires: #('Telescope-Layouts' 'Mocketry') ];
 				package: 'Telescope-VisualizationTemplates-Tests' with: [ spec requires: #('Telescope-VisualizationTemplates' 'Telescope-Core-Tests') ].
 
 			"Groups"
