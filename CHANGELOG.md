@@ -1,7 +1,13 @@
 <!--
-git log --pretty="*%s ([%h](https://github.com/TelescopeSt/Telescope/commit/%H))" v2.2.0...HEAD --grep="Merge pull"
+git log --pretty="*%s ([%h](https://github.com/TelescopeSt/Telescope/commit/%H))" v2.2.1...HEAD --grep="Merge pull"
 ('Content' copyWithRegex: 'Merge pull request #[0-9]+ from [^/]+/[0-9]*' matchesReplacedWith: '') copyReplaceAll: '-' with: ' '
 -->
+
+# [v2.2.2](https://github.com/TelescopeSt/Telescope/compare/v2.2.1...v2.2.2) (2020-01-09)
+
+## Bug fixes
+
+* BabyMock2 dependency should be removed from the baseline ([959e604](https://github.com/TelescopeSt/Telescope/commit/959e60479b6ed3dcb92879ad90012999cec4d51d))
 
 # [v2.2.1](https://github.com/TelescopeSt/Telescope/compare/v2.2.0...v2.2.1) (2019-11-01)
 
