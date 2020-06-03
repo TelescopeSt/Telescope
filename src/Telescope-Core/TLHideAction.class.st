@@ -67,7 +67,8 @@ TLHideAction >> hidingValuableOrEntity: anObject [
 { #category : #initialization }
 TLHideAction >> initialize [
 	super initialize.
-	self hiddedDrawables: Dictionary new
+	self hiddedDrawables: Dictionary new.
+	self hidingValuableOrEntity: #yourself
 ]
 
 { #category : #action }
