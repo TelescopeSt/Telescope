@@ -1,7 +1,13 @@
 <!--
-git log --pretty="*%s ([%h](https://github.com/TelescopeSt/Telescope/commit/%H))" v2.2.1...HEAD --grep="Merge pull"
+git log --pretty="*%s ([%h](https://github.com/TelescopeSt/Telescope/commit/%H))" v2.2.2...HEAD --grep="Merge pull"
 ('Content' copyWithRegex: 'Merge pull request #[0-9]+ from [^/]+/[0-9]*' matchesReplacedWith: '') copyReplaceAll: '-' with: ' '
 -->
+
+# [v2.2.3](https://github.com/TelescopeSt/Telescope/compare/v2.2.2...v2.2.3) (2020-06-03)
+
+## Enhancement
+
+* TLHideAction should by default hide the current element ([4479f3d](https://github.com/TelescopeSt/Telescope/commit/4479f3df82aa2160dc92e2eb5c35dba008f068de)
 
 # [v2.2.2](https://github.com/TelescopeSt/Telescope/compare/v2.2.1...v2.2.2) (2020-01-09)
 
