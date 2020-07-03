@@ -295,7 +295,10 @@ TLEntitiesGroup >> removeAll [
 { #category : #removing }
 TLEntitiesGroup >> removeChild: aTLDrawable [
 	self telescopeEntities remove: aTLDrawable.
-	self requireUpdateAndLayoutApplication.
+	aTLDrawable isGroup
+		ifTrue: [ self subGroupsDictionary
+				removeKey: (self subGroupsDictionary keyAtValue: aTLDrawable) ].
+	self requireUpdateAndLayoutApplication
 ]
 
 { #category : #accessing }

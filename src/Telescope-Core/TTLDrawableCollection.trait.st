@@ -141,7 +141,7 @@ TTLDrawableCollection >> parentNodes [
 
 { #category : #removing }
 TTLDrawableCollection >> removeAllConnections [
-	self allNodesRecursivelyDo: #removeAllConnection
+	self allNodesRecursivelyDo: #removeAllConnections
 ]
 
 { #category : #accessing }
