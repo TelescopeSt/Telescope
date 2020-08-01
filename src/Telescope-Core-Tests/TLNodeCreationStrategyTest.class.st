@@ -29,6 +29,20 @@ TLNodeCreationStrategyTest >> testCompositeWithLayout [
 ]
 
 { #category : #tests }
+TLNodeCreationStrategyTest >> testCopyAsSimpleStrategy [
+	| aTLNodeCreationStrategy |
+	aTLNodeCreationStrategy := strategy copyAsSimpleStrategy.
+	self
+		assert: aTLNodeCreationStrategy class
+		equals: TLNodeCreationStrategy.
+	self assert: aTLNodeCreationStrategy childrenStrategy isNil.
+	self assert: aTLNodeCreationStrategy compositeProperty isNil.
+	self assert: aTLNodeCreationStrategy childrenSortingStrategy isNil.
+	self assert: aTLNodeCreationStrategy compositeChildrenLayout isNil.
+	self assert: aTLNodeCreationStrategy nodeStyle isNil
+]
+
+{ #category : #tests }
 TLNodeCreationStrategyTest >> testStrategyDefiningStyleForNode [
 	| node |
 	strategy nodeStyle: #myStyle.
