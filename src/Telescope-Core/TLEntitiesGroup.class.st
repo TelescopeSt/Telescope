@@ -32,6 +32,11 @@ TLEntitiesGroup >> > aSubGroupSymbol [
 				yourself ]
 ]
 
+{ #category : #enumeration }
+TLEntitiesGroup >> \ aCollection [
+	^ self telescopeEntities \ aCollection
+]
+
 { #category : #adding }
 TLEntitiesGroup >> addAbsentNodesInVisualizationFromEntities: aGroupOfEntities [
 	"only add nodes for entities that are not yet in visualization"
@@ -279,6 +284,11 @@ TLEntitiesGroup >> nodeCreationStrategy: anObject [
 { #category : #testing }
 TLEntitiesGroup >> notEmpty [
 	^ self collection notEmpty.
+]
+
+{ #category : #enumeration }
+TLEntitiesGroup >> reject: aBlockClosure [
+	^ self telescopeEntities reject: aBlockClosure
 ]
 
 { #category : #accessing }
