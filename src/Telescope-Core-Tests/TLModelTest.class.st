@@ -29,3 +29,18 @@ TLModelTest >> testRemoveAllFromGroup [
 	self assert: node2 parent equals: nil.
 	
 ]
+
+{ #category : #tests }
+TLModelTest >> testRemoveAllThenAddAgainGroup [
+	| group subGroup secondSubGroup |
+	group := TLEntitiesGroup new.
+	subGroup := group > #group1.
+	self assert: subGroup parent equals: group.
+	group removeAll.
+	self assert: subGroup parent equals: nil.
+	self assert: group isEmpty.
+	self assert: group subGroupsDictionary isEmpty.
+	secondSubGroup := group > #group1.
+	self assert: secondSubGroup parent equals: group.
+	self deny: secondSubGroup equals: subGroup
+]

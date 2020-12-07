@@ -17,12 +17,13 @@ BaselineOfTelescope >> baseline: spec [
 				deepTraverser: spec;
 				mocketry: spec;
 				mooseAlgo: spec;
+				pharoBackwardCompatibility: spec;
 				styleSheet: spec;
 				materialColors: spec.
 
 			"Packages"
 			spec
-				package: 'Telescope-Core' with: [ spec requires: #('Stylesheet' 'Telescope-Layouts' 'MaterialColors') ];
+				package: 'Telescope-Core' with: [ spec requires: #('Stylesheet' 'Telescope-Layouts' 'MaterialColors' 'PharoBackwardCompatibility') ];
 				package: 'Telescope-VisualizationTemplates' with: [ spec requires: #('Telescope-Core' 'MooseAlgos' 'DeepTraverser') ];
 				package: 'Telescope-Demo' with: [ spec requires: #('Telescope-Core' 'Telescope-VisualizationTemplates') ];
 				package: 'Telescope-Layouts';
@@ -39,13 +40,7 @@ BaselineOfTelescope >> baseline: spec [
 				group: 'layout' with: #('Telescope-Layouts' 'Telescope-Layouts-Tests');
 				group: 'layout-core' with: #('Telescope-Layouts');
 				group: 'minimal' with: #('Telescope-Core');
-				group: 'tests' with: #('Telescope-Core-Tests' 'Telescope-Layouts-Tests' 'Telescope-VisualizationTemplates-Tests') ].
-
-	spec
-		for: #(#'pharo6.x' #'pharo7.x')
-		do: [ spec
-				package: 'Telescope-Pharo8-Compatibility';
-				package: 'Telescope-Core' with: [ spec requires: #('Telescope-Pharo8-Compatibility') ] ]
+				group: 'tests' with: #('Telescope-Core-Tests' 'Telescope-Layouts-Tests' 'Telescope-VisualizationTemplates-Tests') ]
 ]
 
 { #category : #dependencies }
@@ -78,6 +73,11 @@ BaselineOfTelescope >> mooseAlgo: spec [
 		with: [ spec
 				loads: 'Core';
 				repository: 'github://moosetechnology/MooseAlgos:v1.x.x/src' ]
+]
+
+{ #category : #dependencies }
+BaselineOfTelescope >> pharoBackwardCompatibility: spec [
+	spec baseline: 'PharoBackwardCompatibility' with: [ spec repository: 'github://jecisc/PharoBackwardCompatibility:v1.x.x/src' ]
 ]
 
 { #category : #accessing }

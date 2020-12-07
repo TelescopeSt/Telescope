@@ -32,6 +32,11 @@ TLEntitiesGroup >> > aSubGroupSymbol [
 				yourself ]
 ]
 
+{ #category : #enumeration }
+TLEntitiesGroup >> \ aCollection [
+	^ self telescopeEntities \ aCollection
+]
+
 { #category : #adding }
 TLEntitiesGroup >> addAbsentNodesInVisualizationFromEntities: aGroupOfEntities [
 	"only add nodes for entities that are not yet in visualization"
@@ -281,6 +286,11 @@ TLEntitiesGroup >> notEmpty [
 	^ self collection notEmpty.
 ]
 
+{ #category : #enumeration }
+TLEntitiesGroup >> reject: aBlockClosure [
+	^ self telescopeEntities reject: aBlockClosure
+]
+
 { #category : #accessing }
 TLEntitiesGroup >> remove: aTLDrawable [
 	self removeChild: aTLDrawable.
@@ -295,7 +305,10 @@ TLEntitiesGroup >> removeAll [
 { #category : #removing }
 TLEntitiesGroup >> removeChild: aTLDrawable [
 	self telescopeEntities remove: aTLDrawable.
-	self requireUpdateAndLayoutApplication.
+	aTLDrawable isGroup
+		ifTrue: [ self subGroupsDictionary
+				removeKey: (self subGroupsDictionary keyAtValue: aTLDrawable) ].
+	self requireUpdateAndLayoutApplication
 ]
 
 { #category : #accessing }

@@ -1,7 +1,26 @@
 <!--
-git log --pretty="*%s ([%h](https://github.com/TelescopeSt/Telescope/commit/%H))" v2.2.2...HEAD --grep="Merge pull"
+git log --pretty="*%s ([%h](https://github.com/TelescopeSt/Telescope/commit/%H))" v2.3.0...HEAD --grep="Merge pull"
 ('Content' copyWithRegex: 'Merge pull request #[0-9]+ from [^/]+/[0-9]*' matchesReplacedWith: '') copyReplaceAll: '-' with: ' '
 -->
+
+# [v2.3.0](https://github.com/TelescopeSt/Telescope/compare/v2.2.3...v2.3.0) (2020-12-07)
+
+## New Features
+
+* Add an action to create connections with entity ([abc4ff1](https://github.com/TelescopeSt/Telescope/commit/abc4ff1ac8bfa3871fa116c78d1f3f428c6c191d))
+* Create a matrix visualization template ([86243ea](https://github.com/TelescopeSt/Telescope/commit/86243ea51a0119d5a3133ecaf79d833dfade7913))
+
+## Enhancement
+
+* Add modularity in cycle dependecies visualization template ([8b48cfc](https://github.com/TelescopeSt/Telescope/commit/8b48cfc31edd73770ea19ee0b7f7c530479d7e56))
+
+## Bug fixes
+
+* Groups are not correctly removed from supergroups ([45ba104](https://github.com/TelescopeSt/Telescope/commit/45ba104aca254c088730e8f58e2b8866b3909461))
+
+## Infrastructure
+
+* Depend on PharoBackwardCompatibility ([7bfd884](https://github.com/TelescopeSt/Telescope/commit/7bfd884fe6bc7655d275188a86133b4811dfb793))
 
 # [v2.2.3](https://github.com/TelescopeSt/Telescope/compare/v2.2.2...v2.2.3) (2020-06-03)
 

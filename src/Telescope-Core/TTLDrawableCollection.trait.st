@@ -64,6 +64,14 @@ TTLDrawableCollection >> connectFromNode: aTLNode [
 ]
 
 { #category : #connect }
+TTLDrawableCollection >> connectFromNode: aTLNode entity: anObject [
+	^ self
+		flatCollect: [ :aTLDrawable | 
+			(aTLDrawable connectFromNode: aTLNode entity: anObject)
+				asTLDrawableCollection ]
+]
+
+{ #category : #connect }
 TTLDrawableCollection >> connectIfNotFromNode: aTLNode [
 	^ self flatCollect: [ :aTLDrawable | (aTLDrawable connectIfNotFromNode: aTLNode) asTLDrawableCollection ]
 ]
@@ -81,6 +89,11 @@ TTLDrawableCollection >> connectTo: aTLEntity [
 { #category : #connect }
 TTLDrawableCollection >> connectTo: aTLEntity entity: anObject [
 		^ self flatCollect: [:aLocalTLEntity | (aLocalTLEntity connectTo: aTLEntity entity: anObject) asTLDrawableCollection ]
+]
+
+{ #category : #connection }
+TTLDrawableCollection >> connectToNode: aTLSimpleNode entity: anObject [ 
+	^ self flatCollect: [:aLocalTLEntity | (aLocalTLEntity connectToNode: aTLSimpleNode entity: anObject) asTLDrawableCollection ]
 ]
 
 { #category : #entities }
@@ -141,7 +154,7 @@ TTLDrawableCollection >> parentNodes [
 
 { #category : #removing }
 TTLDrawableCollection >> removeAllConnections [
-	self allNodesRecursivelyDo: #removeAllConnection
+	self allNodesRecursivelyDo: #removeAllConnections
 ]
 
 { #category : #accessing }
