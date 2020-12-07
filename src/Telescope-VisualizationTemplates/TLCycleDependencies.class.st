@@ -13,8 +13,7 @@ Class {
 		'entities',
 		'property',
 		'widthBlock',
-		'heightBlock',
-		'nodeColor'
+		'heightBlock'
 	],
 	#category : #'Telescope-VisualizationTemplates'
 }
