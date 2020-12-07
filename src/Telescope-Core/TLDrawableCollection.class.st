@@ -47,6 +47,13 @@ TLDrawableCollection >> collection [
 	^ self
 ]
 
+{ #category : #connection }
+TLDrawableCollection >> connectToNode: aNode entity: aConnectionEntity [
+	^ self
+		collect:
+			[ :aDrawable | aDrawable connectToNode: aNode entity: aConnectionEntity ]
+]
+
 { #category : #enumerating }
 TLDrawableCollection >> nodesCollect: aBlock [
 	^ self
@@ -67,4 +74,9 @@ TLDrawableCollection >> removeAllConnections [
 { #category : #style }
 TLDrawableCollection >> removeStyle: aStyle [
 	self do: [ :aDrawable | aDrawable removeStyle: aStyle ]
+]
+
+{ #category : #removing }
+TLDrawableCollection >> removed [
+	self do: #removed
 ]

@@ -84,6 +84,11 @@ TLAbstractNode >> connectFromNode: aTLNode [
 	^ aTLNode connectToNode: self
 ]
 
+{ #category : #connection }
+TLAbstractNode >> connectFromNode: aTLNode entity: anObject [ 
+	^ aTLNode connectToNode: self entity: anObject
+]
+
 { #category : #connect }
 TLAbstractNode >> connectIfNotAlreadyFollowingProperty: aBlockOrSymbol context: aTLEntitiesGroup [
 	| target |
@@ -145,7 +150,7 @@ TLAbstractNode >> connectTo: aTLConnectable [
 
 { #category : #connect }
 TLAbstractNode >> connectTo: aTLConnectable entity: anObject [
-	^ aTLConnectable connectToNode: self entity: anObject
+	^ aTLConnectable connectFromNode: self entity: anObject
 ]
 
 { #category : #connect }
