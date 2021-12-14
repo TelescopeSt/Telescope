@@ -1,3 +1,6 @@
+"
+I run one or more command on a batch of node. I color each node. After computation on a node, I restore this node's origin color and ask to send result to client.
+"
 Class {
 	#name : #TLBatchCustomAction,
 	#superclass : #Object,
