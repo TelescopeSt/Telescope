@@ -25,12 +25,14 @@ TLTelescopeTest >> telescopeTestClasses [
 TLTelescopeTest >> testAndMakeSureSuperSetupIsCalledAsFirstMessageInSetupMethodsOfTestCases [
 	"Verify that each setUp method in a unit test starts with a call to super setUp as first message sent"
 
-	| violating |
+	| violating tester |
 	self flag: #pharo6.
 	SystemVersion current major < 7 ifTrue: [ self skip ].
 	violating := OrderedCollection new.
+	
+	tester := self class environment classNamed: (SystemVersion current major < 9 ifTrue: [ #ShouldSendSuperSetUpAsFirstMessage ] ifFalse: [ #ReShouldSendSuperSetUpAsFirstMessage ]).
 	self telescopeTestClasses
-		do: [ :each | each compiledMethodAt: #setUp ifPresent: [ :method | (ShouldSendSuperSetUpAsFirstMessage superSetUpNotCalledFirstIn: method) ifTrue: [ violating add: method ] ] ifAbsent: nil ].
+		do: [ :each | each compiledMethodAt: #setUp ifPresent: [ :method | (tester superSetUpNotCalledFirstIn: method) ifTrue: [ violating add: method ] ] ifAbsent: nil ].
 
 	self assertEmpty: violating
 ]
@@ -39,12 +41,14 @@ TLTelescopeTest >> testAndMakeSureSuperSetupIsCalledAsFirstMessageInSetupMethods
 TLTelescopeTest >> testAndMakeSureSuperTearDownIsCalledAsLastMessageInTearDownMethodsOfTestCases [
 	"Verify that each tearDown method in a unit test ends with a call to super tearDown as last message sent"
 
-	| violating |
+	| violating tester |
 	self flag: #pharo6.
 	SystemVersion current major < 7 ifTrue: [ self skip ].
 	violating := OrderedCollection new.
+
+	tester := self class environment classNamed: (SystemVersion current major < 9 ifTrue: [ #ShouldSendSuperTearDownAsLastMessage ] ifFalse: [ #ReShouldSendSuperTearDownAsLastMessage ]).
 	self telescopeTestClasses
-		do: [ :each | each compiledMethodAt: #tearDown ifPresent: [ :method | (ShouldSendSuperTearDownAsLastMessage superTearDownNotCalledLastIn: method) ifTrue: [ violating add: method ] ] ifAbsent: nil ].
+		do: [ :each | each compiledMethodAt: #tearDown ifPresent: [ :method | (tester superTearDownNotCalledLastIn: method) ifTrue: [ violating add: method ] ] ifAbsent: nil ].
 
 	self assertEmpty: violating
 ]
