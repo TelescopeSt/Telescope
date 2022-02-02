@@ -1,9 +1,5 @@
 # Telescope
 
-Master: [![Build Status](https://travis-ci.org/TelescopeSt/Telescope.svg?branch=master)](https://travis-ci.org/TelescopeSt/Telescope)
-Development: [![Build Status](https://travis-ci.org/TelescopeSt/Telescope.svg?branch=development)](https://travis-ci.org/TelescopeSt/Telescope)
-
-
 Telescope is an engine for efficiently creating meaningful visualizations. The purpose is to help the user concentrate on the problem at hand rather than understanding the nitty-gritty of a drawing library. It does so by exposing to the user to a few concepts of the domain of visualization: nodes and their contents, layouts, interactions, and update mechanism. For example, the user does not have to worry about the creation of composite or simple nodes, the engine handles it. 
 
 The user can create a model of visualization and then render it via a connector to a visualization framework.
@@ -74,8 +70,8 @@ Examples can be found in the CytoscapeJs connector repository.
 | Telescope version 	| Compatible Pharo versions 	|
 |-------------------	|---------------------------	|
 | v1.x.x	   		   	| Pharo 61, 70                 	|
-| v2.x.x	   		   	| Pharo 61, 70, 80             	|
-| development      		| Pharo 61, 70, 80             	|
+| v2.x.x	   		   	| Pharo 61, 70, 80, 90         	|
+| development      		| Pharo 61, 70, 80, 90         	|
 
 ## Contact
 
