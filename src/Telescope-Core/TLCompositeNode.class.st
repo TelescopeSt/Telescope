@@ -82,6 +82,11 @@ TLCompositeNode >> allChildrenCompositeNodes [
 	^ (allChildrenCompositeNodes, (self childrenNodes flatCollect: #allChildrenCompositeNodes))
 ]
 
+{ #category : #children }
+TLCompositeNode >> allChildrenNodesRecursivelyDo: aBlock [
+	^ self childrenGroup allNodesRecursivelyDo: aBlock
+]
+
 { #category : #accessing }
 TLCompositeNode >> allConnections [
 	^ super allConnections union: self childrenGroup allConnections
@@ -89,6 +94,7 @@ TLCompositeNode >> allConnections [
 
 { #category : #children }
 TLCompositeNode >> allNodesRecursively [
+	self deprecated: 'Should not ask to a composite allNodesRecursively, it is something proper to collections'.
 	^ (self childrenGroup flatCollect: #allNodesRecursively)
 		add: self;
 		yourself

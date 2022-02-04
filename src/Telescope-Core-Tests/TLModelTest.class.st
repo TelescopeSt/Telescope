@@ -5,6 +5,21 @@ Class {
 }
 
 { #category : #tests }
+TLModelTest >> testAllNodesDoVariantsOnGroupWithNode [
+	| group subGroup groupNode subGroupNode subGroupCompositeNode compositeChild |
+	group := TLEntitiesGroup new.
+	group addDrawable: (groupNode := TLSimpleNode new).
+	subGroup := group > #subGroup.
+	subGroup addDrawable: (subGroupNode := TLSimpleNode new).
+	subGroup addDrawable: (subGroupCompositeNode := TLCompositeNode new).
+	(subGroupCompositeNode addChild: (compositeChild := TLSimpleNode new)).
+	
+	self assert: group nodes equals: (TLDrawableCollection with: groupNode).
+	self assert: group allNodes equals: (TLDrawableCollection with: groupNode with: subGroupNode with: subGroupCompositeNode).
+	self assert: group allNodesRecursively equals: (TLDrawableCollection with: groupNode with: subGroupNode with: subGroupCompositeNode with: compositeChild )
+]
+
+{ #category : #tests }
 TLModelTest >> testCompositeParentDefinition [
 	| composite node |
 	composite:= TLCompositeNode new.

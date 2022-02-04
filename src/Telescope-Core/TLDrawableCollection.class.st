@@ -37,6 +37,17 @@ TLDrawableCollection >> allNodesDo: aBlock [
 				ifFalse: [ aTLEntity allNodesDo: aBlock ] ]
 ]
 
+{ #category : #enumerating }
+TLDrawableCollection >> allNodesRecursivelyDo: aBlock [
+	^ self
+		do: [ :aTLEntity | 
+			aTLEntity isNode
+				ifTrue: [ aBlock value: aTLEntity.
+					aTLEntity isCompositeNode
+						ifTrue: [ aTLEntity allChildrenNodesRecursivelyDo: aBlock ] ]
+				ifFalse: [ aTLEntity allNodesRecursivelyDo: aBlock ] ]
+]
+
 { #category : #converting }
 TLDrawableCollection >> asTLDrawableCollection [
 	^ self

@@ -28,7 +28,10 @@ TTLDrawableCollection >> allConnections [
 
 { #category : #accessing }
 TTLDrawableCollection >> allNodes [
-	^ self nodes, (self subGroups flatCollect: #nodes)
+	^ TLDrawableCollection new
+		in: [ :coll | 
+			self allNodesDo: [ :node | coll addLast: node ].
+			coll ]
 ]
 
 { #category : #enumerating }
@@ -38,14 +41,15 @@ TTLDrawableCollection >> allNodesDo: aBlock [
 
 { #category : #enumerating }
 TTLDrawableCollection >> allNodesRecursively [
-	^ self flatCollect: #allNodesRecursively
+	^ TLDrawableCollection new
+		in: [ :coll | 
+			self allNodesRecursivelyDo: [ :node | coll addLast: node ].
+			coll ]
 ]
 
 { #category : #enumerating }
 TTLDrawableCollection >> allNodesRecursivelyDo: aBlock [
-	self nodesDo: aBlock.
-	self subGroups
-		ifNotEmpty: [ :aSubGroup | aSubGroup allNodesRecursivelyDo: aBlock ]
+	self collection allNodesRecursivelyDo: aBlock
 ]
 
 { #category : #requirements }
