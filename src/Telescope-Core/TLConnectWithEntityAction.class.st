@@ -62,6 +62,9 @@ TLConnectWithEntityAction >> regularActionOn: aNode [
 								at: (self obtain: self property on: aConnectionEntity))
 								connectTo: aNode
 								entity: aConnectionEntity ] ]).
+	self customizeWith
+		ifNotNil: [ (self connectionsByNode at: aNode)
+				do: [ :c | self customizeWith cull: c ] ].
 	self connectionStyle
 		ifNotNil: [ (self connectionsByNode at: aNode)
 				do: [ :c | c addStyle: self connectionStyle ] ]

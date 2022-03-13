@@ -54,6 +54,7 @@ Class {
 	#superclass : #TLReversibleNodeAction,
 	#instVars : [
 		'connectionsByNode',
+		'customizeWith',
 		'property',
 		'context',
 		'connectToOrigin',
@@ -116,6 +117,16 @@ TLConnectAction >> context: anObject [
 	context := anObject
 ]
 
+{ #category : #accessing }
+TLConnectAction >> customizeWith [
+	^ customizeWith
+]
+
+{ #category : #accessing }
+TLConnectAction >> customizeWith: anObject [
+	customizeWith := anObject
+]
+
 { #category : #initialization }
 TLConnectAction >> initialize [
 	super initialize.
@@ -162,7 +173,12 @@ TLConnectAction >> regularActionOn: aNode [
 			((self obtain: self connectToOrigin on: aNode entity)
 				ifFalse: [ aNode connectTo: (self obtainsNodesToConnectAt: aNode) ]
 				ifTrue: [ (self obtainsNodesToConnectAt: aNode) connectTo: aNode ]).
-	self connectionStyle ifNotNil: [ (self connectionsByNode at: aNode) do: [ :c | c addStyle: self connectionStyle ] ]
+	self customizeWith
+		ifNotNil: [ (self connectionsByNode at: aNode)
+				do: [ :c | self customizeWith cull: c ] ].
+	self connectionStyle
+		ifNotNil: [ (self connectionsByNode at: aNode)
+				do: [ :c | c addStyle: self connectionStyle ] ]
 ]
 
 { #category : #action }
