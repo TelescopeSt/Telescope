@@ -243,6 +243,11 @@ TLConnector >> generateClickInteraction: aClickInteraction onDrawable: aTLDrawab
 	self subclassResponsibility
 ]
 
+{ #category : #'generation - interaction' }
+TLConnector >> generateClientInteraction: aClickInteraction onDrawable: aTLDrawable targetingDrawable: anObject [
+	self subclassResponsibility
+]
+
 { #category : #'generation - node' }
 TLConnector >> generateCompositeNode: aCompositeNode [
 	| parent |

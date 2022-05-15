@@ -74,6 +74,11 @@ TLInteraction >> initialize [
 ]
 
 { #category : #testing }
+TLInteraction >> isClientSide [
+	^ false
+]
+
+{ #category : #testing }
 TLInteraction >> isDrop [
 	^ false
 ]
