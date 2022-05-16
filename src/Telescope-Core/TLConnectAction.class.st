@@ -183,7 +183,7 @@ TLConnectAction >> regularActionOn: aNode [
 
 { #category : #action }
 TLConnectAction >> reverseActionOn: aNode [
-	(self connectionsByNode removeKey: aNode) do: #removed
+	[(self connectionsByNode removeKey: aNode) do: #removed] on: Error do: [  ]
 ]
 
 { #category : #testing }
