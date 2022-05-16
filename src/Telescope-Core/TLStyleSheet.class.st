@@ -197,6 +197,15 @@ TLStyleSheet >> fontSize: aSize [
 	self at: #fontSize put: aSize 
 ]
 
+{ #category : #private }
+TLStyleSheet >> get: aProperty [
+	^ [ super get: aProperty ]
+		on: KeyNotFound
+		do: [ TLStyleSheetMissingProperty new
+				property: aProperty;
+				signal ]
+]
+
 { #category : #shape }
 TLStyleSheet >> height [
 	^ self get: #height
