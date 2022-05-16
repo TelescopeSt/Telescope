@@ -172,6 +172,11 @@ TLStyleSheet >> connectionStyle: aConnectionStyle [
 	^ self at: #connectionStyle put: aConnectionStyle
 ]
 
+{ #category : #copying }
+TLStyleSheet >> copySafeWithout: aCollectionOfProperties [
+	^ self copy removeSafeAll: aCollectionOfProperties; yourself
+]
+
 { #category : #connection }
 TLStyleSheet >> curveStyle [
 	^ self get: #curveStyle
@@ -340,6 +345,20 @@ TLStyleSheet >> position: aPosition [
 	"The relative to its parent position of a node; if you fill it, the layout will not place the node"
 
 	self at: #position put: aPosition
+]
+
+{ #category : #removing }
+TLStyleSheet >> removeIfPresent: aString [ 
+	[self remove: #shape] on: KeyNotFound do: []
+]
+
+{ #category : #removing }
+TLStyleSheet >> removeSafeAll: aCollectionOfAttributes [
+	aCollectionOfAttributes
+		do: [ :anAttribute | 
+			[ self remove: anAttribute ]
+				on: KeyNotFound
+				do: [  ] ]
 ]
 
 { #category : #shape }
