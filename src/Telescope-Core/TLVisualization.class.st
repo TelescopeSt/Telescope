@@ -142,6 +142,11 @@ TLVisualization >> legend: aTLLegend [
 	aTLLegend parent: self
 ]
 
+{ #category : #'ui - notifying' }
+TLVisualization >> notify: aString [
+	self generator notify: aString forVisualization: self
+]
+
 { #category : #'instance creation' }
 TLVisualization >> open [
 	[ self generator open: self inWindowSized: self openingDimension titled: self title ]

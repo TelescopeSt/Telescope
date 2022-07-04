@@ -532,6 +532,12 @@ TLConnector >> nodesShapesAvailableForConnector [
 	^ self subclassResponsibility
 ]
 
+{ #category : #accessing }
+TLConnector >> notify: aString forVisualization: aTLVisualizaton [
+
+	self subclassResponsibility
+]
+
 { #category : #opening }
 TLConnector >> open: aTLVisualization inWindowSized: aDimension titled: aString [ 
 	self subclassResponsibility 

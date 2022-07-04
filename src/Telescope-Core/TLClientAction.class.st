@@ -2,8 +2,7 @@ Class {
 	#name : #TLClientAction,
 	#superclass : #TLDrawableAction,
 	#instVars : [
-		'scriptDSL',
-		'eventType'
+		'scriptDSL'
 	],
 	#category : #'Telescope-Core-Actions'
 }

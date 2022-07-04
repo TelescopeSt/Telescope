@@ -70,8 +70,8 @@ Examples can be found in the CytoscapeJs connector repository.
 | Telescope version 	| Compatible Pharo versions 	|
 |-------------------	|---------------------------	|
 | v1.x.x	   		   	| Pharo 61, 70                 	|
-| v2.x.x	   		   	| Pharo 61, 70, 80, 90, 10         	|
-| development      		| Pharo 61, 70, 80, 90, 10         	|
+| v2.x.x	   		   	| Pharo 61, 70, 80, 90         	|
+| development      		| Pharo 61, 70, 80, 90         	|
 
 ## Contact
 
