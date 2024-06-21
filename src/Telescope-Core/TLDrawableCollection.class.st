@@ -6,9 +6,6 @@ Class {
 	#superclass : #OrderedCollection,
 	#traits : 'TTLConnectable - {#connectTo:. #connectIfNotTo:. #connectTo:entity:} + TTLDrawableCollection',
 	#classTraits : 'TTLConnectable classTrait + TTLDrawableCollection classTrait',
-	#instVars : [
-		'sortingStrategy'
-	],
 	#category : #'Telescope-Core-Model'
 }
 
