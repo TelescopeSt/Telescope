@@ -2,33 +2,35 @@
 A TLNodeCollection is a collection of drawable that provides in addition to the usual Collection API, all the telescope API about connecting...
 "
 Class {
-	#name : #TLDrawableCollection,
-	#superclass : #OrderedCollection,
+	#name : 'TLDrawableCollection',
+	#superclass : 'OrderedCollection',
 	#traits : 'TTLConnectable - {#connectTo:. #connectIfNotTo:. #connectTo:entity:} + TTLDrawableCollection',
 	#classTraits : 'TTLConnectable classTrait + TTLDrawableCollection classTrait',
 	#instVars : [
 		'sortingStrategy'
 	],
-	#category : #'Telescope-Core-Model'
+	#category : 'Telescope-Core-Model',
+	#package : 'Telescope-Core',
+	#tag : 'Model'
 }
 
-{ #category : #interaction }
+{ #category : 'interaction' }
 TLDrawableCollection >> addInteraction: anInteraction [ 
 	self do: [ :each | each addInteraction: anInteraction ].
 	^ anInteraction
 ]
 
-{ #category : #style }
+{ #category : 'style' }
 TLDrawableCollection >> addStyle: aStyle [
 	self do: [ :aDrawable | aDrawable addStyle: aStyle ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLDrawableCollection >> allConnections [
 	^ self flatCollectAsSet: #allConnections
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 TLDrawableCollection >> allNodesDo: aBlock [
 	^ self
 		do: [ :aTLEntity | 
@@ -37,7 +39,7 @@ TLDrawableCollection >> allNodesDo: aBlock [
 				ifFalse: [ aTLEntity allNodesDo: aBlock ] ]
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 TLDrawableCollection >> allNodesRecursivelyDo: aBlock [
 	^ self
 		do: [ :aTLEntity | 
@@ -48,46 +50,46 @@ TLDrawableCollection >> allNodesRecursivelyDo: aBlock [
 				ifFalse: [ aTLEntity allNodesRecursivelyDo: aBlock ] ]
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 TLDrawableCollection >> asTLDrawableCollection [
 	^ self
 ]
 
-{ #category : #requirements }
+{ #category : 'requirements' }
 TLDrawableCollection >> collection [
 	^ self
 ]
 
-{ #category : #connection }
+{ #category : 'connection' }
 TLDrawableCollection >> connectToNode: aNode entity: aConnectionEntity [
 	^ self
 		collect:
 			[ :aDrawable | aDrawable connectToNode: aNode entity: aConnectionEntity ]
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 TLDrawableCollection >> nodesCollect: aBlock [
 	^ self
 		select: #isNode thenCollect: aBlock
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 TLDrawableCollection >> nodesDo: aBlock [
 	^ self
 		select: #isNode thenDo: aBlock
 ]
 
-{ #category : #removing }
+{ #category : 'removing' }
 TLDrawableCollection >> removeAllConnections [
 	self allNodesRecursivelyDo: #removeAllConnections
 ]
 
-{ #category : #style }
+{ #category : 'style' }
 TLDrawableCollection >> removeStyle: aStyle [
 	self do: [ :aDrawable | aDrawable removeStyle: aStyle ]
 ]
 
-{ #category : #removing }
+{ #category : 'removing' }
 TLDrawableCollection >> removed [
 	self do: #removed
 ]

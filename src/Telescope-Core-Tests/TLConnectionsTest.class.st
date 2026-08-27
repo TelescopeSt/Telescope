@@ -1,13 +1,15 @@
 Class {
-	#name : #TLConnectionsTest,
-	#superclass : #TestCase,
+	#name : 'TLConnectionsTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'group'
 	],
-	#category : #'Telescope-Core-Tests-Model'
+	#category : 'Telescope-Core-Tests-Model',
+	#package : 'Telescope-Core-Tests',
+	#tag : 'Model'
 }
 
-{ #category : #running }
+{ #category : 'running' }
 TLConnectionsTest >> setUp [
 	super setUp.
 	group := TLEntitiesGroup new.
@@ -15,21 +17,21 @@ TLConnectionsTest >> setUp [
 	group 	addNodesFromEntities: (1 to: 4)
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLConnectionsTest >> testConnectGroupFromANode [
 	| connections  |
 	connections := group connectFrom: TLSimpleNode new.
 	self assert: connections size equals: 4.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLConnectionsTest >> testConnectGroupToANode [
 	| connections  |
 	connections := group connectTo: TLSimpleNode new.
 	self assert: connections size equals: 4.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLConnectionsTest >> testConnectGroupWithSubgroupFromANode [
 	| connections  |
 	group > #subgroup addNodesFromEntities: (5 to: 8).
@@ -37,7 +39,7 @@ TLConnectionsTest >> testConnectGroupWithSubgroupFromANode [
 	self assert: connections size equals: 8.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLConnectionsTest >> testConnectGroupWithSubgroupToANode [
 	| connections  |
 	group > #subgroup addNodesFromEntities: (5 to: 8).
@@ -45,7 +47,7 @@ TLConnectionsTest >> testConnectGroupWithSubgroupToANode [
 	self assert: connections size equals: 8.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLConnectionsTest >> testConnectIfNotNodeToAGroup [
 	| connections node |
 	node := TLSimpleNode new.
@@ -56,7 +58,7 @@ TLConnectionsTest >> testConnectIfNotNodeToAGroup [
 	
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLConnectionsTest >> testConnectIfNotNodeToAnotherNode [
 	| connection nodeA nodeB |
 	nodeA := TLSimpleNode withEntity: $a.
@@ -68,14 +70,14 @@ TLConnectionsTest >> testConnectIfNotNodeToAnotherNode [
 	self assert: nodeA outgoingConnections size equals: 1
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLConnectionsTest >> testConnectNodeFromAGroup [
 	| connections  |
 	connections := TLSimpleNode new connectFrom: group.
 	self assert: connections size equals: 4.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLConnectionsTest >> testConnectNodeFromAnotherNode [
 	| connection  nodeA nodeB |
 	nodeA := TLSimpleNode withEntity: $a.
@@ -86,14 +88,14 @@ TLConnectionsTest >> testConnectNodeFromAnotherNode [
 	
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLConnectionsTest >> testConnectNodeToAGroup [
 	| connections  |
 	connections := TLSimpleNode new connectTo: group.
 	self assert: connections size equals: 4.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLConnectionsTest >> testConnectNodeToAnotherNode [
 	| connection  nodeA nodeB |
 	nodeA := TLSimpleNode withEntity: $a.
@@ -104,7 +106,7 @@ TLConnectionsTest >> testConnectNodeToAnotherNode [
 	
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLConnectionsTest >> testConnectThroughWithCollection [
 	| connections connection |
 	connections := group connectThrough: [ :each | {each + 1} ] to: [ :each | each + 2 ].
@@ -115,7 +117,7 @@ TLConnectionsTest >> testConnectThroughWithCollection [
 	self assert: connection entity equals: 2.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLConnectionsTest >> testConnectThroughWithNonExistingEntity [
 	| connections connection |
 	connections := group connectThrough: [ :each | {each + 1 . each + 16} ] to: [ :each | each + 2 ].

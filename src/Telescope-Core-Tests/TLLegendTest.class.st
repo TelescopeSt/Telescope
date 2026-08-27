@@ -1,13 +1,15 @@
 Class {
-	#name : #TLLegendTest,
-	#superclass : #TestCase,
+	#name : 'TLLegendTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'legend'
 	],
-	#category : #'Telescope-Core-Tests-Model'
+	#category : 'Telescope-Core-Tests-Model',
+	#package : 'Telescope-Core-Tests',
+	#tag : 'Model'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLLegendTest >> testAlphabeticalSortingOfLegend [
 	legend := TLDynamicLegendEntry
 		description: #yourself
@@ -17,7 +19,7 @@ TLLegendTest >> testAlphabeticalSortingOfLegend [
 	self assert: legend obtainAssociations keys equals: #(#cyril #guillaume #usman #yann)
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLLegendTest >> testObtainAssociationsUseDescriptionValuable [
 	legend := TLDynamicLegendEntry
 		description: #capitalized

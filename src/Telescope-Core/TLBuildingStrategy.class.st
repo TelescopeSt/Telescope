@@ -2,7 +2,9 @@
 TLBuildingStrategy is an abstract superclass for every model building strategy
 "
 Class {
-	#name : #TLBuildingStrategy,
-	#superclass : #TLObject,
-	#category : #'Telescope-Core-Strategies'
+	#name : 'TLBuildingStrategy',
+	#superclass : 'TLObject',
+	#category : 'Telescope-Core-Strategies',
+	#package : 'Telescope-Core',
+	#tag : 'Strategies'
 }

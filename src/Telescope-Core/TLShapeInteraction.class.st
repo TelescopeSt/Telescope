@@ -9,78 +9,80 @@ shapeManager
 
 "
 Class {
-	#name : #TLShapeInteraction,
-	#superclass : #TLInteraction,
+	#name : 'TLShapeInteraction',
+	#superclass : 'TLInteraction',
 	#instVars : [
 		'shapeTrigger'
 	],
-	#category : #'Telescope-Core-Interactions'
+	#category : 'Telescope-Core-Interactions',
+	#package : 'Telescope-Core',
+	#tag : 'Interactions'
 }
 
-{ #category : #'secondary-interaction' }
+{ #category : 'secondary-interaction' }
 TLShapeInteraction >> addSecondaryInteraction: aTLInteraction [
 	self shapeTrigger addSecondaryInteraction: aTLInteraction
 ]
 
-{ #category : #generate }
+{ #category : 'generate' }
 TLShapeInteraction >> generateWith: aTLConnector on: aTLDrawable targeting: aTargetDrawable [
 	aTLConnector generateShapeInteraction: self onDrawable: aTLDrawable targetingDrawable: aTargetDrawable
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 TLShapeInteraction >> initialize [
 	super initialize.
 	self shapeTrigger: TLShapeTrigger new
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLShapeInteraction >> isGraphicallyRepresented [
 	^ true
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TLShapeInteraction >> kind [
 	^ #shape
 ]
 
-{ #category : #interactions }
+{ #category : 'interactions' }
 TLShapeInteraction >> onClick [
 	self shapeTrigger onClick
 ]
 
-{ #category : #removing }
+{ #category : 'removing' }
 TLShapeInteraction >> removeWith: aConnector forDrawable: aDrawable [ 
 	aConnector removeShapeInteraction: self forDrawable: aDrawable
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLShapeInteraction >> shapeTrigger [
 	^ shapeTrigger
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLShapeInteraction >> shapeTrigger: aShapeTrigger [
 	shapeTrigger := aShapeTrigger.
 	aShapeTrigger shapeInteraction: self
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TLShapeInteraction >> updateWith: aConnector forDrawable: aDrawable [
 	aConnector updateShapeInteraction: self forDrawable: aDrawable
 ]
 
-{ #category : #interactions }
+{ #category : 'interactions' }
 TLShapeInteraction >> withMenu: aString [
 	self shapeTrigger withMenu: aString
 ]
 
-{ #category : #interactions }
+{ #category : 'interactions' }
 TLShapeInteraction >> withTriggerStyle: aSymbolOrBlockClosure [ 
 	self shapeTrigger
 		initialStyle: aSymbolOrBlockClosure
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TLShapeInteraction >> withTriggerStyled: aStyleOrStyleSheetCustomizationBlock thatBecome: anotherStyleOrStyleSheetCustomizationBlock [
 	self shapeTrigger
 		initialStyle: aStyleOrStyleSheetCustomizationBlock;

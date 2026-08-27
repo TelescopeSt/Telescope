@@ -27,12 +27,14 @@ Examples
 	
 "
 Class {
-	#name : #TLNodeBorderColorLegendEntry,
-	#superclass : #TLDynamicLegendEntry,
-	#category : #'Telescope-Core-Model-Legend'
+	#name : 'TLNodeBorderColorLegendEntry',
+	#superclass : 'TLDynamicLegendEntry',
+	#category : 'Telescope-Core-Model-Legend',
+	#package : 'Telescope-Core',
+	#tag : 'Model-Legend'
 }
 
-{ #category : #generation }
+{ #category : 'generation' }
 TLNodeBorderColorLegendEntry >> generateWith: aTLCytoscapeConnector [
 	^ aTLCytoscapeConnector generateNodeBorderColorLegendEntry: self
 ]

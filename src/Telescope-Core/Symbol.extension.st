@@ -1,6 +1,6 @@
-Extension { #name : #Symbol }
+Extension { #name : 'Symbol' }
 
-{ #category : #'*Telescope-Core' }
+{ #category : '*Telescope-Core' }
 Symbol >> cull: anObject cull: anotherObject [ 
 	^ self cull: anObject
 ]

@@ -3,19 +3,21 @@ A TLObject is a superclass to group everything that belongs to Telescope.
 
 "
 Class {
-	#name : #TLObject,
-	#superclass : #Object,
-	#category : #'Telescope-Core-Model'
+	#name : 'TLObject',
+	#superclass : 'Object',
+	#category : 'Telescope-Core-Model',
+	#package : 'Telescope-Core',
+	#tag : 'Model'
 }
 
-{ #category : #'error handling' }
+{ #category : 'error handling' }
 TLObject >> error: aString [ 
 	"Throw a generic Error exception."
 
 	^ TLError new signal: aString
 ]
 
-{ #category : #convenience }
+{ #category : 'convenience' }
 TLObject >> obtain: aValuableorObject on: anObject [
 	"This method will try to apply the valuable on the object; in succeed case, this method will return the result; otherwise it will return the ValuableorObject"
 

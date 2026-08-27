@@ -4,54 +4,56 @@ Sorting startegies according to the order of a property they have.
 I can be parametrized with a sorting direction (ascending or descending). By default I am ascending.
 "
 Class {
-	#name : #TLPropertyBasedStrategy,
-	#superclass : #TLSortingStrategy,
+	#name : 'TLPropertyBasedStrategy',
+	#superclass : 'TLSortingStrategy',
 	#instVars : [
 		'property',
 		'isAscending'
 	],
-	#category : #'Telescope-Core-Strategies'
+	#category : 'Telescope-Core-Strategies',
+	#package : 'Telescope-Core',
+	#tag : 'Strategies'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLPropertyBasedStrategy class >> onProperty: aProperty [
 	^ self new
 		property: aProperty;
 		yourself
 ]
 
-{ #category : #options }
+{ #category : 'options' }
 TLPropertyBasedStrategy >> ascending [
 	isAscending := true
 ]
 
-{ #category : #options }
+{ #category : 'options' }
 TLPropertyBasedStrategy >> descending [
 	isAscending := false
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 TLPropertyBasedStrategy >> initialize [ 
 	super initialize.
 	self ascending
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLPropertyBasedStrategy >> isAscending [
 	^ isAscending
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLPropertyBasedStrategy >> property [
 	^ property
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLPropertyBasedStrategy >> property: anObject [
 	property := anObject
 ]
 
-{ #category : #sorting }
+{ #category : 'sorting' }
 TLPropertyBasedStrategy >> sortNodes: aCollectionOfTLNodes [
 	| node1Value node2Value |
 	aCollectionOfTLNodes

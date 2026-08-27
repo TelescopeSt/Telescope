@@ -3,12 +3,14 @@ A TLRectangle is an enum value for rectangle.
 
 "
 Class {
-	#name : #TLRectangle,
-	#superclass : #TLSimpleShape,
-	#category : #'Telescope-Core-Shape'
+	#name : 'TLRectangle',
+	#superclass : 'TLSimpleShape',
+	#category : 'Telescope-Core-Shape',
+	#package : 'Telescope-Core',
+	#tag : 'Shape'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLRectangle class >> polygonPoints [
 	^ self regularPolygonePointsOfSize: 4
 ]

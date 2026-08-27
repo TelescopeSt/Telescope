@@ -3,16 +3,18 @@ A TTLDrawableCollection is a trait that extend collection for specific stuff abo
 
 "
 Trait {
-	#name : #TTLDrawableCollection,
-	#category : #'Telescope-Core-Model'
+	#name : 'TTLDrawableCollection',
+	#category : 'Telescope-Core-Model',
+	#package : 'Telescope-Core',
+	#tag : 'Model'
 }
 
-{ #category : #interactions }
+{ #category : 'interactions' }
 TTLDrawableCollection >> addInteractions: aCollectionOfInteractions [ 
 	aCollectionOfInteractions do: [ :anInteraction | self addInteraction: anInteraction ]
 ]
 
-{ #category : #compositeAccessing }
+{ #category : 'compositeAccessing' }
 TTLDrawableCollection >> allChildrenNodes [
 	^ self
 		collection flatCollect: [ :aDrawable | 
@@ -21,12 +23,12 @@ TTLDrawableCollection >> allChildrenNodes [
 				ifFalse: [ {} ] ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TTLDrawableCollection >> allConnections [
 	^ self collection allConnections
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TTLDrawableCollection >> allNodes [
 	^ TLDrawableCollection new
 		in: [ :coll | 
@@ -34,12 +36,12 @@ TTLDrawableCollection >> allNodes [
 			coll ]
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 TTLDrawableCollection >> allNodesDo: aBlock [
 	self collection allNodesDo: aBlock
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 TTLDrawableCollection >> allNodesRecursively [
 	^ TLDrawableCollection new
 		in: [ :coll | 
@@ -47,27 +49,27 @@ TTLDrawableCollection >> allNodesRecursively [
 			coll ]
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 TTLDrawableCollection >> allNodesRecursivelyDo: aBlock [
 	self collection allNodesRecursivelyDo: aBlock
 ]
 
-{ #category : #requirements }
+{ #category : 'requirements' }
 TTLDrawableCollection >> collection [
 	self explicitRequirement
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TTLDrawableCollection >> conditionalRemove: aBlock [
 	(self collection select: aBlock) do: [ :node | self remove: node ]
 ]
 
-{ #category : #connect }
+{ #category : 'connect' }
 TTLDrawableCollection >> connectFromNode: aTLNode [
 	^ self flatCollect: [ :aTLDrawable | (aTLDrawable connectFromNode: aTLNode) asTLDrawableCollection ]
 ]
 
-{ #category : #connect }
+{ #category : 'connect' }
 TTLDrawableCollection >> connectFromNode: aTLNode entity: anObject [
 	^ self
 		flatCollect: [ :aTLDrawable | 
@@ -75,42 +77,42 @@ TTLDrawableCollection >> connectFromNode: aTLNode entity: anObject [
 				asTLDrawableCollection ]
 ]
 
-{ #category : #connect }
+{ #category : 'connect' }
 TTLDrawableCollection >> connectIfNotFromNode: aTLNode [
 	^ self flatCollect: [ :aTLDrawable | (aTLDrawable connectIfNotFromNode: aTLNode) asTLDrawableCollection ]
 ]
 
-{ #category : #connect }
+{ #category : 'connect' }
 TTLDrawableCollection >> connectIfNotTo: aTLEntity [
 	^ self flatCollect: [ :aLocalTLEntity | (aLocalTLEntity connectIfNotTo: aTLEntity) asTLDrawableCollection ]
 ]
 
-{ #category : #connect }
+{ #category : 'connect' }
 TTLDrawableCollection >> connectTo: aTLEntity [
 		^ self flatCollect: [:aLocalTLEntity | (aLocalTLEntity connectTo: aTLEntity) asTLDrawableCollection ]
 ]
 
-{ #category : #connect }
+{ #category : 'connect' }
 TTLDrawableCollection >> connectTo: aTLEntity entity: anObject [
 		^ self flatCollect: [:aLocalTLEntity | (aLocalTLEntity connectTo: aTLEntity entity: anObject) asTLDrawableCollection ]
 ]
 
-{ #category : #connection }
+{ #category : 'connection' }
 TTLDrawableCollection >> connectToNode: aTLSimpleNode entity: anObject [ 
 	^ self flatCollect: [:aLocalTLEntity | (aLocalTLEntity connectToNode: aTLSimpleNode entity: anObject) asTLDrawableCollection ]
 ]
 
-{ #category : #entities }
+{ #category : 'entities' }
 TTLDrawableCollection >> entities [
 	^ self nodesCollect: #entity.
 ]
 
-{ #category : #'nodes-entity' }
+{ #category : 'nodes-entity' }
 TTLDrawableCollection >> nodeForEntity: anEntity [
 	^ self nodeForEntity: anEntity ifAbsent: [ NotFound signalFor: anEntity ]
 ]
 
-{ #category : #'nodes-entity' }
+{ #category : 'nodes-entity' }
 TTLDrawableCollection >> nodeForEntity: anEntity ifAbsent: aBlock [
 	^ self nodes
 		detect: [ :aTLEntity | aTLEntity entity = anEntity ]
@@ -123,45 +125,45 @@ TTLDrawableCollection >> nodeForEntity: anEntity ifAbsent: aBlock [
 			aBlock value ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TTLDrawableCollection >> nodes [
 	^ self collection
 		select: #isNode
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 TTLDrawableCollection >> nodesCollect: aBlock [
 	^ self collection
 		nodesCollect: aBlock
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 TTLDrawableCollection >> nodesDo: aBlock [
 	^ self collection
 		nodesDo: aBlock
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TTLDrawableCollection >> nodesForEntities: aCollectionOfEntities [
 	^ self flatCollect: [ :aTelescopeEntity | aTelescopeEntity nodesForEntities: aCollectionOfEntities ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TTLDrawableCollection >> obtain [
 	^ TLObtainRequest source: self
 ]
 
-{ #category : #sugar }
+{ #category : 'sugar' }
 TTLDrawableCollection >> parentNodes [
 	^ self collection select: [ :drawable | drawable parentNode notNil ] thenCollect: #parentNode
 ]
 
-{ #category : #removing }
+{ #category : 'removing' }
 TTLDrawableCollection >> removeAllConnections [
 	self allNodesRecursivelyDo: #removeAllConnections
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TTLDrawableCollection >> subGroups [
 	^ self collection
 		select: #isGroup

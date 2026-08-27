@@ -13,16 +13,17 @@ root
 
 "
 Class {
-	#name : #TLTreeExplorer,
-	#superclass : #TLVisualization,
+	#name : 'TLTreeExplorer',
+	#superclass : 'TLVisualization',
 	#instVars : [
 		'root',
 		'property'
 	],
-	#category : #'Telescope-VisualizationTemplates'
+	#category : 'Telescope-VisualizationTemplates',
+	#package : 'Telescope-VisualizationTemplates'
 }
 
-{ #category : #creation }
+{ #category : 'creation' }
 TLTreeExplorer class >> root: aRootEntity expandProperty: expandPropertyBlockOrSelector [
 	^ self new
 		root: aRootEntity;
@@ -30,13 +31,13 @@ TLTreeExplorer class >> root: aRootEntity expandProperty: expandPropertyBlockOrS
 		yourself
 ]
 
-{ #category : #building }
+{ #category : 'building' }
 TLTreeExplorer >> buildLegend [
 	self legend description: 'Expand' forColor: Color red.
 	self legend description: 'Collapse' forColor: Color blue
 ]
 
-{ #category : #building }
+{ #category : 'building' }
 TLTreeExplorer >> buildVisualization [
 	self configureInteractions.
 	self styleSheet shape: TLEllipse.
@@ -45,12 +46,12 @@ TLTreeExplorer >> buildVisualization [
 	super buildVisualization
 ]
 
-{ #category : #layout }
+{ #category : 'layout' }
 TLTreeExplorer >> configLayout [
 	self layout: (TLTreeLayout topToBottom levelGap: 100)
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TLTreeExplorer >> configureInteractions [
 	| action |
 	action := TLExpandCollapseNodesAction new property: self property.
@@ -68,27 +69,27 @@ TLTreeExplorer >> configureInteractions [
 										ifFalse: [ Color red ]) ]) onClick
 ]
 
-{ #category : #default }
+{ #category : 'default' }
 TLTreeExplorer >> defaultTitle [
 	^ 'Tree Explorer'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLTreeExplorer >> property [
 	^ property
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLTreeExplorer >> property: anObject [
 	property := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLTreeExplorer >> root [
 	^ root
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLTreeExplorer >> root: anObject [
 	root := anObject
 ]

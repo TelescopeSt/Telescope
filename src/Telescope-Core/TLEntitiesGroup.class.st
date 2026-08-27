@@ -9,8 +9,8 @@ entities
 
 "
 Class {
-	#name : #TLEntitiesGroup,
-	#superclass : #TLConnectable,
+	#name : 'TLEntitiesGroup',
+	#superclass : 'TLConnectable',
 	#traits : 'TTLDrawableCollection',
 	#classTraits : 'TTLDrawableCollection classTrait',
 	#instVars : [
@@ -19,10 +19,12 @@ Class {
 		'nodeCreationStrategy',
 		'sortingStrategy'
 	],
-	#category : #'Telescope-Core-Model'
+	#category : 'Telescope-Core-Model',
+	#package : 'Telescope-Core',
+	#tag : 'Model'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLEntitiesGroup >> > aSubGroupSymbol [
 	^ self subGroupsDictionary
 		at: aSubGroupSymbol
@@ -32,12 +34,12 @@ TLEntitiesGroup >> > aSubGroupSymbol [
 				yourself ]
 ]
 
-{ #category : #enumeration }
+{ #category : 'enumeration' }
 TLEntitiesGroup >> \ aCollection [
 	^ self telescopeEntities \ aCollection
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 TLEntitiesGroup >> addAbsentNodesInVisualizationFromEntities: aGroupOfEntities [
 	"only add nodes for entities that are not yet in visualization"
 	self flag: 'Should check that aGroupOfEntities does not contains twice the same entity'.
@@ -53,19 +55,19 @@ TLEntitiesGroup >> addAbsentNodesInVisualizationFromEntities: aGroupOfEntities [
 						do: [ false ] ])
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 TLEntitiesGroup >> addAllDrawables: aCollectionOfTLDrawables [
 	aCollectionOfTLDrawables do: [:each | self addDrawable: each ]
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 TLEntitiesGroup >> addChild: aTLDrawable [
 	self telescopeEntities addLast: aTLDrawable.
 	self requireUpdateAndLayoutApplication.
 	
 ]
 
-{ #category : #interactions }
+{ #category : 'interactions' }
 TLEntitiesGroup >> addCompositeDefaultCollapseInteraction [
 	"If the user call me, each composite node will have an interaction with a default shape to expand/collapse the node."
 
@@ -80,7 +82,7 @@ TLEntitiesGroup >> addCompositeDefaultCollapseInteraction [
 				onClick)
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 TLEntitiesGroup >> addCompositeNodeFromEntity: aParentEntity children: aCollectionOfEntities [ 
 	|composite|
 	composite := (TLCompositeNode withEntity: aParentEntity).
@@ -89,19 +91,19 @@ TLEntitiesGroup >> addCompositeNodeFromEntity: aParentEntity children: aCollecti
 	^ composite
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 TLEntitiesGroup >> addDrawable: aTLDrawable [
 	aTLDrawable parent: self.
 	self applySortingStrategy.
 	^ aTLDrawable 
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 TLEntitiesGroup >> addNodeFromEntity: anEntity [
 	^ self addNodeFromEntity: anEntity withStrategy: self nodeCreationStrategy
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 TLEntitiesGroup >> addNodeFromEntity: anEntity withStrategy: aTLNodeCreationStrategy [
 	| newNode |
 	newNode := aTLNodeCreationStrategy createNodeFromEntity: anEntity.
@@ -109,79 +111,79 @@ TLEntitiesGroup >> addNodeFromEntity: anEntity withStrategy: aTLNodeCreationStra
 	^ newNode
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 TLEntitiesGroup >> addNodeIfNotPresentFromEntity: anElement [
 	^ self nodes detect: [ :n | n entity = anElement ] ifNone: [ self addNodeFromEntity: anElement ]
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 TLEntitiesGroup >> addNodesFromEntities: aGroupOfEntities [
 	^ self addNodesFromEntities: aGroupOfEntities withStrategy: self nodeCreationStrategy
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 TLEntitiesGroup >> addNodesFromEntities: aGroupOfEntities withStrategy: aTLNodeCreationStrategy [
 	^ aGroupOfEntities collect: [ :anEntity | self addNodeFromEntity: anEntity withStrategy: aTLNodeCreationStrategy ] as: TLDrawableCollection
 ]
 
-{ #category : #sorting }
+{ #category : 'sorting' }
 TLEntitiesGroup >> applySortingStrategy [
 	self sortingStrategy sortNodes: self collection.
 ]
 
-{ #category : #'node - creation' }
+{ #category : 'node - creation' }
 TLEntitiesGroup >> childrenProperty: aValuableOrCollection [
 	"Ensure that we will not modify an upper level strategy"
 	self flag: 'Maybe should be in the stylesheet'.
 	^ self localNodeCreationStrategy compositeProperty: aValuableOrCollection
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 TLEntitiesGroup >> collect: aBlockClosure [ 
 	^ self telescopeEntities collect: aBlockClosure 
 ]
 
-{ #category : #requirements }
+{ #category : 'requirements' }
 TLEntitiesGroup >> collection [
 	^ self telescopeEntities
 ]
 
-{ #category : #connect }
+{ #category : 'connect' }
 TLEntitiesGroup >> connectInsideGroupEntities: aCollectionOfEntities to: anotherCollectionOfEntities [
 	^ aCollectionOfEntities flatCollect: [ :fromEntity | anotherCollectionOfEntities collect: [ :toEntity | self connectInsideGroupEntity: fromEntity to: toEntity ]]
 ]
 
-{ #category : #connect }
+{ #category : 'connect' }
 TLEntitiesGroup >> connectInsideGroupEntity: anEntity to: anotherEntity [
 	^ (self nodeForEntity: anEntity) connectTo: (self nodeForEntity: anotherEntity)
 ]
 
-{ #category : #connect }
+{ #category : 'connect' }
 TLEntitiesGroup >> connectInsideGroupEntity: anEntity toEntity: anotherEntity FromAnotherGroup: anotherGroup [
 	^ (self nodeForEntity: anEntity) connectTo: (anotherGroup nodeForEntity: anotherEntity)
 ]
 
-{ #category : #connect }
+{ #category : 'connect' }
 TLEntitiesGroup >> connectableParent [
 	^ self parent
 ]
 
-{ #category : #style }
+{ #category : 'style' }
 TLEntitiesGroup >> defaultStyle [
 	^ #group
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 TLEntitiesGroup >> do: aBlock [
 	self telescopeEntities do: aBlock
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 TLEntitiesGroup >> flatCollect: aBlock [
 	^ self telescopeEntities flatCollect: aBlock
 ]
 
-{ #category : #'private-connector' }
+{ #category : 'private-connector' }
 TLEntitiesGroup >> generateWith: aGenerator [
 	| generated |
 	generated := aGenerator generateGroup: self.
@@ -189,12 +191,12 @@ TLEntitiesGroup >> generateWith: aGenerator [
 	^ generated
 ]
 
-{ #category : #groupId }
+{ #category : 'groupId' }
 TLEntitiesGroup >> groupId [
 	^ self parent subGroupsDictionary keyAtValue: self
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TLEntitiesGroup >> hierarchyHasChanged [
 	| changedBefore |
 	changedBefore := self hierarchyChanged.
@@ -203,22 +205,22 @@ TLEntitiesGroup >> hierarchyHasChanged [
 		ifFalse: [ self do: #hierarchyHasChanged ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLEntitiesGroup >> ifEmpty: aBlockClosure ifNotEmpty: aBlockClosure2 [
 	^ self collection ifEmpty: aBlockClosure ifNotEmpty: aBlockClosure2
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 TLEntitiesGroup >> includes: aTLDrawable [
 	^ self telescopeEntities includes: aTLDrawable
 ]
 
-{ #category : #position }
+{ #category : 'position' }
 TLEntitiesGroup >> indexOf: aTLDrawable [
 	^ self telescopeEntities indexOf: aTLDrawable
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 TLEntitiesGroup >> initialize [
 	super initialize.
 	telescopeEntities := TLDrawableCollection new.
@@ -226,83 +228,83 @@ TLEntitiesGroup >> initialize [
 	sortingStrategy := TLKeepingOrderStrategy new
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 TLEntitiesGroup >> isEmpty [
 	^ self telescopeEntities isEmpty
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 TLEntitiesGroup >> isGroup [
 	^ true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLEntitiesGroup >> layout [
 	^ (self parent notNil and: [ self parent isNode ])
 		ifTrue: [ self effectiveStyleSheet obtainValue: #layout forEntity: self parent entity inNode: self parent ]
 		ifFalse: [ self effectiveStyleSheet layout ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLEntitiesGroup >> layout: aLayout [
 	self requireLayoutApplication.
 	self styleSheet layout: aLayout
 ]
 
-{ #category : #'node - creation' }
+{ #category : 'node - creation' }
 TLEntitiesGroup >> localNodeCreationStrategy [
 	^ nodeCreationStrategy ifNil: [ nodeCreationStrategy := (self nodeCreationStrategy ifNil: [ Halt now ]) copyAsSimpleStrategy ]
 ]
 
-{ #category : #position }
+{ #category : 'position' }
 TLEntitiesGroup >> moveToFirstPosition: aNode [
 	self assert: (self includes: aNode). 
 	self telescopeEntities addFirst: (self telescopeEntities remove: aNode).
 	self requireUpdateAndLayoutApplication
 ]
 
-{ #category : #style }
+{ #category : 'style' }
 TLEntitiesGroup >> nodeBackgroundColor: aColor [ 
 	self styleSheet backgroundColor: aColor.
 ]
 
-{ #category : #'node - creation' }
+{ #category : 'node - creation' }
 TLEntitiesGroup >> nodeChildrenProperty: aChildrenBlockOrSelector [ 
 	self localNodeCreationStrategy compositeProperty: aChildrenBlockOrSelector.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLEntitiesGroup >> nodeCreationStrategy [
 	^ nodeCreationStrategy ifNil: [ self parent nodeCreationStrategy ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLEntitiesGroup >> nodeCreationStrategy: anObject [
 	nodeCreationStrategy := anObject
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLEntitiesGroup >> notEmpty [
 	^ self collection notEmpty.
 ]
 
-{ #category : #enumeration }
+{ #category : 'enumeration' }
 TLEntitiesGroup >> reject: aBlockClosure [
 	^ self telescopeEntities reject: aBlockClosure
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLEntitiesGroup >> remove: aTLDrawable [
 	self removeChild: aTLDrawable.
 	aTLDrawable removed
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLEntitiesGroup >> removeAll [
 	self telescopeEntities copy do: [ :anEntity | self remove: anEntity ]
 ]
 
-{ #category : #removing }
+{ #category : 'removing' }
 TLEntitiesGroup >> removeChild: aTLDrawable [
 	self telescopeEntities remove: aTLDrawable.
 	aTLDrawable isGroup
@@ -311,76 +313,76 @@ TLEntitiesGroup >> removeChild: aTLDrawable [
 	self requireUpdateAndLayoutApplication
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLEntitiesGroup >> removeEntity: anObject [
 	| drawable |
 	drawable := self nodeForEntity: anObject.
 	self remove: drawable
 ]
 
-{ #category : #'private-connector' }
+{ #category : 'private-connector' }
 TLEntitiesGroup >> removeWith: aTLConnector [
 	aTLConnector removeGroup: self
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 TLEntitiesGroup >> select: aValuable [
 	^ self telescopeEntities select: aValuable
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 TLEntitiesGroup >> select: aValuable thenCollect: anotherValuable [ 
 	^ self telescopeEntities select: aValuable thenCollect: anotherValuable.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLEntitiesGroup >> size [
 	^ self telescopeEntities size
 ]
 
-{ #category : #sorting }
+{ #category : 'sorting' }
 TLEntitiesGroup >> sort: aBlockClosure [ 
 	self collection sort: aBlockClosure 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLEntitiesGroup >> sortingStrategy [
 	^ sortingStrategy
 ]
 
-{ #category : #requirements }
+{ #category : 'requirements' }
 TLEntitiesGroup >> sortingStrategy: anObject [
 	sortingStrategy := anObject.
 	self collection ifNotEmpty: [self applySortingStrategy].
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLEntitiesGroup >> subGroups [
 	^ subGroupsDictionary values
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLEntitiesGroup >> subGroupsDictionary [
 	^ subGroupsDictionary
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLEntitiesGroup >> subGroupsDictionary: anObject [
 	subGroupsDictionary := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLEntitiesGroup >> telescopeEntities [
 	^ telescopeEntities
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLEntitiesGroup >> telescopeEntities: anObject [
 	telescopeEntities := anObject
 ]
 
-{ #category : #'private-connector' }
+{ #category : 'private-connector' }
 TLEntitiesGroup >> updateWith: aTLGenerator [
 	aTLGenerator updateGroup: self
 ]

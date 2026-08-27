@@ -24,22 +24,23 @@ Internal Representation and Key Implementation Points.
 
 "
 Class {
-	#name : #TLProjectMap,
-	#superclass : #TLVisualization,
+	#name : 'TLProjectMap',
+	#superclass : 'TLVisualization',
 	#instVars : [
 		'version'
 	],
-	#category : #'Telescope-VisualizationTemplates'
+	#category : 'Telescope-VisualizationTemplates',
+	#package : 'Telescope-VisualizationTemplates'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLProjectMap class >> version: aMetacelloVersion [
 	^ self new
 		version: aMetacelloVersion;
 		yourself
 ]
 
-{ #category : #building }
+{ #category : 'building' }
 TLProjectMap >> buildVisualization [
 	super buildVisualization.
 	self addNodesFromEntities: self versionsNodes.
@@ -51,7 +52,7 @@ TLProjectMap >> buildVisualization [
 	self layout: self defaultLayout
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLProjectMap >> defaultLayout [
 	^ TLTreeLayout rightToLeft
 		leavesGap: 150;
@@ -59,12 +60,12 @@ TLProjectMap >> defaultLayout [
 		yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLProjectMap >> version: anObject [
 	version := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLProjectMap >> versionsNodes [
 	"This is currently a hack. Ideally we should just use #withDeepCollect: [ … ] as: Set. The problem is that, for now, the MetacelloVersion takes only the versionNumber into account and not the project name. If two different project has the same version number, we will lose one. Maybe in the future we will be able to make this code simpler. See: https://github.com/dalehenrich/metacello-work/issues/437"
 

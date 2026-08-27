@@ -7,18 +7,19 @@ Properties to set:
 - #WidthBlock: / #heightBlock: block to compute the width/height of each entity displayed
 "
 Class {
-	#name : #TLCycleDependencies,
-	#superclass : #TLVisualization,
+	#name : 'TLCycleDependencies',
+	#superclass : 'TLVisualization',
 	#instVars : [
 		'entities',
 		'property',
 		'widthBlock',
 		'heightBlock'
 	],
-	#category : #'Telescope-VisualizationTemplates'
+	#category : 'Telescope-VisualizationTemplates',
+	#package : 'Telescope-VisualizationTemplates'
 }
 
-{ #category : #building }
+{ #category : 'building' }
 TLCycleDependencies >> buildVisualization [
 
 	| cycleCalculator |
@@ -43,7 +44,7 @@ TLCycleDependencies >> buildVisualization [
 		layout: self nodesLayout
 ]
 
-{ #category : #building }
+{ #category : 'building' }
 TLCycleDependencies >> cycleCalculator [
 
 	| cycleCalculator |
@@ -57,77 +58,77 @@ TLCycleDependencies >> cycleCalculator [
 	^ cycleCalculator
 ]
 
-{ #category : #configuration }
+{ #category : 'configuration' }
 TLCycleDependencies >> defaultColorForNode: aNode [
 
 	^ Color white
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLCycleDependencies >> defaultTitle [
 	^ 'Cycle Dependencies'
 ]
 
-{ #category : #configuration }
+{ #category : 'configuration' }
 TLCycleDependencies >> edgeColor [
 
 	^ Color veryLightGray
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLCycleDependencies >> entities [
 	^ entities
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLCycleDependencies >> entities: anObject [
 	entities := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLCycleDependencies >> heightBlock [
 	^ heightBlock
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLCycleDependencies >> heightBlock: anObject [
 	heightBlock := anObject
 ]
 
-{ #category : #configuration }
+{ #category : 'configuration' }
 TLCycleDependencies >> highlightColorForNode: aNode [
 
 	^ Color red
 ]
 
-{ #category : #configuration }
+{ #category : 'configuration' }
 TLCycleDependencies >> nodesLayout [
 
 	^ TLTreeLayout
 ]
 
-{ #category : #configuration }
+{ #category : 'configuration' }
 TLCycleDependencies >> popup [
 
 	^ TLPopUpAction onMouseOver
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLCycleDependencies >> property [
 	^ property
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLCycleDependencies >> property: anObject [
 	property := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLCycleDependencies >> widthBlock [
 	^ widthBlock
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLCycleDependencies >> widthBlock: anObject [
 	widthBlock := anObject
 ]

@@ -50,8 +50,8 @@ Internal Representation and Key Implementation Points.
 	property:				<aValuable>		This block allow to know which nodes should be connected to the node with the interaction. 
 "
 Class {
-	#name : #TLConnectAction,
-	#superclass : #TLReversibleNodeAction,
+	#name : 'TLConnectAction',
+	#superclass : 'TLReversibleNodeAction',
 	#instVars : [
 		'connectionsByNode',
 		'customizeWith',
@@ -60,74 +60,76 @@ Class {
 		'connectToOrigin',
 		'connectionStyle'
 	],
-	#category : #'Telescope-Core-Actions'
+	#category : 'Telescope-Core-Actions',
+	#package : 'Telescope-Core',
+	#tag : 'Actions'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnectAction class >> property: aBlockOrProperty [
 	^ self new
 		property: aBlockOrProperty;
 		yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnectAction class >> property: aBlockOrProperty context: aTLGroup [
 	^ (self property: aBlockOrProperty)
 		context: aTLGroup;
 		yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnectAction >> connectToOrigin [
 	^ connectToOrigin
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnectAction >> connectToOrigin: anObject [
 	connectToOrigin := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnectAction >> connectionStyle [
 	^ connectionStyle
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnectAction >> connectionStyle: anObject [
 	connectionStyle := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnectAction >> connectionsByNode [
 	^ connectionsByNode
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnectAction >> connectionsByNode: anObject [
 	connectionsByNode := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnectAction >> context [
 	^ context
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnectAction >> context: anObject [
 	context := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnectAction >> customizeWith [
 	^ customizeWith
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnectAction >> customizeWith: anObject [
 	customizeWith := anObject
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 TLConnectAction >> initialize [
 	super initialize.
 	self connectionsByNode: Dictionary new.
@@ -135,37 +137,37 @@ TLConnectAction >> initialize [
 	
 ]
 
-{ #category : #action }
+{ #category : 'action' }
 TLConnectAction >> obtainContextFor: aConnectable [
 	self flag: #Question. "Should we limit to visibles nodes?"
 	^ self context value ifNil: [ aConnectable visualization obtain recursively nodes ]
 ]
 
-{ #category : #action }
+{ #category : 'action' }
 TLConnectAction >> obtainsNodesToConnectAt: aNode [
 	| entitiesToConnect |
 	entitiesToConnect := self obtain: self property on: aNode entity.
 	^ (self obtainContextFor: aNode) select: [ :aPotentialNode | entitiesToConnect includes: aPotentialNode entity ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnectAction >> property [
 	^ property
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnectAction >> property: anObject [
 	property := anObject.
 ]
 
-{ #category : #outsideRegistration }
+{ #category : 'outsideRegistration' }
 TLConnectAction >> registerConnection: aTLConnection forNode: aTLNode [
 	"Use me if you want to manually connect something and simulate this action has created it. Consequently, the revert will remove also this connection"
 
 	(self connectionsByNode at: aTLNode) add: aTLConnection
 ]
 
-{ #category : #action }
+{ #category : 'action' }
 TLConnectAction >> regularActionOn: aNode [
 	self connectionsByNode
 		at: aNode
@@ -181,12 +183,12 @@ TLConnectAction >> regularActionOn: aNode [
 				do: [ :c | c addStyle: self connectionStyle ] ]
 ]
 
-{ #category : #action }
+{ #category : 'action' }
 TLConnectAction >> reverseActionOn: aNode [
 	[(self connectionsByNode removeKey: aNode) do: #removed] on: Error do: [  ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLConnectAction >> shouldTriggerReverseActionFor: aNode [
 	^ self connectionsByNode at: aNode ifPresent: [ :c | true ] ifAbsent: [ false ]
 ]

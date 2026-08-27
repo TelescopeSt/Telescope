@@ -3,12 +3,14 @@ A TLTriangle is an enum value for triangle.
 
 "
 Class {
-	#name : #TLTriangle,
-	#superclass : #TLSimpleShape,
-	#category : #'Telescope-Core-Shape'
+	#name : 'TLTriangle',
+	#superclass : 'TLSimpleShape',
+	#category : 'Telescope-Core-Shape',
+	#package : 'Telescope-Core',
+	#tag : 'Shape'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLTriangle class >> polygonPoints [
 	^ {(0 @ 1).
 	(1 @ -1).

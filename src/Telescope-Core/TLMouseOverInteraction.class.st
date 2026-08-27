@@ -3,32 +3,34 @@ A TLMooseOverInteraction is an interaction that will execute the action when the
 
 "
 Class {
-	#name : #TLMouseOverInteraction,
-	#superclass : #TLInteraction,
-	#category : #'Telescope-Core-Interactions'
+	#name : 'TLMouseOverInteraction',
+	#superclass : 'TLInteraction',
+	#category : 'Telescope-Core-Interactions',
+	#package : 'Telescope-Core',
+	#tag : 'Interactions'
 }
 
-{ #category : #generate }
+{ #category : 'generate' }
 TLMouseOverInteraction >> generateWith: aTLConnector on: aTLDrawable targeting: aTargetDrawable [
 	aTLConnector generateMouseOverInteraction: self onDrawable: aTLDrawable targetingDrawable: aTargetDrawable
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLMouseOverInteraction >> isMouseOver [
 	^ true
 ]
 
-{ #category : #accessor }
+{ #category : 'accessor' }
 TLMouseOverInteraction >> kind [
 	^ 'mouseOver'
 ]
 
-{ #category : #action }
+{ #category : 'action' }
 TLMouseOverInteraction >> reverseActionIfNecessaryOn: aDrawable [ 
 	self action reverseActionIfNecessaryOn: aDrawable.
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLMouseOverInteraction >> shouldOccursOn: aKindOfInteraction with: aDrawable [
 	^ (self kind = aKindOfInteraction or: [ #mouseOut = aKindOfInteraction ]) and: [ self condition value: aDrawable ]
 ]

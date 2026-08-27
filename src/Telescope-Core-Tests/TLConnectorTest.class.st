@@ -1,19 +1,21 @@
 Class {
-	#name : #TLConnectorTest,
-	#superclass : #TestCase,
+	#name : 'TLConnectorTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'connector'
 	],
-	#category : #'Telescope-Core-Tests-Connector'
+	#category : 'Telescope-Core-Tests-Connector',
+	#package : 'Telescope-Core-Tests',
+	#tag : 'Connector'
 }
 
-{ #category : #running }
+{ #category : 'running' }
 TLConnectorTest >> setUp [
 	super setUp.
 	connector := TLTestConnector new
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLConnectorTest >> testCompositeUpdatingChildNode [
 	| group  composite  |
 	group := TLEntitiesGroup new.
@@ -31,7 +33,7 @@ TLConnectorTest >> testCompositeUpdatingChildNode [
 	
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLConnectorTest >> testGroupUpdatingAddElement [
 	| group cNode aNode bNode |
 	group := TLEntitiesGroup new.
@@ -45,7 +47,7 @@ TLConnectorTest >> testGroupUpdatingAddElement [
 	self assert: (connector elementFromTLDrawable: group) equals: {aNode -> #element . bNode -> #element . cNode -> #element } asOrderedCollection
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLConnectorTest >> testGroupUpdatingKeepOrder [
 	| group cNode aNode bNode |
 	group := TLEntitiesGroup new.
@@ -60,7 +62,7 @@ TLConnectorTest >> testGroupUpdatingKeepOrder [
 	self assert: (connector elementFromTLDrawable: group) equals: {cNode -> #element . aNode -> #element . bNode -> #element } asOrderedCollection
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLConnectorTest >> testNodeWithShapeInteractionCorrectlyGenerated [
 	| node interaction |
 	node := TLSimpleNode new.
@@ -71,7 +73,7 @@ TLConnectorTest >> testNodeWithShapeInteractionCorrectlyGenerated [
 	self assert: ((connector interactionsByDrawable at: node) includes: interaction).
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLConnectorTest >> testNodeWithShapeInteractionCorrectlyRemoved [
 	| node interaction |
 	node := TLSimpleNode new.

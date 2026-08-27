@@ -9,49 +9,51 @@ edgeBuilder
 
 "
 Class {
-	#name : #TLConnectable,
-	#superclass : #TLDrawable,
+	#name : 'TLConnectable',
+	#superclass : 'TLDrawable',
 	#traits : 'TTLConnectable',
 	#classTraits : 'TTLConnectable classTrait',
-	#category : #'Telescope-Core-Model'
+	#category : 'Telescope-Core-Model',
+	#package : 'Telescope-Core',
+	#tag : 'Model'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLConnectable class >> isAbstract [
 	^ self = TLConnectable
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnectable >> allConnections [
 	^ self subclassResponsibility
 ]
 
-{ #category : #connect }
+{ #category : 'connect' }
 TLConnectable >> connectIfNotTo: aTLEntity [
 	^ self subclassResponsibility
 ]
 
-{ #category : #connect }
+{ #category : 'connect' }
 TLConnectable >> connectTo: aTLEntity [
 	^ self subclassResponsibility
 ]
 
-{ #category : #connect }
+{ #category : 'connect' }
 TLConnectable >> connectTo: aTLEntity entity: anObject [
 	^ self subclassResponsibility
 ]
 
-{ #category : #'node-style' }
+{ #category : 'node-style' }
 TLConnectable >> nodeLabel: aBlockOrSelector [
 	self styleSheet nodeLabel: aBlockOrSelector
 ]
 
-{ #category : #connect }
+{ #category : 'connect' }
 TLConnectable >> removeAllConnections [
 	self allConnections do: #removed
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnectable >> removed [
 	self removeAllConnections.
 	super removed

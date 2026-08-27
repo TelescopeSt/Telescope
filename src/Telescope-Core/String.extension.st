@@ -1,6 +1,6 @@
-Extension { #name : #String }
+Extension { #name : 'String' }
 
-{ #category : #'*Telescope-Core' }
+{ #category : '*Telescope-Core' }
 String >> insertLineReturnEvery: anInteger [
 	^ self class
 		streamContents: [ :stream | 
