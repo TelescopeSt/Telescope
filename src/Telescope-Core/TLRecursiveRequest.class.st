@@ -2,12 +2,14 @@
 I will apply the request recursively on all the asked drawable tree, through composites and groups
 "
 Class {
-	#name : #TLRecursiveRequest,
-	#superclass : #TLRequest,
-	#category : #'Telescope-Core-Model-Request'
+	#name : 'TLRecursiveRequest',
+	#superclass : 'TLRequest',
+	#category : 'Telescope-Core-Model-Request',
+	#package : 'Telescope-Core',
+	#tag : 'Model-Request'
 }
 
-{ #category : #iterating }
+{ #category : 'iterating' }
 TLRecursiveRequest >> from: collection select: aBlockClosure into: selection [
 	collection
 		do: [ :aDrawable | 
@@ -19,7 +21,7 @@ TLRecursiveRequest >> from: collection select: aBlockClosure into: selection [
 				ifTrue: [ self from: aDrawable childrenGroup select: aBlockClosure into: selection ] ]
 ]
 
-{ #category : #iterating }
+{ #category : 'iterating' }
 TLRecursiveRequest >> from: collection select: aSelectBlock thenDo: aDoBlock [
 	collection
 		do: [ :aDrawable | 

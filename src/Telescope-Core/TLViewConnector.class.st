@@ -2,30 +2,32 @@
 TLViewConnector is an abstract class that will manage a generic rendering known as view. 
 "
 Class {
-	#name : #TLViewConnector,
-	#superclass : #TLConnector,
+	#name : 'TLViewConnector',
+	#superclass : 'TLConnector',
 	#instVars : [
 		'view'
 	],
-	#category : #'Telescope-Core-Connector'
+	#category : 'Telescope-Core-Connector',
+	#package : 'Telescope-Core',
+	#tag : 'Connector'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLViewConnector class >> isRealConnector [
 	^ self ~= TLViewConnector
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLViewConnector class >> priority [
 	^ -100
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLViewConnector >> view [
 	^ view ifNil: [ view := self configView ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLViewConnector >> view: anObject [
 	view := anObject
 ]

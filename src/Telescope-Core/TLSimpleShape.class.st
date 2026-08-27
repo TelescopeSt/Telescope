@@ -3,12 +3,14 @@ A TLSimpleShape is just a representation of a shape. It will be used as an enum 
 
 "
 Class {
-	#name : #TLSimpleShape,
-	#superclass : #TLObject,
-	#category : #'Telescope-Core-Shape'
+	#name : 'TLSimpleShape',
+	#superclass : 'TLObject',
+	#category : 'Telescope-Core-Shape',
+	#package : 'Telescope-Core',
+	#tag : 'Shape'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLSimpleShape class >> displayName [
 	| shapeName |
 	shapeName := self name allButFirst: 2.
@@ -17,17 +19,17 @@ TLSimpleShape class >> displayName [
 	^ shapeName capitalized
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLSimpleShape class >> isAbstract [
 	^ self = TLSimpleShape
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLSimpleShape class >> new [
 	self error: 'you should not create instance of shapes, just use it as enum value'
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLSimpleShape class >> polygonPoints [
 	"In order to define some shapes, framworks can take a set of points. This method should return a collection of points ranging on [-1, 1]. This represents the points in the polygon for the node’s shape. The bounding box of the node is given by 
 	- Top left: (-1, 1)
@@ -38,7 +40,7 @@ TLSimpleShape class >> polygonPoints [
 	^ self subclassResponsibility
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLSimpleShape class >> regularPolygonePointsOfSize: aNumber [
 	"I retrun the polygon point for a regular polygon with a number of segment given as parameter."
 

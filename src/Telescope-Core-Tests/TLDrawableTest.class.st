@@ -1,33 +1,35 @@
 Class {
-	#name : #TLDrawableTest,
-	#superclass : #TestCase,
+	#name : 'TLDrawableTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'drawable'
 	],
-	#category : #'Telescope-Core-Tests-Model'
+	#category : 'Telescope-Core-Tests-Model',
+	#package : 'Telescope-Core-Tests',
+	#tag : 'Model'
 }
 
-{ #category : #running }
+{ #category : 'running' }
 TLDrawableTest >> setUp [
 	super setUp.
 	drawable := TLDrawable new
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLDrawableTest >> testAddStyleRequireUpdate [
 	self deny: drawable isUpdateRequired.
 	drawable addStyle: #style.
 	self assert: drawable isUpdateRequired
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLDrawableTest >> testremoveNonExistingStyleDoesNotRequireUpdate [
 	self deny: drawable isUpdateRequired.
 	drawable removeStyle: #style.
 	self deny: drawable isUpdateRequired
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLDrawableTest >> testremoveStyleRequireUpdateIfPresent [
 	self deny: drawable isUpdateRequired.
 	drawable addStyle: #style.

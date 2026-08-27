@@ -1,10 +1,11 @@
 Class {
-	#name : #TLVisualizationTemplateDemoFilter,
-	#superclass : #TLAbstractDemoFilter,
-	#category : #'Telescope-Demo'
+	#name : 'TLVisualizationTemplateDemoFilter',
+	#superclass : 'TLAbstractDemoFilter',
+	#category : 'Telescope-Demo',
+	#package : 'Telescope-Demo'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLVisualizationTemplateDemoFilter class >> filterSymbol [
 	^ #visuTemplate
 ]

@@ -3,71 +3,72 @@ I am a layout able to display nodes on one or multiple lines.
 I have a newLineStrategy to decide if i should create a new line
 "
 Class {
-	#name : #TLLinearLayout,
-	#superclass : #TLLayout,
+	#name : 'TLLinearLayout',
+	#superclass : 'TLLayout',
 	#instVars : [
 		'horizontalGap',
 		'verticalGap',
 		'newLineStrategy'
 	],
-	#category : 'Telescope-Layouts'
+	#category : 'Telescope-Layouts',
+	#package : 'Telescope-Layouts'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLLinearLayout class >> gap: aNumber [
 	^ self new
 		gap: aNumber;
 		yourself
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLLinearLayout class >> gap: aGap maximumDimension: aDimension [
 	^ (self gap: aGap)
 		maximumDimension: aDimension;
 		yourself
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLLinearLayout class >> gap: aGap perLine: anInteger [
 	^ (self gap: aGap)
 		maxElementsPerLine: anInteger;
 		yourself
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLLinearLayout class >> gap: aGap ratio: aRatio [
 	^ (self gap: aGap)
 		ratio: aRatio;
 		yourself
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLLinearLayout class >> maximumDimension: aDimension [
 	^ self new
 		maximumDimension: aDimension;
 		yourself
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLLinearLayout class >> perLine: anInteger [
 	^ self new
 		maxElementsPerLine: anInteger;
 		yourself
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLLinearLayout class >> ratio: aRatio [
 	^ self new
 		ratio: aRatio;
 		yourself
 ]
 
-{ #category : #placing }
+{ #category : 'placing' }
 TLLinearLayout >> adjustPosition: currentPosition withHeight: nodeHeight forMaxHeight: maxHeight [
 	^ currentPosition + (0 @ ((maxHeight - nodeHeight) / 2))
 ]
 
-{ #category : #placing }
+{ #category : 'placing' }
 TLLinearLayout >> executeOn: aGroup [
 	| nodesOnLine lineOfNodesWithPosition maxHeight currentPosition |
 	currentPosition := 0 @ 0.
@@ -95,49 +96,49 @@ TLLinearLayout >> executeOn: aGroup [
 	self placeLineOfNodes: lineOfNodesWithPosition maxHeight: maxHeight
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLLinearLayout >> gap: aNumber [
 	self verticalGap: aNumber.
 	self horizontalGap: aNumber.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLLinearLayout >> horizontalGap [
 	^ horizontalGap
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLLinearLayout >> horizontalGap: aNumber [
 	horizontalGap := aNumber
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 TLLinearLayout >> initialize [
 	super initialize.
 	self gap: 5.
 ]
 
-{ #category : #strategy }
+{ #category : 'strategy' }
 TLLinearLayout >> maxElementsPerLine: aNumberOfElements [
 	self newLineStrategy: (TLLayoutNewLineMaxNumberElementsStrategy maxNumberOfElements: aNumberOfElements)
 ]
 
-{ #category : #strategy }
+{ #category : 'strategy' }
 TLLinearLayout >> maximumDimension: aDimension [
 	self newLineStrategy: (TLLayoutNewLineReachedDimensionStrategy dimension: aDimension)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLLinearLayout >> newLineStrategy [
 	^ newLineStrategy ifNil: [ newLineStrategy := TLLayoutNewLineReachedDimensionStrategy dimension: Float infinity ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLLinearLayout >> newLineStrategy: anObject [
 	newLineStrategy := anObject
 ]
 
-{ #category : #placing }
+{ #category : 'placing' }
 TLLinearLayout >> placeLineOfNodes: lineOfNodesWithPosition maxHeight: maxHeight [
 	lineOfNodesWithPosition
 		keysAndValuesDo: [ :aNode :aPositionAndSize |
@@ -150,22 +151,22 @@ TLLinearLayout >> placeLineOfNodes: lineOfNodesWithPosition maxHeight: maxHeight
 				forNode: aNode ]
 ]
 
-{ #category : #placing }
+{ #category : 'placing' }
 TLLinearLayout >> prepareFor: aGroup [
 	self newLineStrategy prepareFor: aGroup onLayout: self.
 ]
 
-{ #category : #strategy }
+{ #category : 'strategy' }
 TLLinearLayout >> ratio: aRatio [
 	self newLineStrategy: (TLLayoutNewLineRatioDispositionStrategy ratio: aRatio)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLLinearLayout >> verticalGap [
 	^ verticalGap
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLLinearLayout >> verticalGap: aNumber [
 	verticalGap := aNumber
 ]

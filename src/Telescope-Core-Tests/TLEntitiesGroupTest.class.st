@@ -1,14 +1,16 @@
 Class {
-	#name : #TLEntitiesGroupTest,
-	#superclass : #TestCase,
+	#name : 'TLEntitiesGroupTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'tlGroup',
 		'parentMock'
 	],
-	#category : #'Telescope-Core-Tests-Model'
+	#category : 'Telescope-Core-Tests-Model',
+	#package : 'Telescope-Core-Tests',
+	#tag : 'Model'
 }
 
-{ #category : #running }
+{ #category : 'running' }
 TLEntitiesGroupTest >> setUp [
 	| generatorMock|
 	super setUp.
@@ -23,13 +25,13 @@ TLEntitiesGroupTest >> setUp [
 	tlGroup parent: parentMock
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 TLEntitiesGroupTest >> tearDown [
 	parentMock should receive hierarchyHasChanged once.
 	super tearDown
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLEntitiesGroupTest >> testAddNodeFromEntity [
 	| entityMock node |
 	entityMock := Mock named: 'entity'.
@@ -38,7 +40,7 @@ TLEntitiesGroupTest >> testAddNodeFromEntity [
 	self assert: tlGroup size equals: 1
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLEntitiesGroupTest >> testAllNodesDo [
 	| node1 node2 node3 |
 	node1 := Mock named: 'node1'.
@@ -52,7 +54,7 @@ TLEntitiesGroupTest >> testAllNodesDo [
 	{node1 . node2 . node3} do: [ :node | node should receive testMessage once ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLEntitiesGroupTest >> testCreateASubGroup [
 	self assert: tlGroup telescopeEntities isEmpty.
 	self assert: (tlGroup > #subGroup) isEmpty.

@@ -3,12 +3,14 @@ A TLNodeAction is the abstract superclass for every action that can only be perf
 
 "
 Class {
-	#name : #TLNodeAction,
-	#superclass : #TLDrawableAction,
-	#category : #'Telescope-Core-Actions'
+	#name : 'TLNodeAction',
+	#superclass : 'TLDrawableAction',
+	#category : 'Telescope-Core-Actions',
+	#package : 'Telescope-Core',
+	#tag : 'Actions'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLNodeAction class >> isAbstract [
 	^ self = TLNodeAction
 ]

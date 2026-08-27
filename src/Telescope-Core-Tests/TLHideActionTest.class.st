@@ -1,10 +1,12 @@
 Class {
-	#name : #TLHideActionTest,
-	#superclass : #TestCase,
-	#category : #'Telescope-Core-Tests-Actions'
+	#name : 'TLHideActionTest',
+	#superclass : 'TestCase',
+	#category : 'Telescope-Core-Tests-Actions',
+	#package : 'Telescope-Core-Tests',
+	#tag : 'Actions'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLHideActionTest >> testHideBlock [
 	| node hideAction secondNode connection |
 	node := TLSimpleNode new.
@@ -16,7 +18,7 @@ TLHideActionTest >> testHideBlock [
 	self deny: connection isVisible
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLHideActionTest >> testHideNode [
 	| node hideAction |
 	node := TLSimpleNode new.
@@ -26,7 +28,7 @@ TLHideActionTest >> testHideNode [
 	self deny: node isVisible
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLHideActionTest >> testHideSymbol [
 	| node hideAction secondNode connection |
 	node := TLSimpleNode new.

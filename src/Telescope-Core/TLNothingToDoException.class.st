@@ -8,7 +8,9 @@ I should be handle  by connector to  send a return to user.
 
 "
 Class {
-	#name : #TLNothingToDoException,
-	#superclass : #Warning,
-	#category : #'Telescope-Core-Exceptions'
+	#name : 'TLNothingToDoException',
+	#superclass : 'Warning',
+	#category : 'Telescope-Core-Exceptions',
+	#package : 'Telescope-Core',
+	#tag : 'Exceptions'
 }

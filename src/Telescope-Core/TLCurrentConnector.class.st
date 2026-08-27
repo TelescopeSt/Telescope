@@ -12,12 +12,14 @@ Examples
 	]
 "
 Class {
-	#name : #TLCurrentConnector,
-	#superclass : #DynamicVariable,
-	#category : #'Telescope-Core-Connector'
+	#name : 'TLCurrentConnector',
+	#superclass : 'DynamicVariable',
+	#category : 'Telescope-Core-Connector',
+	#package : 'Telescope-Core',
+	#tag : 'Connector'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLCurrentConnector >> default [
 	^ (TLConnector allSubclasses select: #isRealConnector)
 		ifEmpty: [ TLNoConnectorException signal ]

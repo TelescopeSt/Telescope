@@ -2,27 +2,29 @@
 I am an interaction that occurs when another drawable is dropped on me
 "
 Class {
-	#name : #TLDropInteraction,
-	#superclass : #TLInteraction,
-	#category : #'Telescope-Core-Interactions'
+	#name : 'TLDropInteraction',
+	#superclass : 'TLInteraction',
+	#category : 'Telescope-Core-Interactions',
+	#package : 'Telescope-Core',
+	#tag : 'Interactions'
 }
 
-{ #category : #action }
+{ #category : 'action' }
 TLDropInteraction >> actionOn: aTLDrawable parameter: anotherTLDrawable [
 	self action actionOn: aTLDrawable parameter: anotherTLDrawable
 ]
 
-{ #category : #generate }
+{ #category : 'generate' }
 TLDropInteraction >> generateWith: aTLConnector on: aTLDrawable targeting: aTargetDrawable [ 
 	aTLConnector generateDropInteraction: self onDrawable: aTLDrawable targetingDrawable: aTargetDrawable
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLDropInteraction >> isDrop [
 	^ true
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TLDropInteraction >> kind [
 	^ #drop
 ]

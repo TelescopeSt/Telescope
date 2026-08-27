@@ -1,27 +1,29 @@
 Class {
-	#name : #TLTelescopeTest,
-	#superclass : #TLWithTestConnectorTest,
-	#category : #'Telescope-Core-Tests-Model'
+	#name : 'TLTelescopeTest',
+	#superclass : 'TLWithTestConnectorTest',
+	#category : 'Telescope-Core-Tests-Model',
+	#package : 'Telescope-Core-Tests',
+	#tag : 'Model'
 }
 
-{ #category : #helpers }
+{ #category : 'helpers' }
 TLTelescopeTest >> demos [
 	| falsePositives |
 	falsePositives := #(#exampleTwoConnectedVisualization).
 	^ TLDemos class methods select: [ :m | (m selector beginsWith: 'example') and: [ (falsePositives includes: m selector) not ] ]
 ]
 
-{ #category : #helpers }
+{ #category : 'helpers' }
 TLTelescopeTest >> packagesPrefix [
 	^ 'Telescope'
 ]
 
-{ #category : #helpers }
+{ #category : 'helpers' }
 TLTelescopeTest >> telescopeTestClasses [
 	^ (RPackageOrganizer default packages select: [ :e | e name beginsWith: self packagesPrefix ] thenCollect: [ :p | p definedClasses select: [ :class | class inheritsFrom: TestCase ] ]) flatten
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLTelescopeTest >> testAndMakeSureSuperSetupIsCalledAsFirstMessageInSetupMethodsOfTestCases [
 	"Verify that each setUp method in a unit test starts with a call to super setUp as first message sent"
 
@@ -37,7 +39,7 @@ TLTelescopeTest >> testAndMakeSureSuperSetupIsCalledAsFirstMessageInSetupMethods
 	self assertEmpty: violating
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLTelescopeTest >> testAndMakeSureSuperTearDownIsCalledAsLastMessageInTearDownMethodsOfTestCases [
 	"Verify that each tearDown method in a unit test ends with a call to super tearDown as last message sent"
 
@@ -53,13 +55,13 @@ TLTelescopeTest >> testAndMakeSureSuperTearDownIsCalledAsLastMessageInTearDownMe
 	self assertEmpty: violating
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLTelescopeTest >> testDemoHaveRightScriptPragmas [
 	self demos
 		do: [ :method | self assert: (method sourceCode includesSubstring: '<script: ''self ' , method selector , ' open''>') description: 'TLDemos class>>' , method selector , ' has no or wrong script pragma' ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLTelescopeTest >> testSmokeTestsOnDemos [
 	self demos do: [ :demo | self shouldnt: [ TLDemos executeDemo: demo selector ] raise: Error description: 'TLDemo class>>' , demo selector , ' is failing.' ]
 ]

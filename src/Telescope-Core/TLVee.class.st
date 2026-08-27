@@ -3,12 +3,14 @@ A TLVee is an enum value for a Vee.
 
 "
 Class {
-	#name : #TLVee,
-	#superclass : #TLSimpleShape,
-	#category : #'Telescope-Core-Shape'
+	#name : 'TLVee',
+	#superclass : 'TLSimpleShape',
+	#category : 'Telescope-Core-Shape',
+	#package : 'Telescope-Core',
+	#tag : 'Shape'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLVee class >> polygonPoints [
 	^ {(-1 @ 1).
 	(0 @ 0.5).

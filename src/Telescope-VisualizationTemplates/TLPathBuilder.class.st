@@ -17,17 +17,18 @@ outgoingBlock
 
 "
 Class {
-	#name : #TLPathBuilder,
-	#superclass : #TLVisualization,
+	#name : 'TLPathBuilder',
+	#superclass : 'TLVisualization',
 	#instVars : [
 		'origin',
 		'incomingBlock',
 		'outgoingBlock'
 	],
-	#category : #'Telescope-VisualizationTemplates'
+	#category : 'Telescope-VisualizationTemplates',
+	#package : 'Telescope-VisualizationTemplates'
 }
 
-{ #category : #building }
+{ #category : 'building' }
 TLPathBuilder >> buildVisualization [
 	| showNodesAction |
 	self defineStructure.
@@ -44,7 +45,7 @@ TLPathBuilder >> buildVisualization [
 	self defineLinkedCallsInteractions
 ]
 
-{ #category : #building }
+{ #category : 'building' }
 TLPathBuilder >> defineLinkedCallsInteractions [
 	| keepNodeAction keepNodeMenuInteraction |
 	keepNodeAction := TLCustomAction block: [ :node | self keepNode: node ].
@@ -57,7 +58,7 @@ TLPathBuilder >> defineLinkedCallsInteractions [
 		addInteraction: keepNodeMenuInteraction
 ]
 
-{ #category : #building }
+{ #category : 'building' }
 TLPathBuilder >> defineStructure [
 	self layout: (TLLinearLayout gap: 60).
 	self > #incomingCalls
@@ -77,44 +78,44 @@ TLPathBuilder >> defineStructure [
 				yourself)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLPathBuilder >> incomingBlock [
 	^ incomingBlock
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLPathBuilder >> incomingBlock: anObject [
 	incomingBlock := anObject
 ]
 
-{ #category : #building }
+{ #category : 'building' }
 TLPathBuilder >> keepNode: aNode [
 	aNode moveToGroup: self > #callNodes.	
 	(self > #incomingCalls) removeAll.
 	(self > #outgoingCalls) removeAll
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLPathBuilder >> origin [
 	^ origin
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLPathBuilder >> origin: anObject [
 	origin := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLPathBuilder >> outgoingBlock [
 	^ outgoingBlock
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLPathBuilder >> outgoingBlock: anObject [
 	outgoingBlock := anObject
 ]
 
-{ #category : #building }
+{ #category : 'building' }
 TLPathBuilder >> showNodesFor: aNode [
 	(self > #incomingCalls) removeAll.
 	(self > #outgoingCalls) removeAll.

@@ -1,19 +1,21 @@
 Class {
-	#name : #TLAbstractNodeTest,
-	#superclass : #TestCase,
+	#name : 'TLAbstractNodeTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'node'
 	],
-	#category : #'Telescope-Core-Tests-Model'
+	#category : 'Telescope-Core-Tests-Model',
+	#package : 'Telescope-Core-Tests',
+	#tag : 'Model'
 }
 
-{ #category : #running }
+{ #category : 'running' }
 TLAbstractNodeTest >> setUp [
 	super setUp.
 	node := TLAbstractNode new
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLAbstractNodeTest >> testNotDuplicateAdjacentNodes [
    | in inOut out adjacents |
    in:= TLAbstractNode withEntity: 'in'.

@@ -3,25 +3,27 @@ I represent a link between two nodes. The link is itself an entity of the underl
 
 "
 Class {
-	#name : #TLConnectionWithEntity,
-	#superclass : #TLConnection,
+	#name : 'TLConnectionWithEntity',
+	#superclass : 'TLConnection',
 	#instVars : [
 		'entity'
 	],
-	#category : #'Telescope-Core-Model'
+	#category : 'Telescope-Core-Model',
+	#package : 'Telescope-Core',
+	#tag : 'Model'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnectionWithEntity >> entity [
 	^ entity
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnectionWithEntity >> entity: anObject [
 	entity := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnectionWithEntity >> hasEntity [
 	^ true
 ]

@@ -2,8 +2,8 @@
 TLNodeCreationStrategy is a strategy that express how to create nodes
 "
 Class {
-	#name : #TLNodeCreationStrategy,
-	#superclass : #TLBuildingStrategy,
+	#name : 'TLNodeCreationStrategy',
+	#superclass : 'TLBuildingStrategy',
 	#instVars : [
 		'childrenStrategy',
 		'compositeProperty',
@@ -11,94 +11,96 @@ Class {
 		'nodeStyle',
 		'childrenSortingStrategy'
 	],
-	#category : #'Telescope-Core-Strategies'
+	#category : 'Telescope-Core-Strategies',
+	#package : 'Telescope-Core',
+	#tag : 'Strategies'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLNodeCreationStrategy class >> composite: aCompositeProperty [
 	^ self new
 		compositeProperty: aCompositeProperty;
 		yourself
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLNodeCreationStrategy class >> composite: aCompositeProperty withLayout: aLayout [
 	^ (self composite: aCompositeProperty)
 		compositeChildrenLayout: aLayout;
 		yourself
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLNodeCreationStrategy class >> default [
 	^ self new
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLNodeCreationStrategy class >> recursiveComposite: aCompositeProperty withLayout: aLayout [
 	^ (self composite: aCompositeProperty withLayout: aLayout)
 		beRecursive;
 		yourself
 ]
 
-{ #category : #children }
+{ #category : 'children' }
 TLNodeCreationStrategy >> beRecursive [
 	self childrenStrategy: self
 ]
 
-{ #category : #'node - creation' }
+{ #category : 'node - creation' }
 TLNodeCreationStrategy >> childrenProperty: aString [ 
 	self flag: 'Only one should remain'.
 	^ self compositeProperty: aString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLNodeCreationStrategy >> childrenSortingStrategy [
 	^ childrenSortingStrategy
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLNodeCreationStrategy >> childrenSortingStrategy: anObject [
 	childrenSortingStrategy := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLNodeCreationStrategy >> childrenStrategy [
 	^ childrenStrategy
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLNodeCreationStrategy >> childrenStrategy: anObject [
 	childrenStrategy := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLNodeCreationStrategy >> compositeChildrenLayout [
 	^ compositeChildrenLayout
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLNodeCreationStrategy >> compositeChildrenLayout: anObject [
 	compositeChildrenLayout := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLNodeCreationStrategy >> compositeNodesFrom: aValuableOrCollection [
 	self compositeProperty: aValuableOrCollection
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLNodeCreationStrategy >> compositeProperty [
 	^ compositeProperty
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLNodeCreationStrategy >> compositeProperty: anObject [
 	compositeProperty := anObject.
 	anObject ifNotNil: [ self childrenStrategy ifNil: [ self childrenStrategy: self class default ] ].
 	^ self childrenStrategy
 ]
 
-{ #category : #copying }
+{ #category : 'copying' }
 TLNodeCreationStrategy >> copyAsSimpleStrategy [
 	"this works because we do not have other properties than composite. This is planned for future evolution to avoid duplication"
 
@@ -108,7 +110,7 @@ TLNodeCreationStrategy >> copyAsSimpleStrategy [
 		yourself
 ]
 
-{ #category : #'node-creation' }
+{ #category : 'node-creation' }
 TLNodeCreationStrategy >> createNodeFromEntity: anEntity [
 	| node |
 	node := self requireCompositeCreation
@@ -122,7 +124,7 @@ TLNodeCreationStrategy >> createNodeFromEntity: anEntity [
 	^ node
 ]
 
-{ #category : #'node-creation' }
+{ #category : 'node-creation' }
 TLNodeCreationStrategy >> customizeNode: node [
 	(node isComposite and: self compositeChildrenLayout notNil)
 		ifTrue: [ node childrenLayout: self compositeChildrenLayout ].
@@ -136,24 +138,24 @@ TLNodeCreationStrategy >> customizeNode: node [
 		ifTrue: [ node childrenGroup sortingStrategy: self childrenSortingStrategy ]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 TLNodeCreationStrategy >> initialize [
 	super initialize.
 	self childrenStrategy: nil.
 	self compositeProperty: nil
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLNodeCreationStrategy >> nodeStyle [
 	^ nodeStyle
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLNodeCreationStrategy >> nodeStyle: anObject [
 	nodeStyle := anObject
 ]
 
-{ #category : #'node-creation' }
+{ #category : 'node-creation' }
 TLNodeCreationStrategy >> requireCompositeCreation [
 	^ self childrenStrategy notNil
 ]

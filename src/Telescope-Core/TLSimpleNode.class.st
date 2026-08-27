@@ -2,22 +2,24 @@
 I am just a simple node.
 "
 Class {
-	#name : #TLSimpleNode,
-	#superclass : #TLAbstractNode,
-	#category : #'Telescope-Core-Model'
+	#name : 'TLSimpleNode',
+	#superclass : 'TLAbstractNode',
+	#category : 'Telescope-Core-Model',
+	#package : 'Telescope-Core',
+	#tag : 'Model'
 }
 
-{ #category : #adding }
+{ #category : 'adding' }
 TLSimpleNode >> addChild: aChildNode [
 	self becomeComposite addChild: aChildNode
 ]
 
-{ #category : #enumeration }
+{ #category : 'enumeration' }
 TLSimpleNode >> allNodesRecursively [
 	^ {self}
 ]
 
-{ #category : #transformation }
+{ #category : 'transformation' }
 TLSimpleNode >> becomeComposite [
 	| composite index |
 	composite := TLCompositeNode new.
@@ -31,7 +33,7 @@ TLSimpleNode >> becomeComposite [
 	self become: composite
 ]
 
-{ #category : #'private-connector' }
+{ #category : 'private-connector' }
 TLSimpleNode >> generateWith: aConnector [
 	| generated |
 	generated := aConnector generateSimpleNode: self.
@@ -39,27 +41,27 @@ TLSimpleNode >> generateWith: aConnector [
 	^ generated
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLSimpleNode >> isLeaf [
 	^ true
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLSimpleNode >> isSimpleNode [
 	^ true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLSimpleNode >> leafs [
 	^ {self}
 ]
 
-{ #category : #'private-connector' }
+{ #category : 'private-connector' }
 TLSimpleNode >> removeWith: aTLConnector [
 	aTLConnector removeSimpleNode: self
 ]
 
-{ #category : #'private-connector' }
+{ #category : 'private-connector' }
 TLSimpleNode >> updateWith: aTLGenerator [
 	aTLGenerator updateSimpleNode: self
 ]

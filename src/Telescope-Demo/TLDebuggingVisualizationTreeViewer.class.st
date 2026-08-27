@@ -2,32 +2,33 @@
 I am a really simple visualization that show the model of another visualization as a tree
 "
 Class {
-	#name : #TLDebuggingVisualizationTreeViewer,
-	#superclass : #TLVisualization,
+	#name : 'TLDebuggingVisualizationTreeViewer',
+	#superclass : 'TLVisualization',
 	#instVars : [
 		'anotherVisualization'
 	],
-	#category : #'Telescope-Demo'
+	#category : 'Telescope-Demo',
+	#package : 'Telescope-Demo'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLDebuggingVisualizationTreeViewer class >> visu: anotherVisu [
 	^ self new
 		anotherVisualization: anotherVisu;
 		yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLDebuggingVisualizationTreeViewer >> anotherVisualization [
 	^ anotherVisualization
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLDebuggingVisualizationTreeViewer >> anotherVisualization: anObject [
 	anotherVisualization := anObject
 ]
 
-{ #category : #building }
+{ #category : 'building' }
 TLDebuggingVisualizationTreeViewer >> buildVisualization [
 	(self addNodeFromEntity: anotherVisualization) styleSheet
 		nodeLabel: 'Visualization';
@@ -44,7 +45,7 @@ TLDebuggingVisualizationTreeViewer >> buildVisualization [
 	self legend backgroundDescription: [ :node | node class asString ]
 ]
 
-{ #category : #building }
+{ #category : 'building' }
 TLDebuggingVisualizationTreeViewer >> update [
 	self removeAll.
 	self legend: (TLLegend parent: self).

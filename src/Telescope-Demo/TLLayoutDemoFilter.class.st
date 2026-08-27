@@ -1,10 +1,11 @@
 Class {
-	#name : #TLLayoutDemoFilter,
-	#superclass : #TLAbstractDemoFilter,
-	#category : #'Telescope-Demo'
+	#name : 'TLLayoutDemoFilter',
+	#superclass : 'TLAbstractDemoFilter',
+	#category : 'Telescope-Demo',
+	#package : 'Telescope-Demo'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLLayoutDemoFilter class >> filterSymbol [
 	^ #layout
 ]

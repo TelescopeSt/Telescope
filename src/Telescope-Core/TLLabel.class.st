@@ -2,12 +2,14 @@
 A label shape
 "
 Class {
-	#name : #TLLabel,
-	#superclass : #TLSimpleShape,
-	#category : #'Telescope-Core-Shape'
+	#name : 'TLLabel',
+	#superclass : 'TLSimpleShape',
+	#category : 'Telescope-Core-Shape',
+	#package : 'Telescope-Core',
+	#tag : 'Shape'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLLabel class >> polygonPoints [
 	^ {(-1 @ 0.7).
 	(0.5 @ 0.7).

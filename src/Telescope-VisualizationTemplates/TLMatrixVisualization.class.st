@@ -2,17 +2,18 @@
 I am a visualization representing a matrix. You need to provide a matric and corresponding xTitles and yTitles.
 "
 Class {
-	#name : #TLMatrixVisualization,
-	#superclass : #TLVisualization,
+	#name : 'TLMatrixVisualization',
+	#superclass : 'TLVisualization',
 	#instVars : [
 		'matrix',
 		'xTitles',
 		'yTitles'
 	],
-	#category : #'Telescope-VisualizationTemplates'
+	#category : 'Telescope-VisualizationTemplates',
+	#package : 'Telescope-VisualizationTemplates'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLMatrixVisualization class >> newWithMatrix: matrix xTitles: xTitles yTitles: yTitles [
 	^ self new
 		matrix: matrix;
@@ -21,7 +22,7 @@ TLMatrixVisualization class >> newWithMatrix: matrix xTitles: xTitles yTitles: y
 		yourself
 ]
 
-{ #category : #building }
+{ #category : 'building' }
 TLMatrixVisualization >> buildVisualization [
 	self layout: TLLinearLayout topToBottom.
 	((self > #title)
@@ -51,32 +52,32 @@ TLMatrixVisualization >> buildVisualization [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLMatrixVisualization >> matrix [
 	^ matrix
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLMatrixVisualization >> matrix: anObject [
 	matrix := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLMatrixVisualization >> xTitles [
 	^ xTitles
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLMatrixVisualization >> xTitles: anObject [
 	xTitles := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLMatrixVisualization >> yTitles [
 	^ yTitles
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLMatrixVisualization >> yTitles: anObject [
 	yTitles := anObject
 ]

@@ -2,20 +2,22 @@
 I am an abstract exception for all detected wrong usage of Telescope
 "
 Class {
-	#name : #TLWrongUsedFunctionalityException,
-	#superclass : #TLError,
+	#name : 'TLWrongUsedFunctionalityException',
+	#superclass : 'TLError',
 	#instVars : [
 		'entity'
 	],
-	#category : #'Telescope-Core-Exceptions'
+	#category : 'Telescope-Core-Exceptions',
+	#package : 'Telescope-Core',
+	#tag : 'Exceptions'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLWrongUsedFunctionalityException >> entity [
 	^ entity
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLWrongUsedFunctionalityException >> entity: aTLEntity [ 
 	entity := aTLEntity
 ]

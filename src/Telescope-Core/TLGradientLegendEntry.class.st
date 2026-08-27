@@ -2,32 +2,34 @@
 I am a legend entry explaining a gradient
 "
 Class {
-	#name : #TLGradientLegendEntry,
-	#superclass : #TLStaticLegendEntry,
+	#name : 'TLGradientLegendEntry',
+	#superclass : 'TLStaticLegendEntry',
 	#instVars : [
 		'gradient'
 	],
-	#category : #'Telescope-Core-Model-Legend'
+	#category : 'Telescope-Core-Model-Legend',
+	#package : 'Telescope-Core',
+	#tag : 'Model-Legend'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLGradientLegendEntry class >> description: aDescription gradient: aGradient [
 	^ (self description: aDescription)
 		gradient: aGradient;
 		yourself
 ]
 
-{ #category : #generation }
+{ #category : 'generation' }
 TLGradientLegendEntry >> generateWith: aTLCytoscapeConnector [ 
 	^ aTLCytoscapeConnector generateTLGradientLegendEntry: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLGradientLegendEntry >> gradient [
 	^ gradient
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLGradientLegendEntry >> gradient: anObject [
 	gradient := anObject
 ]

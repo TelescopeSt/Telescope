@@ -2,12 +2,14 @@
 I will apply the request recursively through groups. I will stop if i encounter a leaf or a composite
 "
 Class {
-	#name : #TLGroupRecursiveRequest,
-	#superclass : #TLRequest,
-	#category : #'Telescope-Core-Model-Request'
+	#name : 'TLGroupRecursiveRequest',
+	#superclass : 'TLRequest',
+	#category : 'Telescope-Core-Model-Request',
+	#package : 'Telescope-Core',
+	#tag : 'Model-Request'
 }
 
-{ #category : #iterating }
+{ #category : 'iterating' }
 TLGroupRecursiveRequest >> from: collection select: aBlockClosure into: selection [
 	collection
 		do: [ :aDrawable | 
@@ -17,7 +19,7 @@ TLGroupRecursiveRequest >> from: collection select: aBlockClosure into: selectio
 				ifTrue: [ self from: aDrawable select: aBlockClosure into: selection ] ]
 ]
 
-{ #category : #iterating }
+{ #category : 'iterating' }
 TLGroupRecursiveRequest >> from: collection select: aSelectBlock thenDo: aDoBlock [
 	collection
 		do: [ :aDrawable | 

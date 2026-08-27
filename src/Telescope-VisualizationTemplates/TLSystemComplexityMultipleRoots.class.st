@@ -2,8 +2,8 @@
 A visualization to check inheritances in a collection of elements. Based on Moose visualization and extended from TLSystemComplexity
 "
 Class {
-	#name : #TLSystemComplexityMultipleRoots,
-	#superclass : #TLVisualization,
+	#name : 'TLSystemComplexityMultipleRoots',
+	#superclass : 'TLVisualization',
 	#instVars : [
 		'roots',
 		'property',
@@ -12,20 +12,21 @@ Class {
 		'heightBlock',
 		'backgroundColorBlock'
 	],
-	#category : #'Telescope-VisualizationTemplates'
+	#category : 'Telescope-VisualizationTemplates',
+	#package : 'Telescope-VisualizationTemplates'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLSystemComplexityMultipleRoots >> backgroundColorBlock [
 	^ backgroundColorBlock
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLSystemComplexityMultipleRoots >> backgroundColorBlock: anObject [
 	backgroundColorBlock := anObject
 ]
 
-{ #category : #building }
+{ #category : 'building' }
 TLSystemComplexityMultipleRoots >> buildVisualization [
 	self styleSheet
 		width: self widthBlock;
@@ -37,52 +38,52 @@ TLSystemComplexityMultipleRoots >> buildVisualization [
 	self > #default layout: (TLTreeLayout angle: 180)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLSystemComplexityMultipleRoots >> defaultTitle [
 	^ 'System Complexity'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLSystemComplexityMultipleRoots >> heightBlock [
 	^ heightBlock
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLSystemComplexityMultipleRoots >> heightBlock: anObject [
 	heightBlock := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLSystemComplexityMultipleRoots >> property [
 	^ property
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLSystemComplexityMultipleRoots >> property: anObject [
 	property := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLSystemComplexityMultipleRoots >> roots [
 	^ roots
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLSystemComplexityMultipleRoots >> roots: anObject [
 	roots := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLSystemComplexityMultipleRoots >> scopeBlock: anObject [
 	scopeBlock := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLSystemComplexityMultipleRoots >> widthBlock [
 	^ widthBlock
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLSystemComplexityMultipleRoots >> widthBlock: anObject [
 	widthBlock := anObject
 ]

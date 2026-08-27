@@ -3,18 +3,19 @@ visu := TLSystemComplexity new
 	root: Collection; property: #subclasses; open
 "
 Class {
-	#name : #TLSystemComplexity,
-	#superclass : #TLVisualization,
+	#name : 'TLSystemComplexity',
+	#superclass : 'TLVisualization',
 	#instVars : [
 		'roots',
 		'property',
 		'container',
 		'requirePropertyApplication'
 	],
-	#category : #'Telescope-VisualizationTemplates'
+	#category : 'Telescope-VisualizationTemplates',
+	#package : 'Telescope-VisualizationTemplates'
 }
 
-{ #category : #building }
+{ #category : 'building' }
 TLSystemComplexity >> buildLegend [
 	super buildLegend.
 	self legend
@@ -24,7 +25,7 @@ TLSystemComplexity >> buildLegend [
 		description: 'Lot of lines of code' forColor: MDLColor black
 ]
 
-{ #category : #building }
+{ #category : 'building' }
 TLSystemComplexity >> buildVisualization [
 	super buildVisualization.
 	self styleSheet
@@ -57,22 +58,22 @@ TLSystemComplexity >> buildVisualization [
 		borderColor: Color black
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLSystemComplexity >> container [
 	^ container
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLSystemComplexity >> container: anObject [
 	container := anObject
 ]
 
-{ #category : #default }
+{ #category : 'default' }
 TLSystemComplexity >> defaultTitle [
 	^ 'System Complexity'
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TLSystemComplexity >> feedRootsFrom: anEntity withProperty: aProperty [
 	(self property value: anEntity)
 		do: [ :anotherEntity | 
@@ -80,53 +81,53 @@ TLSystemComplexity >> feedRootsFrom: anEntity withProperty: aProperty [
 			self feedRootsFrom: anotherEntity withProperty: aProperty ]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 TLSystemComplexity >> initialize [
 	super initialize.
 	requirePropertyApplication := false
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLSystemComplexity >> property [
 	^ property
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLSystemComplexity >> property: anObject [
 	property := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLSystemComplexity >> propertyApplicationRequired [
 	requirePropertyApplication := true
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLSystemComplexity >> requirePropertyApplication [
 	^ requirePropertyApplication and: [ roots size = 1 ]
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLSystemComplexity >> root [
 	^ roots first
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLSystemComplexity >> root: aRoot [
 	self roots: aRoot asOrderedCollection.
 	self propertyApplicationRequired
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLSystemComplexity >> roots [
 	self requirePropertyApplication
 		ifTrue: [ self feedRootsFrom: self root withProperty: self property ].
 	^ roots
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLSystemComplexity >> roots: anObject [
 	roots := anObject
 ]

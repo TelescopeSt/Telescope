@@ -2,20 +2,21 @@
 I am a strategy that will try to put elements in a rectangle with dimension as close as the desired ratio as possible. My behaviour is to define my max dimension before starting to place lines of nodes
 "
 Class {
-	#name : #TLLayoutNewLineRatioDispositionStrategy,
-	#superclass : #TLLayoutNewLineReachedDimensionStrategy,
+	#name : 'TLLayoutNewLineRatioDispositionStrategy',
+	#superclass : 'TLLayoutNewLineReachedDimensionStrategy',
 	#instVars : [
 		'ratio'
 	],
-	#category : 'Telescope-Layouts'
+	#category : 'Telescope-Layouts',
+	#package : 'Telescope-Layouts'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLLayoutNewLineRatioDispositionStrategy class >> ratio: aRatio [
 	^ self new ratio: aRatio
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLLayoutNewLineRatioDispositionStrategy >> obtainRatioBySimulatingLayout: aLayout on: aGroup [
 	| simulator |
 	simulator := TLLinearLayoutSimulator new
@@ -27,7 +28,7 @@ TLLayoutNewLineRatioDispositionStrategy >> obtainRatioBySimulatingLayout: aLayou
 	^ simulator ratio
 ]
 
-{ #category : #preparation }
+{ #category : 'preparation' }
 TLLayoutNewLineRatioDispositionStrategy >> prepareFor: aGroup onLayout: aLayout [
 	| dimensions numberOfNodes minRatio maxRatio simulatedRatio |
 	aGroup ifEmpty: [ ^ self ].
@@ -55,12 +56,12 @@ TLLayoutNewLineRatioDispositionStrategy >> prepareFor: aGroup onLayout: aLayout 
 				ifFalse: [ maxRatio value ])
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLLayoutNewLineRatioDispositionStrategy >> ratio [
 	^ ratio
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLLayoutNewLineRatioDispositionStrategy >> ratio: anObject [
 	ratio := anObject
 ]

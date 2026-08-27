@@ -32,71 +32,73 @@ Internal Representation and Key Implementation Points.
 
 "
 Class {
-	#name : #TLStyleCustomizationAction,
-	#superclass : #TLReversibleNodeAction,
+	#name : 'TLStyleCustomizationAction',
+	#superclass : 'TLReversibleNodeAction',
 	#instVars : [
 		'previousStyleDictionary',
 		'customizationBlock',
 		'target'
 	],
-	#category : #'Telescope-Core-Actions'
+	#category : 'Telescope-Core-Actions',
+	#package : 'Telescope-Core',
+	#tag : 'Actions'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLStyleCustomizationAction class >> custom: aBlock [
 	^ self new customizationBlock: aBlock; yourself
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLStyleCustomizationAction class >> custom: aBlock target: aTargetDrawable [
 	^ self new customizationBlock: aBlock; target: aTargetDrawable; yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLStyleCustomizationAction >> customizationBlock [
 	^ customizationBlock
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLStyleCustomizationAction >> customizationBlock: anObject [
 	customizationBlock := anObject
 ]
 
-{ #category : #action }
+{ #category : 'action' }
 TLStyleCustomizationAction >> customize: aDrawable [
 	aDrawable state at: self stateKey put: aDrawable styleSheet copy.
 	self customizationBlock cull: aDrawable styleSheet cull: aDrawable.
 	aDrawable requireUpdate
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 TLStyleCustomizationAction >> initialize [
 	super initialize.
 	self previousStyleDictionary: Dictionary new
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TLStyleCustomizationAction >> obtainTargetDrawablesFrom: aTLDrawable [
 	^ (self target ifNotNil: [ :t | t value: aTLDrawable ] ifNil: [ aTLDrawable ]) asOrderedCollection
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLStyleCustomizationAction >> previousStyleDictionary [
 	^ previousStyleDictionary
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLStyleCustomizationAction >> previousStyleDictionary: anObject [
 	previousStyleDictionary := anObject
 ]
 
-{ #category : #action }
+{ #category : 'action' }
 TLStyleCustomizationAction >> regularActionOn: aDrawable [
 	(self previousStyleDictionary at: aDrawable put: (self obtainTargetDrawablesFrom: aDrawable))
 		do: [ :aTargetDrawable | self customize: aTargetDrawable ]
 ]
 
-{ #category : #action }
+{ #category : 'action' }
 TLStyleCustomizationAction >> removeCustomization: aDrawable [
 	[ 
 		aDrawable styleSheet: (aDrawable state removeKey: self stateKey).
@@ -109,29 +111,29 @@ TLStyleCustomizationAction >> removeCustomization: aDrawable [
 		do: [ self flag: 'Trying to remove a customization that I do not have in my style dict' ]
 ]
 
-{ #category : #action }
+{ #category : 'action' }
 TLStyleCustomizationAction >> reverseActionOn: aTLDrawable [
 	(self previousStyleDictionary removeKey: aTLDrawable)
 		do: [ :aTargetDrawable | self removeCustomization: aTargetDrawable ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLStyleCustomizationAction >> shouldTriggerReverseActionFor: aTLDrawable [
 	^ self previousStyleDictionary at: aTLDrawable ifPresent: [ :c | true ] ifAbsent: [ false ]
 ]
 
-{ #category : #action }
+{ #category : 'action' }
 TLStyleCustomizationAction >> stateKey [
 	self flag: #danger.	"Maybe this is not unique enought because we can have the same block for many interactions."
 	^ #styleCustomized , self customizationBlock hash asString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLStyleCustomizationAction >> target [
 	^ target
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLStyleCustomizationAction >> target: anObject [
 	target := anObject
 ]

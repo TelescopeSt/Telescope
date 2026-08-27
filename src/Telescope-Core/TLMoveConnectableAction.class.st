@@ -31,46 +31,48 @@ Internal Representation and Key Implementation Points.
 	destinationGroup:				<aTLGroup>		The destination group for the drawables
 "
 Class {
-	#name : #TLMoveConnectableAction,
-	#superclass : #TLReversibleNodeAction,
+	#name : 'TLMoveConnectableAction',
+	#superclass : 'TLReversibleNodeAction',
 	#instVars : [
 		'destinationGroup'
 	],
-	#category : #'Telescope-Core-Actions'
+	#category : 'Telescope-Core-Actions',
+	#package : 'Telescope-Core',
+	#tag : 'Actions'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLMoveConnectableAction class >> destination: aTLEntitiesGroup [
 	^ self new destinationGroup: aTLEntitiesGroup; yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLMoveConnectableAction >> destinationGroup [
 	^ destinationGroup
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLMoveConnectableAction >> destinationGroup: anObject [
 	destinationGroup := anObject
 ]
 
-{ #category : #action }
+{ #category : 'action' }
 TLMoveConnectableAction >> regularActionOn: aTLDrawable [
 	aTLDrawable state at: self stateKey put: aTLDrawable parent.
 	aTLDrawable moveToGroup: self destinationGroup
 ]
 
-{ #category : #action }
+{ #category : 'action' }
 TLMoveConnectableAction >> reverseActionOn: aTLDrawable [
 	aTLDrawable moveToGroup: (aTLDrawable state removeKey: self stateKey)
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLMoveConnectableAction >> shouldTriggerReverseActionFor: aTLDrawable [
 	^ aTLDrawable state at: self stateKey ifPresent: [ true ] ifAbsent: [ false ]
 ]
 
-{ #category : #action }
+{ #category : 'action' }
 TLMoveConnectableAction >> stateKey [
 	^ #movingAction
 ]

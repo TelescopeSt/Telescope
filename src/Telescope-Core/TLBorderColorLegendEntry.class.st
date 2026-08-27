@@ -2,32 +2,34 @@
 I am a static legend entry to add a signification to a border color
 "
 Class {
-	#name : #TLBorderColorLegendEntry,
-	#superclass : #TLStaticLegendEntry,
+	#name : 'TLBorderColorLegendEntry',
+	#superclass : 'TLStaticLegendEntry',
 	#instVars : [
 		'color'
 	],
-	#category : #'Telescope-Core-Model-Legend'
+	#category : 'Telescope-Core-Model-Legend',
+	#package : 'Telescope-Core',
+	#tag : 'Model-Legend'
 }
 
-{ #category : #creation }
+{ #category : 'creation' }
 TLBorderColorLegendEntry class >> description: aString color: aColor [
 	^ (self description: aString)
 		color: aColor;
 		yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLBorderColorLegendEntry >> color [
 	^ color
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLBorderColorLegendEntry >> color: anObject [
 	color := anObject
 ]
 
-{ #category : #generation }
+{ #category : 'generation' }
 TLBorderColorLegendEntry >> generateWith: aTLConnector [
 	^ aTLConnector generateTLBorderColorLegendEntry: self
 ]

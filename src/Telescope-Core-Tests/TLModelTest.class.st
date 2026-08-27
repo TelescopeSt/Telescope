@@ -1,10 +1,12 @@
 Class {
-	#name : #TLModelTest,
-	#superclass : #TestCase,
-	#category : #'Telescope-Core-Tests-Model'
+	#name : 'TLModelTest',
+	#superclass : 'TestCase',
+	#category : 'Telescope-Core-Tests-Model',
+	#package : 'Telescope-Core-Tests',
+	#tag : 'Model'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLModelTest >> testCompositeParentDefinition [
 	| composite node |
 	composite:= TLCompositeNode new.
@@ -14,7 +16,7 @@ TLModelTest >> testCompositeParentDefinition [
 	self assert: composite childrenNodes asArray equals: { node }
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLModelTest >> testRemoveAllFromGroup [
 	| group node1 node2 |
 	group := TLEntitiesGroup new.
@@ -30,7 +32,7 @@ TLModelTest >> testRemoveAllFromGroup [
 	
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLModelTest >> testRemoveAllThenAddAgainGroup [
 	| group subGroup secondSubGroup |
 	group := TLEntitiesGroup new.

@@ -1,19 +1,20 @@
 Class {
-	#name : #TLLayoutTest,
-	#superclass : #TestCase,
+	#name : 'TLLayoutTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'layout'
 	],
-	#category : #'Telescope-Layouts-Tests'
+	#category : 'Telescope-Layouts-Tests',
+	#package : 'Telescope-Layouts-Tests'
 }
 
-{ #category : #running }
+{ #category : 'running' }
 TLLayoutTest >> setUp [
 	super setUp.
 	layout := TLLayout new
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLLayoutTest >> testRotatePoint [
 	"The `00000000000001` are due to float calculation"
 
@@ -25,7 +26,7 @@ TLLayoutTest >> testRotatePoint [
 	self assert: (layout rotatePoint: 5 @ 5) equals: 5.0 @ -5.000000000000001
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLLayoutTest >> testRotateResult [
 	"The `00000000000001` are due to float calculation"
 	layout angle: 90.
@@ -36,7 +37,7 @@ TLLayoutTest >> testRotateResult [
 	self assertCollection: (layout rotateResult: {(5 @ 5)}) hasSameElements: {(5.0 @ -5.000000000000001)}.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLLayoutTest >> testTranslateInPositiveReferencialOneNode [
 	| node |
 	node := Mock named: 'node'.
@@ -53,7 +54,7 @@ TLLayoutTest >> testTranslateInPositiveReferencialOneNode [
 	node should receive position: Any
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLLayoutTest >> testTranslateInPositiveReferencialTwoNodes [
 	| node1 node2 |
 	node1 := Mock named: 'node1'.

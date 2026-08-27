@@ -30,17 +30,19 @@ property
 
 "
 Class {
-	#name : #TLCompositeNode,
-	#superclass : #TLAbstractNode,
+	#name : 'TLCompositeNode',
+	#superclass : 'TLAbstractNode',
 	#instVars : [
 		'childrenGroup',
 		'childrenProperty',
 		'childrenGenerated'
 	],
-	#category : #'Telescope-Core-Model'
+	#category : 'Telescope-Core-Model',
+	#package : 'Telescope-Core',
+	#tag : 'Model'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLCompositeNode class >> withEntity: anEntity childrenProperty: aChildrenProperty childrenNodeCreationStrategy: aChildrenNodeCreationStrategy [
 	^ (self
 		withEntity: anEntity)
@@ -49,50 +51,50 @@ TLCompositeNode class >> withEntity: anEntity childrenProperty: aChildrenPropert
 		yourself
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 TLCompositeNode >> addChild: aTLDrawable [
 	childrenGroup ifNil: [ self childrenGroup: aTLDrawable ] ifNotNil: [ self childrenGroup addChild: aTLDrawable ]
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 TLCompositeNode >> addChildNode: aNode [
 	childrenGroup addDrawable: aNode.
 ]
 
-{ #category : #'children-creation' }
+{ #category : 'children-creation' }
 TLCompositeNode >> addChildNodeFromEntity: anEntity [
 	^ self addChildNodeFromEntity: anEntity withStrategy: TLNodeCreationStrategy default
 ]
 
-{ #category : #'children-creation' }
+{ #category : 'children-creation' }
 TLCompositeNode >> addChildNodeFromEntity: anEntity withStrategy: aNodeCreationStrategy [
 	self requireUpdateAndLayoutApplication.
 	^ self childrenGroup addNodeFromEntity: anEntity withStrategy: aNodeCreationStrategy
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 TLCompositeNode >> addChildrenNodes: aGroupOfNodes [
 	aGroupOfNodes do: [ :node | self addChildNode: node ]
 ]
 
-{ #category : #children }
+{ #category : 'children' }
 TLCompositeNode >> allChildrenCompositeNodes [
 	|allChildrenCompositeNodes|
 	allChildrenCompositeNodes := {self}, self childrenNodes select: [:each | each class = TLCompositeNode].
 	^ (allChildrenCompositeNodes, (self childrenNodes flatCollect: #allChildrenCompositeNodes))
 ]
 
-{ #category : #children }
+{ #category : 'children' }
 TLCompositeNode >> allChildrenNodesRecursivelyDo: aBlock [
 	^ self childrenGroup allNodesRecursivelyDo: aBlock
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLCompositeNode >> allConnections [
 	^ super allConnections union: self childrenGroup allConnections
 ]
 
-{ #category : #children }
+{ #category : 'children' }
 TLCompositeNode >> allNodesRecursively [
 	self deprecated: 'Should not ask to a composite allNodesRecursively, it is something proper to collections'.
 	^ (self childrenGroup flatCollect: #allNodesRecursively)
@@ -100,17 +102,17 @@ TLCompositeNode >> allNodesRecursively [
 		yourself
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TLCompositeNode >> areChildrenGenerated [
 	^ childrenGenerated ifNil: [ childrenGenerated := false ]
 ]
 
-{ #category : #transformation }
+{ #category : 'transformation' }
 TLCompositeNode >> becomeComposite [
 	^ self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLCompositeNode >> childrenGroup [
 	childrenGroup isEmpty
 		ifTrue: [ 
@@ -122,49 +124,49 @@ TLCompositeNode >> childrenGroup [
 	^ childrenGroup
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLCompositeNode >> childrenGroup: anObject [
 	childrenGroup := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLCompositeNode >> childrenLayout [
 	^ self effectiveStyleSheet childrenLayout
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLCompositeNode >> childrenLayout: aLayout [
 	self styleSheet childrenLayout: aLayout
 ]
 
-{ #category : #children }
+{ #category : 'children' }
 TLCompositeNode >> childrenNodeCreationStrategy: aChildrenNodeCreationStrategy [
 	"we need to directly access the attribute to avoid nodes creation without strategy"
 	childrenGroup nodeCreationStrategy: aChildrenNodeCreationStrategy
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLCompositeNode >> childrenNodes [
 	^ self childrenGroup nodes
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLCompositeNode >> childrenProperty [
 	^ childrenProperty
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLCompositeNode >> childrenProperty: anObject [
 	childrenProperty := anObject.
 	self flag: 'Here we should return the node creation strategy of the group but the problem is that nodeCreationStrategy is not necessarly setted before' "^ childrenGroup nodeCreationStrategy"
 ]
 
-{ #category : #connect }
+{ #category : 'connect' }
 TLCompositeNode >> connectChildrenFollowingProperty: aBlockOrSymbol [
 	^ self childrenNodes connectFollowingProperty: aBlockOrSymbol
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TLCompositeNode >> createChildrenNodes [
 	self areChildrenGenerated
 		ifTrue: [ TLCompositeChildrenAlreadyGeneratedException signal ]
@@ -177,25 +179,25 @@ TLCompositeNode >> createChildrenNodes [
 				do: [ self childrenProperty ]) asOrderedCollection
 ]
 
-{ #category : #style }
+{ #category : 'style' }
 TLCompositeNode >> defaultStyle [
 	^ #compositeNode
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLCompositeNode >> entity: anEntity [
 	super entity: anEntity.
 	self areChildrenGenerated
 		ifTrue: [ self childrenGroup removeAll ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLCompositeNode >> expanded [
 	(self state at: #childrenExpanded) ifNil: [ self expanded: self effectiveStyleSheet compositeExpandedByDefault ].
 	^ self state at: #childrenExpanded
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLCompositeNode >> expanded: aBoolean [
 	self state at: #childrenExpanded put: aBoolean.
 	self flag: 'Not sure its necessary to generate the children group if it is not visible'.
@@ -203,7 +205,7 @@ TLCompositeNode >> expanded: aBoolean [
 	childrenGroup isVisible: aBoolean
 ]
 
-{ #category : #'private-connector' }
+{ #category : 'private-connector' }
 TLCompositeNode >> generateWith: aGenerator [
 	| generated |
 	generated := aGenerator generateCompositeNode: self.
@@ -211,17 +213,17 @@ TLCompositeNode >> generateWith: aGenerator [
 	^ generated
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLCompositeNode >> hasChildren [
 	^ self childrenGroup notEmpty
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLCompositeNode >> hasChildrenToDisplay [
 	^ self expanded and: [ self hasChildren ]
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TLCompositeNode >> hierarchyHasChanged [
 	| changedBefore |
 	changedBefore := self hierarchyChanged.
@@ -232,7 +234,7 @@ TLCompositeNode >> hierarchyHasChanged [
 				ifTrue: [ self childrenGroup do: #hierarchyHasChanged ] ]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 TLCompositeNode >> initialize [
 	super initialize.
 	self state at: #childrenExpanded put: nil.
@@ -241,48 +243,48 @@ TLCompositeNode >> initialize [
 		addStyle: #children
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLCompositeNode >> isComposite [
 	^ true
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLCompositeNode >> isCompositeNode [
 	^ true
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLCompositeNode >> isExpanded [
 	"This method name seems more natural than #expanded"
 	
 	^ self expanded
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLCompositeNode >> isLeaf [
 	^ self hasChildrenToDisplay not
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLCompositeNode >> leafs [
 	^ self hasChildrenToDisplay
 		ifTrue: [ self childrenGroup flatCollect: #leafs ]
 		ifFalse: [ {self} ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLCompositeNode >> lowestLevelNodes [
 	|lowestLevelNodes|
 	lowestLevelNodes := self childrenNodes reject: #hasChildren.
 	^ (lowestLevelNodes, (self childrenNodes flatCollect: #lowestLevelNodes))
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLCompositeNode >> nodeCreationStrategy [
 	self error: 'nobody should ask to a composite a nodeCreationStrategy' 
 ]
 
-{ #category : #enumeration }
+{ #category : 'enumeration' }
 TLCompositeNode >> nodesForEntities: aCollectionOfEntities [
 	| result |
 	result := self childrenGroup nodesForEntities: aCollectionOfEntities.
@@ -291,25 +293,25 @@ TLCompositeNode >> nodesForEntities: aCollectionOfEntities [
 	^ result
 ]
 
-{ #category : #removing }
+{ #category : 'removing' }
 TLCompositeNode >> removeChild: aTLDrawable [
 	self childrenGroup remove: aTLDrawable
 ]
 
-{ #category : #'private-connector' }
+{ #category : 'private-connector' }
 TLCompositeNode >> removeWith: aTLConnector [
 	aTLConnector removeCompositeNode: self.
 	self hierarchyChangeManaged
 ]
 
-{ #category : #state }
+{ #category : 'state' }
 TLCompositeNode >> requireUpdate [
 	super requireUpdate.	"Not calling #requireUpdate for the children group because it will create infinite loop"
 	self areChildrenGenerated
 		ifTrue: [ self childrenGroup isUpdateRequired: true ]
 ]
 
-{ #category : #'private-connector' }
+{ #category : 'private-connector' }
 TLCompositeNode >> updateWith: aGenerator [
 	aGenerator updateCompositeNode: self.
 	self hierarchyChangeManaged

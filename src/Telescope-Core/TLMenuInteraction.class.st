@@ -9,40 +9,42 @@ title
 
 "
 Class {
-	#name : #TLMenuInteraction,
-	#superclass : #TLInteraction,
+	#name : 'TLMenuInteraction',
+	#superclass : 'TLInteraction',
 	#instVars : [
 		'title'
 	],
-	#category : #'Telescope-Core-Interactions'
+	#category : 'Telescope-Core-Interactions',
+	#package : 'Telescope-Core',
+	#tag : 'Interactions'
 }
 
-{ #category : #generate }
+{ #category : 'generate' }
 TLMenuInteraction >> generateWith: aTLConnector on: aTLDrawable targeting: aTargetDrawable [
 	aTLConnector generateMenuInteraction: self onDrawable: aTLDrawable targetingDrawable: aTargetDrawable
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLMenuInteraction >> isMenu [
 	^ true
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLMenuInteraction >> isMultiChoiceMenu [
 	^ false
 ]
 
-{ #category : #accessor }
+{ #category : 'accessor' }
 TLMenuInteraction >> kind [
 	^ #menu
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLMenuInteraction >> title [
 	^ title
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLMenuInteraction >> title: anObject [
 	title := anObject
 ]
