@@ -116,7 +116,10 @@ TLSystemComplexity >> root [
 
 { #category : 'accessing' }
 TLSystemComplexity >> root: aRoot [
-	self roots: aRoot asOrderedCollection.
+
+	self roots: (aRoot isCollection
+			 ifTrue: [ aRoot asOrderedCollection ]
+			 ifFalse: [ OrderedCollection with: aRoot ]).
 	self propertyApplicationRequired
 ]
 

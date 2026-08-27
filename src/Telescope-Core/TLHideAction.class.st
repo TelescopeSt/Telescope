@@ -75,9 +75,11 @@ TLHideAction >> initialize [
 
 { #category : 'action' }
 TLHideAction >> regularActionOn: aTLDrawable [
-	(self hiddedDrawables
-		at: aTLDrawable
-		put: (self obtain: self hidingValuableOrEntity on: aTLDrawable) asOrderedCollection) do: #hide
+
+	| entities |
+	entities := self obtain: self hidingValuableOrEntity on: aTLDrawable.
+	entities isCollection ifFalse: [ entities := OrderedCollection with: entities ].
+	(self hiddedDrawables at: aTLDrawable put: entities) do: #hide
 ]
 
 { #category : 'action' }
