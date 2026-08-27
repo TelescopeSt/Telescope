@@ -2,12 +2,14 @@
 A shape of the form of a file
 "
 Class {
-	#name : #TLFileShape,
-	#superclass : #TLSimpleShape,
-	#category : #'Telescope-Core-Shape'
+	#name : 'TLFileShape',
+	#superclass : 'TLSimpleShape',
+	#category : 'Telescope-Core-Shape',
+	#package : 'Telescope-Core',
+	#tag : 'Shape'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLFileShape class >> polygonPoints [
 	^ {(-1 @ 1).
 	(0.3 @ 1).

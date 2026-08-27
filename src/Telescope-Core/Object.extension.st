@@ -1,6 +1,6 @@
-Extension { #name : #Object }
+Extension { #name : 'Object' }
 
-{ #category : #'*Telescope-Core' }
+{ #category : '*Telescope-Core' }
 Object >> isEvaluable [
 	^ self isBlock or: [ self isSymbol ]
 ]

@@ -3,12 +3,14 @@ A TLStyleSheet is a styleSheet specialized for telescope.
 
 "
 Class {
-	#name : #TLStyleSheet,
-	#superclass : #StyleSheet,
-	#category : #'Telescope-Core-Style'
+	#name : 'TLStyleSheet',
+	#superclass : 'StyleSheet',
+	#category : 'Telescope-Core-Style',
+	#package : 'Telescope-Core',
+	#tag : 'Style'
 }
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 TLStyleSheet class >> default [
 	| defaultStyleSheet |
 	defaultStyleSheet := self new
@@ -41,168 +43,168 @@ TLStyleSheet class >> default [
 	^ defaultStyleSheet
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 TLStyleSheet class >> defaultLabelSize [
 	^ 14
 ]
 
-{ #category : #shape }
+{ #category : 'shape' }
 TLStyleSheet >> adaptNodeWidthFromLabel [
 	self width: TLLabelBasedWidth new
 ]
 
-{ #category : #shape }
+{ #category : 'shape' }
 TLStyleSheet >> adaptNodeWidthFromLabelWithDefault: aNumber [
 	self width: (TLLabelBasedWidth defaultWidth: aNumber)
 ]
 
-{ #category : #shape }
+{ #category : 'shape' }
 TLStyleSheet >> backgroundColor [
 	^ self get: #backGroundColor
 ]
 
-{ #category : #shape }
+{ #category : 'shape' }
 TLStyleSheet >> backgroundColor: aColor [ 
 	self at: #backGroundColor put: aColor
 ]
 
-{ #category : #children }
+{ #category : 'children' }
 TLStyleSheet >> beChildrenRecursive [
 	"Be careful by combining this with #compositeExpandedByDefault because it can creates infinite loops"
 	self substyles at: #children put: self.
 ]
 
-{ #category : #shape }
+{ #category : 'shape' }
 TLStyleSheet >> borderColor [
 	^ self get: #borderColor
 ]
 
-{ #category : #shape }
+{ #category : 'shape' }
 TLStyleSheet >> borderColor: aColor [ 
 	self at: #borderColor put: aColor
 ]
 
-{ #category : #shape }
+{ #category : 'shape' }
 TLStyleSheet >> borderStyle [
 	^ self get: #borderStyle
 ]
 
-{ #category : #shape }
+{ #category : 'shape' }
 TLStyleSheet >> borderStyle: aLineStyle [
 	self at: #borderStyle put: aLineStyle
 ]
 
-{ #category : #shape }
+{ #category : 'shape' }
 TLStyleSheet >> borderWidth [
 	^ self get: #borderWidth
 ]
 
-{ #category : #shape }
+{ #category : 'shape' }
 TLStyleSheet >> borderWidth: aWidth [
 	self at: #borderWidth put: aWidth
 ]
 
-{ #category : #children }
+{ #category : 'children' }
 TLStyleSheet >> childrenLayout [
 	^ (self > #children) layout
 ]
 
-{ #category : #children }
+{ #category : 'children' }
 TLStyleSheet >> childrenLayout: aLayout [
 	(self > #children) layout: aLayout
 ]
 
-{ #category : #connection }
+{ #category : 'connection' }
 TLStyleSheet >> color [
 	^ self get: #color
 ]
 
-{ #category : #connection }
+{ #category : 'connection' }
 TLStyleSheet >> color: aValuableOrColor [
 	^ self at: #color put: aValuableOrColor
 ]
 
-{ #category : #children }
+{ #category : 'children' }
 TLStyleSheet >> compositeExpandedByDefault [
 	^ self get: #compositeExpandedByDefault
 ]
 
-{ #category : #children }
+{ #category : 'children' }
 TLStyleSheet >> compositeExpandedByDefault: aBoolean [
 	self at: #compositeExpandedByDefault put: aBoolean
 ]
 
-{ #category : #connection }
+{ #category : 'connection' }
 TLStyleSheet >> connectionLabel [
 	^ self get: #connectionLabel
 ]
 
-{ #category : #connection }
+{ #category : 'connection' }
 TLStyleSheet >> connectionLabel: aValuableOrText [
 	^ self at: #connectionLabel put: aValuableOrText
 ]
 
-{ #category : #connection }
+{ #category : 'connection' }
 TLStyleSheet >> connectionLabelSize [
 	^ self get: #connectionLabelSize
 ]
 
-{ #category : #connection }
+{ #category : 'connection' }
 TLStyleSheet >> connectionLabelSize: aValuableOrInteger [
 	^ self at: #connectionLabelSize put: aValuableOrInteger
 ]
 
-{ #category : #connection }
+{ #category : 'connection' }
 TLStyleSheet >> connectionLineStyle [
 	^ self get: #connectionLineStyle
 ]
 
-{ #category : #connection }
+{ #category : 'connection' }
 TLStyleSheet >> connectionLineStyle: aLineStyle [
 	^ self at: #connectionLineStyle put: aLineStyle
 ]
 
-{ #category : #connection }
+{ #category : 'connection' }
 TLStyleSheet >> connectionStyle [
 	^ self get: #connectionStyle
 ]
 
-{ #category : #connection }
+{ #category : 'connection' }
 TLStyleSheet >> connectionStyle: aConnectionStyle [
 	^ self at: #connectionStyle put: aConnectionStyle
 ]
 
-{ #category : #copying }
+{ #category : 'copying' }
 TLStyleSheet >> copySafeWithout: aCollectionOfProperties [
 	^ self copy removeSafeAll: aCollectionOfProperties; yourself
 ]
 
-{ #category : #connection }
+{ #category : 'connection' }
 TLStyleSheet >> curveStyle [
 	^ self get: #curveStyle
 ]
 
-{ #category : #connection }
+{ #category : 'connection' }
 TLStyleSheet >> curveStyle: aCurveStyle [
 	^ self at: #curveStyle put: aCurveStyle
 ]
 
-{ #category : #children }
+{ #category : 'children' }
 TLStyleSheet >> expandCompositeNodes [
 	self compositeExpandedByDefault: true
 ]
 
-{ #category : #shape }
+{ #category : 'shape' }
 TLStyleSheet >> fontSize [
 	^ self get: #fontSize
 ]
 
-{ #category : #shape }
+{ #category : 'shape' }
 TLStyleSheet >> fontSize: aSize [
 	self at: #fontSize put: aSize 
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TLStyleSheet >> get: aProperty [
 	^ [ super get: aProperty ]
 		on: KeyNotFound
@@ -211,81 +213,81 @@ TLStyleSheet >> get: aProperty [
 				signal ]
 ]
 
-{ #category : #shape }
+{ #category : 'shape' }
 TLStyleSheet >> height [
 	^ self get: #height
 ]
 
-{ #category : #shape }
+{ #category : 'shape' }
 TLStyleSheet >> height: aHeight [
 	self at: #height put: aHeight 
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLStyleSheet >> includesAnySubstyles: aCollectionOfSubstyles [
 	self > #children.
 	^ super includesAnySubstyles: aCollectionOfSubstyles
 ]
 
-{ #category : #label }
+{ #category : 'label' }
 TLStyleSheet >> labelSize [
 	^ self get: #labelSize
 ]
 
-{ #category : #label }
+{ #category : 'label' }
 TLStyleSheet >> labelSize: anIntegerValuable [
 	self at: #labelSize put: anIntegerValuable
 ]
 
-{ #category : #layout }
+{ #category : 'layout' }
 TLStyleSheet >> layout [
 	^ self get: #layout
 ]
 
-{ #category : #layout }
+{ #category : 'layout' }
 TLStyleSheet >> layout: aLayout [
 	self at: #layout put: aLayout
 ]
 
-{ #category : #label }
+{ #category : 'label' }
 TLStyleSheet >> noNodeLabel [
 
 	self nodeLabel: TLNoNodeLabel
 ]
 
-{ #category : #label }
+{ #category : 'label' }
 TLStyleSheet >> nodeLabel [
 	^ self get: #nodeLabel
 ]
 
-{ #category : #label }
+{ #category : 'label' }
 TLStyleSheet >> nodeLabel: aNodeLabelValuable [
 	self at: #nodeLabel put: aNodeLabelValuable
 ]
 
-{ #category : #label }
+{ #category : 'label' }
 TLStyleSheet >> nodeLabel: aNodeLabel position: aNodeLabelPosition [
 	self nodeLabel: aNodeLabel; nodeLabelPosition: aNodeLabelPosition 
 ]
 
-{ #category : #label }
+{ #category : 'label' }
 TLStyleSheet >> nodeLabelMaxWidth [
 	^ self get: #nodeLabelMaxWidth
 ]
 
-{ #category : #label }
+{ #category : 'label' }
 TLStyleSheet >> nodeLabelMaxWidth: anInteger [
 	"Can be 'none', 'wrap' or 'ellipsis'. Note that 'ellipsis' needs to be used with #nodeLabelMaxWidth"
 
 	self at: #nodeLabelMaxWidth put: anInteger
 ]
 
-{ #category : #label }
+{ #category : 'label' }
 TLStyleSheet >> nodeLabelPosition [
 	^ self get: #nodeLabelPosition
 ]
 
-{ #category : #label }
+{ #category : 'label' }
 TLStyleSheet >> nodeLabelPosition: aNodeLabelPosition [
 	self
 		at: #nodeLabelPosition
@@ -295,19 +297,19 @@ TLStyleSheet >> nodeLabelPosition: aNodeLabelPosition [
 				ifFalse: [ TLPosition for: aNodeLabelPosition ])
 ]
 
-{ #category : #label }
+{ #category : 'label' }
 TLStyleSheet >> nodeLabelWrap [
 	^ self get: #nodeLabelWrap
 ]
 
-{ #category : #label }
+{ #category : 'label' }
 TLStyleSheet >> nodeLabelWrap: aString [
 	"Can be 'none', 'wrap' or 'ellipsis'. Note that 'ellipsis' needs to be used with #nodeLabelMaxWidth"
 	
 	self at: #nodeLabelWrap put: aString
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TLStyleSheet >> obtainValue: aPropertyOrValuable forEntity: anEntity inNode: aNode [
 	| result |
 	[ result := aPropertyOrValuable cull: self ]
@@ -325,34 +327,34 @@ TLStyleSheet >> obtainValue: aPropertyOrValuable forEntity: anEntity inNode: aNo
 		ifFalse: [ result ]
 ]
 
-{ #category : #shape }
+{ #category : 'shape' }
 TLStyleSheet >> occupyMaximumSpace [
 	^ self takeAllSpace: true
 ]
 
-{ #category : #shape }
+{ #category : 'shape' }
 TLStyleSheet >> onlyLabelForNodes [
 	self shape: TLNoShape
 ]
 
-{ #category : #layout }
+{ #category : 'layout' }
 TLStyleSheet >> position [
 	^ self get: #position
 ]
 
-{ #category : #layout }
+{ #category : 'layout' }
 TLStyleSheet >> position: aPosition [
 	"The relative to its parent position of a node; if you fill it, the layout will not place the node"
 
 	self at: #position put: aPosition
 ]
 
-{ #category : #removing }
+{ #category : 'removing' }
 TLStyleSheet >> removeIfPresent: aString [ 
 	[self remove: #shape] on: KeyNotFound do: []
 ]
 
-{ #category : #removing }
+{ #category : 'removing' }
 TLStyleSheet >> removeSafeAll: aCollectionOfAttributes [
 	aCollectionOfAttributes
 		do: [ :anAttribute | 
@@ -361,58 +363,58 @@ TLStyleSheet >> removeSafeAll: aCollectionOfAttributes [
 				do: [  ] ]
 ]
 
-{ #category : #shape }
+{ #category : 'shape' }
 TLStyleSheet >> shape [
 	^ self get: #shape
 ]
 
-{ #category : #shape }
+{ #category : 'shape' }
 TLStyleSheet >> shape: aShape [
 	"self assert: (aShape inheritsFrom: TLSimpleShape) description: 'You must provide a subclass of TLSimpleShape'.
 	"self at: #shape put: aShape
 ]
 
-{ #category : #composite }
+{ #category : 'composite' }
 TLStyleSheet >> showChildrenConnectionsOnParent [
 	self shouldBeImplemented.
 ]
 
-{ #category : #shape }
+{ #category : 'shape' }
 TLStyleSheet >> takeAllSpace [
 	^ self get: #takeAllSpace
 ]
 
-{ #category : #shape }
+{ #category : 'shape' }
 TLStyleSheet >> takeAllSpace: aBoolean [
 	self at: #takeAllSpace put: aBoolean
 ]
 
-{ #category : #label }
+{ #category : 'label' }
 TLStyleSheet >> textColor [
 	^ self get: #textColor
 ]
 
-{ #category : #label }
+{ #category : 'label' }
 TLStyleSheet >> textColor: aColor [
 	self at: #textColor put: aColor
 ]
 
-{ #category : #interaction }
+{ #category : 'interaction' }
 TLStyleSheet >> triggerPosition [
 	^ self get: #triggerPosition
 ]
 
-{ #category : #interaction }
+{ #category : 'interaction' }
 TLStyleSheet >> triggerPosition: aTriggerPosition [
 	self at: #triggerPosition put: (TLPosition for: aTriggerPosition)
 ]
 
-{ #category : #shape }
+{ #category : 'shape' }
 TLStyleSheet >> width [
 	^ self get: #width
 ]
 
-{ #category : #shape }
+{ #category : 'shape' }
 TLStyleSheet >> width: aWidth [
 	self at: #width put: aWidth
 ]

@@ -6,16 +6,18 @@ It is useful to create actions between differents visualizations and update ever
 It is not necessary to create it by yourself, prefer to call #updateAlso: on the action.
 "
 Class {
-	#name : #TLUpdateAction,
-	#superclass : #TLDrawableAction,
+	#name : 'TLUpdateAction',
+	#superclass : 'TLDrawableAction',
 	#instVars : [
 		'drawable',
 		'action'
 	],
-	#category : #'Telescope-Core-Actions'
+	#category : 'Telescope-Core-Actions',
+	#package : 'Telescope-Core',
+	#tag : 'Actions'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLUpdateAction class >> drawable: aTLDrawable action: aTLDrawableAction [
 	^ self new
 		drawable: aTLDrawable;
@@ -23,39 +25,39 @@ TLUpdateAction class >> drawable: aTLDrawable action: aTLDrawableAction [
 		yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLUpdateAction >> action [
 	^ action
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLUpdateAction >> action: anObject [
 	action := anObject
 ]
 
-{ #category : #action }
+{ #category : 'action' }
 TLUpdateAction >> actionOn: aTLDrawable [
 	self action actionOn: aTLDrawable.
 	self drawable update.
 ]
 
-{ #category : #action }
+{ #category : 'action' }
 TLUpdateAction >> actionOn: aTLCompositeNode parameter: aParameter [
 	self action actionOn: aTLCompositeNode parameter: aParameter.
 	self drawable update
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLUpdateAction >> drawable [
 	^ drawable
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLUpdateAction >> drawable: anObject [
 	drawable := anObject
 ]
 
-{ #category : #interactions }
+{ #category : 'interactions' }
 TLUpdateAction >> onDrop [
 	^ TLDropInteraction new action: self 
 ]

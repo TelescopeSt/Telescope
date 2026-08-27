@@ -2,143 +2,145 @@
 a TLInteraction is the superclass for every interactions. It contains a TLAction that will be executed on trigger.
 "
 Class {
-	#name : #TLInteraction,
-	#superclass : #TLObject,
+	#name : 'TLInteraction',
+	#superclass : 'TLObject',
 	#instVars : [
 		'action',
 		'container',
 		'inherited'
 	],
-	#category : #'Telescope-Core-Interactions'
+	#category : 'Telescope-Core-Interactions',
+	#package : 'Telescope-Core',
+	#tag : 'Interactions'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLInteraction class >> isAbstract [
 	^ self = TLInteraction
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLInteraction >> action [
 	^ action
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLInteraction >> action: aTLAction [
 	action := aTLAction
 ]
 
-{ #category : #action }
+{ #category : 'action' }
 TLInteraction >> actionOn: something [
 	self action actionOn: something
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLInteraction >> condition [
 	^ self action condition
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLInteraction >> condition: anObject [
 	self action condition: anObject
 ]
 
-{ #category : #accessor }
+{ #category : 'accessor' }
 TLInteraction >> container [
 	^ container
 ]
 
-{ #category : #accessor }
+{ #category : 'accessor' }
 TLInteraction >> container: aTLDrawable [ 
 	container:= aTLDrawable
 ]
 
-{ #category : #generate }
+{ #category : 'generate' }
 TLInteraction >> generateWith: aTLConnector on: aTLDrawable targeting: anObject [
 	self subclassResponsibility 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLInteraction >> inherited [
 	^ inherited
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLInteraction >> inherited: anObject [
 	inherited := anObject
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 TLInteraction >> initialize [
 	super initialize.
 	self inherited: false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLInteraction >> isClientSide [
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLInteraction >> isDrop [
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLInteraction >> isGraphicallyRepresented [
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLInteraction >> isMenu [
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLInteraction >> isMouseOver [
 	^ false
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TLInteraction >> kind [
 	^ self subclassResponsibility 
 ]
 
-{ #category : #children }
+{ #category : 'children' }
 TLInteraction >> propagateToChildren [
 	"This method allow children nodes of composite to inherit interactions from their parent"
 	self inherited: true
 ]
 
-{ #category : #action }
+{ #category : 'action' }
 TLInteraction >> regularActionIfNecessaryOn: aTLSimpleNode [ 
 	self action regularActionIfNecessaryOn: aTLSimpleNode .
 ]
 
-{ #category : #generation }
+{ #category : 'generation' }
 TLInteraction >> removeWith: aConnector [ 
 ]
 
-{ #category : #removing }
+{ #category : 'removing' }
 TLInteraction >> removeWith: aTLConnectorTest forDrawable: aDrawable [ 
 	self removeWith: aTLConnectorTest
 ]
 
-{ #category : #action }
+{ #category : 'action' }
 TLInteraction >> reverseActionOn: something [
 	self action reverseActionOn: something
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TLInteraction >> reverseKind [
 	^ self kind
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLInteraction >> shouldOccursOn: aKindOfInteraction [ 
 	^ self kind = aKindOfInteraction and: [ self condition isNotNil  ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLInteraction >> shouldOccursOn: aKindOfInteraction with: aDrawable [
 	^ self kind = aKindOfInteraction and: [ self condition value: aDrawable ]
 ]

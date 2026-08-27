@@ -2,17 +2,19 @@
 I am a strategy that will restrain the request result to the visible elements in the visualization
 "
 Class {
-	#name : #TLRequestStrategyOnlyVisible,
-	#superclass : #TLRequestStrategy,
-	#category : #'Telescope-Core-Model-Request'
+	#name : 'TLRequestStrategyOnlyVisible',
+	#superclass : 'TLRequestStrategy',
+	#category : 'Telescope-Core-Model-Request',
+	#package : 'Telescope-Core',
+	#tag : 'Model-Request'
 }
 
-{ #category : #optimisation }
+{ #category : 'optimisation' }
 TLRequestStrategyOnlyVisible class >> ignoreVisibility [
 	^ false
 ]
 
-{ #category : #strategy }
+{ #category : 'strategy' }
 TLRequestStrategyOnlyVisible class >> validate: aDrawable [
 	^ aDrawable isVisible
 ]

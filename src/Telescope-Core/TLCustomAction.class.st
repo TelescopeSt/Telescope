@@ -9,35 +9,37 @@ actionBlock
 
 "
 Class {
-	#name : #TLCustomAction,
-	#superclass : #TLDrawableAction,
+	#name : 'TLCustomAction',
+	#superclass : 'TLDrawableAction',
 	#instVars : [
 		'actionBlock'
 	],
-	#category : #'Telescope-Core-Actions'
+	#category : 'Telescope-Core-Actions',
+	#package : 'Telescope-Core',
+	#tag : 'Actions'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLCustomAction class >> block: anActionBlock [
 	^ self new actionBlock: anActionBlock 
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLCustomAction class >> block: anActionBlock condition: aConditionBlock [
 	^ (self block: anActionBlock ) condition: aConditionBlock
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLCustomAction >> actionBlock [
 	^ actionBlock
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLCustomAction >> actionBlock: anObject [
 	actionBlock := anObject
 ]
 
-{ #category : #action }
+{ #category : 'action' }
 TLCustomAction >> actionOn: aTLDrawable [
 	self actionBlock value: aTLDrawable 
 ]

@@ -3,27 +3,29 @@ I represent a link between two nodes.
 
 "
 Class {
-	#name : #TLConnection,
-	#superclass : #TLDrawable,
+	#name : 'TLConnection',
+	#superclass : 'TLDrawable',
 	#instVars : [
 		'fromNode',
 		'toNode'
 	],
-	#category : #'Telescope-Core-Model'
+	#category : 'Telescope-Core-Model',
+	#package : 'Telescope-Core',
+	#tag : 'Model'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLConnection class >> from: fromNode to: toNode visualization: aTLVisualization [
 	^ self new fromNode: fromNode; toNode: toNode; parent: aTLVisualization
 ]
 
-{ #category : #interactions }
+{ #category : 'interactions' }
 TLConnection >> allInteractions [
 	"return the local interactions only"
 	^ self interactions
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnection >> color: aColorOrBlock [
 	self
 		deprecated:
@@ -31,54 +33,54 @@ TLConnection >> color: aColorOrBlock [
 	self styleSheet backgroundColor: aColorOrBlock
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnection >> connectedNodes [
 	^ { self fromNode . self toNode }
 ]
 
-{ #category : #style }
+{ #category : 'style' }
 TLConnection >> defaultStyle [
 	^ #connection
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnection >> entity [
 	^ nil
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnection >> fromNode [
 	^ fromNode
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnection >> fromNode: aNode [
 	aNode ifNotNil: [ aNode addOutgoingConnection: self ].
 	fromNode := aNode
 ]
 
-{ #category : #generation }
+{ #category : 'generation' }
 TLConnection >> generateWith: aTLGenerator [
 	^ aTLGenerator generateConnection: self 
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLConnection >> isConnection [
 	^ true
 ]
 
-{ #category : #generation }
+{ #category : 'generation' }
 TLConnection >> isVisible [
 	^ (super isVisible and: [  self fromNode isVisible]) and: [ self toNode isVisible ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnection >> parent: aNode [
 	self assert: (aNode isNil or: [ aNode isVisualization ]) description: 'Only visualizations can have connections as childrens'.
 	parent := aNode
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 TLConnection >> printOn: aStream [
 	super printOn: aStream.
 	aStream << ':('.
@@ -88,12 +90,12 @@ TLConnection >> printOn: aStream [
 	aStream << ')'
 ]
 
-{ #category : #generation }
+{ #category : 'generation' }
 TLConnection >> removeWith: aTLConnector [
 	aTLConnector removeConnection: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnection >> removed [
 	super removed.
 	self fromNode removeOutgoingConnection: self.
@@ -102,29 +104,29 @@ TLConnection >> removed [
 	self toNode: nil.
 ]
 
-{ #category : #state }
+{ #category : 'state' }
 TLConnection >> requireUpdate [
 	super requireUpdate.
 	"self shape updateWithDrawable: self"
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnection >> toNode [
 	^ toNode
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnection >> toNode: aNode [
 	aNode ifNotNil: [ aNode addIncomingConnection: self ].
 	toNode := aNode
 ]
 
-{ #category : #generation }
+{ #category : 'generation' }
 TLConnection >> updateWith: aGenerator [
 	aGenerator updateConnection: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnection >> withConnectedNodes [
 	^ { self . self fromNode . self toNode }
 ]

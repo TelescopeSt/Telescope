@@ -2,7 +2,9 @@
 I am the enum value for using direct  lines
 "
 Class {
-	#name : #TLDirectCurve,
-	#superclass : #TLCurveStyle,
-	#category : #'Telescope-Core-Style'
+	#name : 'TLDirectCurve',
+	#superclass : 'TLCurveStyle',
+	#category : 'Telescope-Core-Style',
+	#package : 'Telescope-Core',
+	#tag : 'Style'
 }

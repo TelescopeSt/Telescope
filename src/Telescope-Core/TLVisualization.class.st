@@ -15,76 +15,78 @@ title
 
 "
 Class {
-	#name : #TLVisualization,
-	#superclass : #TLEntitiesGroup,
+	#name : 'TLVisualization',
+	#superclass : 'TLEntitiesGroup',
 	#instVars : [
 		'title',
 		'legend',
 		'openingDimension',
 		'shouldReplaceCameraWhenUpdating'
 	],
-	#category : #'Telescope-Core-Model'
+	#category : 'Telescope-Core-Model',
+	#package : 'Telescope-Core',
+	#tag : 'Model'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLVisualization class >> fromEntities: aCollection [
 	^ self new
 		addNodesFromEntities: aCollection;
 		yourself
 ]
 
-{ #category : #building }
+{ #category : 'building' }
 TLVisualization >> buildLegend [
 ]
 
-{ #category : #building }
+{ #category : 'building' }
 TLVisualization >> buildVisualization [
 	self buildLegend 
 ]
 
-{ #category : #building }
+{ #category : 'building' }
 TLVisualization >> buildVisualizationOn: aView [
 	self generator view: aView.
 	self generate
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLVisualization >> close [
 	self generator closeVisualization
 ]
 
-{ #category : #layout }
+{ #category : 'layout' }
 TLVisualization >> configLayout [
 	
 ]
 
-{ #category : #style }
+{ #category : 'style' }
 TLVisualization >> defaultBackgroundColor [
 	^ MDLColor orange lighter alpha:0.6
 ]
 
-{ #category : #default }
+{ #category : 'default' }
 TLVisualization >> defaultConnector [
 	^ TLCurrentConnector value new
 ]
 
-{ #category : #style }
+{ #category : 'style' }
 TLVisualization >> defaultStyle [
 	^ #visualization
 ]
 
-{ #category : #default }
+{ #category : 'default' }
 TLVisualization >> defaultTitle [
 	^ ''
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLVisualization >> fullScreenOpening [
 	self deprecated: 'This option is linked to Morphic and Pharo display. In the next major version of Pharo it will be removed. This option should be implemented in Connectors of Telescope rendering in Pharo instead.'.
 	self openingDimension: self currentWorld fullBounds
 ]
 
-{ #category : #'private-connector' }
+{ #category : 'private-connector' }
 TLVisualization >> generateWith: aTLConnector [
 	| generated |
 	self buildVisualization.
@@ -94,23 +96,23 @@ TLVisualization >> generateWith: aTLConnector [
 	^ generated
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLVisualization >> generator [
 	generator ifNil: [ self generator: self defaultConnector ].
 	^ generator
 ]
 
-{ #category : #'private-connector' }
+{ #category : 'private-connector' }
 TLVisualization >> hasBeenGenerated [
 	^ self state at: #hasBeenGenerated ifAbsentPut: [ false ]
 ]
 
-{ #category : #'private-connector' }
+{ #category : 'private-connector' }
 TLVisualization >> hasBeenGenerated: aBoolean [
 	^ self state at: #hasBeenGenerated put: aBoolean
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 TLVisualization >> initialize [
 	super initialize.
 	self styleSheet: TLStyleSheet default.
@@ -121,33 +123,33 @@ TLVisualization >> initialize [
 	self configLayout
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLVisualization >> isVisualization [
 	^ true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLVisualization >> leafs [
 	^ self telescopeEntities flatCollect: #leafs
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLVisualization >> legend [
 	^ legend
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLVisualization >> legend: aTLLegend [
 	legend := aTLLegend.
 	aTLLegend parent: self
 ]
 
-{ #category : #'ui - notifying' }
+{ #category : 'ui - notifying' }
 TLVisualization >> notify: aString [
 	self generator notify: aString forVisualization: self
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLVisualization >> open [
 	[ self generator open: self inWindowSized: self openingDimension titled: self title ]
 		on: TLNoConnectorException
@@ -160,54 +162,54 @@ You are currently missing a connector to render the visualization. You can find 
 				title: 'No connector present in the image' ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLVisualization >> openingDimension [
 	^ openingDimension
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLVisualization >> openingDimension: anObject [
 	openingDimension := anObject
 ]
 
-{ #category : #camera }
+{ #category : 'camera' }
 TLVisualization >> replaceCameraWhenUpdating [
 	shouldReplaceCameraWhenUpdating := true
 ]
 
-{ #category : #state }
+{ #category : 'state' }
 TLVisualization >> requireUpdate [
 	super requireUpdate.
 	self legend ifNotNil: [ :aLegend | aLegend requireUpdate ]
 ]
 
-{ #category : #camera }
+{ #category : 'camera' }
 TLVisualization >> shouldReplaceCameraWhenUpdating [
 	^ shouldReplaceCameraWhenUpdating
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLVisualization >> title [
 	title ifNil: [ self title: ('Telescope ', self defaultTitle, ' Visualization') ].
 	^ title
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLVisualization >> title: anObject [
 	title := anObject
 ]
 
-{ #category : #'private-connector' }
+{ #category : 'private-connector' }
 TLVisualization >> updateWith: aTLGenerator [
 	aTLGenerator updateVisualization: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLVisualization >> visualization [
 	^ self
 ]
 
-{ #category : #dimension }
+{ #category : 'dimension' }
 TLVisualization >> visualizationDimension [
 	^ 1200 @ 720
 ]

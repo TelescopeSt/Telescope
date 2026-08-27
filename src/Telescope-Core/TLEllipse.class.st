@@ -3,7 +3,9 @@ A TLEllipse is an enum value for an Ellipse.
 
 "
 Class {
-	#name : #TLEllipse,
-	#superclass : #TLSimpleShape,
-	#category : #'Telescope-Core-Shape'
+	#name : 'TLEllipse',
+	#superclass : 'TLSimpleShape',
+	#category : 'Telescope-Core-Shape',
+	#package : 'Telescope-Core',
+	#tag : 'Shape'
 }

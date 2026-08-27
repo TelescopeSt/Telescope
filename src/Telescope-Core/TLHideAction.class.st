@@ -23,67 +23,71 @@ Internal Representation and Key Implementation Points.
 
 "
 Class {
-	#name : #TLHideAction,
-	#superclass : #TLReversibleNodeAction,
+	#name : 'TLHideAction',
+	#superclass : 'TLReversibleNodeAction',
 	#instVars : [
 		'hidingValuableOrEntity',
 		'hiddedDrawables'
 	],
-	#category : #'Telescope-Core-Actions'
+	#category : 'Telescope-Core-Actions',
+	#package : 'Telescope-Core',
+	#tag : 'Actions'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLHideAction class >> hide: aTLDrawable [
 	^ self new
 		hidingValuableOrEntity: aTLDrawable;
 		yourself
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLHideAction class >> on: aTLDrawable [
 	^ self hide: aTLDrawable
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLHideAction >> hiddedDrawables [
 	^ hiddedDrawables
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLHideAction >> hiddedDrawables: anObject [
 	hiddedDrawables := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLHideAction >> hidingValuableOrEntity [
 	^ hidingValuableOrEntity
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLHideAction >> hidingValuableOrEntity: anObject [
 	hidingValuableOrEntity := anObject
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 TLHideAction >> initialize [
 	super initialize.
 	self hiddedDrawables: Dictionary new.
 	self hidingValuableOrEntity: #yourself
 ]
 
-{ #category : #action }
+{ #category : 'action' }
 TLHideAction >> regularActionOn: aTLDrawable [
-	(self hiddedDrawables
-		at: aTLDrawable
-		put: (self obtain: self hidingValuableOrEntity on: aTLDrawable) asOrderedCollection) do: #hide
+
+	| entities |
+	entities := self obtain: self hidingValuableOrEntity on: aTLDrawable.
+	entities isCollection ifFalse: [ entities := OrderedCollection with: entities ].
+	(self hiddedDrawables at: aTLDrawable put: entities) do: #hide
 ]
 
-{ #category : #action }
+{ #category : 'action' }
 TLHideAction >> reverseActionOn: aTLDrawable [
 	(self hiddedDrawables removeKey: aTLDrawable) do: #show
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLHideAction >> shouldTriggerReverseActionFor: aTLDrawable [
 	self hiddedDrawables at: aTLDrawable ifAbsent: [ ^ false ].
 	^ true

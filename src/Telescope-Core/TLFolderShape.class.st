@@ -2,12 +2,14 @@
 A shape of the form of a folder
 "
 Class {
-	#name : #TLFolderShape,
-	#superclass : #TLSimpleShape,
-	#category : #'Telescope-Core-Shape'
+	#name : 'TLFolderShape',
+	#superclass : 'TLSimpleShape',
+	#category : 'Telescope-Core-Shape',
+	#package : 'Telescope-Core',
+	#tag : 'Shape'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLFolderShape class >> polygonPoints [
 	^ {(-1 @ 0.6).
 	(-0.8 @ 0.9).

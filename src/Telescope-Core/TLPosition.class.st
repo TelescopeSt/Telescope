@@ -2,49 +2,51 @@
 I represent a position relative to an element
 "
 Class {
-	#name : #TLPosition,
-	#superclass : #TLObject,
+	#name : 'TLPosition',
+	#superclass : 'TLObject',
 	#instVars : [
 		'horizontal',
 		'vertical'
 	],
-	#category : #'Telescope-Core-Style'
+	#category : 'Telescope-Core-Style',
+	#package : 'Telescope-Core',
+	#tag : 'Style'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLPosition class >> bottom [
 	^ self new bottom
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLPosition class >> for: aLabelOrPosition [
 	^ aLabelOrPosition class = self
 		ifTrue: [ aLabelOrPosition ]
 		ifFalse: [ self new perform: aLabelOrPosition ]
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLPosition class >> left [
 	^ self new left
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLPosition class >> right [
 	^ self new right
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLPosition class >> top [
 	^ self new top
 ]
 
-{ #category : #positions }
+{ #category : 'positions' }
 TLPosition >> bottom [
 	self
 		vertical: #bottom
 ]
 
-{ #category : #positions }
+{ #category : 'positions' }
 TLPosition >> computePositionOf: anElementTrigger relativeTo: anElementNode [
 	| rectangle x y |
 	rectangle := anElementNode encompassingRectangle.
@@ -59,48 +61,48 @@ TLPosition >> computePositionOf: anElementTrigger relativeTo: anElementNode [
 	^ x @ y
 ]
 
-{ #category : #evaluating }
+{ #category : 'evaluating' }
 TLPosition >> cull: anEntity cull: aNode [
 	^ self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLPosition >> horizontal [
 	^ horizontal
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLPosition >> horizontal: horizontalPosition [
 	self assert: (#(left center right) includes: horizontalPosition) description: 'Horizontal position must be left, center or right'.
 	horizontal := horizontalPosition
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 TLPosition >> initialize [
 	super initialize.
 	self horizontal: #center;
 		vertical: #center
 ]
 
-{ #category : #positions }
+{ #category : 'positions' }
 TLPosition >> inside [
 	self
 		horizontal: #center;
 		vertical: #center
 ]
 
-{ #category : #positions }
+{ #category : 'positions' }
 TLPosition >> insideCentered [
 	self inside
 ]
 
-{ #category : #positions }
+{ #category : 'positions' }
 TLPosition >> left [
 	self
 		horizontal: #left
 ]
 
-{ #category : #helper }
+{ #category : 'helper' }
 TLPosition >> reversed [
 	| opposed |
 	self flag: 'Optimisation: do not create this dictionary each time'.
@@ -114,24 +116,24 @@ TLPosition >> reversed [
 		yourself
 ]
 
-{ #category : #positions }
+{ #category : 'positions' }
 TLPosition >> right [
 	self
 		horizontal: #right
 ]
 
-{ #category : #positions }
+{ #category : 'positions' }
 TLPosition >> top [
 	self
 		vertical: #top
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLPosition >> vertical [
 	^ vertical
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLPosition >> vertical: verticalPosition [
 	self assert: (#(top center bottom) includes: verticalPosition) description: 'VerticalPosition position must be top, center or bottom'.
 	vertical := verticalPosition

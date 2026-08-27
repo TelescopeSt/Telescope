@@ -1,6 +1,6 @@
 Class {
-	#name : #TLClientInteraction,
-	#superclass : #TLInteraction,
+	#name : 'TLClientInteraction',
+	#superclass : 'TLInteraction',
 	#instVars : [
 		'eventType',
 		'fctName'
@@ -8,10 +8,12 @@ Class {
 	#classInstVars : [
 		'id'
 	],
-	#category : #'Telescope-Core-Interactions'
+	#category : 'Telescope-Core-Interactions',
+	#package : 'Telescope-Core',
+	#tag : 'Interactions'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLClientInteraction class >> nextId [
 	| result |
 	id ifNil: [ id := 0 ].
@@ -20,27 +22,27 @@ TLClientInteraction class >> nextId [
 	^ id
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLClientInteraction >> eventType [
 	^ eventType
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLClientInteraction >> eventType: anObject [
 	eventType := anObject
 ]
 
-{ #category : #generate }
+{ #category : 'generate' }
 TLClientInteraction >> generateWith: aTLConnector on: aTLDrawable targeting: aTargetDrawable [
 	aTLConnector generateClientInteraction: self onDrawable: aTLDrawable targetingDrawable: aTargetDrawable
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLClientInteraction >> isClientSide [
 	^ true
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TLClientInteraction >> kind [
 	^ #client
 ]

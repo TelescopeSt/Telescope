@@ -3,17 +3,19 @@ A TLInvalidPosition is send when the user provide a symbol that doesn't match a 
 
 "
 Class {
-	#name : #TLInvalidPositionException,
-	#superclass : #TLError,
-	#category : #'Telescope-Core-Exceptions'
+	#name : 'TLInvalidPositionException',
+	#superclass : 'TLError',
+	#category : 'Telescope-Core-Exceptions',
+	#package : 'Telescope-Core',
+	#tag : 'Exceptions'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLInvalidPositionException >> description [
 	^ super description, ' (Valid positions are #top #bottom #left #right #inside)'
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 TLInvalidPositionException >> initialize [
 	super initialize.
 	self messageText: 'Valid positions are #top #bottom #left #right #inside'
