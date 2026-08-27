@@ -1,10 +1,11 @@
 Class {
-	#name : #TLGroupDemoFilter,
-	#superclass : #TLAbstractDemoFilter,
-	#category : #'Telescope-Demo'
+	#name : 'TLGroupDemoFilter',
+	#superclass : 'TLAbstractDemoFilter',
+	#category : 'Telescope-Demo',
+	#package : 'Telescope-Demo'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLGroupDemoFilter class >> filterSymbol [
 	^ #group
 ]

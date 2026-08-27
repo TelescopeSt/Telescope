@@ -2,16 +2,17 @@
 I am the superclass for all layouts in Telescope. A layout is able to display drawables (nodes and groups) following its own logic and parameters.
 "
 Class {
-	#name : #TLLayout,
-	#superclass : #Object,
+	#name : 'TLLayout',
+	#superclass : 'Object',
 	#instVars : [
 		'angle',
 		'cache'
 	],
-	#category : 'Telescope-Layouts'
+	#category : 'Telescope-Layouts',
+	#package : 'Telescope-Layouts'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLLayout class >> angle: anAngle [
 	"The angle to rotate the layout in degree CCW. 
 	
@@ -26,39 +27,39 @@ TLLayout class >> angle: anAngle [
 		yourself
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLLayout class >> bottomToTop [
 	^ self new bottomToTop
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLLayout class >> isConnectionDependant [
 	"For some optimisation we might want to know if our current layout depend on connections between nodes or not. For example the tree layout depend on connections between nodes but the linear layout doesn't depend on them. Thus my subclasses using connections in the layout should override this method."
 
 	^ false
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLLayout class >> leftToRight [
 	^ self new leftToRight
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLLayout class >> on: aGroup [ 
 	^ self new on: aGroup 
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLLayout class >> rightToLeft [
 	^ self new rightToLeft
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLLayout class >> topToBottom [
 	^ self new topToBottom
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLLayout >> angle [
 	"The angle to rotate the layout in degree CCW. 
 	
@@ -71,7 +72,7 @@ TLLayout >> angle [
 	^ angle
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLLayout >> angle: anObject [
 	"The angle to rotate the layout in degree CCW. 
 	
@@ -84,68 +85,68 @@ TLLayout >> angle: anObject [
 	angle := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLLayout >> angleInRadians: anAngleInDegrees [
 	^ anAngleInDegrees degreesToRadians negated
 ]
 
-{ #category : #angle }
+{ #category : 'angle' }
 TLLayout >> bottomToTop [
 	self angle: 270
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLLayout >> cache [
 	^ cache
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLLayout >> cache: anObject [
 	cache := anObject
 ]
 
-{ #category : #'node facade' }
+{ #category : 'node facade' }
 TLLayout >> changeNode: aNode dimension: aNewDimension [
 	aNode dimension: (self obtainsDimension: aNewDimension forAngle: self angle negated).
 	TLNodeDimensionChanged signalForNode: aNode.
 ]
 
-{ #category : #placing }
+{ #category : 'placing' }
 TLLayout >> clearCache [
 	cache := Dictionary new
 ]
 
-{ #category : #'node facade' }
+{ #category : 'node facade' }
 TLLayout >> definePosition: aPosition forNode: aNode [
 	"Layouts are always working in an ideal reference, then we place the node with the desired rotation"
 
 	self cache at: aNode put: aPosition
 ]
 
-{ #category : #placing }
+{ #category : 'placing' }
 TLLayout >> executeOn: aGroup [
 	"It is the main method of a layout and will define group elements positions"
 	self subclassResponsibility 
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 TLLayout >> initialize [
 	super initialize.
 	self angle: 0.
 	self clearCache
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLLayout >> isConnectionDependant [
 	^ self class isConnectionDependant
 ]
 
-{ #category : #angle }
+{ #category : 'angle' }
 TLLayout >> leftToRight [
 	self angle: 0
 ]
 
-{ #category : #'node facade' }
+{ #category : 'node facade' }
 TLLayout >> obtainsDimension: nodeDimension forAngle: anAngleInDegree [
 	"Here we have optimisation to avoid creating Rectangles if result is easy to determine"
 
@@ -167,7 +168,7 @@ TLLayout >> obtainsDimension: nodeDimension forAngle: anAngleInDegree [
 								- (rotatedPoints inject: 0 into: [ :value :point | point y min: value ])) ] ]
 ]
 
-{ #category : #'node facade' }
+{ #category : 'node facade' }
 TLLayout >> obtainsNodeDimension: aNode [
 	aNode isNode
 		ifTrue: [ aNode children size > 0
@@ -175,12 +176,12 @@ TLLayout >> obtainsNodeDimension: aNode [
 	^ self obtainsNodeDimension: aNode forAngle: self angle
 ]
 
-{ #category : #'node facade' }
+{ #category : 'node facade' }
 TLLayout >> obtainsNodeDimension: aNode forAngle: anAngleInDegree [
 	^ self obtainsDimension: aNode dimension forAngle: anAngleInDegree
 ]
 
-{ #category : #placing }
+{ #category : 'placing' }
 TLLayout >> on: aGroup [
 	"It is the main method of a layout and will define group elements positions"
 	| result |
@@ -192,14 +193,14 @@ TLLayout >> on: aGroup [
 	self translateInPositiveReferencial: result
 ]
 
-{ #category : #placing }
+{ #category : 'placing' }
 TLLayout >> prepareFor: aGroup [
 	"It is a hook for layouts needing to prepare themselves before placing nodes"
 
 	
 ]
 
-{ #category : #placing }
+{ #category : 'placing' }
 TLLayout >> restoreNodes: aGroup [
 	aGroup
 		do: [ :aNode | 
@@ -207,29 +208,29 @@ TLLayout >> restoreNodes: aGroup [
 				ifTrue: [ aNode restoreOriginalDimension ] ]
 ]
 
-{ #category : #angle }
+{ #category : 'angle' }
 TLLayout >> rightToLeft [
 	self angle: 180
 ]
 
-{ #category : #placing }
+{ #category : 'placing' }
 TLLayout >> rotatePoint: aPosition [
 	^ self angle = 0
 		ifTrue: [ aPosition ]
 		ifFalse: [ aPosition rotateBy: (self angleInRadians: self angle) about: 0 @ 0 ]
 ]
 
-{ #category : #placing }
+{ #category : 'placing' }
 TLLayout >> rotateResult: aCollectionOfPoints [
 	^ aCollectionOfPoints collect: [ :aPosition | self rotatePoint: aPosition ]
 ]
 
-{ #category : #angle }
+{ #category : 'angle' }
 TLLayout >> topToBottom [
 	self angle: 90
 ]
 
-{ #category : #placing }
+{ #category : 'placing' }
 TLLayout >> translateInPositiveReferencial: result [
 	| vector |
 	vector := result associations

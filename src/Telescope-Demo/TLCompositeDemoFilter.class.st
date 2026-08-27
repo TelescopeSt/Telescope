@@ -1,10 +1,11 @@
 Class {
-	#name : #TLCompositeDemoFilter,
-	#superclass : #TLAbstractDemoFilter,
-	#category : #'Telescope-Demo'
+	#name : 'TLCompositeDemoFilter',
+	#superclass : 'TLAbstractDemoFilter',
+	#category : 'Telescope-Demo',
+	#package : 'Telescope-Demo'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLCompositeDemoFilter class >> filterSymbol [
 	^ #composite
 ]
