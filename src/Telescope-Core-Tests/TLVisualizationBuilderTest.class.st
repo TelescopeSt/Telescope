@@ -1,14 +1,16 @@
 Class {
-	#name : #TLVisualizationBuilderTest,
-	#superclass : #TestCase,
+	#name : 'TLVisualizationBuilderTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'mockGenerator',
 		'visualization'
 	],
-	#category : #'Telescope-Core-Tests-Model'
+	#category : 'Telescope-Core-Tests-Model',
+	#package : 'Telescope-Core-Tests',
+	#tag : 'Model'
 }
 
-{ #category : #running }
+{ #category : 'running' }
 TLVisualizationBuilderTest >> setUp [
 	super setUp.
 	visualization := TLVisualization new.
@@ -16,21 +18,21 @@ TLVisualizationBuilderTest >> setUp [
 	visualization generator: mockGenerator.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLVisualizationBuilderTest >> testAddEntitiesinGroup [
 	visualization > #testGroup addNodesFromEntities: (1 to: 5).
 	self assert: (visualization subGroupsDictionary includesKey: #testGroup).
 	self assert: (visualization subGroupsDictionary at: #testGroup) size equals: 5.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLVisualizationBuilderTest >> testConnectEntitiesTo [
 	visualization > #testGroup addNodesFromEntities: (1 to: 5).
 	visualization > #testGroup connectInsideGroupEntities: (1 to: 3) to: (4 to: 5).
 	self assert: visualization allConnections size equals: 6
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLVisualizationBuilderTest >> testGroupIsCreated [
 	| group |
 	self assert: visualization subGroupsDictionary size equals: 0.

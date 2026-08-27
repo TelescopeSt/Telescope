@@ -1,13 +1,15 @@
 Class {
-	#name : #TLCompositeNodeTest,
-	#superclass : #TestCase,
+	#name : 'TLCompositeNodeTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'node'
 	],
-	#category : #'Telescope-Core-Tests-Model'
+	#category : 'Telescope-Core-Tests-Model',
+	#package : 'Telescope-Core-Tests',
+	#tag : 'Model'
 }
 
-{ #category : #running }
+{ #category : 'running' }
 TLCompositeNodeTest >> setUp [
 	super setUp.
 	node := TLCompositeNode new.
@@ -15,7 +17,7 @@ TLCompositeNodeTest >> setUp [
 	
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLCompositeNodeTest >> testChildrenCreationWithBlock [
 	node entity: 42.
 	node childrenProperty: [ :entity | 
@@ -28,7 +30,7 @@ TLCompositeNodeTest >> testChildrenCreationWithBlock [
 	self assert: node childrenNodes third entity equals: 3
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLCompositeNodeTest >> testChildrenCreationWithCollectionOfEntities [
 	node childrenProperty: #(1 2 3).
 	node createChildrenNodes.
@@ -38,7 +40,7 @@ TLCompositeNodeTest >> testChildrenCreationWithCollectionOfEntities [
 	self assert: node childrenNodes third entity equals: 3
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLCompositeNodeTest >> testChildrenCreationWithProperty [
 	node entity: 30.
 	node childrenProperty: #primeFactors.
@@ -49,7 +51,7 @@ TLCompositeNodeTest >> testChildrenCreationWithProperty [
 	self assert: node childrenNodes third entity equals: 5
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLCompositeNodeTest >> testMoveChildNodeFromOneParentToAnother [
 	| childNode anotherNode |
 	childNode := node addChildNodeFromEntity: #child.
@@ -60,7 +62,7 @@ TLCompositeNodeTest >> testMoveChildNodeFromOneParentToAnother [
 	self assert: childNode parent equals: anotherNode
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLCompositeNodeTest >> testMoveChildNodeFromOneParentToTheSame [
 	| childNode  |
 	childNode := node addChildNodeFromEntity: #child.

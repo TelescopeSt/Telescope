@@ -1,19 +1,21 @@
 Class {
-	#name : #TLGradientTest,
-	#superclass : #TestCase,
+	#name : 'TLGradientTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'gradient'
 	],
-	#category : #'Telescope-Core-Tests-Style'
+	#category : 'Telescope-Core-Tests-Style',
+	#package : 'Telescope-Core-Tests',
+	#tag : 'Style'
 }
 
-{ #category : #running }
+{ #category : 'running' }
 TLGradientTest >> setUp [
 	super setUp.
 	gradient:= TLGradient new levelProperty: #yourself.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLGradientTest >> testRatioForLevel [
 	gradient to: Color red at: 5.
 	gradient to: Color green at: 15.

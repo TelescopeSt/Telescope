@@ -1,25 +1,27 @@
 Class {
-	#name : #TLNodeCreationStrategyTest,
-	#superclass : #TestCase,
+	#name : 'TLNodeCreationStrategyTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'strategy'
 	],
-	#category : #'Telescope-Core-Tests-Strategies'
+	#category : 'Telescope-Core-Tests-Strategies',
+	#package : 'Telescope-Core-Tests',
+	#tag : 'Strategies'
 }
 
-{ #category : #running }
+{ #category : 'running' }
 TLNodeCreationStrategyTest >> setUp [
 	super setUp.
 	strategy := TLNodeCreationStrategy new
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLNodeCreationStrategyTest >> testCompositePropertyFillingAddADefaultChildrenNodeCreationStrategy [
 	strategy compositeProperty: #whatever.
 	self assert: strategy childrenStrategy notNil.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLNodeCreationStrategyTest >> testCompositeWithLayout [
 	| node |
 	strategy := TLNodeCreationStrategy composite: [ :i | i + 1 to: i + 5 ] withLayout: #aFakeLayout.
@@ -28,7 +30,7 @@ TLNodeCreationStrategyTest >> testCompositeWithLayout [
 	self assert: node childrenLayout equals: #aFakeLayout
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLNodeCreationStrategyTest >> testStrategyDefiningStyleForNode [
 	| node |
 	strategy nodeStyle: #myStyle.
@@ -36,7 +38,7 @@ TLNodeCreationStrategyTest >> testStrategyDefiningStyleForNode [
 	self assert: node styles equals: {#node . #myStyle} asOrderedCollection
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLNodeCreationStrategyTest >> testStrategyForCompositeNodeCreation [
 	| node |
 	strategy compositeProperty: (1 to: 9).
@@ -46,7 +48,7 @@ TLNodeCreationStrategyTest >> testStrategyForCompositeNodeCreation [
 	self assert: node childrenNodes size equals: 9
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLNodeCreationStrategyTest >> testStrategyForCompositeNodeCreationAlsoCreatingComposite [
 	| node |
 	(strategy compositeProperty: {1}) childrenProperty: [:i | i to: i + 1].

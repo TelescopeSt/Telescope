@@ -1,25 +1,27 @@
 Class {
-	#name : #TLVisualizationTest,
-	#superclass : #TestCase,
+	#name : 'TLVisualizationTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'visualization'
 	],
-	#category : #'Telescope-Core-Tests-Model'
+	#category : 'Telescope-Core-Tests-Model',
+	#package : 'Telescope-Core-Tests',
+	#tag : 'Model'
 }
 
-{ #category : #running }
+{ #category : 'running' }
 TLVisualizationTest >> setUp [
 	super setUp.
 	visualization := TLMockVisualization create
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLVisualizationTest >> testChildrenNodeInVisu [
 	self assert: visualization allChildrenNodes first effectiveStyleSheet backgroundColor equals: Color yellow.
 	self assert: visualization allChildrenNodes first effectiveStyleSheet shape equals: TLEllipse.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLVisualizationTest >> testRemovedNodeHasNoConnection [
 	| node |
 	visualization > #one addNodesFromEntities: (1 to: 4).
@@ -33,7 +35,7 @@ TLVisualizationTest >> testRemovedNodeHasNoConnection [
 	(visualization > #three) do: [ :aNode | self assert: aNode allConnections isEmpty ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLVisualizationTest >> testVisualizationLayout [
 	self assert: (visualization layout isKindOf: TLLinearLayout )
 ]

@@ -1,10 +1,12 @@
 Class {
-	#name : #TLConnectWithEntityActionTest,
-	#superclass : #TestCase,
-	#category : #'Telescope-Core-Tests-Actions'
+	#name : 'TLConnectWithEntityActionTest',
+	#superclass : 'TestCase',
+	#category : 'Telescope-Core-Tests-Actions',
+	#package : 'Telescope-Core-Tests',
+	#tag : 'Actions'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLConnectWithEntityActionTest >> testTriggerAction [
 	| connectAction sourceNode targetNode |
 	sourceNode := TLSimpleNode withEntity: 4.
@@ -21,7 +23,7 @@ TLConnectWithEntityActionTest >> testTriggerAction [
 		equals: targetNode incomingConnections anyOne
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLConnectWithEntityActionTest >> testTriggerActionTwiceForReversibility [
 	"this test is valid only if testTriggerAction is valid"
 	| connectAction sourceNode targetNode |

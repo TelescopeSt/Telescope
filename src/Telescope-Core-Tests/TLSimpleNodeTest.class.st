@@ -1,26 +1,28 @@
 Class {
-	#name : #TLSimpleNodeTest,
-	#superclass : #TestCase,
+	#name : 'TLSimpleNodeTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'node'
 	],
-	#category : #'Telescope-Core-Tests-Model'
+	#category : 'Telescope-Core-Tests-Model',
+	#package : 'Telescope-Core-Tests',
+	#tag : 'Model'
 }
 
-{ #category : #running }
+{ #category : 'running' }
 TLSimpleNodeTest >> setUp [
 	super setUp.
 	node := TLSimpleNode new
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLSimpleNodeTest >> testAddStyleRequireUpdate [
 	self deny: node isUpdateRequired.
 	node addStyle: #style.
 	self assert: node isUpdateRequired
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLSimpleNodeTest >> testAdjacentNodes [
 	| nodeFrom nodeTo |
 	nodeFrom := TLSimpleNode new.
@@ -30,14 +32,14 @@ TLSimpleNodeTest >> testAdjacentNodes [
 	self assert: node adjacentNodes asSet equals: { nodeFrom . nodeTo } asSet
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLSimpleNodeTest >> testBecomeComposite [
 	self deny: node isComposite.
 	node becomeComposite.
 	self assert: node isComposite
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLSimpleNodeTest >> testConnectionCreation [
 	| anotherNode visualization |
 	visualization := TLVisualization new.
@@ -50,7 +52,7 @@ TLSimpleNodeTest >> testConnectionCreation [
 	self assert: node outgoingConnections first equals: anotherNode incomingConnections first
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLSimpleNodeTest >> testInteractions [
 	self assert: node interactions size equals: 0.
 	node addInteraction: TLPopUpAction onMouseOver.
@@ -58,12 +60,12 @@ TLSimpleNodeTest >> testInteractions [
 	
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLSimpleNodeTest >> testIsGroup [
 	self deny: node isGroup
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLSimpleNodeTest >> testSimpleNodeBecameParent [
 	| child |
 	child := TLSimpleNode new.
