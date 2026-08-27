@@ -2,26 +2,27 @@
 This visualization represents the visualization of a name cloud for a moose group on Moose.
 "
 Class {
-	#name : #TLNameCloud,
-	#superclass : #TLVisualization,
+	#name : 'TLNameCloud',
+	#superclass : 'TLVisualization',
 	#instVars : [
 		'entities',
 		'nameProperty'
 	],
-	#category : #'Telescope-VisualizationTemplates'
+	#category : 'Telescope-VisualizationTemplates',
+	#package : 'Telescope-VisualizationTemplates'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLNameCloud class >> maxLabelSize [
 	^ 46
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLNameCloud class >> minLabelSize [
 	^ 6
 ]
 
-{ #category : #naming }
+{ #category : 'naming' }
 TLNameCloud class >> stopWordList [
 	"Answer a list of english stop words, a defind by SMART.  See ftp://ftp.cs.cornell.edu/pub/smart/"
 
@@ -29,7 +30,7 @@ TLNameCloud class >> stopWordList [
 		runsFailing: #isSeparator
 ]
 
-{ #category : #building }
+{ #category : 'building' }
 TLNameCloud >> buildVisualization [
 	| objects minOcc maxOcc |
 	objects := self sortedSymbolsToDisplay.
@@ -49,32 +50,32 @@ TLNameCloud >> buildVisualization [
 		layout: (TLLinearLayout ratio: 16/9)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLNameCloud >> entities [
 	^ entities
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLNameCloud >> entities: anObject [
 	entities := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLNameCloud >> nameProperty [
 	^ nameProperty
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLNameCloud >> nameProperty: anObject [
 	nameProperty := anObject
 ]
 
-{ #category : #building }
+{ #category : 'building' }
 TLNameCloud >> relativeSizeOf: aSize withMin: minOcc andMax: maxOcc [
 	^ ((self class maxLabelSize - self class minLabelSize) / ((maxOcc - minOcc) / aSize) + self class minLabelSize) asInteger
 ]
 
-{ #category : #building }
+{ #category : 'building' }
 TLNameCloud >> sortedSymbolsToDisplay [
 	| objects |
 	objects := OrderedCollection new.
@@ -87,7 +88,7 @@ TLNameCloud >> sortedSymbolsToDisplay [
 	^ objects
 ]
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 TLNameCloud >> symbolsUsedInNames [
 	| symbols nospace |
 	symbols := self entities

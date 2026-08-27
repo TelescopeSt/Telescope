@@ -2,8 +2,8 @@
 This visualization represents the visualization of overall hierarchy of packagesfrom Moose.
 "
 Class {
-	#name : #TLPackageHierarchy,
-	#superclass : #TLVisualization,
+	#name : 'TLPackageHierarchy',
+	#superclass : 'TLVisualization',
 	#instVars : [
 		'entities',
 		'nameProperty',
@@ -11,10 +11,11 @@ Class {
 		'widthProperty',
 		'heightProperty'
 	],
-	#category : #'Telescope-VisualizationTemplates'
+	#category : 'Telescope-VisualizationTemplates',
+	#package : 'Telescope-VisualizationTemplates'
 }
 
-{ #category : #building }
+{ #category : 'building' }
 TLPackageHierarchy >> buildVisualization [
 	self styleSheet > #connection > #head shape: TLNoShape.
 	
@@ -36,52 +37,52 @@ TLPackageHierarchy >> buildVisualization [
 				yourself)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLPackageHierarchy >> entities [
 	^ entities
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLPackageHierarchy >> entities: anObject [
 	entities := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLPackageHierarchy >> heightProperty [
 	^ heightProperty
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLPackageHierarchy >> heightProperty: anObject [
 	heightProperty := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLPackageHierarchy >> nameProperty [
 	^ nameProperty
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLPackageHierarchy >> nameProperty: anObject [
 	nameProperty := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLPackageHierarchy >> property [
 	^ property
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLPackageHierarchy >> property: anObject [
 	property := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLPackageHierarchy >> widthProperty [
 	^ widthProperty
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLPackageHierarchy >> widthProperty: anObject [
 	widthProperty := anObject
 ]

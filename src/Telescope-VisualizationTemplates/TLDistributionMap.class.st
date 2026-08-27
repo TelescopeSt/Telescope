@@ -23,8 +23,8 @@ property
 
 "
 Class {
-	#name : #TLDistributionMap,
-	#superclass : #TLVisualization,
+	#name : 'TLDistributionMap',
+	#superclass : 'TLVisualization',
 	#instVars : [
 		'containerEntities',
 		'property',
@@ -32,10 +32,11 @@ Class {
 		'propertySortingBlock',
 		'innerEntitiesSelector'
 	],
-	#category : #'Telescope-VisualizationTemplates'
+	#category : 'Telescope-VisualizationTemplates',
+	#package : 'Telescope-VisualizationTemplates'
 }
 
-{ #category : #creation }
+{ #category : 'creation' }
 TLDistributionMap class >> containerEntities: aCollectionOfEntities innerEntities: innerEntitiesPropertyOrBlock property: legendProperty [
 	^ self new
 		containerEntities: aCollectionOfEntities;
@@ -43,13 +44,13 @@ TLDistributionMap class >> containerEntities: aCollectionOfEntities innerEntitie
 		property: legendProperty
 ]
 
-{ #category : #building }
+{ #category : 'building' }
 TLDistributionMap >> buildLegend [
 	super buildLegend.
 	self legend backgroundDescription: [ :entity | (property cull: entity) asString ] forNodes: [ (self > #containers) allChildrenNodes ]
 ]
 
-{ #category : #building }
+{ #category : 'building' }
 TLDistributionMap >> buildVisualization [
 	super buildVisualization.
 
@@ -76,17 +77,17 @@ TLDistributionMap >> buildVisualization [
 	(self > #containers) allChildrenNodes addInteraction: (TLPopUpAction text: [ :entity | self obtain: self innerEntitiesPopupBlock on: entity ]) onMouseOver
 ]
 
-{ #category : #layout }
+{ #category : 'layout' }
 TLDistributionMap >> configLayout [
 	self > #containers layout: (TLLinearLayout gap: 20 ratio: 16/9)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLDistributionMap >> containerEntities [
 	^ containerEntities
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLDistributionMap >> containerEntities: aCollectionOfObjects [
 	self
 		assert: aCollectionOfObjects isCollection
@@ -94,7 +95,7 @@ TLDistributionMap >> containerEntities: aCollectionOfObjects [
 	containerEntities := aCollectionOfObjects
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TLDistributionMap >> createColorBlock [
 	| sortedProperties colorsMap |
 	sortedProperties := self obtainPropertyValuesSortedByFrequency.
@@ -109,55 +110,55 @@ TLDistributionMap >> createColorBlock [
 	color ]
 ]
 
-{ #category : #default }
+{ #category : 'default' }
 TLDistributionMap >> defaultColor [
 	^ Color gray
 ]
 
-{ #category : #default }
+{ #category : 'default' }
 TLDistributionMap >> defaultTitle [
 	^ 'Distribution Map'
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 TLDistributionMap >> initialize [
 	super initialize.
 	self styleSheet compositeExpandedByDefault: true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLDistributionMap >> innerEntities [
 	self deprecated: 'Use #innerEntitiesSelector' transformWith: '`@receiver innerEntities `@statements' -> '`@receiver innerEntitiesSelector'.
 	^ self innerEntitiesSelector
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLDistributionMap >> innerEntities: anObject [
 	self deprecated: 'Use #innerEntitiesSelector:' transformWith: '`@receiver innerEntities: `@statements' -> '`@receiver innerEntitiesSelector: `@statements'.
 	^ self innerEntitiesSelector: anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLDistributionMap >> innerEntitiesPopupBlock [
 	^ innerEntitiesPopupBlock ifNil: [ innerEntitiesPopupBlock := #asString ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLDistributionMap >> innerEntitiesPopupBlock: anObject [
 	innerEntitiesPopupBlock := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLDistributionMap >> innerEntitiesSelector [
 	^ innerEntitiesSelector
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLDistributionMap >> innerEntitiesSelector: anObject [
 	innerEntitiesSelector := anObject
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TLDistributionMap >> obtainPropertyValuesSortedByFrequency [
 	| frequencyDictionary |
 	frequencyDictionary := Dictionary new.
@@ -174,22 +175,22 @@ TLDistributionMap >> obtainPropertyValuesSortedByFrequency [
 	^ (frequencyDictionary associations sorted: [ :a :b | a value > b value ]) collect: #key
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLDistributionMap >> property [
 	^ property
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLDistributionMap >> property: anObject [
 	property := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLDistributionMap >> propertySortingBlock [
 	^ propertySortingBlock
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLDistributionMap >> propertySortingBlock: aBlock [
 	propertySortingBlock := aBlock
 ]

@@ -1,1 +1,1 @@
-Package { #name : #'Telescope-VisualizationTemplates' }
+Package { #name : 'Telescope-VisualizationTemplates' }
