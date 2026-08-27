@@ -7,23 +7,24 @@ entry Point: the starting point of the graph
 
 "
 Class {
-	#name : #TLConnectionsGraph,
-	#superclass : #TLFlowGraph,
+	#name : 'TLConnectionsGraph',
+	#superclass : 'TLFlowGraph',
 	#instVars : [
 		'elements',
 		'levelsCollection',
 		'connectionProperty',
 		'edgeDirection'
 	],
-	#category : #'Telescope-VisualizationTemplates'
+	#category : 'Telescope-VisualizationTemplates',
+	#package : 'Telescope-VisualizationTemplates'
 }
 
-{ #category : #'instance-creation' }
+{ #category : 'instance-creation' }
 TLConnectionsGraph class >> root: aRootElement elements: aCollection flowDirection: aSymbol [
 	^ self new rootElement: aRootElement; elements: aCollection; rootLeftMost: aSymbol
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TLConnectionsGraph >> addConnectionForGroupAt: aLevel [
 	(self > aLevel) nodes
 		do: [ :aNode | 
@@ -40,44 +41,44 @@ TLConnectionsGraph >> addConnectionForGroupAt: aLevel [
 								do: [  ] ] ] ]
 ]
 
-{ #category : #building }
+{ #category : 'building' }
 TLConnectionsGraph >> buildVisualization [
 	self initializeElementLevels.
 	self buildTheFlowFrom: (levelsCollection at: 1) currentRank: 1.
 	self layout: (TLLinearLayout gap: 30).
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnectionsGraph >> connectionProperty [
 	^ connectionProperty
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnectionsGraph >> connectionProperty: aProperty [
 	connectionProperty := aProperty
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnectionsGraph >> edgeDirection [
 	^ edgeDirection ifNil: [ #incoming ] "other possibility is #outgoing"
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnectionsGraph >> edgeDirection: anObject [
 	edgeDirection := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnectionsGraph >> elements [
 	^ elements
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnectionsGraph >> elements: anObject [
 	elements := anObject
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 TLConnectionsGraph >> initializeElementLevels [
 	| elementsToAnalyze |
 	elementsToAnalyze := self elements difference: {self entryPoint}.
@@ -101,12 +102,12 @@ TLConnectionsGraph >> initializeElementLevels [
 	self setLevelsOrientation
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TLConnectionsGraph >> nextLevelNodes: aCollection atLevel: aLevel [
 	^ [(levelsCollection at: aLevel + 1)] on: SubscriptOutOfBounds do: [ #() ]
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TLConnectionsGraph >> setLevelsOrientation [
 	self edgeDirection = #incoming
 		ifTrue: [ levelsCollection := levelsCollection reversed ]

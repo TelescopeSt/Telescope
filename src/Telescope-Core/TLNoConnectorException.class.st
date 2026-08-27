@@ -5,12 +5,14 @@ Description
 I am a Telescope error raised in case we try to get the connector for a visualization but there is none present in the image.
 "
 Class {
-	#name : #TLNoConnectorException,
-	#superclass : #TLError,
-	#category : #'Telescope-Core-Exceptions'
+	#name : 'TLNoConnectorException',
+	#superclass : 'TLError',
+	#category : 'Telescope-Core-Exceptions',
+	#package : 'Telescope-Core',
+	#tag : 'Exceptions'
 }
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 TLNoConnectorException >> initialize [
 	super initialize.
 	self messageText: 'No valid connector present in the image.'

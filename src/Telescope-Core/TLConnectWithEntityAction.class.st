@@ -2,15 +2,17 @@
 TLConnectionectAction is an action that create TLConnectionWithEntity from the receiver to an other node
 "
 Class {
-	#name : #TLConnectWithEntityAction,
-	#superclass : #TLConnectAction,
+	#name : 'TLConnectWithEntityAction',
+	#superclass : 'TLConnectAction',
 	#instVars : [
 		'connectionProperty'
 	],
-	#category : #'Telescope-Core-Actions'
+	#category : 'Telescope-Core-Actions',
+	#package : 'Telescope-Core',
+	#tag : 'Actions'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TLConnectWithEntityAction class >> connectionProperty: aConnectionBlockOrProperty property: aBlockOrProperty [
 	^ self new
 		connectionProperty: aConnectionBlockOrProperty;
@@ -18,7 +20,7 @@ TLConnectWithEntityAction class >> connectionProperty: aConnectionBlockOrPropert
 		yourself
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TLConnectWithEntityAction class >> connectionProperty: aConnectionBlockOrProperty property: aBlockOrProperty context: aTLGroup [
 	^ (self
 		connectionProperty: aConnectionBlockOrProperty
@@ -27,17 +29,17 @@ TLConnectWithEntityAction class >> connectionProperty: aConnectionBlockOrPropert
 		yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnectWithEntityAction >> connectionProperty [
 	^ connectionProperty
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnectWithEntityAction >> connectionProperty: anObject [
 	connectionProperty := anObject
 ]
 
-{ #category : #action }
+{ #category : 'action' }
 TLConnectWithEntityAction >> regularActionOn: aNode [
 	| connectionEntities contextNodesByEntities |
 	connectionEntities := self

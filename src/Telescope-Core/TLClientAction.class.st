@@ -1,21 +1,22 @@
 Class {
-	#name : #TLClientAction,
-	#superclass : #TLDrawableAction,
+	#name : 'TLClientAction',
+	#superclass : 'TLDrawableAction',
 	#instVars : [
-		'scriptDSL',
-		'eventType'
+		'scriptDSL'
 	],
-	#category : #'Telescope-Core-Actions'
+	#category : 'Telescope-Core-Actions',
+	#package : 'Telescope-Core',
+	#tag : 'Actions'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLClientAction class >> scriptDSL: anObject [
 	^ self new
 		scriptDSL: anObject;
 		yourself
 ]
 
-{ #category : #sugar }
+{ #category : 'sugar' }
 TLClientAction >> onMouseClick [
 	^ TLClickInteraction new
 		action: self;
@@ -23,7 +24,7 @@ TLClientAction >> onMouseClick [
 		yourself
 ]
 
-{ #category : #sugar }
+{ #category : 'sugar' }
 TLClientAction >> onMouseDbClick [
 	^ TLClickInteraction new
 		action: self;
@@ -31,7 +32,7 @@ TLClientAction >> onMouseDbClick [
 		yourself
 ]
 
-{ #category : #sugar }
+{ #category : 'sugar' }
 TLClientAction >> onMouseDown [
 	^ TLClickInteraction new
 		action: self;
@@ -39,7 +40,7 @@ TLClientAction >> onMouseDown [
 		yourself
 ]
 
-{ #category : #sugar }
+{ #category : 'sugar' }
 TLClientAction >> onMouseEnter [
 	^ TLClickInteraction new
 		action: self;
@@ -47,7 +48,7 @@ TLClientAction >> onMouseEnter [
 		yourself
 ]
 
-{ #category : #sugar }
+{ #category : 'sugar' }
 TLClientAction >> onMouseLeave [
 	^ TLClickInteraction new
 		action: self;
@@ -55,7 +56,7 @@ TLClientAction >> onMouseLeave [
 		yourself
 ]
 
-{ #category : #sugar }
+{ #category : 'sugar' }
 TLClientAction >> onMouseOut [
 	^ TLClientInteraction new
 		action: self;
@@ -63,7 +64,7 @@ TLClientAction >> onMouseOut [
 		yourself
 ]
 
-{ #category : #sugar }
+{ #category : 'sugar' }
 TLClientAction >> onMouseOver [
 	^ TLClientInteraction new
 		action: self;
@@ -71,7 +72,7 @@ TLClientAction >> onMouseOver [
 		yourself
 ]
 
-{ #category : #sugar }
+{ #category : 'sugar' }
 TLClientAction >> onMouseUp [
 	^ TLClickInteraction new
 		action: self;
@@ -79,17 +80,17 @@ TLClientAction >> onMouseUp [
 		yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLClientAction >> scriptDSL [
 	^ scriptDSL
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLClientAction >> scriptDSL: anObject [
 	scriptDSL := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TLClientAction >> scriptDSLAsJs [
 	^ self scriptDSL 
 ]

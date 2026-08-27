@@ -2,17 +2,19 @@
 I run one or more command on a batch of node. I color each node. After computation on a node, I restore this node's origin color and ask to send result to client.
 "
 Class {
-	#name : #TLBatchCustomAction,
-	#superclass : #Object,
+	#name : 'TLBatchCustomAction',
+	#superclass : 'Object',
 	#instVars : [
 		'block',
 		'drawablesGetter',
 		'aVisualization'
 	],
-	#category : #'Telescope-Core-Utils'
+	#category : 'Telescope-Core-Utils',
+	#package : 'Telescope-Core',
+	#tag : 'Utils'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLBatchCustomAction class >> on: aNodesGetterBlock block: aComputeBlock [
 	^ self new
 		block: aComputeBlock;
@@ -20,7 +22,7 @@ TLBatchCustomAction class >> on: aNodesGetterBlock block: aComputeBlock [
 		yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLBatchCustomAction >> actionOn: aTLDrawable [
 	| drawables highlightStyle generator |
 	generator := aTLDrawable visualization generator.
@@ -40,22 +42,22 @@ TLBatchCustomAction >> actionOn: aTLDrawable [
 			generator removeAllCommands ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLBatchCustomAction >> block [
 	^ block
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLBatchCustomAction >> block: anObject [
 	block := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLBatchCustomAction >> drawablesGetter [
 	^ drawablesGetter
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLBatchCustomAction >> drawablesGetter: anObject [
 	drawablesGetter := anObject
 ]

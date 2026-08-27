@@ -2,16 +2,18 @@
 I am the superclass for all dynamic legend entries, computed on a set of elements and updated automatically
 "
 Class {
-	#name : #TLDynamicLegendEntry,
-	#superclass : #TLLegendEntry,
+	#name : 'TLDynamicLegendEntry',
+	#superclass : 'TLLegendEntry',
 	#instVars : [
 		'contextBlock',
 		'descriptionBlock'
 	],
-	#category : #'Telescope-Core-Model-Legend'
+	#category : 'Telescope-Core-Model-Legend',
+	#package : 'Telescope-Core',
+	#tag : 'Model-Legend'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLDynamicLegendEntry class >> description: descriptionBlock context: contextBlock [
 	^ self new
 		descriptionBlock: descriptionBlock;
@@ -19,32 +21,32 @@ TLDynamicLegendEntry class >> description: descriptionBlock context: contextBloc
 		yourself
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLDynamicLegendEntry class >> isAbstract [
 	^ self = TLDynamicLegendEntry
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLDynamicLegendEntry >> contextBlock [
 	^ contextBlock
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLDynamicLegendEntry >> contextBlock: anObject [
 	contextBlock := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLDynamicLegendEntry >> descriptionBlock [
 	^ descriptionBlock
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLDynamicLegendEntry >> descriptionBlock: anObject [
 	descriptionBlock := anObject
 ]
 
-{ #category : #resolution }
+{ #category : 'resolution' }
 TLDynamicLegendEntry >> obtainAssociations [
 	self flag: #pharo6.	"In Pharo 6 what is returned is a PluggableDictionary."
 

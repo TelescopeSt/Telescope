@@ -3,17 +3,19 @@ A TLRightClickInteraction is an interaction that is done on a rightClick.
 
 "
 Class {
-	#name : #TLRightClickInteraction,
-	#superclass : #TLInteraction,
-	#category : #'Telescope-Core-Interactions'
+	#name : 'TLRightClickInteraction',
+	#superclass : 'TLInteraction',
+	#category : 'Telescope-Core-Interactions',
+	#package : 'Telescope-Core',
+	#tag : 'Interactions'
 }
 
-{ #category : #generate }
+{ #category : 'generate' }
 TLRightClickInteraction >> generateWith: aTLConnector on: aTLDrawable targeting: aTargetDrawable [
 	aTLConnector generateRightClickInteraction: self onDrawable: aTLDrawable targetingDrawable: aTargetDrawable
 ]
 
-{ #category : #accessor }
+{ #category : 'accessor' }
 TLRightClickInteraction >> kind [
 	^ #rightClick
 ]

@@ -1,15 +1,17 @@
 Class {
-	#name : #TLWithTestConnectorTest,
-	#superclass : #TestCase,
-	#category : #'Telescope-Core-Tests-Model'
+	#name : 'TLWithTestConnectorTest',
+	#superclass : 'TestCase',
+	#category : 'Telescope-Core-Tests-Model',
+	#package : 'Telescope-Core-Tests',
+	#tag : 'Model'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLWithTestConnectorTest class >> isAbstract [
 	^ self = TLWithTestConnectorTest
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TLWithTestConnectorTest >> performTest [
 	TLCurrentConnector value: TLTestConnector during: [ super performTest ]
 ]

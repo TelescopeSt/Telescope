@@ -1,10 +1,11 @@
 Class {
-	#name : #TLInteractionDemoFilter,
-	#superclass : #TLAbstractDemoFilter,
-	#category : #'Telescope-Demo'
+	#name : 'TLInteractionDemoFilter',
+	#superclass : 'TLAbstractDemoFilter',
+	#category : 'Telescope-Demo',
+	#package : 'Telescope-Demo'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLInteractionDemoFilter class >> filterSymbol [
 	^ #interaction
 ]

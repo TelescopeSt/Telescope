@@ -2,24 +2,25 @@
 I am a layout placing nodes as a tree
 "
 Class {
-	#name : #TLTreeLayout,
-	#superclass : #TLLayout,
+	#name : 'TLTreeLayout',
+	#superclass : 'TLLayout',
 	#instVars : [
 		'levelGap',
 		'leavesGap',
 		'incomingUsed'
 	],
-	#category : 'Telescope-Layouts'
+	#category : 'Telescope-Layouts',
+	#package : 'Telescope-Layouts'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLTreeLayout class >> isConnectionDependant [
 	"I use the connections to know the levels of the elements and the adjacent nodes. Thus I am connection dependant."
 
 	^ true
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TLTreeLayout >> calculateMaxForLevel: aLevel forTree: tree inTable: aTable [
 	tree keys
 		do: [ :node | 
@@ -31,7 +32,7 @@ TLTreeLayout >> calculateMaxForLevel: aLevel forTree: tree inTable: aTable [
 			self calculateMaxForLevel: aLevel + 1 forTree: (tree at: node) inTable: aTable ]
 ]
 
-{ #category : #placing }
+{ #category : 'placing' }
 TLTreeLayout >> executeOn: aGroup [
 	| tree yTable |
 	tree := self obtainTreesFromNodes: aGroup.
@@ -43,57 +44,57 @@ TLTreeLayout >> executeOn: aGroup [
 		xStart: 0
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLTreeLayout >> gap: aGap [
 	self leavesGap: aGap.
 	self levelGap: aGap
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLTreeLayout >> incomingUsed [
 	^ incomingUsed
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLTreeLayout >> incomingUsed: anObject [
 	incomingUsed := anObject
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 TLTreeLayout >> initialize [
 	super initialize.
 	self gap: 25.
 	self incomingUsed: true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLTreeLayout >> leavesGap [
 	^ leavesGap
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLTreeLayout >> leavesGap: anObject [
 	leavesGap := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLTreeLayout >> levelGap [
 	^ levelGap
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLTreeLayout >> levelGap: anObject [
 	levelGap := anObject
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TLTreeLayout >> obtainTargetedAdjacentNodesFor: aNode [
 	^ self incomingUsed
 		ifTrue: [ aNode incomingAdjacentNodes ]
 		ifFalse: [ aNode outgoingAdjacentNodes ]
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TLTreeLayout >> obtainTreeWithRoot: root childrenIn: remainingNodes existingTrees: trees [
 	^ (self obtainTargetedAdjacentNodesFor: root)
 		inject: OrderedDictionary new
@@ -120,7 +121,7 @@ TLTreeLayout >> obtainTreeWithRoot: root childrenIn: remainingNodes existingTree
 			dictionary ]
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TLTreeLayout >> obtainTreesFromNodes: aGroup [
 	| trees remainingNodes |
 	remainingNodes := aGroup asOrderedCollection.
@@ -136,7 +137,7 @@ TLTreeLayout >> obtainTreesFromNodes: aGroup [
 	^ trees
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TLTreeLayout >> obtainYtableForTree: tree [
 	| maxHeightByLevel pointer |
 	maxHeightByLevel := OrderedCollection with: 0.
@@ -145,7 +146,7 @@ TLTreeLayout >> obtainYtableForTree: tree [
 	^ maxHeightByLevel collect: [ :yDec | pointer := pointer + yDec + self levelGap ]
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TLTreeLayout >> positionNodesInTree: aTree yDec: aDecTable level: aLevel xStart: xStart [
 	| xDec |
 	xDec := xStart.
@@ -165,12 +166,12 @@ TLTreeLayout >> positionNodesInTree: aTree yDec: aDecTable level: aLevel xStart:
 	^ xDec - xStart - self leavesGap
 ]
 
-{ #category : #customization }
+{ #category : 'customization' }
 TLTreeLayout >> useIncomingLinks [
 	self incomingUsed: true
 ]
 
-{ #category : #customization }
+{ #category : 'customization' }
 TLTreeLayout >> useOutgoingLinks [
 	self incomingUsed: false
 ]

@@ -1,13 +1,14 @@
 Class {
-	#name : #TLLayoutNewLineStrategyTest,
-	#superclass : #TestCase,
+	#name : 'TLLayoutNewLineStrategyTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'strategy'
 	],
-	#category : #'Telescope-Layouts-Tests'
+	#category : 'Telescope-Layouts-Tests',
+	#package : 'Telescope-Layouts-Tests'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLLayoutNewLineStrategyTest >> testNewLineRatioFixingDimension [
 	| nodes layout |
 	strategy := TLLayoutNewLineRatioDispositionStrategy ratio: 4 / 3.
@@ -27,7 +28,7 @@ TLLayoutNewLineStrategyTest >> testNewLineRatioFixingDimension [
 	self assert: strategy maxDimension equals: 55	"4 nodes of 10 + 3 gap of 5"
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLLayoutNewLineStrategyTest >> testNewLineReachedWithRoom [
 	| node |
 	strategy := TLLayoutNewLineReachedDimensionStrategy dimension: 100.
@@ -36,7 +37,7 @@ TLLayoutNewLineStrategyTest >> testNewLineReachedWithRoom [
 	self deny: (strategy shouldCreateNewLineFrom: 0 @ 0 currentNodeNumberOnLine: 1 forDimension: node dimension)
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLLayoutNewLineStrategyTest >> testNewLineReachedWithoutRoom [
 	| node |
 	strategy := TLLayoutNewLineReachedDimensionStrategy dimension: 5.
@@ -45,7 +46,7 @@ TLLayoutNewLineStrategyTest >> testNewLineReachedWithoutRoom [
 	self assert: (strategy shouldCreateNewLineFrom: 0 @ 0 currentNodeNumberOnLine: 1 forDimension: node dimension)
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLLayoutNewLineStrategyTest >> testNewLineWithMaxNumberOfElementsNotReach [
 	| node |
 	strategy := TLLayoutNewLineMaxNumberElementsStrategy maxNumberOfElements: 3.
@@ -54,7 +55,7 @@ TLLayoutNewLineStrategyTest >> testNewLineWithMaxNumberOfElementsNotReach [
 	self deny: (strategy shouldCreateNewLineFrom: 0 @ 0 currentNodeNumberOnLine: 1 forDimension: node dimension)
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLLayoutNewLineStrategyTest >> testNewLineWithMaxNumberOfElementsReached [
 	| node |
 	strategy := TLLayoutNewLineMaxNumberElementsStrategy maxNumberOfElements: 1.

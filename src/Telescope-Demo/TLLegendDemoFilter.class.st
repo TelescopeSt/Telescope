@@ -1,10 +1,11 @@
 Class {
-	#name : #TLLegendDemoFilter,
-	#superclass : #TLAbstractDemoFilter,
-	#category : #'Telescope-Demo'
+	#name : 'TLLegendDemoFilter',
+	#superclass : 'TLAbstractDemoFilter',
+	#category : 'Telescope-Demo',
+	#package : 'Telescope-Demo'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLLegendDemoFilter class >> filterSymbol [
 	^ #legend
 ]

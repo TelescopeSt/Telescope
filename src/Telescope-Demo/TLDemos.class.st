@@ -3,24 +3,25 @@ A TLDemos class is a class regrouping all the demos of Telescope on the class si
 
 "
 Class {
-	#name : #TLDemos,
-	#superclass : #TLObject,
-	#category : #'Telescope-Demo'
+	#name : 'TLDemos',
+	#superclass : 'TLObject',
+	#category : 'Telescope-Demo',
+	#package : 'Telescope-Demo'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLDemos class >> allDemoName [
 	^ (TLDemos class methods select: [ :m | m protocol = #demos or: [ m protocol = #'*Telescope-Cytoscape' ] ]) sort: [ :m1 :m2 | m1 selector < m2 selector ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLDemos class >> allDemoVisualizations [
 	^ TLDemos class methods
 		select: [ :m | m protocol = #demos or: [ m protocol = #'*Telescope-Cytoscape' ] ]
 		thenCollect: [ :m | TLDemos perform: m selector ]
 ]
 
-{ #category : #demos }
+{ #category : 'demos' }
 TLDemos class >> exampleAdaptNodeWidthFromLabel [
 	<script: 'self exampleAdaptNodeWidthFromLabel open'>
 	<tlFilter: #style>
@@ -32,7 +33,7 @@ TLDemos class >> exampleAdaptNodeWidthFromLabel [
 	^ visu
 ]
 
-{ #category : #demos }
+{ #category : 'demos' }
 TLDemos class >> exampleAllShapes [
 	<script: 'self exampleAllShapes open'>
 	<tlFilter: #style>
@@ -48,7 +49,7 @@ TLDemos class >> exampleAllShapes [
 	^ visualization
 ]
 
-{ #category : #demos }
+{ #category : 'demos' }
 TLDemos class >> exampleButterflyUsingStyleFunctionnality [
 	<script: 'self exampleButterflyUsingStyleFunctionnality open'>
 	<tlFilter: #style>
@@ -69,7 +70,7 @@ TLDemos class >> exampleButterflyUsingStyleFunctionnality [
 	^ butterfly
 ]
 
-{ #category : #demos }
+{ #category : 'demos' }
 TLDemos class >> exampleChangingLayout [
 	<script: 'self exampleChangingLayout open'>
 	<tlFilter: #layout>
@@ -99,7 +100,7 @@ TLDemos class >> exampleChangingLayout [
 	^ visu
 ]
 
-{ #category : #demos }
+{ #category : 'demos' }
 TLDemos class >> exampleCompositeExploringHierarchy [
 	<script: 'self exampleCompositeExploringHierarchy open'>
 	<tlFilter: #layout>
@@ -131,7 +132,7 @@ TLDemos class >> exampleCompositeExploringHierarchy [
 	^ visualization
 ]
 
-{ #category : #'not working demos' }
+{ #category : 'not working demos' }
 TLDemos class >> exampleCompositeNodeWithLabelInsideInButterfly [
 	"<script: 'self exampleCompositeNodeWithLabelInsideInButterfly open'>
 	<tlFilter: #composite>
@@ -150,7 +151,7 @@ TLDemos class >> exampleCompositeNodeWithLabelInsideInButterfly [
 	^ butterfly
 ]
 
-{ #category : #demos }
+{ #category : 'demos' }
 TLDemos class >> exampleConnectAction [
 	<script: 'self exampleConnectAction open'>
 	<tlFilter: #interaction>
@@ -168,7 +169,7 @@ TLDemos class >> exampleConnectAction [
 	^ visu
 ]
 
-{ #category : #demos }
+{ #category : 'demos' }
 TLDemos class >> exampleConnectionStyle [
 	<script: 'self exampleConnectionStyle open'>
 	<tlFilter: #style>
@@ -193,7 +194,7 @@ TLDemos class >> exampleConnectionStyle [
 	^ visualization
 ]
 
-{ #category : #demos }
+{ #category : 'demos' }
 TLDemos class >> exampleConnectionsCustomization [
 	<script: 'self exampleConnectionsCustomization open'>
 	<tlFilter: #style>
@@ -210,7 +211,7 @@ TLDemos class >> exampleConnectionsCustomization [
 	^ visualization
 ]
 
-{ #category : #demos }
+{ #category : 'demos' }
 TLDemos class >> exampleCustomMultiChoiceAction [
 	<script: 'self exampleCustomMultiChoiceAction open'>
 	<tlFilter: #interaction>
@@ -232,7 +233,7 @@ TLDemos class >> exampleCustomMultiChoiceAction [
 	^ visu
 ]
 
-{ #category : #demos }
+{ #category : 'demos' }
 TLDemos class >> exampleCycleDependencies [
 	<script: 'self exampleCycleDependencies open'>
 	<tlFilter: #visuTemplate>
@@ -245,7 +246,7 @@ TLDemos class >> exampleCycleDependencies [
 		yourself
 ]
 
-{ #category : #demos }
+{ #category : 'demos' }
 TLDemos class >> exampleDistributionMap [
 	<script: 'self exampleDistributionMap open'>
 	<tlFilter: #visuTemplate>
@@ -257,7 +258,7 @@ TLDemos class >> exampleDistributionMap [
 		yourself
 ]
 
-{ #category : #demos }
+{ #category : 'demos' }
 TLDemos class >> exampleDistributionMapAbstractMethodsCollection [
 	<script: 'self exampleDistributionMapAbstractMethodsCollection open'>
 	<tlFilter: #visuTemplate>
@@ -270,7 +271,7 @@ TLDemos class >> exampleDistributionMapAbstractMethodsCollection [
 		yourself
 ]
 
-{ #category : #demos }
+{ #category : 'demos' }
 TLDemos class >> exampleExpandCollapseNodesAction [
 	<script: 'self exampleExpandCollapseNodesAction open'>
 	<tlFilter: #interaction>
@@ -288,7 +289,7 @@ TLDemos class >> exampleExpandCollapseNodesAction [
 	^ visu
 ]
 
-{ #category : #demos }
+{ #category : 'demos' }
 TLDemos class >> exampleFLowControl [
 	<script: 'self exampleFLowControl open'>
 	<tlFilter: #visuTemplate>
@@ -317,7 +318,7 @@ TLDemos class >> exampleFLowControl [
 	 ^ visu
 ]
 
-{ #category : #demos }
+{ #category : 'demos' }
 TLDemos class >> exampleGradient [
 	<script: 'self exampleGradient open'>
 	<tlFilter: #style>
@@ -335,7 +336,7 @@ TLDemos class >> exampleGradient [
 	^ visu
 ]
 
-{ #category : #demos }
+{ #category : 'demos' }
 TLDemos class >> exampleHideAndShowConnections [
 	<script: 'self exampleHideAndShowConnections open'>
 	<tlFilter: #interaction>
@@ -356,7 +357,7 @@ TLDemos class >> exampleHideAndShowConnections [
 	^ visualization
 ]
 
-{ #category : #demos }
+{ #category : 'demos' }
 TLDemos class >> exampleHideAndShowNode [
 	<script: 'self exampleHideAndShowNode open'>
 	<tlFilter: #interaction>
@@ -375,7 +376,7 @@ TLDemos class >> exampleHideAndShowNode [
 	^ visualization
 ]
 
-{ #category : #demos }
+{ #category : 'demos' }
 TLDemos class >> exampleHighlightElements [
 	<script: 'self exampleHighlightElements open'>
 	<tlFilter: #interaction>
@@ -403,7 +404,7 @@ TLDemos class >> exampleHighlightElements [
 	^ visualization
 ]
 
-{ #category : #demos }
+{ #category : 'demos' }
 TLDemos class >> exampleLabelWrap [
 	<script: 'self exampleLabelWrap open'>
 	<tlFilter: #style>
@@ -435,7 +436,7 @@ TLDemos class >> exampleLabelWrap [
 	^ visualization
 ]
 
-{ #category : #demos }
+{ #category : 'demos' }
 TLDemos class >> exampleLayoutsAngle [
 	<script: 'self exampleLayoutsAngle open'>
 	<tlFilter: #layout>
@@ -453,7 +454,7 @@ TLDemos class >> exampleLayoutsAngle [
 	^ visualization
 ]
 
-{ #category : #demos }
+{ #category : 'demos' }
 TLDemos class >> exampleLegend [
 	<script: 'self exampleLegend open'>
 	<tlFilter: #legend>
@@ -465,7 +466,7 @@ TLDemos class >> exampleLegend [
 	^ visualization
 ]
 
-{ #category : #demos }
+{ #category : 'demos' }
 TLDemos class >> exampleLineStyle [
 	<script: 'self exampleLineStyle open'>
 	<tlFilter: #style>
@@ -488,7 +489,7 @@ TLDemos class >> exampleLineStyle [
 	^ visualization
 ]
 
-{ #category : #demos }
+{ #category : 'demos' }
 TLDemos class >> exampleMovingNodeChangeEntity [
 	<script: 'self exampleMovingNodeChangeEntity open'>
 	<tlFilter: #interaction>
@@ -504,7 +505,7 @@ TLDemos class >> exampleMovingNodeChangeEntity [
 	^ visu
 ]
 
-{ #category : #demos }
+{ #category : 'demos' }
 TLDemos class >> exampleMovingNodeToAnotherGroup [
 	<script: 'self exampleMovingNodeToAnotherGroup open'>
 	<tlFilter: #group>
@@ -526,7 +527,7 @@ TLDemos class >> exampleMovingNodeToAnotherGroup [
 	^ visualization
 ]
 
-{ #category : #demos }
+{ #category : 'demos' }
 TLDemos class >> exampleMovingNodeToFirstPosition [
 	<script: 'self exampleMovingNodeToFirstPosition open'>
 	<tlFilter: #interaction>
@@ -540,7 +541,7 @@ TLDemos class >> exampleMovingNodeToFirstPosition [
 	^ visualization
 ]
 
-{ #category : #demos }
+{ #category : 'demos' }
 TLDemos class >> exampleNameCloud [
 	<script: 'self exampleNameCloud open'>
 	<tlFilter: #visuTemplate>
@@ -550,7 +551,7 @@ TLDemos class >> exampleNameCloud [
 		yourself
 ]
 
-{ #category : #demos }
+{ #category : 'demos' }
 TLDemos class >> exampleNodeLabelPosition [
 	<script: 'self exampleNodeLabelPosition open'>
 	<tlFilter: #style>
@@ -568,7 +569,7 @@ TLDemos class >> exampleNodeLabelPosition [
 	^ visu
 ]
 
-{ #category : #demos }
+{ #category : 'demos' }
 TLDemos class >> examplePackageHierarchy [
 	<script: 'self examplePackageHierarchy open'>
 	<tlFilter: #visuTemplate>
@@ -581,7 +582,7 @@ TLDemos class >> examplePackageHierarchy [
 		yourself
 ]
 
-{ #category : #demos }
+{ #category : 'demos' }
 TLDemos class >> examplePathBuilder [
 	<script: 'self examplePathBuilder open'>
 	<tlFilter: #visuTemplate>
@@ -592,7 +593,7 @@ TLDemos class >> examplePathBuilder [
 		yourself
 ]
 
-{ #category : #demos }
+{ #category : 'demos' }
 TLDemos class >> examplePopUp [
 	<script: 'self examplePopUp open'>
 	<tlFilter: #interaction>
@@ -612,7 +613,7 @@ TLDemos class >> examplePopUp [
 	^ visu
 ]
 
-{ #category : #demos }
+{ #category : 'demos' }
 TLDemos class >> exampleProjectMap [
 	<script: 'self exampleProjectMap open'>
 	<tlFilter: #visuTemplate>
@@ -622,7 +623,7 @@ TLDemos class >> exampleProjectMap [
 	^ TLProjectMap version: BaselineOfIceberg project version
 ]
 
-{ #category : #demos }
+{ #category : 'demos' }
 TLDemos class >> exampleRecursiveCompositeNode [
 	<script: 'self exampleRecursiveCompositeNode open'>
 	<tlFilter: #interaction>
@@ -649,7 +650,7 @@ TLDemos class >> exampleRecursiveCompositeNode [
 	^ visualization
 ]
 
-{ #category : #demos }
+{ #category : 'demos' }
 TLDemos class >> exampleSortingChildren [
 	<script: 'self exampleSortingChildren open'>
 	<tlFilter: #composite>
@@ -679,7 +680,7 @@ TLDemos class >> exampleSortingChildren [
 	^ visualization
 ]
 
-{ #category : #demos }
+{ #category : 'demos' }
 TLDemos class >> exampleSystemComplexity [
 	<script: 'self exampleSystemComplexity open'>
 	<tlFilter: #visuTemplate>
@@ -691,7 +692,7 @@ TLDemos class >> exampleSystemComplexity [
 	^ visualization
 ]
 
-{ #category : #demos }
+{ #category : 'demos' }
 TLDemos class >> exampleSystemComplexityInContainer [
 	<script: 'self exampleSystemComplexityInContainer open'>
 	<tlFilter: #visuTemplate>
@@ -704,7 +705,7 @@ TLDemos class >> exampleSystemComplexityInContainer [
 	^ visualization
 ]
 
-{ #category : #demos }
+{ #category : 'demos' }
 TLDemos class >> exampleSystemComplexityMultipleRoots [
 	<script: 'self exampleSystemComplexityMultipleRoots open'>
 	<tlFilter: #visuTemplate>
@@ -730,7 +731,7 @@ TLDemos class >> exampleSystemComplexityMultipleRoots [
 	^ visualization
 ]
 
-{ #category : #'not working demos' }
+{ #category : 'not working demos' }
 TLDemos class >> exampleTreeExplorerCollectionHierarchy [
 	"<script: 'self exampleTreeExplorerCollectionHierarchy open'>
 	<tlFilter: #visuTemplate>
@@ -743,7 +744,7 @@ TLDemos class >> exampleTreeExplorerCollectionHierarchy [
 	^ visualization
 ]
 
-{ #category : #'multi-visus-demos' }
+{ #category : 'multi-visus-demos' }
 TLDemos class >> exampleTwoConnectedVisualization [
 	<script: 'self exampleTwoConnectedVisualization'>
 	| visu1 visu2 |
@@ -761,7 +762,7 @@ TLDemos class >> exampleTwoConnectedVisualization [
 	visu2 open
 ]
 
-{ #category : #demos }
+{ #category : 'demos' }
 TLDemos class >> exampleVisualizationWithCompositeChildrenConnectionsShowing [
 	<script: 'self exampleVisualizationWithCompositeChildrenConnectionsShowing open'>
 	<tlFilter: #interaction>
@@ -805,12 +806,12 @@ TLDemos class >> exampleVisualizationWithCompositeChildrenConnectionsShowing [
 	^ visualization
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLDemos class >> executeDemo: method [
 	^ self perform: method 
 ]
 
-{ #category : #'world menu' }
+{ #category : 'world menu' }
 TLDemos class >> menuCommandOn: aBuilder [
 	"Add a custom menu item to the world menu"
 
@@ -823,6 +824,6 @@ TLDemos class >> menuCommandOn: aBuilder [
 		action: [ self browse ]
 ]
 
-{ #category : #'see class side' }
+{ #category : 'see class side' }
 TLDemos >> seeClassSide [
 ]

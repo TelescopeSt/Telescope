@@ -2,17 +2,19 @@
 I am a strategy that will only accept lowest visibles elements (for a composite, if it is expanded its children will be accepted but not itself; if it is not expanded, it will be accepted)
 "
 Class {
-	#name : #TLLowestVisibleStrategy,
-	#superclass : #TLRequestStrategy,
-	#category : #'Telescope-Core-Model-Request'
+	#name : 'TLLowestVisibleStrategy',
+	#superclass : 'TLRequestStrategy',
+	#category : 'Telescope-Core-Model-Request',
+	#package : 'Telescope-Core',
+	#tag : 'Model-Request'
 }
 
-{ #category : #optimisation }
+{ #category : 'optimisation' }
 TLLowestVisibleStrategy class >> ignoreVisibility [
 	^ false
 ]
 
-{ #category : #strategy }
+{ #category : 'strategy' }
 TLLowestVisibleStrategy class >> validate: aDrawable [
 	^ aDrawable isVisible
 		and: [ 

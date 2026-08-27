@@ -3,7 +3,9 @@ A TLNoShape is an enum value to express that nodes will not have shapes (only la
 
 "
 Class {
-	#name : #TLNoShape,
-	#superclass : #TLSimpleShape,
-	#category : #'Telescope-Core-Shape'
+	#name : 'TLNoShape',
+	#superclass : 'TLSimpleShape',
+	#category : 'Telescope-Core-Shape',
+	#package : 'Telescope-Core',
+	#tag : 'Shape'
 }

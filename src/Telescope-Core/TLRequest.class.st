@@ -5,135 +5,137 @@ My starting point must be a TLObtainRequest and you can get it by sending #obtai
 Then you can use any combination you want but must not use more than one iterating method and nothing after a final method (following protocols). You can use as many strategies as you want
 "
 Class {
-	#name : #TLRequest,
-	#superclass : #TLObject,
+	#name : 'TLRequest',
+	#superclass : 'TLObject',
 	#instVars : [
 		'source'
 	],
-	#category : #'Telescope-Core-Model-Request'
+	#category : 'Telescope-Core-Model-Request',
+	#package : 'Telescope-Core',
+	#tag : 'Model-Request'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLRequest class >> isAbstract [
 	^ self = TLRequest
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLRequest class >> source: aTLDrawableCollection [
 	^ self new
 		source: aTLDrawableCollection;
 		yourself
 ]
 
-{ #category : #iterating }
+{ #category : 'iterating' }
 TLRequest >> addStrategiesToBlock: aBlockClosure [
 	^ [ :anEntity | (aBlockClosure value: anEntity) and: [ self strategies allSatisfy: [ :aStrategy | aStrategy validate: anEntity ] ] ]
 ]
 
-{ #category : #final }
+{ #category : 'final' }
 TLRequest >> all [
 	^ self sourceSelect: [ :drawable | true ]
 ]
 
-{ #category : #optimisation }
+{ #category : 'optimisation' }
 TLRequest >> compositeDeserveVisit: aTLCompositeNode [
 	^ (self strategies allSatisfy: #ignoreVisibility) or: [ aTLCompositeNode expanded ]
 ]
 
-{ #category : #final }
+{ #category : 'final' }
 TLRequest >> compositeNodes [
 	^ self sourceSelect: [ :drawable | drawable isNode and: [ drawable isComposite ] ]
 ]
 
-{ #category : #finalIteration }
+{ #category : 'finalIteration' }
 TLRequest >> compositeNodesDo: aBlockClosure [
 	^ self sourceSelect: [ :drawable | drawable isNode and: [ drawable isComposite ] ] thenDo: aBlockClosure
 ]
 
-{ #category : #finalIteration }
+{ #category : 'finalIteration' }
 TLRequest >> compositeNodesSelect: aBlockClosure [
 	^ self
 		sourceSelect: (self selectBlockFrom: aBlockClosure and: [ :drawable | drawable isNode and: [ drawable isComposite ] ])
 ]
 
-{ #category : #iterating }
+{ #category : 'iterating' }
 TLRequest >> from: aRoot select: aBlock into: selection [
 	^ self subclassResponsibility
 ]
 
-{ #category : #final }
+{ #category : 'final' }
 TLRequest >> groups [
 	^ self sourceSelect: #isGroup
 ]
 
-{ #category : #finalIteration }
+{ #category : 'finalIteration' }
 TLRequest >> groupsDo: aBlockClosure [
 	^ self sourceSelect: #isGroup thenDo: aBlockClosure
 ]
 
-{ #category : #finalIteration }
+{ #category : 'finalIteration' }
 TLRequest >> groupsSelect: aBlockClosure [
 	^ self sourceSelect: (self selectBlockFrom: aBlockClosure and: #isGroup)
 ]
 
-{ #category : #strategies }
+{ #category : 'strategies' }
 TLRequest >> lowestVisibles [
 	self strategies add: TLLowestVisibleStrategy.
 ]
 
-{ #category : #final }
+{ #category : 'final' }
 TLRequest >> nodes [
 	^ self sourceSelect: #isNode.
 ]
 
-{ #category : #finalIteration }
+{ #category : 'finalIteration' }
 TLRequest >> nodesDo: aBlockClosure [
 	self sourceSelect: #isNode thenDo: aBlockClosure
 ]
 
-{ #category : #finalIteration }
+{ #category : 'finalIteration' }
 TLRequest >> nodesSelect: aBlockClosure [
 	^ self sourceSelect: (self selectBlockFrom: aBlockClosure and: #isNode)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLRequest >> rootSource [
 	^ self source rootSource
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TLRequest >> selectBlockFrom: aBlockClosure and: aTypeBlock [
 	^ [ :drawable | (aTypeBlock cull: drawable) and: [ aBlockClosure cull: drawable ] ]
 ]
 
-{ #category : #final }
+{ #category : 'final' }
 TLRequest >> simpleNodes [
 	^ self sourceSelect: [ :drawable | drawable isNode and: [ drawable isComposite not ] ]
 ]
 
-{ #category : #finalIteration }
+{ #category : 'finalIteration' }
 TLRequest >> simpleNodesDo: aBlockClosure [
 	^ self sourceSelect: [ :drawable | drawable isNode and: [ drawable isComposite not ] ] thenDo: aBlockClosure
 ]
 
-{ #category : #finalIteration }
+{ #category : 'finalIteration' }
 TLRequest >> simpleNodesSelect: aBlockClosure [
 	^ self
 		sourceSelect:
 			(self selectBlockFrom: aBlockClosure and: [ :drawable | drawable isNode and: [ drawable isComposite not ] ])
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLRequest >> source [
 	^ source
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLRequest >> source: anObject [
 	source := anObject
 ]
 
-{ #category : #iterating }
+{ #category : 'iterating' }
 TLRequest >> sourceSelect: aBlockClosure [
 	| selection |
 	selection := TLDrawableCollection new.
@@ -141,7 +143,7 @@ TLRequest >> sourceSelect: aBlockClosure [
 	^ selection
 ]
 
-{ #category : #iterating }
+{ #category : 'iterating' }
 TLRequest >> sourceSelect: aSelectionBlock thenDo: aDoBlock [
 	| selection |
 	selection := TLDrawableCollection new.
@@ -149,17 +151,17 @@ TLRequest >> sourceSelect: aSelectionBlock thenDo: aDoBlock [
 	^ selection
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLRequest >> strategies [
 	^ self source strategies
 ]
 
-{ #category : #strategies }
+{ #category : 'strategies' }
 TLRequest >> visibles [
 	self strategies add: TLRequestStrategyOnlyVisible
 ]
 
-{ #category : #inclusion }
+{ #category : 'inclusion' }
 TLRequest >> withSelf [
 	^ TLWithSelfRequest source: self
 ]

@@ -3,32 +3,33 @@ I am a layout able to display nodes equidistant as a circle.
 The arcGap is the number of pixel between two nodes
 "
 Class {
-	#name : #TLCircularLayout,
-	#superclass : #TLLayout,
+	#name : 'TLCircularLayout',
+	#superclass : 'TLLayout',
 	#instVars : [
 		'arcGap'
 	],
-	#category : 'Telescope-Layouts'
+	#category : 'Telescope-Layouts',
+	#package : 'Telescope-Layouts'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLCircularLayout class >> gap: aNumber [
 	^ self new
 		arcGap: aNumber;
 		yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLCircularLayout >> arcGap [
 	^ arcGap
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLCircularLayout >> arcGap: anObject [
 	arcGap := anObject
 ]
 
-{ #category : #placing }
+{ #category : 'placing' }
 TLCircularLayout >> executeOn: aGroup [
 	| angleByNode diagonalSum radius |
 	angleByNode := Float twoPi / aGroup size.
@@ -41,7 +42,7 @@ TLCircularLayout >> executeOn: aGroup [
 			self definePosition: (nodeAngle cos * radius) @ (nodeAngle sin * radius) forNode: aNode ]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 TLCircularLayout >> initialize [
 	super initialize.
 	self arcGap: 5

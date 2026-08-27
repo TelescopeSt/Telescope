@@ -2,17 +2,19 @@
 Creates a mock visualization for tests.
 "
 Class {
-	#name : #TLMockVisualization,
-	#superclass : #Object,
-	#category : #'Telescope-Core-Tests-Utils'
+	#name : 'TLMockVisualization',
+	#superclass : 'Object',
+	#category : 'Telescope-Core-Tests-Utils',
+	#package : 'Telescope-Core-Tests',
+	#tag : 'Utils'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TLMockVisualization class >> create [
 	^ self new createVisu
 ]
 
-{ #category : #building }
+{ #category : 'building' }
 TLMockVisualization >> createVisu [
 	| visu |
 	visu := TLVisualization new.

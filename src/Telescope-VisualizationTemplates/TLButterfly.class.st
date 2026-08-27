@@ -17,24 +17,25 @@ rightEntities
 
 "
 Class {
-	#name : #TLButterfly,
-	#superclass : #TLVisualization,
+	#name : 'TLButterfly',
+	#superclass : 'TLVisualization',
 	#instVars : [
 		'mainEntity',
 		'leftEntities',
 		'rightEntities'
 	],
-	#category : #'Telescope-VisualizationTemplates'
+	#category : 'Telescope-VisualizationTemplates',
+	#package : 'Telescope-VisualizationTemplates'
 }
 
-{ #category : #'instance-creation' }
+{ #category : 'instance-creation' }
 TLButterfly class >> mainEntity: anEntity [
 	^ self new
 		mainEntity: anEntity;
 		yourself
 ]
 
-{ #category : #building }
+{ #category : 'building' }
 TLButterfly >> buildVisualization [
 	| leftEntitiesValues rightEntitiesValues |
 	self styleSheet nodeLabel: #asString.
@@ -48,14 +49,14 @@ TLButterfly >> buildVisualization [
 	self configLabelPosition
 ]
 
-{ #category : #label }
+{ #category : 'label' }
 TLButterfly >> configLabelPosition [
 	(self > #left) styleSheet nodeLabelPosition: #left.
 	(self > #right) styleSheet nodeLabelPosition: #right.
 	self styleSheet nodeLabelPosition: #top
 ]
 
-{ #category : #layout }
+{ #category : 'layout' }
 TLButterfly >> configLayout [
 	self > #left layout: TLLinearLayout topToBottom.
 	self > #central layout: TLLinearLayout topToBottom.
@@ -63,37 +64,37 @@ TLButterfly >> configLayout [
 	self layout: (TLLinearLayout gap: 100)
 ]
 
-{ #category : #default }
+{ #category : 'default' }
 TLButterfly >> defaultTitle [
 	^ 'Butterfly'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLButterfly >> leftEntities [
 	^ leftEntities
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLButterfly >> leftEntities: anObject [
 	leftEntities := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLButterfly >> mainEntity [
 	^ mainEntity
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLButterfly >> mainEntity: anObject [
 	mainEntity := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLButterfly >> rightEntities [
 	^ rightEntities
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLButterfly >> rightEntities: anObject [
 	rightEntities := anObject
 ]

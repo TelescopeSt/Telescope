@@ -9,118 +9,120 @@ condition
 
 "
 Class {
-	#name : #TLDrawableAction,
-	#superclass : #TLAction,
-	#category : #'Telescope-Core-Actions'
+	#name : 'TLDrawableAction',
+	#superclass : 'TLAction',
+	#category : 'Telescope-Core-Actions',
+	#package : 'Telescope-Core',
+	#tag : 'Actions'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLDrawableAction class >> isAbstract [
 	^ self = TLDrawableAction
 ]
 
-{ #category : #interactions }
+{ #category : 'interactions' }
 TLDrawableAction class >> onClick [
 	^ self new onClick
 ]
 
-{ #category : #interactions }
+{ #category : 'interactions' }
 TLDrawableAction class >> onDoubleClick [
 	^ self new onDoubleClick
 ]
 
-{ #category : #interactions }
+{ #category : 'interactions' }
 TLDrawableAction class >> onExternalTrigger [
 	^ self new onExternalTrigger
 ]
 
-{ #category : #interactions }
+{ #category : 'interactions' }
 TLDrawableAction class >> onMove [
 	^ self new onMove
 ]
 
-{ #category : #interactions }
+{ #category : 'interactions' }
 TLDrawableAction class >> onRightClick [
 	^ self new onRightClick
 ]
 
-{ #category : #interactions }
+{ #category : 'interactions' }
 TLDrawableAction class >> withMenu: aTitle [
 	^ self new withMenu: aTitle
 ]
 
-{ #category : #interactions }
+{ #category : 'interactions' }
 TLDrawableAction class >> withShape: aShape [
 	^ self new withShape: aShape
 ]
 
-{ #category : #interactions }
+{ #category : 'interactions' }
 TLDrawableAction class >> withTriggerStyle: aSymbolOrBlockClosure [ 
 	^ self new withTriggerStyle: aSymbolOrBlockClosure
 ]
 
-{ #category : #action }
+{ #category : 'action' }
 TLDrawableAction >> actionOn: aTLDrawable [
 	self subclassResponsibility 
 ]
 
-{ #category : #action }
+{ #category : 'action' }
 TLDrawableAction >> actionOn: aTLDrawable parameter: aParameter [
 	self actionOn: aTLDrawable
 ]
 
-{ #category : #interactions }
+{ #category : 'interactions' }
 TLDrawableAction >> onClick [
 	^ TLClickInteraction new action: self 
 ]
 
-{ #category : #interactions }
+{ #category : 'interactions' }
 TLDrawableAction >> onDoubleClick [
 	^ TLDoubleClickInteraction new action: self 
 ]
 
-{ #category : #interactions }
+{ #category : 'interactions' }
 TLDrawableAction >> onExternalTrigger [
 	^ TLExternalTriggerInteraction new action: self 
 ]
 
-{ #category : #interactions }
+{ #category : 'interactions' }
 TLDrawableAction >> onMove [
 	^ TLNodeMovedInteraction new action: self 
 ]
 
-{ #category : #interactions }
+{ #category : 'interactions' }
 TLDrawableAction >> onRightClick [
 	^ TLRightClickInteraction new action: self 
 ]
 
-{ #category : #interactions }
+{ #category : 'interactions' }
 TLDrawableAction >> onShiftMouseOver [
 	self deprecated: 'This option never work because it calls unimplemented code. It will be removed.'
 ]
 
-{ #category : #action }
+{ #category : 'action' }
 TLDrawableAction >> regularActionIfNecessaryOn: aTLDrawable [
 	"The default behavior is to always perform action"
 	self actionOn: aTLDrawable
 ]
 
-{ #category : #'multi-visus' }
+{ #category : 'multi-visus' }
 TLDrawableAction >> updateAlso: aDrawable [
 	^ TLUpdateAction drawable: aDrawable action: self 
 ]
 
-{ #category : #interactions }
+{ #category : 'interactions' }
 TLDrawableAction >> withMenu: aTitle [
 	^ TLMenuInteraction new title: aTitle; action: self 
 ]
 
-{ #category : #interactions }
+{ #category : 'interactions' }
 TLDrawableAction >> withShape: aShape [
 	^ TLShapeInteraction new action: self; shape: aShape
 ]
 
-{ #category : #interactions }
+{ #category : 'interactions' }
 TLDrawableAction >> withTriggerStyle: aSymbolOrBlockClosure [ 
 	^ TLShapeInteraction new action: self; withTriggerStyle: aSymbolOrBlockClosure
 ]

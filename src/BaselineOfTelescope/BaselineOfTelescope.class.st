@@ -2,12 +2,13 @@
 I am a baseline of Telescope. Read more at: https://github.com/TelescopeSt/Telescope
 "
 Class {
-	#name : #BaselineOfTelescope,
-	#superclass : #BaselineOf,
-	#category : #BaselineOfTelescope
+	#name : 'BaselineOfTelescope',
+	#superclass : 'BaselineOf',
+	#category : 'BaselineOfTelescope',
+	#package : 'BaselineOfTelescope'
 }
 
-{ #category : #baseline }
+{ #category : 'baseline' }
 BaselineOfTelescope >> baseline: spec [
 	<baseline>
 	spec
@@ -43,7 +44,7 @@ BaselineOfTelescope >> baseline: spec [
 				group: 'tests' with: #('Telescope-Core-Tests' 'Telescope-Layouts-Tests' 'Telescope-VisualizationTemplates-Tests') ]
 ]
 
-{ #category : #dependencies }
+{ #category : 'dependencies' }
 BaselineOfTelescope >> deepTraverser: spec [
 	spec
 		baseline: 'DeepTraverser'
@@ -52,12 +53,12 @@ BaselineOfTelescope >> deepTraverser: spec [
 				repository: 'github://pharo-contributions/DeepTraverser:v1.x.x/src' ]
 ]
 
-{ #category : #dependencies }
+{ #category : 'dependencies' }
 BaselineOfTelescope >> materialColors: spec [
 	spec baseline: 'MaterialColors' with: [ spec repository: 'github://DuneSt/MaterialColors:v2.x.x/src' ]
 ]
 
-{ #category : #dependencies }
+{ #category : 'dependencies' }
 BaselineOfTelescope >> mocketry: spec [
 	spec
 		baseline: 'Mocketry'
@@ -66,7 +67,7 @@ BaselineOfTelescope >> mocketry: spec [
 				repository: 'github://dionisiydk/Mocketry:v6.0.x' ]
 ]
 
-{ #category : #dependencies }
+{ #category : 'dependencies' }
 BaselineOfTelescope >> mooseAlgo: spec [
 	spec
 		baseline: 'MooseAlgos'
@@ -75,19 +76,19 @@ BaselineOfTelescope >> mooseAlgo: spec [
 				repository: 'github://moosetechnology/MooseAlgos:v1.x.x/src' ]
 ]
 
-{ #category : #dependencies }
+{ #category : 'dependencies' }
 BaselineOfTelescope >> pharoBackwardCompatibility: spec [
 	spec baseline: 'PharoBackwardCompatibility' with: [ spec repository: 'github://jecisc/PharoBackwardCompatibility:v1.x.x/src' ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BaselineOfTelescope >> projectClass [
 	^ [ self class environment at: #MetacelloCypressBaselineProject ]
 		on: NotFound
 		do: [ super projectClass ]
 ]
 
-{ #category : #dependencies }
+{ #category : 'dependencies' }
 BaselineOfTelescope >> styleSheet: spec [
 	spec baseline: 'Stylesheet' with: [ spec repository: 'github://pharo-contributions/Stylesheet:v1.x.x/src' ]
 ]

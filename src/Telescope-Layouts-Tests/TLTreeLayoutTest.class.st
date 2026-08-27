@@ -1,13 +1,14 @@
 Class {
-	#name : #TLTreeLayoutTest,
-	#superclass : #TestCase,
+	#name : 'TLTreeLayoutTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'layout'
 	],
-	#category : #'Telescope-Layouts-Tests'
+	#category : 'Telescope-Layouts-Tests',
+	#package : 'Telescope-Layouts-Tests'
 }
 
-{ #category : #running }
+{ #category : 'running' }
 TLTreeLayoutTest >> setUp [
 	super setUp.
 	layout := TLTreeLayout new.
@@ -15,7 +16,7 @@ TLTreeLayoutTest >> setUp [
 	
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLTreeLayoutTest >> testCyclicGraphAccepted [
 	| nodes |
 	nodes := (1 to: 3) collect: [ :i | Mock named: 'Node' , i asString ].
@@ -30,7 +31,7 @@ TLTreeLayoutTest >> testCyclicGraphAccepted [
 	layout on: nodes
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLTreeLayoutTest >> testObtainTreeFromNodesWithOneNode [
 	| node trees |
 	node := Mock named: 'root'.
@@ -40,7 +41,7 @@ TLTreeLayoutTest >> testObtainTreeFromNodesWithOneNode [
 	self assert: (trees at: node) isEmpty
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLTreeLayoutTest >> testObtainTreeFromNodesWithThreeNodesInTwoBranches [
 	| node trees root child |
 	child := Mock named: 'child'.
@@ -56,7 +57,7 @@ TLTreeLayoutTest >> testObtainTreeFromNodesWithThreeNodesInTwoBranches [
 	self assert: (trees at: node) isEmpty
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLTreeLayoutTest >> testObtainTreeFromNodesWithTwoNodes [
 	| node trees root |
 	node := Mock named: 'child'.
@@ -69,7 +70,7 @@ TLTreeLayoutTest >> testObtainTreeFromNodesWithTwoNodes [
 	self assert: ((trees at: root) at: node) isEmpty
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLTreeLayoutTest >> testObtainTreeFromNodesWithTwoNodesWithChildBeforeParent [
 	| node trees root |
 	node := Mock named: 'child'.
@@ -82,7 +83,7 @@ TLTreeLayoutTest >> testObtainTreeFromNodesWithTwoNodesWithChildBeforeParent [
 	self assert: ((trees at: root) at: node) isEmpty
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLTreeLayoutTest >> testObtainYTable [
 	| node root tree |
 	layout levelGap: 5.
@@ -100,7 +101,7 @@ TLTreeLayoutTest >> testObtainYTable [
 	{root . node} do: [ :n | n should receive isNode ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLTreeLayoutTest >> testObtainYTableTwoChildren [
 	| root tree child1 child2 |
 	layout levelGap: 5.

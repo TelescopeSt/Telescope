@@ -17,76 +17,78 @@ property
 
 "
 Class {
-	#name : #TLExpandCollapseNodesAction,
-	#superclass : #TLReversibleNodeAction,
+	#name : 'TLExpandCollapseNodesAction',
+	#superclass : 'TLReversibleNodeAction',
 	#instVars : [
 		'parentToChildren',
 		'property',
 		'destinationGroup',
 		'expandToOrigin'
 	],
-	#category : #'Telescope-Core-Actions'
+	#category : 'Telescope-Core-Actions',
+	#package : 'Telescope-Core',
+	#tag : 'Actions'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLExpandCollapseNodesAction class >> property: aBlockOrProperty [
 	^ self new
 		property: aBlockOrProperty;
 		yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLExpandCollapseNodesAction class >> property: aBlockOrProperty destinationGroup: aTLGroup [
 	^ (self property: aBlockOrProperty)
 		destinationGroup: aTLGroup;
 		yourself
 ]
 
-{ #category : #action }
+{ #category : 'action' }
 TLExpandCollapseNodesAction >> connectNewNodes: newNodes toExistingOnesInVisu: aVisualization [
 	newNodes
 		do: [ :aNode | aNode connectIfNotTo: (aVisualization nodesForEntities: (self obtain: self property on: aNode entity)) ]
 ]
 
-{ #category : #action }
+{ #category : 'action' }
 TLExpandCollapseNodesAction >> createNodeForEntity: aChild inGroup: aGroup [
 	^ aGroup addNodeFromEntity: aChild
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLExpandCollapseNodesAction >> destinationGroup [
 	^ destinationGroup
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLExpandCollapseNodesAction >> destinationGroup: anObject [
 	destinationGroup := anObject
 ]
 
-{ #category : #destination }
+{ #category : 'destination' }
 TLExpandCollapseNodesAction >> destinationGroupFor: entity byDefault: aGroup [
 	^ self destinationGroup ifNotNil: [ self obtain: self destinationGroup on: entity ] ifNil: [ aGroup ]
 ]
 
-{ #category : #action }
+{ #category : 'action' }
 TLExpandCollapseNodesAction >> expandIdentifier [
 	^ #expanded , self property hash asString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLExpandCollapseNodesAction >> expandToOrigin [
 	"This property will reverse the connection created from new nodes to origin instead of origin to new nodes"
 	expandToOrigin := true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLExpandCollapseNodesAction >> expandToOrigin: aBoolean [
 	"This property will reverse the connection created from new nodes to origin instead of origin to new nodes"
 
 	expandToOrigin := aBoolean
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 TLExpandCollapseNodesAction >> initialize [
 	super initialize.
 	self parentToChildren: Dictionary new.
@@ -94,7 +96,7 @@ TLExpandCollapseNodesAction >> initialize [
 	
 ]
 
-{ #category : #action }
+{ #category : 'action' }
 TLExpandCollapseNodesAction >> obtainNodesWhereNew: newNodes fromEntities: children withOriginNode: aNode [
 	^ children
 		collect: [ :aChild | 
@@ -104,27 +106,27 @@ TLExpandCollapseNodesAction >> obtainNodesWhereNew: newNodes fromEntities: child
 		as: TLDrawableCollection
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLExpandCollapseNodesAction >> parentToChildren [
 	^ parentToChildren
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLExpandCollapseNodesAction >> parentToChildren: anObject [
 	parentToChildren := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLExpandCollapseNodesAction >> property [
 	^ property
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLExpandCollapseNodesAction >> property: anObject [
 	property := anObject
 ]
 
-{ #category : #action }
+{ #category : 'action' }
 TLExpandCollapseNodesAction >> regularActionOn: aNode [
 	| newNodes targetNodes children |
 	(children := self obtain: self property on: aNode entity) isCollection
@@ -141,7 +143,7 @@ TLExpandCollapseNodesAction >> regularActionOn: aNode [
 			aNode state at: self expandIdentifier put: true ]
 ]
 
-{ #category : #action }
+{ #category : 'action' }
 TLExpandCollapseNodesAction >> reverseActionOn: aNode [
 	[ 
 	(self parentToChildren at: aNode)
@@ -155,7 +157,7 @@ TLExpandCollapseNodesAction >> reverseActionOn: aNode [
 		do: [ self flag: 'Should not happen but must investigate on it' ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLExpandCollapseNodesAction >> shouldTriggerReverseActionFor: aNode [
 	^ aNode state at: self expandIdentifier ifAbsent: [ false ]
 ]

@@ -3,72 +3,74 @@ A TLReversibleNodeAction is an action that can be done and undone by calling a s
 
 "
 Class {
-	#name : #TLReversibleNodeAction,
-	#superclass : #TLNodeAction,
-	#category : #'Telescope-Core-Actions'
+	#name : 'TLReversibleNodeAction',
+	#superclass : 'TLNodeAction',
+	#category : 'Telescope-Core-Actions',
+	#package : 'Telescope-Core',
+	#tag : 'Actions'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLReversibleNodeAction class >> isAbstract [
 	^ self = TLReversibleNodeAction
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLReversibleNodeAction class >> onMouseOver [
 	^ self new onMouseOver
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TLReversibleNodeAction class >> withTriggerStyled: aStyleOrStyleSheetCustomizationBlock thatBecome: anotherStyleOrStyleSheetCustomizationBlock [
 	^ self new withTriggerStyled: aStyleOrStyleSheetCustomizationBlock thatBecome: anotherStyleOrStyleSheetCustomizationBlock
 ]
 
-{ #category : #action }
+{ #category : 'action' }
 TLReversibleNodeAction >> actionOn: aTLDrawable [
 	(self shouldTriggerReverseActionFor: aTLDrawable)
 		ifTrue: [ self reverseActionOn: aTLDrawable ]
 		ifFalse: [ self regularActionOn: aTLDrawable ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLReversibleNodeAction >> isReversible [
 	^ true
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLReversibleNodeAction >> onMouseOver [
 	^ TLMouseOverInteraction new action: self 
 ]
 
-{ #category : #action }
+{ #category : 'action' }
 TLReversibleNodeAction >> regularActionIfNecessaryOn: aTLDrawable [
 	(self shouldTriggerReverseActionFor: aTLDrawable)
 		ifFalse: [ self regularActionOn: aTLDrawable ]
 ]
 
-{ #category : #action }
+{ #category : 'action' }
 TLReversibleNodeAction >> regularActionOn: aTLDrawable [
 	^ self subclassResponsibility 
 ]
 
-{ #category : #action }
+{ #category : 'action' }
 TLReversibleNodeAction >> reverseActionIfNecessaryOn: aTLDrawable [
 	(self shouldTriggerReverseActionFor: aTLDrawable)
 		ifTrue: [ self reverseActionOn: aTLDrawable ]
 ]
 
-{ #category : #action }
+{ #category : 'action' }
 TLReversibleNodeAction >> reverseActionOn: aTLDrawable [
 	^ self subclassResponsibility 
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLReversibleNodeAction >> shouldTriggerReverseActionFor: aTLDrawable [
 	self flag: 'only supported by Telescope-Cytoscape now and managed on the client side'.
 	^ false
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TLReversibleNodeAction >> withTriggerStyled: aStyleOrStyleSheetCustomizationBlock thatBecome: anotherStyleOrStyleSheetCustomizationBlock [
 	^ TLShapeInteraction new action: self; withTriggerStyled: aStyleOrStyleSheetCustomizationBlock thatBecome: anotherStyleOrStyleSheetCustomizationBlock
 ]

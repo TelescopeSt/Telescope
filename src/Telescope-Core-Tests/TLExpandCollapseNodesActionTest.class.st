@@ -1,13 +1,15 @@
 Class {
-	#name : #TLExpandCollapseNodesActionTest,
-	#superclass : #TestCase,
+	#name : 'TLExpandCollapseNodesActionTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'visu'
 	],
-	#category : #'Telescope-Core-Tests-Actions'
+	#category : 'Telescope-Core-Tests-Actions',
+	#package : 'Telescope-Core-Tests',
+	#tag : 'Actions'
 }
 
-{ #category : #running }
+{ #category : 'running' }
 TLExpandCollapseNodesActionTest >> setUp [
 	super setUp.
 	visu := TLVisualization new
@@ -15,7 +17,7 @@ TLExpandCollapseNodesActionTest >> setUp [
 		yourself
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLExpandCollapseNodesActionTest >> testDefaultCollapse [
 	| node action |
 	node := visu addNodeFromEntity: 4.
@@ -28,7 +30,7 @@ TLExpandCollapseNodesActionTest >> testDefaultCollapse [
 	self assert: visu nodes first equals: node.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLExpandCollapseNodesActionTest >> testDefaultExpand [
 	| node |
 	node := visu addNodeFromEntity: 4.
@@ -38,7 +40,7 @@ TLExpandCollapseNodesActionTest >> testDefaultExpand [
 
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLExpandCollapseNodesActionTest >> testExpandInAnotherGroup [
 	| node |
 	node := visu addNodeFromEntity: 4.

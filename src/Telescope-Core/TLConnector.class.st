@@ -33,141 +33,143 @@ viewMorph
 
 "
 Class {
-	#name : #TLConnector,
-	#superclass : #TLObject,
+	#name : 'TLConnector',
+	#superclass : 'TLObject',
 	#instVars : [
 		'shapeByDrawable',
 		'menuInteractionByDrawable',
 		'interactionsByDrawable',
 		'triggerForInteractionAndDrawable'
 	],
-	#category : #'Telescope-Core-Connector'
+	#category : 'Telescope-Core-Connector',
+	#package : 'Telescope-Core',
+	#tag : 'Connector'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnector class >> default [
 	self deprecated: 'Use TLCurrentConnector instead' transformWith: '`@receiver default' -> 'TLCurrentConnector value'.
 	^ TLCurrentConnector value
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLConnector class >> isRealConnector [
 	^ self ~= TLConnector
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnector class >> priority [
 	^ self subclassResponsibility 
 ]
 
-{ #category : #view }
+{ #category : 'view' }
 TLConnector >> addElementConnectionInView: element [
 	self subclassResponsibility
 ]
 
-{ #category : #view }
+{ #category : 'view' }
 TLConnector >> addElementInteractionInView: element [
 	self subclassResponsibility
 ]
 
-{ #category : #view }
+{ #category : 'view' }
 TLConnector >> addElementLegendInView: legend [
 	self subclassResponsibility 
 ]
 
-{ #category : #view }
+{ #category : 'view' }
 TLConnector >> addElementLegendItemInView: legendItem [
 	self subclassResponsibility
 ]
 
-{ #category : #view }
+{ #category : 'view' }
 TLConnector >> addElementNodeInView: element [
 	self subclassResponsibility
 ]
 
-{ #category : #layout }
+{ #category : 'layout' }
 TLConnector >> applyLayoutOf: aTLGroup on: group [
 	aTLGroup layout on: group
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 TLConnector >> closeVisualization [
 	self subclassResponsibility
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnector >> connectionHeadShapesAvailableForConnector [
 	"I should return all Telescope shapes that can apply on a connection heads for this connector."
 	
 	^ self subclassResponsibility
 ]
 
-{ #category : #'generation - connection' }
+{ #category : 'generation - connection' }
 TLConnector >> createElementConnection: aTLConnection From: fromNode to: toNode [
 	self subclassResponsibility
 ]
 
-{ #category : #'generation - interaction' }
+{ #category : 'generation - interaction' }
 TLConnector >> createElementFromTrigger: aTLShapeTrigger [
 	self subclassResponsibility 
 ]
 
-{ #category : #'generation - legend' }
+{ #category : 'generation - legend' }
 TLConnector >> createElementLegendItemFrom: aTLLegendItem [
 	self subclassResponsibility 
 ]
 
-{ #category : #'generation - node' }
+{ #category : 'generation - node' }
 TLConnector >> createElementNodeFromNode: aNode [
 	self subclassResponsibility
 ]
 
-{ #category : #'generation - group' }
+{ #category : 'generation - group' }
 TLConnector >> createGroup: aTLGroup with: anObject [
 	self subclassResponsibility
 ]
 
-{ #category : #'generation - legend' }
+{ #category : 'generation - legend' }
 TLConnector >> createLegendFrom: legendItems [
 	self subclassResponsibility 
 ]
 
-{ #category : #'generation - interaction' }
+{ #category : 'generation - interaction' }
 TLConnector >> createMenuFor: aTLDrawable [
 	self subclassResponsibility
 ]
 
-{ #category : #'generation - node' }
+{ #category : 'generation - node' }
 TLConnector >> define: parentCompositeElement asParentFor: aCollectionOfChildrenElements [
 	self subclassResponsibility
 ]
 
-{ #category : #view }
+{ #category : 'view' }
 TLConnector >> displayGroupElement: aCollection [ 
 	"To override when technologie require to display the root nodes of all elements. Otherwise no need to do that because each element is added on creation"
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnector >> elementFromTLDrawable: aNode [
 	^ self shapeByDrawable at: aNode
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnector >> elementFromTLDrawable: aNode ifNone: aBlock [
 	^ self shapeByDrawable at: aNode ifAbsent: [ aBlock value ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnector >> elementFromTLDrawable: aNode ifPresent: aBlock ifNone: anotherBlock [
 	^ self shapeByDrawable at: aNode ifPresent: [ :shape | aBlock value: shape ] ifAbsent: [ anotherBlock value ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnector >> elementsFromTLDrawables: aGroupOfNodes [
 	^ aGroupOfNodes collect: [ :node | self elementFromTLDrawable: node ]
 ]
 
-{ #category : #'execution-interaction' }
+{ #category : 'execution-interaction' }
 TLConnector >> executeChoice: aChoiceIndex interaction: anInteraction forDrawable: aTLDrawable [
 	self
 		executeInteraction: anInteraction
@@ -175,7 +177,7 @@ TLConnector >> executeChoice: aChoiceIndex interaction: anInteraction forDrawabl
 		forDrawable: aTLDrawable
 ]
 
-{ #category : #'execution-interaction' }
+{ #category : 'execution-interaction' }
 TLConnector >> executeInteraction: anInteraction forDrawable: aTLDrawable [
 	| visualization |
 	visualization := aTLDrawable visualization.
@@ -184,7 +186,7 @@ TLConnector >> executeInteraction: anInteraction forDrawable: aTLDrawable [
 	visualization update
 ]
 
-{ #category : #'execution-interaction' }
+{ #category : 'execution-interaction' }
 TLConnector >> executeInteraction: anInteraction forDrawables: drawables [
 	| visualization |
 	drawables
@@ -197,7 +199,7 @@ TLConnector >> executeInteraction: anInteraction forDrawables: drawables [
 			visualization update ]
 ]
 
-{ #category : #'execution-interaction' }
+{ #category : 'execution-interaction' }
 TLConnector >> executeInteraction: anInteraction parameter: aParameter forDrawable: aTLDrawable [
 	| visualization |
 	visualization := aTLDrawable visualization.	"we have to memorize the visualization because we are not sure the element will still be part of visualization after action"
@@ -205,7 +207,7 @@ TLConnector >> executeInteraction: anInteraction parameter: aParameter forDrawab
 	visualization update
 ]
 
-{ #category : #'execution-interaction' }
+{ #category : 'execution-interaction' }
 TLConnector >> executeRegularInteraction: anInteraction forDrawable: aTLDrawable [
 	| visualization |
 	visualization := aTLDrawable visualization.
@@ -214,7 +216,7 @@ TLConnector >> executeRegularInteraction: anInteraction forDrawable: aTLDrawable
 	visualization update
 ]
 
-{ #category : #'execution-interaction' }
+{ #category : 'execution-interaction' }
 TLConnector >> executeReverseInteraction: anInteraction forDrawable: aTLDrawable [
 	| visualization |
 	visualization := aTLDrawable visualization.
@@ -223,32 +225,32 @@ TLConnector >> executeReverseInteraction: anInteraction forDrawable: aTLDrawable
 	visualization update
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnector >> findTriggerFor: aShapeInteraction forDrawable: aDrawable [
 	^ self triggerForInteractionAndDrawable at: aShapeInteraction -> aDrawable
 ]
 
-{ #category : #'generation - interaction' }
+{ #category : 'generation - interaction' }
 TLConnector >> generateBasicInteraction: aTLInteraction onNode: aTLNode [
 	self subclassResponsibility
 ]
 
-{ #category : #'generation - node' }
+{ #category : 'generation - node' }
 TLConnector >> generateChildrenOf: aCompositeNode [
 	^ aCompositeNode childrenGroup generate.
 ]
 
-{ #category : #'generation - interaction' }
+{ #category : 'generation - interaction' }
 TLConnector >> generateClickInteraction: aClickInteraction onDrawable: aTLDrawable targetingDrawable: anObject [
 	self subclassResponsibility
 ]
 
-{ #category : #'generation - interaction' }
+{ #category : 'generation - interaction' }
 TLConnector >> generateClientInteraction: aClickInteraction onDrawable: aTLDrawable targetingDrawable: anObject [
 	self subclassResponsibility
 ]
 
-{ #category : #'generation - node' }
+{ #category : 'generation - node' }
 TLConnector >> generateCompositeNode: aCompositeNode [
 	| parent |
 	parent := self generateSimpleNode: aCompositeNode.
@@ -256,7 +258,7 @@ TLConnector >> generateCompositeNode: aCompositeNode [
 	^ parent
 ]
 
-{ #category : #'generation - connection' }
+{ #category : 'generation - connection' }
 TLConnector >> generateConnection: aTLConnection [
 	| shape |
 	aTLConnection isVisible ifFalse: [ ^ self ].
@@ -269,22 +271,22 @@ TLConnector >> generateConnection: aTLConnection [
 	^ shape
 ]
 
-{ #category : #'generation - interaction' }
+{ #category : 'generation - interaction' }
 TLConnector >> generateDoubleClickInteraction: aDoubleClickInteraction onDrawable: aTLDrawable targetingDrawable: anObject [
 	self subclassResponsibility
 ]
 
-{ #category : #'generation - interactions' }
+{ #category : 'generation - interactions' }
 TLConnector >> generateDropInteraction: aTLDropInteraction onDrawable: aTLSimpleNode targetingDrawable: aTLSimpleNode3 [ 
 	self subclassResponsibility 
 ]
 
-{ #category : #'generation - interaction' }
+{ #category : 'generation - interaction' }
 TLConnector >> generateExternalTriggerInteraction: aTLMouseOverInteraction onDrawable: aTLDrawable targetingDrawable: anObject [
 	self subclassResponsibility
 ]
 
-{ #category : #'generation - group' }
+{ #category : 'generation - group' }
 TLConnector >> generateGroup: aTLGroup [
 	| group |
 	group := self
@@ -306,13 +308,13 @@ TLConnector >> generateGroup: aTLGroup [
 	^ group
 ]
 
-{ #category : #'generation - connection' }
+{ #category : 'generation - connection' }
 TLConnector >> generateIfNecessaryConnectionsOf: aNode [
 	self generateIfNecessaryIncomingConnectionsOf: aNode.
 	self generateIfNecessaryOutgoingConnectionsOf: aNode
 ]
 
-{ #category : #'generation - connection' }
+{ #category : 'generation - connection' }
 TLConnector >> generateIfNecessaryIncomingConnectionsOf: aNode [
 	aNode incomingConnections
 		do: [ :connection | 
@@ -324,7 +326,7 @@ TLConnector >> generateIfNecessaryIncomingConnectionsOf: aNode [
 				do: [  ] ]
 ]
 
-{ #category : #'generation - connection' }
+{ #category : 'generation - connection' }
 TLConnector >> generateIfNecessaryOutgoingConnectionsOf: aNode [
 	aNode outgoingConnections
 		do: [ :connection | 
@@ -336,14 +338,14 @@ TLConnector >> generateIfNecessaryOutgoingConnectionsOf: aNode [
 				do: [  ] ]
 ]
 
-{ #category : #'generation - interaction' }
+{ #category : 'generation - interaction' }
 TLConnector >> generateInteractionsOf: aDrawable targetingDrawable: aTargetDrawable [
 	aDrawable allInteractions
 		select: [ :anInteraction | anInteraction condition value: aTargetDrawable ]
 		thenDo: [ :anInteraction | anInteraction generateWith: self on: aDrawable targeting: aTargetDrawable ]
 ]
 
-{ #category : #'generation - legend' }
+{ #category : 'generation - legend' }
 TLConnector >> generateLegend: aTLLegend [
 	| legend |
 	legend := self createLegendFrom: (aTLLegend legendEntries collect: [ :entry | entry generateWith: self  ]).
@@ -352,7 +354,7 @@ TLConnector >> generateLegend: aTLLegend [
 	^ legend
 ]
 
-{ #category : #'generation - legend' }
+{ #category : 'generation - legend' }
 TLConnector >> generateLegendItem: aTLLegendItem [
 	| legendItem |
 	legendItem := self createElementLegendItemFrom: aTLLegendItem.
@@ -362,7 +364,7 @@ TLConnector >> generateLegendItem: aTLLegendItem [
 	^ legendItem
 ]
 
-{ #category : #'generation - interaction' }
+{ #category : 'generation - interaction' }
 TLConnector >> generateMenuInteraction: aMenuInteraction onDrawable: aTLDrawable targetingDrawable: aTargetDrawable [
 	| menu |
 	self flag: 'Telescope should create the menu and let the connector install it'.
@@ -375,47 +377,47 @@ TLConnector >> generateMenuInteraction: aMenuInteraction onDrawable: aTLDrawable
 	
 ]
 
-{ #category : #'generation - interaction' }
+{ #category : 'generation - interaction' }
 TLConnector >> generateMouseOverInteraction: aTLMouseOverInteraction onDrawable: aTLDrawable targetingDrawable: anObject [ 
 	self subclassResponsibility
 ]
 
-{ #category : #'generation - interaction' }
+{ #category : 'generation - interaction' }
 TLConnector >> generateMovedInteraction: aTLNodeMovedInteraction onDrawable: aDrawable targetingDrawable: aTargetDrawable [
 	self subclassResponsibility
 ]
 
-{ #category : #'generation - interaction' }
+{ #category : 'generation - interaction' }
 TLConnector >> generateMultiChoiceMenuInteraction: aTLMultiChoiceMenuInteraction onDrawable: aTLDrawable targeting: anotherDrawable [
 	self subclassResponsibility
 ]
 
-{ #category : #'generation-legendEntry' }
+{ #category : 'generation-legendEntry' }
 TLConnector >> generateNodeBackgroundLegendEntry: aTLNodeBackgroundLegendEntry [ 
 	^ self subclassResponsibility
 ]
 
-{ #category : #'generation-legendEntry' }
+{ #category : 'generation-legendEntry' }
 TLConnector >> generateNodeBorderColorLegendEntry: aLegendEntry [
 	^ self subclassResponsibility
 ]
 
-{ #category : #'generation-legendEntry' }
+{ #category : 'generation-legendEntry' }
 TLConnector >> generateNodeShapeLegendEntry: aTLNodeShapeLegendEntry [ 
 	^ self subclassResponsibility
 ]
 
-{ #category : #'generation - interaction' }
+{ #category : 'generation - interaction' }
 TLConnector >> generatePopupInteraction: aTLPopupInteraction onDrawable: aTLDrawable targetingDrawable: aTargetDrawable [
 	^ self subclassResponsibility 
 ]
 
-{ #category : #'generation - interaction' }
+{ #category : 'generation - interaction' }
 TLConnector >> generateRightClickInteraction: aRightClickInteraction onDrawable: aTLDrawable targetingDrawable: anObject [
 	self subclassResponsibility
 ]
 
-{ #category : #'generation - interaction' }
+{ #category : 'generation - interaction' }
 TLConnector >> generateShapeInteraction: aTLShapeInteraction onDrawable: aTLDrawable targetingDrawable: aTargetDrawable [
 	| triggerElement trigger |
 	"Create a trigger for the drawable"
@@ -438,7 +440,7 @@ TLConnector >> generateShapeInteraction: aTLShapeInteraction onDrawable: aTLDraw
 	self generateInteractionsOf: trigger targetingDrawable: aTargetDrawable
 ]
 
-{ #category : #'generation - node' }
+{ #category : 'generation - node' }
 TLConnector >> generateSimpleNode: aSimpleNode [
 	| element |
 	element := self createElementNodeFromNode: aSimpleNode.
@@ -449,54 +451,54 @@ TLConnector >> generateSimpleNode: aSimpleNode [
 	^ element
 ]
 
-{ #category : #'generation-legendEntry' }
+{ #category : 'generation-legendEntry' }
 TLConnector >> generateTLBorderColorLegendEntry: aTLBorderColorLegendEntry [ 
 	^ self subclassResponsibility
 ]
 
-{ #category : #'generation-legendEntry' }
+{ #category : 'generation-legendEntry' }
 TLConnector >> generateTLBorderShapeLegendEntry: aTLBorderShapeLegendEntry [ 
 	^ self subclassResponsibility
 ]
 
-{ #category : #'generation-legendEntry' }
+{ #category : 'generation-legendEntry' }
 TLConnector >> generateTLColorLegendEntry: aTLColorLegendEntry [ 
 	^ self subclassResponsibility
 ]
 
-{ #category : #'generation-legendEntry' }
+{ #category : 'generation-legendEntry' }
 TLConnector >> generateTLGradientLegendEntry: aTLGradientLegendEntry [ 
 	^ self subclassResponsibility .
 ]
 
-{ #category : #'generation-legendEntry' }
+{ #category : 'generation-legendEntry' }
 TLConnector >> generateTLHeightLegendEntry: aTLHeightLegendEntry [ 
 	^ self subclassResponsibility
 ]
 
-{ #category : #'generation-legendEntry' }
+{ #category : 'generation-legendEntry' }
 TLConnector >> generateTLStyleSheetLegendEntry: aTLStyleSheetLegendEntry [ 
 	^ self subclassResponsibility 
 ]
 
-{ #category : #'generation-legendEntry' }
+{ #category : 'generation-legendEntry' }
 TLConnector >> generateTLWidthLegendEntry: aTLWidthLegendEntry [ 
 	^ self subclassResponsibility 
 ]
 
-{ #category : #'generation - interaction' }
+{ #category : 'generation - interaction' }
 TLConnector >> generateTrigger: aTLShapeTrigger [
 	^ self createElementFromTrigger: aTLShapeTrigger.
 ]
 
-{ #category : #'generation - group' }
+{ #category : 'generation - group' }
 TLConnector >> generateVisualization: aTLVisualization [
 	self displayGroupElement: (self generateGroup: aTLVisualization).
 	aTLVisualization legend generateWith: self.
 	self postGenerationFor: aTLVisualization	"the connection is not managed because it does not exist"
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 TLConnector >> initialize [
 	super initialize.
 	self shapeByDrawable: Dictionary new.
@@ -505,70 +507,76 @@ TLConnector >> initialize [
 	self triggerForInteractionAndDrawable: Dictionary new.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnector >> interactionsByDrawable [
 	^ interactionsByDrawable
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnector >> interactionsByDrawable: anObject [
 	interactionsByDrawable := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnector >> menuInteractionByDrawable [
 	^ menuInteractionByDrawable
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnector >> menuInteractionByDrawable: anObject [
 	menuInteractionByDrawable := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnector >> nodesShapesAvailableForConnector [
 	"I should return all Telescope shapes that can apply on a node for this connector."
 	
 	^ self subclassResponsibility
 ]
 
-{ #category : #opening }
+{ #category : 'accessing' }
+TLConnector >> notify: aString forVisualization: aTLVisualizaton [
+
+	self subclassResponsibility
+]
+
+{ #category : 'opening' }
 TLConnector >> open: aTLVisualization inWindowSized: aDimension titled: aString [ 
 	self subclassResponsibility 
 ]
 
-{ #category : #layout }
+{ #category : 'layout' }
 TLConnector >> placeElement: anAssociation correspondingToTrigger: aTLShapeTrigger relativeToDrawable: aTLSimpleNode [ 
 	self subclassResponsibility 
 ]
 
-{ #category : #'generation - group' }
+{ #category : 'generation - group' }
 TLConnector >> postGenerationFor: aTLVisualization [
 	
 ]
 
-{ #category : #'consistency-dictionaries' }
+{ #category : 'consistency-dictionaries' }
 TLConnector >> registerInteraction: aTLInteraction onDrawable: aTLDrawable [ 
 	(self interactionsByDrawable at: aTLDrawable ifAbsentPut: [OrderedCollection new]) add: aTLInteraction.
 ]
 
-{ #category : #'consistency-dictionaries' }
+{ #category : 'consistency-dictionaries' }
 TLConnector >> registerInteraction: aTLInteraction withTrigger: aTLTrigger onDrawable: aTLDrawable [ 
 	self registerInteraction: aTLInteraction onDrawable: aTLDrawable.
 	self triggerForInteractionAndDrawable at: aTLInteraction -> aTLDrawable put: aTLTrigger.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnector >> registerShape: element forDrawable: aDrawable [
 	self shapeByDrawable at: aDrawable put: element
 ]
 
-{ #category : #'removing - node' }
+{ #category : 'removing - node' }
 TLConnector >> removeChildrenOf: aCompositeNode [
 	aCompositeNode childrenGroup removeWith: self.
 ]
 
-{ #category : #'removing - node' }
+{ #category : 'removing - node' }
 TLConnector >> removeCompositeNode: aNode [
 	aNode expanded
 		ifTrue: [ 
@@ -578,7 +586,7 @@ TLConnector >> removeCompositeNode: aNode [
 	self removeSimpleNode: aNode
 ]
 
-{ #category : #'removing - connection' }
+{ #category : 'removing - connection' }
 TLConnector >> removeConnection: aTLConnection [
 	| shape |
 	
@@ -588,27 +596,27 @@ TLConnector >> removeConnection: aTLConnection [
 	self removeInteractionsOf: aTLConnection
 ]
 
-{ #category : #view }
+{ #category : 'view' }
 TLConnector >> removeElementConnectionFromView: element [
 	self subclassResponsibility
 ]
 
-{ #category : #'drawing - removing' }
+{ #category : 'drawing - removing' }
 TLConnector >> removeElementFromView: element associatedToDrawable: aTLDrawable [ 
 	self subclassResponsibility 
 ]
 
-{ #category : #view }
+{ #category : 'view' }
 TLConnector >> removeElementLegendItemFromView: element [
 	self subclassResponsibility
 ]
 
-{ #category : #view }
+{ #category : 'view' }
 TLConnector >> removeElementnteractionFromView: element [
 	self subclassResponsibility
 ]
 
-{ #category : #'removing - group' }
+{ #category : 'removing - group' }
 TLConnector >> removeGroup: aTLGroup [
 	(self shapeByDrawable includesKey: aTLGroup) ifFalse: [ ^ self ].
 
@@ -616,25 +624,25 @@ TLConnector >> removeGroup: aTLGroup [
 	self unregisterShapeForDrawable: aTLGroup
 ]
 
-{ #category : #'removing - interaction' }
+{ #category : 'removing - interaction' }
 TLConnector >> removeInteractionsOf: aDrawable [
 	(self interactionsByDrawable removeKey: aDrawable ifAbsent: [ #() ])
 		do: [ :interaction | interaction removeWith: self forDrawable: aDrawable ].
 	self menuInteractionByDrawable removeKey: aDrawable ifAbsent: [  ]
 ]
 
-{ #category : #'removing - legend' }
+{ #category : 'removing - legend' }
 TLConnector >> removeLegend: aTLLegend [ 
 	self subclassResponsibility 
 ]
 
-{ #category : #'removing - interaction' }
+{ #category : 'removing - interaction' }
 TLConnector >> removeShapeInteraction: aTLShapeInteraction forDrawable: aTLDrawable [
 	"here we are removing the trigger from the connector after asked to it to remove from the view"
 	(self triggerForInteractionAndDrawable removeKey: aTLShapeInteraction -> aTLDrawable) removeWith: self
 ]
 
-{ #category : #'removing - node' }
+{ #category : 'removing - node' }
 TLConnector >> removeSimpleNode: aNode [
 	[ | element |
 	element := self elementFromTLDrawable: aNode.
@@ -650,7 +658,7 @@ TLConnector >> removeSimpleNode: aNode [
 		do: [ "A node might not be visible on the visualisation and thus does not have a shape" self flag: #toCheck. "Cyril: There was a bug here but I don't know Telescope enough to be 100% sure of waht to do." ]
 ]
 
-{ #category : #'removing - interaction' }
+{ #category : 'removing - interaction' }
 TLConnector >> removeTrigger: aTLShapeTrigger [ 
 	| element |
 	[element := self elementFromTLDrawable: aTLShapeTrigger.
@@ -659,37 +667,37 @@ TLConnector >> removeTrigger: aTLShapeTrigger [
 	self removeInteractionsOf: aTLShapeTrigger.] on: KeyNotFound do: [  ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnector >> shapeByDrawable [
 	^ shapeByDrawable
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnector >> shapeByDrawable: anObject [
 	shapeByDrawable := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnector >> tlDrawableFromElement: element [
 	^ self shapeByDrawable keyAtValue: element
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnector >> triggerForInteractionAndDrawable [
 	^ triggerForInteractionAndDrawable
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnector >> triggerForInteractionAndDrawable: anObject [
 	triggerForInteractionAndDrawable := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLConnector >> unregisterShapeForDrawable: aDrawable [
 	self shapeByDrawable removeKey: aDrawable
 ]
 
-{ #category : #'updating - connection' }
+{ #category : 'updating - connection' }
 TLConnector >> updateAllConnections [
 	self shapeByDrawable copy
 		keysDo: [ :drawable | 
@@ -699,14 +707,14 @@ TLConnector >> updateAllConnections [
 						ifTrue: [ self removeConnection: drawable ] ifFalse: [ drawable updateWith: self ] ] ]
 ]
 
-{ #category : #'updating - node' }
+{ #category : 'updating - node' }
 TLConnector >> updateChildrenOf: aCompositeNode [
 	[ aCompositeNode childrenGroup update ]
 		on: KeyNotFound
 		do: [ self define: (self elementFromTLDrawable: aCompositeNode) asParentFor: (self generateChildrenOf: aCompositeNode) ]
 ]
 
-{ #category : #'updating - node' }
+{ #category : 'updating - node' }
 TLConnector >> updateCompositeNode: aNode [
 	aNode isUpdateRequired ifFalse: [ ^ self ].
 
@@ -716,7 +724,7 @@ TLConnector >> updateCompositeNode: aNode [
 		ifFalse: [ self removeChildrenOf: aNode ]
 ]
 
-{ #category : #'updating - connection' }
+{ #category : 'updating - connection' }
 TLConnector >> updateConnection: aConnection [
 	aConnection isUpdateRequired
 		ifTrue: [ 
@@ -728,7 +736,7 @@ TLConnector >> updateConnection: aConnection [
 				do: [ aConnection generate ] ]
 ]
 
-{ #category : #'updating - connection' }
+{ #category : 'updating - connection' }
 TLConnector >> updateConnectionsOf: aNode [
 	|connectionUpdatingBlock|
 
@@ -738,17 +746,17 @@ TLConnector >> updateConnectionsOf: aNode [
 	aNode outgoingConnections do: connectionUpdatingBlock
 ]
 
-{ #category : #'updating - connection' }
+{ #category : 'updating - connection' }
 TLConnector >> updateEdgeOf: aConnection [
 	self subclassResponsibility 
 ]
 
-{ #category : #'updating - node' }
+{ #category : 'updating - node' }
 TLConnector >> updateElementNodeOf: aDrawable [
 	self subclassResponsibility 
 ]
 
-{ #category : #'updating - group' }
+{ #category : 'updating - group' }
 TLConnector >> updateGroup: aTLGroup [
 	aTLGroup isUpdateRequired
 		ifTrue: [ 
@@ -784,27 +792,27 @@ TLConnector >> updateGroup: aTLGroup [
 	aTLGroup layoutApplicationDone
 ]
 
-{ #category : #'updating - interaction' }
+{ #category : 'updating - interaction' }
 TLConnector >> updateInteractionsOf: aDrawable [
 	self subclassResponsibility
 ]
 
-{ #category : #'updating - legend' }
+{ #category : 'updating - legend' }
 TLConnector >> updateLegend: aTLLegend [
 	self subclassResponsibility 
 ]
 
-{ #category : #'updating - interaction' }
+{ #category : 'updating - interaction' }
 TLConnector >> updateShapeInteraction: aShapeInteraction forDrawable: aDrawable [
 	(self findTriggerFor: aShapeInteraction forDrawable: aDrawable) updateWith: self
 ]
 
-{ #category : #'updating - interaction' }
+{ #category : 'updating - interaction' }
 TLConnector >> updateShapeTrigger: aTLShapeTrigger [
 	self subclassResponsibility
 ]
 
-{ #category : #'updating - node' }
+{ #category : 'updating - node' }
 TLConnector >> updateSimpleNode: aNode [
 	self generateIfNecessaryConnectionsOf: aNode.
 
@@ -816,12 +824,12 @@ TLConnector >> updateSimpleNode: aNode [
 	aNode updateDone
 ]
 
-{ #category : #view }
+{ #category : 'view' }
 TLConnector >> updateViewForVisualization: aTLVisualization [
 	self subclassResponsibility
 ]
 
-{ #category : #'updating - group' }
+{ #category : 'updating - group' }
 TLConnector >> updateVisualization: aTLVisualization [
 	self updateAllConnections.
 	self updateGroup: aTLVisualization.

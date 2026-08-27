@@ -2,37 +2,39 @@
 I am the superclass for all static legend parametrized by user to describe width, height...
 "
 Class {
-	#name : #TLStaticLegendEntry,
-	#superclass : #TLLegendEntry,
+	#name : 'TLStaticLegendEntry',
+	#superclass : 'TLLegendEntry',
 	#instVars : [
 		'label'
 	],
-	#category : #'Telescope-Core-Model-Legend'
+	#category : 'Telescope-Core-Model-Legend',
+	#package : 'Telescope-Core',
+	#tag : 'Model-Legend'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLStaticLegendEntry class >> description: aDescription [
 	^ self new
 		label: aDescription;
 		yourself
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLStaticLegendEntry class >> isAbstract [
 	^ self = TLStaticLegendEntry
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLStaticLegendEntry >> isStatic [
 	^ true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLStaticLegendEntry >> label [
 	^ label
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLStaticLegendEntry >> label: anObject [
 	label := anObject
 ]

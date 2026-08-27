@@ -2,72 +2,74 @@
 I define the basic structure of a node for the Telescope vizualisations
 "
 Class {
-	#name : #TLAbstractNode,
-	#superclass : #TLConnectable,
+	#name : 'TLAbstractNode',
+	#superclass : 'TLConnectable',
 	#instVars : [
 		'entity',
 		'label',
 		'incomingConnections',
 		'outgoingConnections'
 	],
-	#category : #'Telescope-Core-Model'
+	#category : 'Telescope-Core-Model',
+	#package : 'Telescope-Core',
+	#tag : 'Model'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLAbstractNode class >> isAbstract [
 	^ self = TLAbstractNode
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLAbstractNode class >> withEntity: anEntity [
 	^ self new entity: anEntity
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 TLAbstractNode >> addIncomingConnection: aTLConnection [
 	self incomingConnections add: aTLConnection.
 	self requireUpdateForConnections
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 TLAbstractNode >> addOutgoingConnection: aTLConnection [
 	self outgoingConnections add: aTLConnection.
 	self requireUpdateForConnections
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLAbstractNode >> adjacentNodes [
 	^ self incomingAdjacentNodes copy;
 	  addAllFirstUnlessAlreadyPresent: self outgoingAdjacentNodes;
 	  yourself 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLAbstractNode >> allConnections [
 	^ self connections
 ]
 
-{ #category : #style }
+{ #category : 'style' }
 TLAbstractNode >> backGroundColor [
 	^ self effectiveStyleSheet backgroundColor
 ]
 
-{ #category : #transformation }
+{ #category : 'transformation' }
 TLAbstractNode >> becomeComposite [
 	^ self subclassResponsibility 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLAbstractNode >> childrenLayout [
 	^ self effectiveStyleSheet childrenLayout
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLAbstractNode >> childrenLayout: aLayout [
 	self styleSheet childrenLayout: aLayout
 ]
 
-{ #category : #connect }
+{ #category : 'connect' }
 TLAbstractNode >> connectFollowingProperty: aBlockOrSymbol context: aTLEntitiesGroup [
 	| target |
 	target := aBlockOrSymbol value: self entity.
@@ -79,17 +81,17 @@ TLAbstractNode >> connectFollowingProperty: aBlockOrSymbol context: aTLEntitiesG
 				do: [ #() ] ]
 ]
 
-{ #category : #connect }
+{ #category : 'connect' }
 TLAbstractNode >> connectFromNode: aTLNode [
 	^ aTLNode connectToNode: self
 ]
 
-{ #category : #connection }
+{ #category : 'connection' }
 TLAbstractNode >> connectFromNode: aTLNode entity: anObject [ 
 	^ aTLNode connectToNode: self entity: anObject
 ]
 
-{ #category : #connect }
+{ #category : 'connect' }
 TLAbstractNode >> connectIfNotAlreadyFollowingProperty: aBlockOrSymbol context: aTLEntitiesGroup [
 	| target |
 	target := aBlockOrSymbol value: self entity.
@@ -101,7 +103,7 @@ TLAbstractNode >> connectIfNotAlreadyFollowingProperty: aBlockOrSymbol context: 
 				do: [ #() ] ]
 ]
 
-{ #category : #connect }
+{ #category : 'connect' }
 TLAbstractNode >> connectIfNotFollowingProperty: aBlockOrSymbol context: aTLEntitiesGroup [
 	self
 		deprecated: 'The name of this method is not repersentative of what it does, please use #connectIfNotAlreadyFollowingProperty:context: instead.'
@@ -111,22 +113,22 @@ TLAbstractNode >> connectIfNotFollowingProperty: aBlockOrSymbol context: aTLEnti
 	^ self connectIfNotAlreadyFollowingProperty: aBlockOrSymbol context: aTLEntitiesGroup
 ]
 
-{ #category : #connect }
+{ #category : 'connect' }
 TLAbstractNode >> connectIfNotFromNode: aTLNode [
 	^ aTLNode connectIfNotToNode: self
 ]
 
-{ #category : #connect }
+{ #category : 'connect' }
 TLAbstractNode >> connectIfNotTo: aTLConnectable [
 	^ aTLConnectable connectIfNotFromNode: self
 ]
 
-{ #category : #connect }
+{ #category : 'connect' }
 TLAbstractNode >> connectIfNotToNode: aTLNode [
 	^ self outgoingConnections detect: [ :aConnection | aConnection toNode = aTLNode ] ifNone: [ self connectTo: aTLNode ]
 ]
 
-{ #category : #connect }
+{ #category : 'connect' }
 TLAbstractNode >> connectThrough: connectionsValuable to: targetValuable context: aTLEntitiesGroup [
 	| targets connectionEntities |
 	connectionEntities := connectionsValuable value: self entity.
@@ -143,22 +145,22 @@ TLAbstractNode >> connectThrough: connectionsValuable to: targetValuable context
 			collection ]
 ]
 
-{ #category : #connect }
+{ #category : 'connect' }
 TLAbstractNode >> connectTo: aTLConnectable [
 	^ aTLConnectable connectFromNode: self
 ]
 
-{ #category : #connect }
+{ #category : 'connect' }
 TLAbstractNode >> connectTo: aTLConnectable entity: anObject [
 	^ aTLConnectable connectFromNode: self entity: anObject
 ]
 
-{ #category : #connect }
+{ #category : 'connect' }
 TLAbstractNode >> connectToNode: aTLNode [
 	^ TLConnection from: self to: aTLNode visualization: self visualization
 ]
 
-{ #category : #connect }
+{ #category : 'connect' }
 TLAbstractNode >> connectToNode: aTLNode entity: anObject [
 	^ (TLConnectionWithEntity
 		from: self
@@ -168,48 +170,48 @@ TLAbstractNode >> connectToNode: aTLNode entity: anObject [
 		yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLAbstractNode >> connections [
 	^ self incomingConnections, self outgoingConnections 
 ]
 
-{ #category : #style }
+{ #category : 'style' }
 TLAbstractNode >> defaultStyle [
 	^ #node
 ]
 
-{ #category : #entity }
+{ #category : 'entity' }
 TLAbstractNode >> entity [
 	^ entity
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLAbstractNode >> entity: anObject [
 	self requireUpdateAndLayoutApplication.
 	entity := anObject
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLAbstractNode >> hasEntity [
 	^ true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLAbstractNode >> incomingAdjacentNodes [
 	^ self incomingConnections collect: #fromNode
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLAbstractNode >> incomingConnections [
 	^ incomingConnections
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLAbstractNode >> incomingConnections: anObject [
 	incomingConnections := anObject
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 TLAbstractNode >> initialize [
 	super initialize.
 	incomingConnections := TLDrawableCollection new.
@@ -217,64 +219,64 @@ TLAbstractNode >> initialize [
 	
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLAbstractNode >> isComposite [
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLAbstractNode >> isLeaf [
 	^ self subclassResponsibility
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLAbstractNode >> isNode [
 	^ true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLAbstractNode >> label [
 	^ label
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLAbstractNode >> label: anObject [
 	label := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLAbstractNode >> leafs [
 	^ self subclassResponsibility
 ]
 
-{ #category : #enumeration }
+{ #category : 'enumeration' }
 TLAbstractNode >> nodesForEntities: aCollectionOfEntities [
 	^ (aCollectionOfEntities includes: self entity)
 		ifTrue: [ {self} ]
 		ifFalse: [ #() ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLAbstractNode >> outgoingAdjacentNodes [
 	^ self outgoingConnections collect: #toNode
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLAbstractNode >> outgoingConnections [
 	^ outgoingConnections
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLAbstractNode >> outgoingConnections: anObject [
 	outgoingConnections := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLAbstractNode >> parentNode: aNode [
 	aNode becomeComposite addChildNode: self
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 TLAbstractNode >> printOn: stream [
 	super printOn: stream.
 	stream nextPutAll: ' ('.
@@ -282,19 +284,19 @@ TLAbstractNode >> printOn: stream [
 	stream nextPutAll: ')'
 ]
 
-{ #category : #connect }
+{ #category : 'connect' }
 TLAbstractNode >> removeIncomingConnection: aTLConnection [
 	self incomingConnections remove: aTLConnection.
 	self requireUpdateForConnections
 ]
 
-{ #category : #connect }
+{ #category : 'connect' }
 TLAbstractNode >> removeOutgoingConnection: aTLConnection [
 	self outgoingConnections remove: aTLConnection.
 	self requireUpdateForConnections
 ]
 
-{ #category : #state }
+{ #category : 'state' }
 TLAbstractNode >> requireUpdateForConnections [
 	"If i have no parent, no layouting required"
 

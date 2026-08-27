@@ -25,22 +25,24 @@ Internal Representation and Key Implementation Points.
 
 "
 Class {
-	#name : #TLLabelBasedWidth,
-	#superclass : #TLObject,
+	#name : 'TLLabelBasedWidth',
+	#superclass : 'TLObject',
 	#instVars : [
 		'defaultWidth'
 	],
-	#category : #'Telescope-Core-Style'
+	#category : 'Telescope-Core-Style',
+	#package : 'Telescope-Core',
+	#tag : 'Style'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLLabelBasedWidth class >> defaultWidth: anInteger [
 	^ self new
 		defaultWidth: anInteger;
 		yourself
 ]
 
-{ #category : #evaluating }
+{ #category : 'evaluating' }
 TLLabelBasedWidth >> cull: anEntity cull: aNode [
 	| stringLabel |
 	stringLabel := aNode effectiveStyleSheet obtainValue: #nodeLabel forEntity: anEntity inNode: aNode.
@@ -51,17 +53,17 @@ TLLabelBasedWidth >> cull: anEntity cull: aNode [
 		ifTrue: [ self defaultWidth ifNil: [ TLStyleSheetLabelBasedWidthBadlyUsed signalForEntity: anEntity ] ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLLabelBasedWidth >> defaultWidth [
 	^ defaultWidth
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLLabelBasedWidth >> defaultWidth: anObject [
 	defaultWidth := anObject
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLLabelBasedWidth >> isEvaluable [
 	^ true
 ]

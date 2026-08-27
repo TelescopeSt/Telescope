@@ -1,13 +1,14 @@
 Class {
-	#name : #TLLinearLayoutTest,
-	#superclass : #TestCase,
+	#name : 'TLLinearLayoutTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'layout'
 	],
-	#category : #'Telescope-Layouts-Tests'
+	#category : 'Telescope-Layouts-Tests',
+	#package : 'Telescope-Layouts-Tests'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLLinearLayoutTest >> testPlace5IdenticalNodes [
 	| nodes |
 	layout := TLLinearLayout gap: 5.
@@ -26,7 +27,7 @@ TLLinearLayoutTest >> testPlace5IdenticalNodes [
 	nodes do: [ :node | node should receive position: Any ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLLinearLayoutTest >> testPlaceNodesOverflowingNumberOfElements [
 	| nodes |
 	layout := TLLinearLayout gap: 5 perLine: 3.
@@ -45,7 +46,7 @@ TLLinearLayoutTest >> testPlaceNodesOverflowingNumberOfElements [
 	nodes do: [ :node | node should receive position: Any ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLLinearLayoutTest >> testPlaceNodesOverflowingWidth [
 	| nodes |
 	layout := TLLinearLayout gap: 5 maximumDimension: 50.
@@ -64,7 +65,7 @@ TLLinearLayoutTest >> testPlaceNodesOverflowingWidth [
 	nodes do: [ :node | node should receive position: Any ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLLinearLayoutTest >> testPlaceNodesWithMultipleDimensionsCentered [
 	| nodes |
 	layout := TLLinearLayout gap: 5.

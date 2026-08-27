@@ -2,16 +2,18 @@
 I am an exception sent when a style property was not applicable to an entity (usually it would have send a MessageNotUnderstood)
 "
 Class {
-	#name : #TLStyleSheetPropertyBadlyUsed,
-	#superclass : #TLWrongUsedFunctionalityException,
+	#name : 'TLStyleSheetPropertyBadlyUsed',
+	#superclass : 'TLWrongUsedFunctionalityException',
 	#instVars : [
 		'property',
 		'propertyBlock'
 	],
-	#category : #'Telescope-Core-Exceptions'
+	#category : 'Telescope-Core-Exceptions',
+	#package : 'Telescope-Core',
+	#tag : 'Exceptions'
 }
 
-{ #category : #signalling }
+{ #category : 'signalling' }
 TLStyleSheetPropertyBadlyUsed class >> signalForProperty: aPropertyOrValuable propertyBlock: result entity: anEntity [
 	^ self new
 		property: aPropertyOrValuable;
@@ -20,28 +22,28 @@ TLStyleSheetPropertyBadlyUsed class >> signalForProperty: aPropertyOrValuable pr
 		signal
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLStyleSheetPropertyBadlyUsed >> messageText [
 	^ 'Telescope encountered an error when trying to apply: ' , self propertyBlock asString , ' on: '
 		, self entity asString , ' to obtain: ' , self property asString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLStyleSheetPropertyBadlyUsed >> property [
 	^ property
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLStyleSheetPropertyBadlyUsed >> property: anObject [
 	property := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLStyleSheetPropertyBadlyUsed >> propertyBlock [
 	^ propertyBlock
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLStyleSheetPropertyBadlyUsed >> propertyBlock: anObject [
 	propertyBlock := anObject
 ]

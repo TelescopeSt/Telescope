@@ -1,20 +1,22 @@
 Class {
-	#name : #TLStyleSheetLegendEntry,
-	#superclass : #TLStaticLegendEntry,
+	#name : 'TLStyleSheetLegendEntry',
+	#superclass : 'TLStaticLegendEntry',
 	#instVars : [
 		'icon'
 	],
-	#category : #'Telescope-Core-Model-Legend'
+	#category : 'Telescope-Core-Model-Legend',
+	#package : 'Telescope-Core',
+	#tag : 'Model-Legend'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLStyleSheetLegendEntry class >> description: aDescription styleSheet: aStyleSheet [
 	^ (self description: aDescription)
 		styleSheet:  aStyleSheet;
 		yourself
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLStyleSheetLegendEntry class >> description: aDescription styleSheet: aStyleSheet icon: aString [
 	^ (self description: aDescription)
 		styleSheet:  aStyleSheet;
@@ -22,17 +24,17 @@ TLStyleSheetLegendEntry class >> description: aDescription styleSheet: aStyleShe
 		yourself
 ]
 
-{ #category : #generation }
+{ #category : 'generation' }
 TLStyleSheetLegendEntry >> generateWith: aTLCytoscapeConnector [ 
 	^ aTLCytoscapeConnector  generateTLStyleSheetLegendEntry: self
 ]
 
-{ #category : #generation }
+{ #category : 'generation' }
 TLStyleSheetLegendEntry >> icon [
   ^icon
 ]
 
-{ #category : #generation }
+{ #category : 'generation' }
 TLStyleSheetLegendEntry >> icon:aString [
   icon:=aString
 ]

@@ -2,32 +2,33 @@
 I am a simple strategy that will answer that you need to create a new line if you have already a certain amount of nodes on your current line.
 "
 Class {
-	#name : #TLLayoutNewLineMaxNumberElementsStrategy,
-	#superclass : #TLLayoutNewLineStrategy,
+	#name : 'TLLayoutNewLineMaxNumberElementsStrategy',
+	#superclass : 'TLLayoutNewLineStrategy',
 	#instVars : [
 		'maxNumberOfElements'
 	],
-	#category : 'Telescope-Layouts'
+	#category : 'Telescope-Layouts',
+	#package : 'Telescope-Layouts'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLLayoutNewLineMaxNumberElementsStrategy class >> maxNumberOfElements: anInteger [
 	^ self new
 		maxNumberOfElements: anInteger;
 		yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLLayoutNewLineMaxNumberElementsStrategy >> maxNumberOfElements [
 	^ maxNumberOfElements
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLLayoutNewLineMaxNumberElementsStrategy >> maxNumberOfElements: anObject [
 	maxNumberOfElements := anObject
 ]
 
-{ #category : #strategy }
+{ #category : 'strategy' }
 TLLayoutNewLineMaxNumberElementsStrategy >> shouldCreateNewLineFrom: currentPosition currentNodeNumberOnLine: anInteger forDimension: nodeDimension [
 	^ self maxNumberOfElements < anInteger
 ]

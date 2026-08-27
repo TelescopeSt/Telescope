@@ -2,16 +2,18 @@
 I represent a gradient of colors. I will concern a set of entities that telescope
 "
 Class {
-	#name : #TLGradient,
-	#superclass : #TLObject,
+	#name : 'TLGradient',
+	#superclass : 'TLObject',
 	#instVars : [
 		'levelForColors',
 		'levelProperty'
 	],
-	#category : #'Telescope-Core-Style'
+	#category : 'Telescope-Core-Style',
+	#package : 'Telescope-Core',
+	#tag : 'Style'
 }
 
-{ #category : #compute }
+{ #category : 'compute' }
 TLGradient >> computeForLevel: aLevel [
 	| min max |
 	min := self levelForColors reverse detect: [ :levelWithColor | levelWithColor key <= aLevel ] ifNone: [ nil ].
@@ -22,43 +24,43 @@ TLGradient >> computeForLevel: aLevel [
 	^ max value alphaMixed: (aLevel - min key) / (max key - min key) with: min value
 ]
 
-{ #category : #evaluating }
+{ #category : 'evaluating' }
 TLGradient >> cull: anEntity cull: aNode [
 	^ self computeForLevel: (self levelProperty cull: anEntity cull: aNode ) 
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 TLGradient >> initialize [
 	super initialize.
 	self levelForColors: SortedCollection new
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLGradient >> isEvaluable [
 	^ true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLGradient >> levelForColors [
 	^ levelForColors
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLGradient >> levelForColors: anObject [
 	levelForColors := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLGradient >> levelProperty [
 	^ levelProperty
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLGradient >> levelProperty: anObject [
 	levelProperty := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLGradient >> percentageForLevel: aLevel [
 	| low high |
 	low := self levelForColors first key.
@@ -66,7 +68,7 @@ TLGradient >> percentageForLevel: aLevel [
 	^ (aLevel - low) / (high - low)
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 TLGradient >> printOn: aStream [
 	super printOn: aStream.
 	aStream
@@ -75,12 +77,12 @@ TLGradient >> printOn: aStream [
 		<< $)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLGradient >> to: aColor at: aLevel [
 	self levelForColors add: (aLevel -> aColor)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLGradient >> value: anEntity [
 	^ self computeForLevel: (self levelProperty value: anEntity)
 ]

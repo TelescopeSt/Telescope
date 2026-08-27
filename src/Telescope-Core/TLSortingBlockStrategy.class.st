@@ -5,32 +5,34 @@ Description
 I am a strategy where the user can directly use a sorting block to sort the elements.
 "
 Class {
-	#name : #TLSortingBlockStrategy,
-	#superclass : #TLSortingStrategy,
+	#name : 'TLSortingBlockStrategy',
+	#superclass : 'TLSortingStrategy',
 	#instVars : [
 		'sortingBlock'
 	],
-	#category : #'Telescope-Core-Strategies'
+	#category : 'Telescope-Core-Strategies',
+	#package : 'Telescope-Core',
+	#tag : 'Strategies'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLSortingBlockStrategy class >> sortingBlock: aBlock [
 	^ self new
 		sortingBlock: aBlock;
 		yourself
 ]
 
-{ #category : #sorting }
+{ #category : 'sorting' }
 TLSortingBlockStrategy >> sortNodes: aCollectionOfTLNodes [
 	aCollectionOfTLNodes sort: self sortingBlock
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLSortingBlockStrategy >> sortingBlock [
 	^ sortingBlock
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLSortingBlockStrategy >> sortingBlock: anObject [
 	sortingBlock := anObject
 ]

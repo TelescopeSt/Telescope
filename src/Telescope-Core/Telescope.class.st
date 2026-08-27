@@ -5,12 +5,14 @@ Description
 I am a class containing general stuff for Telescope such as a world menu entry for Telescope.
 "
 Class {
-	#name : #Telescope,
-	#superclass : #Object,
-	#category : #'Telescope-Core-Utils'
+	#name : 'Telescope',
+	#superclass : 'Object',
+	#category : 'Telescope-Core-Utils',
+	#package : 'Telescope-Core',
+	#tag : 'Utils'
 }
 
-{ #category : #'world menu' }
+{ #category : 'world menu' }
 Telescope class >> menuCommandOn: aBuilder [
 	<worldMenu>
 	(aBuilder item: #Telescope)

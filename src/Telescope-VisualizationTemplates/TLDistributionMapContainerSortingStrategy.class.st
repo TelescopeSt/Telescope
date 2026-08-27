@@ -5,15 +5,16 @@ From the vectors a cosine distance can be computed betwen any two containers
 From  these distance, the containers are ordered  by serialisation of a dendrogram
 "
 Class {
-	#name : #TLDistributionMapContainerSortingStrategy,
-	#superclass : #TLPropertyBasedStrategy,
+	#name : 'TLDistributionMapContainerSortingStrategy',
+	#superclass : 'TLPropertyBasedStrategy',
 	#instVars : [
 		'innerEntitiesBlock'
 	],
-	#category : #'Telescope-VisualizationTemplates'
+	#category : 'Telescope-VisualizationTemplates',
+	#package : 'Telescope-VisualizationTemplates'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLDistributionMapContainerSortingStrategy class >> onDistributionMap: aTLVisualization [
 	^self new
 		innerEntitiesBlock: aTLVisualization innerEntitiesSelector ;
@@ -21,24 +22,24 @@ TLDistributionMapContainerSortingStrategy class >> onDistributionMap: aTLVisuali
 		yourself
 ]
 
-{ #category : #'private utilities' }
+{ #category : 'private utilities' }
 TLDistributionMapContainerSortingStrategy >> getVectorsDimensions: aCollectionOfTLNodes [
 	^(aCollectionOfTLNodes
 		flatCollectAsSet: [ :node | (self innerEntitiesBlock value: node entity) collect: [:inner | self property value: inner]])
 			asOrderedCollection 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLDistributionMapContainerSortingStrategy >> innerEntitiesBlock [
 	^ innerEntitiesBlock
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLDistributionMapContainerSortingStrategy >> innerEntitiesBlock: aBlock [
 	innerEntitiesBlock := aBlock 
 ]
 
-{ #category : #sorting }
+{ #category : 'sorting' }
 TLDistributionMapContainerSortingStrategy >> sortNodes: aCollectionOfTLNodes [
 	| dims vectors clust dendrogram |
 	dims := self getVectorsDimensions: aCollectionOfTLNodes.
@@ -53,7 +54,7 @@ TLDistributionMapContainerSortingStrategy >> sortNodes: aCollectionOfTLNodes [
 
 ]
 
-{ #category : #'private utilities' }
+{ #category : 'private utilities' }
 TLDistributionMapContainerSortingStrategy >> vectorDescription: aTLNode forDimensions: dims [
 	| entityProps |
 	entityProps  := (self innerEntitiesBlock value: aTLNode entity) collect: [:inner | self property value: inner].

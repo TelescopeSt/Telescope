@@ -2,7 +2,9 @@
 I am an exception that occurs when a composite try to create children from a strategy without composite property
 "
 Class {
-	#name : #TLNoChildrenPropertyException,
-	#superclass : #TLError,
-	#category : #'Telescope-Core-Exceptions'
+	#name : 'TLNoChildrenPropertyException',
+	#superclass : 'TLError',
+	#category : 'Telescope-Core-Exceptions',
+	#package : 'Telescope-Core',
+	#tag : 'Exceptions'
 }

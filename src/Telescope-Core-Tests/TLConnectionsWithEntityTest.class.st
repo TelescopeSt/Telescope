@@ -1,13 +1,15 @@
 Class {
-	#name : #TLConnectionsWithEntityTest,
-	#superclass : #TestCase,
+	#name : 'TLConnectionsWithEntityTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'group'
 	],
-	#category : #'Telescope-Core-Tests-Model'
+	#category : 'Telescope-Core-Tests-Model',
+	#package : 'Telescope-Core-Tests',
+	#tag : 'Model'
 }
 
-{ #category : #running }
+{ #category : 'running' }
 TLConnectionsWithEntityTest >> setUp [
 	super setUp.
 	group := TLEntitiesGroup new.
@@ -15,7 +17,7 @@ TLConnectionsWithEntityTest >> setUp [
 	group 	addNodesFromEntities: (1 to: 4)
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLConnectionsWithEntityTest >> testConnectGroupFromANode [
 	| connections  |
 	connections := group connectFrom: TLSimpleNode new entity: 42.
@@ -23,14 +25,14 @@ TLConnectionsWithEntityTest >> testConnectGroupFromANode [
 	
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLConnectionsWithEntityTest >> testConnectGroupToANode [
 	| connections |
 	connections := group connectTo: TLSimpleNode new entity: 42.
 	self assert: connections size equals: 4
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLConnectionsWithEntityTest >> testConnectGroupWithSubgroupFromANode [
 	| connections  |
 	group > #subgroup addNodesFromEntities: (5 to: 8).
@@ -38,7 +40,7 @@ TLConnectionsWithEntityTest >> testConnectGroupWithSubgroupFromANode [
 	self assert: connections size equals: 8.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLConnectionsWithEntityTest >> testConnectGroupWithSubgroupToANode [
 	| connections  |
 	group > #subgroup addNodesFromEntities: (5 to: 8).
@@ -46,14 +48,14 @@ TLConnectionsWithEntityTest >> testConnectGroupWithSubgroupToANode [
 	self assert: connections size equals: 8.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLConnectionsWithEntityTest >> testConnectNodeFromAGroup [
 	| connections  |
 	connections := TLSimpleNode new connectFrom: group entity: 42..
 	self assert: connections size equals: 4.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLConnectionsWithEntityTest >> testConnectNodeFromAnotherNode [
 	| connection  nodeA nodeB |
 	nodeA := TLSimpleNode withEntity: $a.
@@ -64,14 +66,14 @@ TLConnectionsWithEntityTest >> testConnectNodeFromAnotherNode [
 	
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLConnectionsWithEntityTest >> testConnectNodeToAGroup [
 	| connections  |
 	connections := TLSimpleNode new connectTo: group entity: 42.
 	self assert: connections size equals: 4.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TLConnectionsWithEntityTest >> testConnectNodeToAnotherNode [
 	| connection  nodeA nodeB |
 	nodeA := TLSimpleNode withEntity: $a.

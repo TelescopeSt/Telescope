@@ -3,17 +3,19 @@ A TLClickInteraction is an interaction that is done on a click.
 
 "
 Class {
-	#name : #TLClickInteraction,
-	#superclass : #TLInteraction,
-	#category : #'Telescope-Core-Interactions'
+	#name : 'TLClickInteraction',
+	#superclass : 'TLInteraction',
+	#category : 'Telescope-Core-Interactions',
+	#package : 'Telescope-Core',
+	#tag : 'Interactions'
 }
 
-{ #category : #generate }
+{ #category : 'generate' }
 TLClickInteraction >> generateWith: aTLConnector on: aTLDrawable targeting: aTargetDrawable [
 	aTLConnector generateClickInteraction: self onDrawable: aTLDrawable targetingDrawable: aTargetDrawable
 ]
 
-{ #category : #accessor }
+{ #category : 'accessor' }
 TLClickInteraction >> kind [
 	^ #click
 ]

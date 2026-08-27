@@ -3,33 +3,35 @@ A TLExpandCollapseCompositeNodeAction is an action to expand/collapse composites
 
 "
 Class {
-	#name : #TLExpandCollapseCompositeNodeAction,
-	#superclass : #TLReversibleNodeAction,
-	#category : #'Telescope-Core-Actions'
+	#name : 'TLExpandCollapseCompositeNodeAction',
+	#superclass : 'TLReversibleNodeAction',
+	#category : 'Telescope-Core-Actions',
+	#package : 'Telescope-Core',
+	#tag : 'Actions'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLExpandCollapseCompositeNodeAction class >> onCompositeNodeWithChildren [
 	^ self condition: [ :drawable | drawable isNode and: [ drawable isComposite and: [ drawable hasChildren ] ] ]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 TLExpandCollapseCompositeNodeAction >> initialize [
 	super initialize.
 	self condition: #isCompositeNode
 ]
 
-{ #category : #action }
+{ #category : 'action' }
 TLExpandCollapseCompositeNodeAction >> regularActionOn: aNode [
 	aNode expanded: true
 ]
 
-{ #category : #action }
+{ #category : 'action' }
 TLExpandCollapseCompositeNodeAction >> reverseActionOn: aNode [
 	aNode expanded: false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLExpandCollapseCompositeNodeAction >> shouldTriggerReverseActionFor: aNode [
 	^ aNode expanded
 ]

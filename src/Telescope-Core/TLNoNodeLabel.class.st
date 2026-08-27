@@ -3,7 +3,9 @@ A TLNoNodeLabel is a class to represent explicitly that a node will not have a l
 
 "
 Class {
-	#name : #TLNoNodeLabel,
-	#superclass : #TLObject,
-	#category : #'Telescope-Core-Style'
+	#name : 'TLNoNodeLabel',
+	#superclass : 'TLObject',
+	#category : 'Telescope-Core-Style',
+	#package : 'Telescope-Core',
+	#tag : 'Style'
 }

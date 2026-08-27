@@ -23,67 +23,69 @@ Internal Representation and Key Implementation Points.
 
 "
 Class {
-	#name : #TLShowAction,
-	#superclass : #TLReversibleNodeAction,
+	#name : 'TLShowAction',
+	#superclass : 'TLReversibleNodeAction',
 	#instVars : [
 		'shownDrawables',
 		'showingValuableOrEntity'
 	],
-	#category : #'Telescope-Core-Actions'
+	#category : 'Telescope-Core-Actions',
+	#package : 'Telescope-Core',
+	#tag : 'Actions'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLShowAction class >> on: aTLDrawable [
 	^ self show: aTLDrawable
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TLShowAction class >> show: aTLDrawable [
 	^ self new
 		showingValuableOrEntity: aTLDrawable;
 		yourself
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 TLShowAction >> initialize [
 	super initialize.
 	self shownDrawables: Dictionary new
 ]
 
-{ #category : #action }
+{ #category : 'action' }
 TLShowAction >> regularActionOn: aTLDrawable [
 	(self shownDrawables
 		at: aTLDrawable
 		put: (self obtain: self showingValuableOrEntity on: aTLDrawable) asOrderedCollection) do: #show
 ]
 
-{ #category : #action }
+{ #category : 'action' }
 TLShowAction >> reverseActionOn: aTLDrawable [
 	(self shownDrawables removeKey: aTLDrawable) do: #hide
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TLShowAction >> shouldTriggerReverseActionFor: aTLDrawable [
 	self shownDrawables at: aTLDrawable ifAbsent: [ ^ false ].
 	^ true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLShowAction >> showingValuableOrEntity [
 	^ showingValuableOrEntity
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLShowAction >> showingValuableOrEntity: anObject [
 	showingValuableOrEntity := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLShowAction >> shownDrawables [
 	^ shownDrawables
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TLShowAction >> shownDrawables: anObject [
 	shownDrawables := anObject
 ]
