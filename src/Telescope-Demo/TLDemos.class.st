@@ -569,6 +569,35 @@ TLDemos class >> exampleNodeLabelPosition [
 	^ visu
 ]
 
+{ #category : 'examples' }
+TLDemos class >> exampleNodeSizeFromEntity [
+
+	<script: 'self exampleNodeSizeFromEntity open'>
+	<tlFilter: #style>
+	<tlFilter: #legend>
+	| visualization shapes |
+	visualization := TLVisualization fromEntities: #( 'sky' 'banana' 'rhythm' 'education' 'strengths' 'aeiou' 'bcdfg' 'telescope' 'queue' 'bloc' 'programming' 'oo' ).
+	shapes := {
+		          TLRectangle.
+		          TLEllipse.
+		          TLDiamond.
+		          TLHexagon.
+		          TLTriangle.
+		          TLPentagon }.
+	visualization styleSheet
+		nodeLabel: #yourself position: #top;
+		layout: ((TLLinearLayout perLine: 4)
+				 gap: 50;
+				 yourself);
+		height: [ :word | 10 + ((word count: #isVowel) * 8) ];
+		width: [ :word | 10 + ((word count: [ :character | character isLetter and: [ character isVowel not ] ]) * 6) ];
+		shape: [ :word | shapes at: word size \\ shapes size + 1 ].
+	visualization legend
+		descriptionForHeight: 'Eight pixels per vowel of the word';
+		descriptionForWidth: 'Six pixels per consonant of the word'.
+	^ visualization
+]
+
 { #category : 'demos' }
 TLDemos class >> examplePackageHierarchy [
 	<script: 'self examplePackageHierarchy open'>
@@ -647,6 +676,40 @@ TLDemos class >> exampleRecursiveCompositeNode [
 		addInteraction: TLExpandCollapseCompositeNodeAction onCompositeNodeWithChildren onClick propagateToChildren;
 		addInteraction: (TLInspectAction withMenu: 'Inspect');
 		addInteraction: ((TLCustomAction block: [ :node | node entity browse ] condition: [ :node | node entity numberOfMethods < 5 ]) withMenu: 'Browse').
+	^ visualization
+]
+
+{ #category : 'demos' }
+TLDemos class >> exampleSimpleConnections [
+
+	<script: 'self exampleSimpleConnections open'>
+	<tlFilter: #style>
+	| visualization nodes |
+	visualization := TLVisualization new.
+	visualization styleSheet
+		width: 40;
+		height: 40;
+		nodeLabel: #yourself;
+		layout: ((TLLinearLayout perLine: 3)
+				 gap: 80;
+				 yourself).
+	nodes := (1 to: 6) collect: [ :entity | visualization addNodeFromEntity: entity ].
+	"Different shapes, to see the connections meet the border of each of them"
+	{
+		TLEllipse.
+		TLDiamond.
+		TLHexagon.
+		TLTriangle.
+		TLStar.
+		TLRhomboid } with: nodes do: [ :shape :node | node styleSheet shape: shape ].
+	(nodes at: 1) connectTo: (nodes at: 2).
+	(nodes at: 2) connectTo: (nodes at: 3).
+	(nodes at: 1) connectTo: (nodes at: 4).
+	(nodes at: 2) connectTo: (nodes at: 5).
+	(nodes at: 3) connectTo: (nodes at: 5).
+	((nodes at: 5) connectTo: (nodes at: 6)) styleSheet
+		color: Color red;
+		width: 3.
 	^ visualization
 ]
 
