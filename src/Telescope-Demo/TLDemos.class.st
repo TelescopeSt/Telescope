@@ -405,6 +405,24 @@ TLDemos class >> exampleHighlightElements [
 ]
 
 { #category : 'demos' }
+TLDemos class >> exampleLabelPositions [
+
+	<script: 'self exampleLabelPositions open'>
+	<tlFilter: #style>
+	| visualization |
+	visualization := TLVisualization new.
+	visualization styleSheet
+		width: 40;
+		height: 40;
+		layout: ((TLLinearLayout perLine: 5)
+				 gap: 150;
+				 yourself);
+		nodeLabel: #yourself.
+	#( top bottom left right inside ) do: [ :position | (visualization addNodeFromEntity: position) styleSheet nodeLabelPosition: position ].
+	^ visualization
+]
+
+{ #category : 'demos' }
 TLDemos class >> exampleLabelWrap [
 	<script: 'self exampleLabelWrap open'>
 	<tlFilter: #style>
