@@ -964,6 +964,27 @@ TLDemos class >> exampleSystemComplexityMultipleRoots [
 	^ visualization
 ]
 
+{ #category : 'demos' }
+TLDemos class >> exampleTakeAllSpace [
+
+	<script: 'self exampleTakeAllSpace open'>
+	<tlFilter: #style>
+	<tlFilter: #layout>
+	| visualization |
+	visualization := TLVisualization new.
+	visualization styleSheet
+		width: 50;
+		height: [ :entity | 30 + (entity \\ 4 * 25) ];
+		nodeLabel: #yourself;
+		layout: ((TLLinearLayout perLine: 4)
+				 gap: 15;
+				 yourself).
+	"The odd nodes take all the space of their line: they are as high as the tallest node of it"
+	visualization styleSheet takeAllSpace: [ :entity | entity odd ].
+	visualization addNodesFromEntities: (1 to: 12).
+	^ visualization
+]
+
 { #category : 'not working demos' }
 TLDemos class >> exampleTreeExplorerCollectionHierarchy [
 	"<script: 'self exampleTreeExplorerCollectionHierarchy open'>
