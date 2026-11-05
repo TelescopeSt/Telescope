@@ -168,11 +168,10 @@ TLLayout >> obtainsDimension: nodeDimension forAngle: anAngleInDegree [
 								- (rotatedPoints inject: 0 into: [ :value :point | point y min: value ])) ] ]
 ]
 
-{ #category : 'node facade' }
+{ #category : 'layout' }
 TLLayout >> obtainsNodeDimension: aNode [
-	aNode isNode
-		ifTrue: [ aNode children size > 0
-				ifTrue: [ ^ self obtainsNodeDimension: aNode forAngle: 0 ] ].
+	"The layouts work in a frame turned by their angle, so the dimension of a node is turned with it. A composite node is as big as its children, and is not turned itself, but it takes the room of a box turned by the angle like the other nodes"
+
 	^ self obtainsNodeDimension: aNode forAngle: self angle
 ]
 
