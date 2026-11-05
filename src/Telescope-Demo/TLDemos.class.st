@@ -21,6 +21,18 @@ TLDemos class >> allDemoVisualizations [
 		thenCollect: [ :m | TLDemos perform: m selector ]
 ]
 
+{ #category : 'demos support' }
+TLDemos class >> connectionArrowsIn: aVisualization from: aSourceEntity to: aTargetEntity label: aString [
+	"A connection between new nodes, with a label"
+
+	| connection |
+	connection := (aVisualization addNodeFromEntity: aSourceEntity) connectTo: (aVisualization addNodeFromEntity: aTargetEntity).
+	connection styleSheet
+		connectionLabel: [ aString ];
+		connectionLabelSize: 10.
+	^ connection
+]
+
 { #category : 'demos' }
 TLDemos class >> exampleAdaptNodeWidthFromLabel [
 	<script: 'self exampleAdaptNodeWidthFromLabel open'>
@@ -92,7 +104,7 @@ TLDemos class >> exampleChangingLayout [
 			TLCircularLayout new};
 		addInteraction: (TLCustomAction block: [ :aNode | visu > #group2 layout: aNode entity ]) onClick.
 	(visu > #group2)
-		addNodesFromEntities: Collection withAllSubclasses;
+		addNodesFromEntities: SequenceableCollection withAllSubclasses;
 		connectFollowingProperty: #superclass;
 		addInteraction: TLPopUpAction onMouseOver;
 		layout: TLCircularLayout.
@@ -134,19 +146,19 @@ TLDemos class >> exampleCompositeExploringHierarchy [
 
 { #category : 'not working demos' }
 TLDemos class >> exampleCompositeNodeWithLabelInsideInButterfly [
-	"<script: 'self exampleCompositeNodeWithLabelInsideInButterfly open'>
+
+	<script: 'self exampleCompositeNodeWithLabelInsideInButterfly open'>
 	<tlFilter: #composite>
-	<tlFilter: #visuTemplate>"
+	<tlFilter: #visuTemplate>
 	| butterfly |
-	self flag: 'Invalid demo; cannot run like this. #addCompositeDefaultCollapseInteraction is broken because of Triggers.'.
 	butterfly := TLButterfly new
-		mainEntity: 10;
-		leftEntities: [ :n | 1 to: n - 1 ];
-		rightEntities: (15 to: 20).
-	butterfly nodeCreationStrategy
-		compositeProperty: [ :n | 
-			{(n - 100).
-			(n + 100)} ].
+		             mainEntity: 10;
+		             leftEntities: [ :n | 1 to: n - 1 ];
+		             rightEntities: (15 to: 20).
+	butterfly nodeCreationStrategy compositeProperty: [ :n |
+			{
+				(n - 100).
+				(n + 100) } ].
 	butterfly addCompositeDefaultCollapseInteraction.
 	^ butterfly
 ]
@@ -170,15 +182,64 @@ TLDemos class >> exampleConnectAction [
 ]
 
 { #category : 'demos' }
+TLDemos class >> exampleConnectionArrows [
+
+	<script: 'self exampleConnectionArrows open'>
+	<tlFilter: #style>
+	| visualization segments |
+	visualization := TLVisualization new.
+	visualization styleSheet
+		width: 40;
+		height: 40;
+		nodeLabel: #yourself;
+		layout: ((TLLinearLayout perLine: 2)
+				 horizontalGap: 160;
+				 verticalGap: 40;
+				 yourself).
+	"The head is at the end of a connection. The arrows at its start (base) and at its middle are drawn when their substyle has a shape"
+	(self
+		 connectionArrowsIn: visualization
+		 from: 1
+		 to: 2
+		 label: 'base') styleSheet > #base shape: TLTriangle.
+	(self
+		 connectionArrowsIn: visualization
+		 from: 3
+		 to: 4
+		 label: 'middle') styleSheet > #middle shape: TLTriangle.
+	(self
+		 connectionArrowsIn: visualization
+		 from: 5
+		 to: 6
+		 label: 'middleReversed') styleSheet > #middleReversed shape: TLTriangle.
+	"They can have another shape and color, and follow the curves"
+	segments := self
+		            connectionArrowsIn: visualization
+		            from: 7
+		            to: 8
+		            label: 'segments'.
+	segments styleSheet
+		curveStyle: TLSegmentsCurve;
+		color: Color darkGray.
+	(segments styleSheet > #middle)
+		shape: TLCircle;
+		color: Color red.
+	(segments styleSheet > #base)
+		shape: TLDiamond;
+		color: Color blue.
+	^ visualization
+]
+
+{ #category : 'demos' }
 TLDemos class >> exampleConnectionStyle [
+
 	<script: 'self exampleConnectionStyle open'>
 	<tlFilter: #style>
 	<tlFilter: #group>
 	| visualization lastNode |
 	visualization := TLVisualization new.
 	visualization layout gap: 150.
-	visualization generator connectionHeadShapesAvailableForConnector
-		doWithIndex: [ :aShape :i | 
+	visualization generator connectionHeadShapesAvailableForConnector doWithIndex: [ :aShape :i |
 			| node1 node2 connection |
 			node1 := visualization > #group1 addNodeFromEntity: i.
 			node2 := visualization > #group2 addNodeFromEntity: i.
@@ -187,8 +248,13 @@ TLDemos class >> exampleConnectionStyle [
 			connection styleSheet
 				connectionLabel: [ aShape asString ];
 				connectionLabelSize: 10 ].
+	"The second group has one more node: its last node is not on the row of the last node of the first group, so the segments of their connection have a turn"
+	visualization > #group2 addNodeFromEntity: 'more'.
 	lastNode := visualization > #group1 addNodeFromEntity: 'last'.
-	(lastNode connectTo: (visualization > #group2 addNodeFromEntity: 'last')) styleSheet curveStyle: TLSegmentsCurve.
+	(lastNode connectTo: (visualization > #group2 addNodeFromEntity: 'last')) styleSheet
+		curveStyle: TLSegmentsCurve;
+		connectionLabel: [ 'segments' ];
+		connectionLabelSize: 10.
 	visualization > #group1 layout: TLLinearLayout topToBottom.
 	visualization > #group2 layout: TLLinearLayout topToBottom.
 	^ visualization
@@ -269,6 +335,44 @@ TLDemos class >> exampleDistributionMapAbstractMethodsCollection [
 		innerEntitiesPopupBlock: [ :method | method name asString ];
 		propertySortingBlock: [ :boolean1 :boolean2 | boolean1 ];
 		yourself
+]
+
+{ #category : 'demos' }
+TLDemos class >> exampleDropAndDoubleClick [
+	"Drag a person and drop it on a task to assign it: the task gets the person which was dropped on it, the person goes back to its place and the assignment is a connection. A double click on a person takes its assignments back"
+
+	<script: 'self exampleDropAndDoubleClick open'>
+	<tlFilter: #interaction>
+	<tlFilter: #group>
+	| visualization |
+	visualization := TLVisualization new.
+	visualization layout: (TLLinearLayout leftToRight
+			 gap: 250;
+			 yourself).
+	visualization styleSheet nodeLabel: #asString position: #top.
+	(visualization > #people)
+		layout: (TLLinearLayout topToBottom
+				 gap: 40;
+				 yourself);
+		addNodesFromEntities: #( 'Alice' 'Bob' 'Carol' );
+		addInteraction: (TLCustomAction block: [ :person | person outgoingConnections asArray do: #removed ]) onDoubleClick.
+	(visualization > #people) styleSheet
+		shape: TLEllipse;
+		width: 40;
+		height: 40.
+	(visualization > #tasks)
+		layout: (TLLinearLayout topToBottom
+				 gap: 40;
+				 yourself);
+		addNodesFromEntities: #( 'Write' 'Test' 'Review' );
+		addInteraction: (TLCustomWithParameterAction block: [ :task :person |
+					 (person outgoingConnections anySatisfy: [ :connection | connection toNode == task ]) ifFalse: [ person connectTo: task ].
+					 person parent requireUpdateAndLayoutApplication ]) onDrop.
+	(visualization > #tasks) styleSheet
+		shape: TLRectangle;
+		width: 80;
+		height: 40.
+	^ visualization
 ]
 
 { #category : 'demos' }
@@ -405,24 +509,6 @@ TLDemos class >> exampleHighlightElements [
 ]
 
 { #category : 'demos' }
-TLDemos class >> exampleLabelPositions [
-
-	<script: 'self exampleLabelPositions open'>
-	<tlFilter: #style>
-	| visualization |
-	visualization := TLVisualization new.
-	visualization styleSheet
-		width: 40;
-		height: 40;
-		layout: ((TLLinearLayout perLine: 5)
-				 gap: 150;
-				 yourself);
-		nodeLabel: #yourself.
-	#( top bottom left right inside ) do: [ :position | (visualization addNodeFromEntity: position) styleSheet nodeLabelPosition: position ].
-	^ visualization
-]
-
-{ #category : 'demos' }
 TLDemos class >> exampleLabelWrap [
 	<script: 'self exampleLabelWrap open'>
 	<tlFilter: #style>
@@ -474,13 +560,49 @@ TLDemos class >> exampleLayoutsAngle [
 
 { #category : 'demos' }
 TLDemos class >> exampleLegend [
+	"The legend describes how the nodes look: their height and width, a gradient of colors, the colors, the borders and the shapes which depend on the number of the node, and the color of the node under the mouse"
+
 	<script: 'self exampleLegend open'>
 	<tlFilter: #legend>
-	| visualization |
+	| visualization gradient |
 	visualization := TLVisualization fromEntities: (1 to: 100).
+	gradient := (MDLColor yellow property: #yourself gradientAt: 1)
+		            to: MDLColor red at: 100;
+		            yourself.
+	visualization styleSheet
+		backgroundColor: [ :number |
+				number \\ 10 = 0
+					ifTrue: [ MDLColor teal ]
+					ifFalse: [ gradient value: number ] ];
+		borderColor: [ :number |
+				number isPrime
+					ifTrue: [ Color blue ]
+					ifFalse: [ Color black ] ];
+		shape: [ :number |
+				number even
+					ifTrue: [ TLRectangle ]
+					ifFalse: [ TLEllipse ] ].
+	visualization addInteraction: (TLStyleCustomizationAction custom: [ :style | style backgroundColor: Color orange ]) onMouseOver.
 	visualization legend
 		descriptionForHeight: 'Text explaining height';
-		descriptionForWidth: 'Text explaining width'.
+		descriptionForWidth: 'Text explaining width';
+		description: 'Value' forGradient: gradient;
+		backgroundDescription: [ :number |
+				number \\ 10 = 0
+					ifTrue: [ 'Multiple of 10' ]
+					ifFalse: [ 'Other' ] ]
+		forNodes: [ visualization allNodes ];
+		borderColorDescription: [ :number |
+				number isPrime
+					ifTrue: [ 'Prime' ]
+					ifFalse: [ 'Not prime' ] ]
+		forNodes: [ visualization allNodes ];
+		nodeShapeDescription: [ :number |
+				number even
+					ifTrue: [ 'Even' ]
+					ifFalse: [ 'Odd' ] ]
+		forNodes: [ visualization allNodes ];
+		description: 'Under the mouse' forColor: Color orange.
 	^ visualization
 ]
 
@@ -588,6 +710,35 @@ TLDemos class >> exampleNodeLabelPosition [
 ]
 
 { #category : 'demos' }
+TLDemos class >> exampleNodeSizeFromEntity [
+
+	<script: 'self exampleNodeSizeFromEntity open'>
+	<tlFilter: #style>
+	<tlFilter: #legend>
+	| visualization shapes |
+	visualization := TLVisualization fromEntities: #( 'sky' 'banana' 'rhythm' 'education' 'strengths' 'aeiou' 'bcdfg' 'telescope' 'queue' 'bloc' 'programming' 'oo' ).
+	shapes := {
+		          TLRectangle.
+		          TLEllipse.
+		          TLDiamond.
+		          TLHexagon.
+		          TLTriangle.
+		          TLPentagon }.
+	visualization styleSheet
+		nodeLabel: #yourself position: #top;
+		layout: ((TLLinearLayout perLine: 4)
+				 gap: 50;
+				 yourself);
+		height: [ :word | 10 + ((word count: #isVowel) * 8) ];
+		width: [ :word | 10 + ((word count: [ :character | character isLetter and: [ character isVowel not ] ]) * 6) ];
+		shape: [ :word | shapes at: word size \\ shapes size + 1 ].
+	visualization legend
+		descriptionForHeight: 'Eight pixels per vowel of the word';
+		descriptionForWidth: 'Six pixels per consonant of the word'.
+	^ visualization
+]
+
+{ #category : 'demos' }
 TLDemos class >> examplePackageHierarchy [
 	<script: 'self examplePackageHierarchy open'>
 	<tlFilter: #visuTemplate>
@@ -613,21 +764,29 @@ TLDemos class >> examplePathBuilder [
 
 { #category : 'demos' }
 TLDemos class >> examplePopUp [
+	"The nodes of the first group show their pop up while the mouse is over them, the nodes of the second one when they are clicked, and hide it with another click. The position of the pop up is the position of the node in its group"
+
 	<script: 'self examplePopUp open'>
 	<tlFilter: #interaction>
-	| visu |
+	| visu position |
 	visu := TLVisualization new.
-	#(top center bottom) do: [ :vert | #(left center right) do: [ :hor | visu addNodeFromEntity: vert -> hor ] ].
-	visu layout: (TLLinearLayout perLine: 3).
-	visu
-		addInteraction:
-			(TLPopUpAction
-				text: #asString
-				position: [ :each | 
-					TLPosition new
-						horizontal: each value;
-						vertical: each key;
-						yourself ]) onMouseOver.
+	visu layout: (TLLinearLayout leftToRight
+			 gap: 150;
+			 yourself).
+	#( top center bottom ) do: [ :vert |
+			#( left center right ) do: [ :hor |
+					visu > #mouseOver addNodeFromEntity: vert -> hor.
+					visu > #click addNodeFromEntity: vert -> hor ] ].
+	visu > #mouseOver layout: (TLLinearLayout perLine: 3).
+	visu > #click layout: (TLLinearLayout perLine: 3).
+	(visu > #click) styleSheet backgroundColor: MDLColor lightBlue.
+	position := [ :each |
+		            TLPosition new
+			            horizontal: each value;
+			            vertical: each key;
+			            yourself ].
+	visu > #mouseOver addInteraction: (TLPopUpAction text: #asString position: position) onMouseOver.
+	visu > #click addInteraction: (TLPopUpAction text: #asString position: position) onClick.
 	^ visu
 ]
 
@@ -665,6 +824,62 @@ TLDemos class >> exampleRecursiveCompositeNode [
 		addInteraction: TLExpandCollapseCompositeNodeAction onCompositeNodeWithChildren onClick propagateToChildren;
 		addInteraction: (TLInspectAction withMenu: 'Inspect');
 		addInteraction: ((TLCustomAction block: [ :node | node entity browse ] condition: [ :node | node entity numberOfMethods < 5 ]) withMenu: 'Browse').
+	^ visualization
+]
+
+{ #category : 'demos' }
+TLDemos class >> exampleSimpleConnections [
+
+	<script: 'self exampleSimpleConnections open'>
+	<tlFilter: #style>
+	| visualization nodes |
+	visualization := TLVisualization new.
+	visualization styleSheet
+		width: 40;
+		height: 40;
+		nodeLabel: #yourself;
+		layout: ((TLLinearLayout perLine: 3)
+				 gap: 80;
+				 yourself).
+	nodes := (1 to: 6) collect: [ :entity | visualization addNodeFromEntity: entity ].
+	"Different shapes, to see the connections meet the border of each of them"
+	{
+		TLEllipse.
+		TLDiamond.
+		TLHexagon.
+		TLTriangle.
+		TLStar.
+		TLRhomboid } with: nodes do: [ :shape :node | node styleSheet shape: shape ].
+	(nodes at: 1) connectTo: (nodes at: 2).
+	(nodes at: 1) connectTo: (nodes at: 4).
+	(nodes at: 2) connectTo: (nodes at: 5).
+	"The default curve style is Bezier: a line, unless other connections join the same nodes. Then they are arcs which do not overlap"
+	((nodes at: 2) connectTo: (nodes at: 3)) styleSheet
+		connectionLabel: [ 'bezier' ];
+		connectionLabelSize: 10.
+	((nodes at: 3) connectTo: (nodes at: 2)) styleSheet
+		connectionLabel: [ 'bezier' ];
+		connectionLabelSize: 10.
+	"Segments have right angles"
+	((nodes at: 3) connectTo: (nodes at: 5)) styleSheet
+		curveStyle: TLSegmentsCurve;
+		connectionLabel: [ 'segments' ];
+		connectionLabelSize: 10.
+	"Direct lines stay lines, even when there are connections in both directions"
+	{
+		((nodes at: 4) connectTo: (nodes at: 5)).
+		((nodes at: 5) connectTo: (nodes at: 4)) } do: [ :connection |
+			connection styleSheet
+				curveStyle: TLDirectCurve;
+				connectionLabel: [ 'direct' ];
+				connectionLabelSize: 10 ].
+	((nodes at: 3) connectTo: (nodes at: 6)) styleSheet
+		color: Color red;
+		width: 3.
+	"A node connected to itself has a loop, whatever the curve style"
+	((nodes at: 1) connectTo: (nodes at: 1)) styleSheet
+		connectionLabel: [ 'self' ];
+		connectionLabelSize: 10.
 	^ visualization
 ]
 
@@ -749,6 +964,27 @@ TLDemos class >> exampleSystemComplexityMultipleRoots [
 	^ visualization
 ]
 
+{ #category : 'demos' }
+TLDemos class >> exampleTakeAllSpace [
+
+	<script: 'self exampleTakeAllSpace open'>
+	<tlFilter: #style>
+	<tlFilter: #layout>
+	| visualization |
+	visualization := TLVisualization new.
+	visualization styleSheet
+		width: 50;
+		height: [ :entity | 30 + (entity \\ 4 * 25) ];
+		nodeLabel: #yourself;
+		layout: ((TLLinearLayout perLine: 4)
+				 gap: 15;
+				 yourself).
+	"The odd nodes take all the space of their line: they are as high as the tallest node of it"
+	visualization styleSheet takeAllSpace: [ :entity | entity odd ].
+	visualization addNodesFromEntities: (1 to: 12).
+	^ visualization
+]
+
 { #category : 'not working demos' }
 TLDemos class >> exampleTreeExplorerCollectionHierarchy [
 	"<script: 'self exampleTreeExplorerCollectionHierarchy open'>
@@ -764,20 +1000,22 @@ TLDemos class >> exampleTreeExplorerCollectionHierarchy [
 
 { #category : 'multi-visus-demos' }
 TLDemos class >> exampleTwoConnectedVisualization [
-	<script: 'self exampleTwoConnectedVisualization'>
+	"Two visualizations: a click on a node of one colors the opposite node of the other one. The second one is opened in its own window and the first one is answered, so that it is opened like the other demos"
+
+	<script: 'self exampleTwoConnectedVisualization open'>
+	<tlFilter: #interaction>
 	| visu1 visu2 |
-	self flag: #todo.	"See how to add this visu in Cytoscape demos."
+	self flag: #todo. "See how to add this visu in Cytoscape demos."
 	visu1 := TLVisualization new.
 	visu2 := TLVisualization new.
-	visu1 styleSheet nodeLabel: #name.
-	visu2 styleSheet nodeLabel: #name.
+	visu1 styleSheet nodeLabel: #asString.
+	visu2 styleSheet nodeLabel: #asString.
 	visu1 addNodesFromEntities: (1 to: 5).
 	visu2 addNodesFromEntities: (-5 to: -1).
 	visu1 addInteraction: ((TLStyleCustomizationAction custom: [ :style | style backgroundColor: Color red ] target: [ :aNode | visu2 nodeForEntity: aNode entity negated ]) updateAlso: visu2) onClick.
-	visu2
-		addInteraction: ((TLStyleCustomizationAction custom: [ :style | style backgroundColor: Color green ] target: [ :aNode | visu1 nodeForEntity: aNode entity negated ]) updateAlso: visu1) onClick.
-	visu1 open.
-	visu2 open
+	visu2 addInteraction: ((TLStyleCustomizationAction custom: [ :style | style backgroundColor: Color green ] target: [ :aNode | visu1 nodeForEntity: aNode entity negated ]) updateAlso: visu1) onClick.
+	visu2 open.
+	^ visu1
 ]
 
 { #category : 'demos' }
