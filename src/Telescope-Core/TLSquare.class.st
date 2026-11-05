@@ -8,3 +8,13 @@ Class {
 	#package : 'Telescope-Core',
 	#tag : 'Shape'
 }
+
+{ #category : 'instance creation' }
+TLSquare class >> polygonPoints [
+
+	^ {
+		  (-1 @ 1).
+		  (1 @ 1).
+		  (1 @ -1).
+		  (-1 @ -1) }
+]
