@@ -36,6 +36,7 @@ TLDemos class >> connectionArrowsIn: aVisualization from: aSourceEntity to: aTar
 { #category : 'demos' }
 TLDemos class >> exampleAdaptNodeWidthFromLabel [
 	<script: 'self exampleAdaptNodeWidthFromLabel open'>
+	<tlDescription: 'The width of each node is computed from the width of its label, here the first letters of the alphabet.'>
 	<tlFilter: #style>
 	| visu |
 	visu := TLVisualization fromEntities: ((0 to: 26) collect: [ :number | Character alphabet first: number ]).
@@ -48,6 +49,7 @@ TLDemos class >> exampleAdaptNodeWidthFromLabel [
 { #category : 'demos' }
 TLDemos class >> exampleAllShapes [
 	<script: 'self exampleAllShapes open'>
+	<tlDescription: 'All the shapes which the connector offers for the nodes, placed on a circle and named by a legend.'>
 	<tlFilter: #style>
 	| visualization |
 	visualization := TLVisualization new.
@@ -64,6 +66,7 @@ TLDemos class >> exampleAllShapes [
 { #category : 'demos' }
 TLDemos class >> exampleButterflyUsingStyleFunctionnality [
 	<script: 'self exampleButterflyUsingStyleFunctionnality open'>
+	<tlDescription: 'A butterfly: a main entity with the entities which lead to it at its left and the entities which follow it at its right, the ones at the left having a named style.'>
 	<tlFilter: #style>
 	<tlFilter: #visuTemplate>
 	| butterfly |
@@ -85,6 +88,7 @@ TLDemos class >> exampleButterflyUsingStyleFunctionnality [
 { #category : 'demos' }
 TLDemos class >> exampleChangingLayout [
 	<script: 'self exampleChangingLayout open'>
+	<tlDescription: 'Click the name of a layout to apply it to the group of the classes: the nodes move to their new places.'>
 	<tlFilter: #layout>
 	| visu |
 	visu := TLVisualization new.
@@ -115,6 +119,7 @@ TLDemos class >> exampleChangingLayout [
 { #category : 'demos' }
 TLDemos class >> exampleCompositeExploringHierarchy [
 	<script: 'self exampleCompositeExploringHierarchy open'>
+	<tlDescription: 'The subclasses of Collection as composite nodes which contain their own subclasses. Click a composite node to expand or collapse it.'>
 	<tlFilter: #layout>
 	<tlFilter: #composite>
 	| visualization |
@@ -148,6 +153,7 @@ TLDemos class >> exampleCompositeExploringHierarchy [
 TLDemos class >> exampleCompositeNodeWithLabelInsideInButterfly [
 
 	<script: 'self exampleCompositeNodeWithLabelInsideInButterfly open'>
+	<tlDescription: 'A butterfly whose nodes are composite nodes with their label inside, each one with a trigger to expand and collapse it.'>
 	<tlFilter: #composite>
 	<tlFilter: #visuTemplate>
 	| butterfly |
@@ -166,6 +172,7 @@ TLDemos class >> exampleCompositeNodeWithLabelInsideInButterfly [
 { #category : 'demos' }
 TLDemos class >> exampleConnectAction [
 	<script: 'self exampleConnectAction open'>
+	<tlDescription: 'Move the mouse over a node: it is connected to all the other nodes until the mouse leaves it.'>
 	<tlFilter: #interaction>
 	| visu |
 	(visu := TLVisualization fromEntities: (1 to: 40)) nodeLabel: #asString.
@@ -185,6 +192,7 @@ TLDemos class >> exampleConnectAction [
 TLDemos class >> exampleConnectionArrows [
 
 	<script: 'self exampleConnectionArrows open'>
+	<tlDescription: 'Connections with arrows at their start, at their middle and at their end, from the substyles base, middle and middleReversed of their style.'>
 	<tlFilter: #style>
 	| visualization segments |
 	visualization := TLVisualization new.
@@ -234,6 +242,7 @@ TLDemos class >> exampleConnectionArrows [
 TLDemos class >> exampleConnectionStyle [
 
 	<script: 'self exampleConnectionStyle open'>
+	<tlDescription: 'One connection for each shape which can be the head of a connection, and a connection with segments which turn.'>
 	<tlFilter: #style>
 	<tlFilter: #group>
 	| visualization lastNode |
@@ -263,6 +272,7 @@ TLDemos class >> exampleConnectionStyle [
 { #category : 'demos' }
 TLDemos class >> exampleConnectionsCustomization [
 	<script: 'self exampleConnectionsCustomization open'>
+	<tlDescription: 'Connections of different colors from one node to the nodes of another group.'>
 	<tlFilter: #style>
 	<tlFilter: #group>
 	| visualization source group2 |
@@ -280,6 +290,7 @@ TLDemos class >> exampleConnectionsCustomization [
 { #category : 'demos' }
 TLDemos class >> exampleCustomMultiChoiceAction [
 	<script: 'self exampleCustomMultiChoiceAction open'>
+	<tlDescription: 'Right click a node and choose an item in the submenu of the menu: the node and the choice are written on the Transcript.'>
 	<tlFilter: #interaction>
 	| visu |
 	visu := TLVisualization fromEntities: #(Henry John Catherine Paule Isabel).
@@ -302,6 +313,7 @@ TLDemos class >> exampleCustomMultiChoiceAction [
 { #category : 'demos' }
 TLDemos class >> exampleCycleDependencies [
 	<script: 'self exampleCycleDependencies open'>
+	<tlDescription: 'The classes of Telescope with their dependencies, the cycles of dependencies being highlighted.'>
 	<tlFilter: #visuTemplate>
 
 	^ TLCycleDependencies new
@@ -315,6 +327,7 @@ TLDemos class >> exampleCycleDependencies [
 { #category : 'demos' }
 TLDemos class >> exampleDistributionMap [
 	<script: 'self exampleDistributionMap open'>
+	<tlDescription: 'A distribution map of the methods of the classes of Telescope, colored by their number of arguments: a pop up gives the name of a method.'>
 	<tlFilter: #visuTemplate>
 	^ (TLDistributionMap
 		containerEntities: TLObject withAllSubclasses
@@ -327,6 +340,7 @@ TLDemos class >> exampleDistributionMap [
 { #category : 'demos' }
 TLDemos class >> exampleDistributionMapAbstractMethodsCollection [
 	<script: 'self exampleDistributionMapAbstractMethodsCollection open'>
+	<tlDescription: 'A distribution map of the methods of the drawables of Telescope, colored by whether the method is abstract.'>
 	<tlFilter: #visuTemplate>
 	^ (TLDistributionMap
 		containerEntities: TLDrawable withAllSubclasses
@@ -342,6 +356,7 @@ TLDemos class >> exampleDropAndDoubleClick [
 	"Drag a person and drop it on a task to assign it: the task gets the person which was dropped on it, the person goes back to its place and the assignment is a connection. A double click on a person takes its assignments back"
 
 	<script: 'self exampleDropAndDoubleClick open'>
+	<tlDescription: 'Drag a person and drop it on a task to assign it: the person goes back to its place and a connection is added. A double click on a person takes its assignments back.'>
 	<tlFilter: #interaction>
 	<tlFilter: #group>
 	| visualization |
@@ -378,6 +393,7 @@ TLDemos class >> exampleDropAndDoubleClick [
 { #category : 'demos' }
 TLDemos class >> exampleExpandCollapseNodesAction [
 	<script: 'self exampleExpandCollapseNodesAction open'>
+	<tlDescription: 'Click a node to expand it with ten children, whose numbers start with its own, and click it again to collapse it.'>
 	<tlFilter: #interaction>
 	<tlFilter: #layout>
 	| visu |
@@ -396,6 +412,7 @@ TLDemos class >> exampleExpandCollapseNodesAction [
 { #category : 'demos' }
 TLDemos class >> exampleFLowControl [
 	<script: 'self exampleFLowControl open'>
+	<tlDescription: 'A flow graph of blocks which follow each other, each block being placed at its distance from the first one. A pop up gives the title of a block.'>
 	<tlFilter: #visuTemplate>
 
 	| a b c d e f g visu |
@@ -425,6 +442,7 @@ TLDemos class >> exampleFLowControl [
 { #category : 'demos' }
 TLDemos class >> exampleGradient [
 	<script: 'self exampleGradient open'>
+	<tlDescription: 'Two groups of nodes whose colors come from gradients: from red to green by the number of the node, and from white to black.'>
 	<tlFilter: #style>
 	| visu |
 	visu := TLVisualization new.
@@ -443,6 +461,7 @@ TLDemos class >> exampleGradient [
 { #category : 'demos' }
 TLDemos class >> exampleHideAndShowConnections [
 	<script: 'self exampleHideAndShowConnections open'>
+	<tlDescription: 'Click the node to hide its connection to the first node and to show its connection to the third one, and click it again to do the opposite.'>
 	<tlFilter: #interaction>
 	| visualization secondNode firstNode thirdNode connection connection2 |
 	visualization := TLVisualization new.
@@ -464,6 +483,7 @@ TLDemos class >> exampleHideAndShowConnections [
 { #category : 'demos' }
 TLDemos class >> exampleHideAndShowNode [
 	<script: 'self exampleHideAndShowNode open'>
+	<tlDescription: 'Click the node to hide the first node and to show the third node, and click it again to do the opposite.'>
 	<tlFilter: #interaction>
 	| visualization secondNode firstNode thirdNode |
 	visualization := TLVisualization new.
@@ -483,6 +503,7 @@ TLDemos class >> exampleHideAndShowNode [
 { #category : 'demos' }
 TLDemos class >> exampleHighlightElements [
 	<script: 'self exampleHighlightElements open'>
+	<tlDescription: 'Move the mouse over a node to highlight it and its connections. A click closes the visualization and opens a new one with that node only.'>
 	<tlFilter: #interaction>
 	<tlFilter: #style>
 	| visualization highlightInteraction |
@@ -511,6 +532,7 @@ TLDemos class >> exampleHighlightElements [
 { #category : 'demos' }
 TLDemos class >> exampleLabelWrap [
 	<script: 'self exampleLabelWrap open'>
+	<tlDescription: 'The ways to display a long label: not wrapped, wrapped by words, wrapped every eight characters, and cut with an ellipsis.'>
 	<tlFilter: #style>
 	| visualization noWrap automaticWrap forcedWrap ellipsis |
 	visualization := TLVisualization new.
@@ -543,6 +565,7 @@ TLDemos class >> exampleLabelWrap [
 { #category : 'demos' }
 TLDemos class >> exampleLayoutsAngle [
 	<script: 'self exampleLayoutsAngle open'>
+	<tlDescription: 'A grid of nodes whose angle is turned when you click a node: the angle is the number of the node, from 0 to 359 degrees.'>
 	<tlFilter: #layout>
 	| visualization |
 	visualization := TLVisualization fromEntities: (0 to: 359).
@@ -563,6 +586,7 @@ TLDemos class >> exampleLegend [
 	"The legend describes how the nodes look: their height and width, a gradient of colors, the colors, the borders and the shapes which depend on the number of the node, and the color of the node under the mouse"
 
 	<script: 'self exampleLegend open'>
+	<tlDescription: 'A hundred nodes whose height, width, colors, borders and shapes depend on their number, described by a legend which also follows the color of the node under the mouse.'>
 	<tlFilter: #legend>
 	| visualization gradient |
 	visualization := TLVisualization fromEntities: (1 to: 100).
@@ -609,6 +633,7 @@ TLDemos class >> exampleLegend [
 { #category : 'demos' }
 TLDemos class >> exampleLineStyle [
 	<script: 'self exampleLineStyle open'>
+	<tlDescription: 'Every line style, for the borders of the nodes of the first group and for the connections to the second group.'>
 	<tlFilter: #style>
 	<tlFilter: #group>
 	| visualization |
@@ -632,6 +657,7 @@ TLDemos class >> exampleLineStyle [
 { #category : 'demos' }
 TLDemos class >> exampleMovingNodeChangeEntity [
 	<script: 'self exampleMovingNodeChangeEntity open'>
+	<tlDescription: 'Drag a node and drop it: its entity becomes its new position, which its label shows, and it keeps that place.'>
 	<tlFilter: #interaction>
 	| visu |
 	visu := TLVisualization fromEntities: ((1 to: 5) collect: [ :i | (i * 20) @ (i * 20) ]).
@@ -648,6 +674,7 @@ TLDemos class >> exampleMovingNodeChangeEntity [
 { #category : 'demos' }
 TLDemos class >> exampleMovingNodeToAnotherGroup [
 	<script: 'self exampleMovingNodeToAnotherGroup open'>
+	<tlDescription: 'Click a node to move it to the other group: the nodes of both groups are placed again.'>
 	<tlFilter: #group>
 	<tlFilter: #interaction>
 
@@ -670,6 +697,7 @@ TLDemos class >> exampleMovingNodeToAnotherGroup [
 { #category : 'demos' }
 TLDemos class >> exampleMovingNodeToFirstPosition [
 	<script: 'self exampleMovingNodeToFirstPosition open'>
+	<tlDescription: 'Click a node to move it to the first position of the column, and move the mouse over a node to color it in red.'>
 	<tlFilter: #interaction>
 	| visualization |
 	visualization := TLVisualization fromEntities: ($a to: $f).
@@ -684,6 +712,7 @@ TLDemos class >> exampleMovingNodeToFirstPosition [
 { #category : 'demos' }
 TLDemos class >> exampleNameCloud [
 	<script: 'self exampleNameCloud open'>
+	<tlDescription: 'The words used in the selectors of the methods of Telescope, bigger when they are more frequent.'>
 	<tlFilter: #visuTemplate>
 	^ TLNameCloud new
 		entities: (TLDrawable withAllSubclasses flatCollect: #methods);
@@ -694,6 +723,7 @@ TLDemos class >> exampleNameCloud [
 { #category : 'demos' }
 TLDemos class >> exampleNodeLabelPosition [
 	<script: 'self exampleNodeLabelPosition open'>
+	<tlDescription: 'The nine positions of the label of a node around it: top, center and bottom, at the left, in the center and at the right.'>
 	<tlFilter: #style>
 	| visu |
 	visu := TLVisualization new.
@@ -713,6 +743,7 @@ TLDemos class >> exampleNodeLabelPosition [
 TLDemos class >> exampleNodeSizeFromEntity [
 
 	<script: 'self exampleNodeSizeFromEntity open'>
+	<tlDescription: 'Nodes whose height depends on the vowels of their word and whose width depends on its consonants, with a legend which explains it and a shape which depends on the length of the word.'>
 	<tlFilter: #style>
 	<tlFilter: #legend>
 	| visualization shapes |
@@ -741,6 +772,7 @@ TLDemos class >> exampleNodeSizeFromEntity [
 { #category : 'demos' }
 TLDemos class >> examplePackageHierarchy [
 	<script: 'self examplePackageHierarchy open'>
+	<tlDescription: 'The hierarchy of the classes of Telescope, drawn as packages whose width depends on their number of methods and whose height depends on their number of instance variables.'>
 	<tlFilter: #visuTemplate>
 	^ TLPackageHierarchy new
 		entities: TLDrawable withAllSubclasses;
@@ -754,6 +786,7 @@ TLDemos class >> examplePackageHierarchy [
 { #category : 'demos' }
 TLDemos class >> examplePathBuilder [
 	<script: 'self examplePathBuilder open'>
+	<tlDescription: 'Build a path from a number: click it to see the numbers before and after it, and right click one to keep it in the path.'>
 	<tlFilter: #visuTemplate>
 	^ TLPathBuilder new
 		origin: 42;
@@ -767,6 +800,7 @@ TLDemos class >> examplePopUp [
 	"The nodes of the first group show their pop up while the mouse is over them, the nodes of the second one when they are clicked, and hide it with another click. The position of the pop up is the position of the node in its group"
 
 	<script: 'self examplePopUp open'>
+	<tlDescription: 'Pop ups at the nine positions around a node: while the mouse is over a node of the first group, and after a click on a node of the second group.'>
 	<tlFilter: #interaction>
 	| visu position |
 	visu := TLVisualization new.
@@ -793,6 +827,7 @@ TLDemos class >> examplePopUp [
 { #category : 'demos' }
 TLDemos class >> exampleProjectMap [
 	<script: 'self exampleProjectMap open'>
+	<tlDescription: 'The projects which a Metacello version depends on, here the ones of Iceberg.'>
 	<tlFilter: #visuTemplate>
 	
 	"With configuration TLProjectMap version: ConfigurationOfTelescope project development"
@@ -803,6 +838,7 @@ TLDemos class >> exampleProjectMap [
 { #category : 'demos' }
 TLDemos class >> exampleRecursiveCompositeNode [
 	<script: 'self exampleRecursiveCompositeNode open'>
+	<tlDescription: 'A butterfly of the classes of Telescope with composite nodes: a class contains the classes which depend on it, which contain their methods. Click to expand or collapse, and use the menu to inspect or browse.'>
 	<tlFilter: #interaction>
 	<tlFilter: #style>
 	<tlFilter: #composite>
@@ -831,6 +867,7 @@ TLDemos class >> exampleRecursiveCompositeNode [
 TLDemos class >> exampleSimpleConnections [
 
 	<script: 'self exampleSimpleConnections open'>
+	<tlDescription: 'Connections between nodes of different shapes: a line, arcs for connections in both directions, direct lines, segments with right angles, a thick red line and a loop.'>
 	<tlFilter: #style>
 	| visualization nodes |
 	visualization := TLVisualization new.
@@ -886,6 +923,7 @@ TLDemos class >> exampleSimpleConnections [
 { #category : 'demos' }
 TLDemos class >> exampleSortingChildren [
 	<script: 'self exampleSortingChildren open'>
+	<tlDescription: 'The methods of the classes of Telescope as children of composite nodes, sorted by their number of arguments, with a color and a width which depend on it.'>
 	<tlFilter: #composite>
 	| visualization |
 	visualization := TLVisualization new.
@@ -916,6 +954,7 @@ TLDemos class >> exampleSortingChildren [
 { #category : 'demos' }
 TLDemos class >> exampleSystemComplexity [
 	<script: 'self exampleSystemComplexity open'>
+	<tlDescription: 'The subclasses of Collection as a system complexity view: the height of a class is its number of methods, its width its number of instance variables and its darkness its lines of code.'>
 	<tlFilter: #visuTemplate>
 	| visualization |
 	visualization := TLSystemComplexity new
@@ -928,6 +967,7 @@ TLDemos class >> exampleSystemComplexity [
 { #category : 'demos' }
 TLDemos class >> exampleSystemComplexityInContainer [
 	<script: 'self exampleSystemComplexityInContainer open'>
+	<tlDescription: 'The system complexity of the subclasses of Collection, grouped by the package of each class.'>
 	<tlFilter: #visuTemplate>
 	| visualization |
 	visualization := TLSystemComplexity new
@@ -941,6 +981,7 @@ TLDemos class >> exampleSystemComplexityInContainer [
 { #category : 'demos' }
 TLDemos class >> exampleSystemComplexityMultipleRoots [
 	<script: 'self exampleSystemComplexityMultipleRoots open'>
+	<tlDescription: 'The system complexity view for several roots at once: Collection and all its subclasses.'>
 	<tlFilter: #visuTemplate>
 	
 	"for FAMIXTypeGroup:
@@ -968,6 +1009,7 @@ TLDemos class >> exampleSystemComplexityMultipleRoots [
 TLDemos class >> exampleTakeAllSpace [
 
 	<script: 'self exampleTakeAllSpace open'>
+	<tlDescription: 'Nodes of different heights in lines of four: the odd nodes take all the space of their line and are as high as the tallest node.'>
 	<tlFilter: #style>
 	<tlFilter: #layout>
 	| visualization |
@@ -1003,6 +1045,7 @@ TLDemos class >> exampleTwoConnectedVisualization [
 	"Two visualizations: a click on a node of one colors the opposite node of the other one. The second one is opened in its own window and the first one is answered, so that it is opened like the other demos"
 
 	<script: 'self exampleTwoConnectedVisualization open'>
+	<tlDescription: 'Two visualizations which change each other: a click on a node colors the opposite node of the other one, in red from the first and in green from the second.'>
 	<tlFilter: #interaction>
 	| visu1 visu2 |
 	self flag: #todo. "See how to add this visu in Cytoscape demos."
@@ -1021,6 +1064,7 @@ TLDemos class >> exampleTwoConnectedVisualization [
 { #category : 'demos' }
 TLDemos class >> exampleVisualizationWithCompositeChildrenConnectionsShowing [
 	<script: 'self exampleVisualizationWithCompositeChildrenConnectionsShowing open'>
+	<tlDescription: 'Two composite nodes whose children are the prime factors of a number, with connections between the children, a legend, and interactions on mouse over and click.'>
 	<tlFilter: #interaction>
 	<tlFilter: #composite>
 	<tlFilter: #legend>
