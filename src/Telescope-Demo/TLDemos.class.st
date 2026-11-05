@@ -809,20 +809,22 @@ TLDemos class >> exampleTreeExplorerCollectionHierarchy [
 
 { #category : 'multi-visus-demos' }
 TLDemos class >> exampleTwoConnectedVisualization [
-	<script: 'self exampleTwoConnectedVisualization'>
+	"Two visualizations: a click on a node of one colors the opposite node of the other one. The second one is opened in its own window and the first one is answered, so that it is opened like the other demos"
+
+	<script: 'self exampleTwoConnectedVisualization open'>
+	<tlFilter: #interaction>
 	| visu1 visu2 |
-	self flag: #todo.	"See how to add this visu in Cytoscape demos."
+	self flag: #todo. "See how to add this visu in Cytoscape demos."
 	visu1 := TLVisualization new.
 	visu2 := TLVisualization new.
-	visu1 styleSheet nodeLabel: #name.
-	visu2 styleSheet nodeLabel: #name.
+	visu1 styleSheet nodeLabel: #asString.
+	visu2 styleSheet nodeLabel: #asString.
 	visu1 addNodesFromEntities: (1 to: 5).
 	visu2 addNodesFromEntities: (-5 to: -1).
 	visu1 addInteraction: ((TLStyleCustomizationAction custom: [ :style | style backgroundColor: Color red ] target: [ :aNode | visu2 nodeForEntity: aNode entity negated ]) updateAlso: visu2) onClick.
-	visu2
-		addInteraction: ((TLStyleCustomizationAction custom: [ :style | style backgroundColor: Color green ] target: [ :aNode | visu1 nodeForEntity: aNode entity negated ]) updateAlso: visu1) onClick.
-	visu1 open.
-	visu2 open
+	visu2 addInteraction: ((TLStyleCustomizationAction custom: [ :style | style backgroundColor: Color green ] target: [ :aNode | visu1 nodeForEntity: aNode entity negated ]) updateAlso: visu1) onClick.
+	visu2 open.
+	^ visu1
 ]
 
 { #category : 'demos' }
