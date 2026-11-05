@@ -8,6 +8,12 @@ The user can create a model of visualization and then render it via a connector 
 
 # Documentation
 
+## API documentation
+
+The API of Telescope is documented in [resources/doc](resources/doc/README.md), with screenshots and the list of the features: nodes and entities, groups and layouts, styling, connections, composite nodes, interactions, legends, visualization templates, requests and updates, and how to write a connector.
+
+[![A Telescope visualization](resources/doc/images/legend-all.png)](resources/doc/README.md)
+
 ## Version management 
 
 This project use semantic versionning to define the releases. This mean that each stable release of the project will get associate a version number of the form `vX.Y.Z`. 
