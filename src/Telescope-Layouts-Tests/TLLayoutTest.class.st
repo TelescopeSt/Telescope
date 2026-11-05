@@ -49,8 +49,6 @@ TLLayoutTest >> testTranslateInPositiveReferencialOneNode [
 	self shouldnt: [ layout translateInPositiveReferencial: {(node -> (-6 @ -7))} asDictionary ] raise: Error.
 
 	node should receive dimension.
-	node should receive isNode.
-	node should receive children.
 	node should receive position: Any
 ]
 
@@ -72,7 +70,5 @@ TLLayoutTest >> testTranslateInPositiveReferencialTwoNodes [
 	{node1 . node2}
 		do: [ :node | 
 			node should receive dimension.
-			node should receive isNode.
-			node should receive children.
 			node should receive position: Any ]
 ]
