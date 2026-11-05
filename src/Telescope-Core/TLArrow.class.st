@@ -8,3 +8,14 @@ Class {
 	#package : 'Telescope-Core',
 	#tag : 'Shape'
 }
+
+{ #category : 'instance creation' }
+TLArrow class >> polygonPoints [
+	"A triangle whose base is curved inwards"
+
+	^ {
+		  (0 @ 1).
+		  (1 @ -1).
+		  (0 @ -0.4).
+		  (-1 @ -1) }
+]
