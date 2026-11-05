@@ -277,6 +277,44 @@ TLDemos class >> exampleDistributionMapAbstractMethodsCollection [
 ]
 
 { #category : 'demos' }
+TLDemos class >> exampleDropAndDoubleClick [
+	"Drag a person and drop it on a task to assign it: the task gets the person which was dropped on it, the person goes back to its place and the assignment is a connection. A double click on a person takes its assignments back"
+
+	<script: 'self exampleDropAndDoubleClick open'>
+	<tlFilter: #interaction>
+	<tlFilter: #group>
+	| visualization |
+	visualization := TLVisualization new.
+	visualization layout: (TLLinearLayout leftToRight
+			 gap: 250;
+			 yourself).
+	visualization styleSheet nodeLabel: #asString position: #top.
+	(visualization > #people)
+		layout: (TLLinearLayout topToBottom
+				 gap: 40;
+				 yourself);
+		addNodesFromEntities: #( 'Alice' 'Bob' 'Carol' );
+		addInteraction: (TLCustomAction block: [ :person | person outgoingConnections asArray do: #removed ]) onDoubleClick.
+	(visualization > #people) styleSheet
+		shape: TLEllipse;
+		width: 40;
+		height: 40.
+	(visualization > #tasks)
+		layout: (TLLinearLayout topToBottom
+				 gap: 40;
+				 yourself);
+		addNodesFromEntities: #( 'Write' 'Test' 'Review' );
+		addInteraction: (TLCustomWithParameterAction block: [ :task :person |
+					 (person outgoingConnections anySatisfy: [ :connection | connection toNode == task ]) ifFalse: [ person connectTo: task ].
+					 person parent requireUpdateAndLayoutApplication ]) onDrop.
+	(visualization > #tasks) styleSheet
+		shape: TLRectangle;
+		width: 80;
+		height: 40.
+	^ visualization
+]
+
+{ #category : 'demos' }
 TLDemos class >> exampleExpandCollapseNodesAction [
 	<script: 'self exampleExpandCollapseNodesAction open'>
 	<tlFilter: #interaction>
