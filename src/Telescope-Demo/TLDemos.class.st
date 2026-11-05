@@ -171,14 +171,14 @@ TLDemos class >> exampleConnectAction [
 
 { #category : 'demos' }
 TLDemos class >> exampleConnectionStyle [
+
 	<script: 'self exampleConnectionStyle open'>
 	<tlFilter: #style>
 	<tlFilter: #group>
 	| visualization lastNode |
 	visualization := TLVisualization new.
 	visualization layout gap: 150.
-	visualization generator connectionHeadShapesAvailableForConnector
-		doWithIndex: [ :aShape :i | 
+	visualization generator connectionHeadShapesAvailableForConnector doWithIndex: [ :aShape :i |
 			| node1 node2 connection |
 			node1 := visualization > #group1 addNodeFromEntity: i.
 			node2 := visualization > #group2 addNodeFromEntity: i.
@@ -187,8 +187,13 @@ TLDemos class >> exampleConnectionStyle [
 			connection styleSheet
 				connectionLabel: [ aShape asString ];
 				connectionLabelSize: 10 ].
+	"The second group has one more node: its last node is not on the row of the last node of the first group, so the segments of their connection have a turn"
+	visualization > #group2 addNodeFromEntity: 'more'.
 	lastNode := visualization > #group1 addNodeFromEntity: 'last'.
-	(lastNode connectTo: (visualization > #group2 addNodeFromEntity: 'last')) styleSheet curveStyle: TLSegmentsCurve.
+	(lastNode connectTo: (visualization > #group2 addNodeFromEntity: 'last')) styleSheet
+		curveStyle: TLSegmentsCurve;
+		connectionLabel: [ 'segments' ];
+		connectionLabelSize: 10.
 	visualization > #group1 layout: TLLinearLayout topToBottom.
 	visualization > #group2 layout: TLLinearLayout topToBottom.
 	^ visualization
@@ -703,11 +708,29 @@ TLDemos class >> exampleSimpleConnections [
 		TLStar.
 		TLRhomboid } with: nodes do: [ :shape :node | node styleSheet shape: shape ].
 	(nodes at: 1) connectTo: (nodes at: 2).
-	(nodes at: 2) connectTo: (nodes at: 3).
 	(nodes at: 1) connectTo: (nodes at: 4).
 	(nodes at: 2) connectTo: (nodes at: 5).
-	(nodes at: 3) connectTo: (nodes at: 5).
-	((nodes at: 5) connectTo: (nodes at: 6)) styleSheet
+	"The default curve style is Bezier: a line, unless other connections join the same nodes. Then they are arcs which do not overlap"
+	((nodes at: 2) connectTo: (nodes at: 3)) styleSheet
+		connectionLabel: [ 'bezier' ];
+		connectionLabelSize: 10.
+	((nodes at: 3) connectTo: (nodes at: 2)) styleSheet
+		connectionLabel: [ 'bezier' ];
+		connectionLabelSize: 10.
+	"Segments have right angles"
+	((nodes at: 3) connectTo: (nodes at: 5)) styleSheet
+		curveStyle: TLSegmentsCurve;
+		connectionLabel: [ 'segments' ];
+		connectionLabelSize: 10.
+	"Direct lines stay lines, even when there are connections in both directions"
+	{
+		((nodes at: 4) connectTo: (nodes at: 5)).
+		((nodes at: 5) connectTo: (nodes at: 4)) } do: [ :connection |
+			connection styleSheet
+				curveStyle: TLDirectCurve;
+				connectionLabel: [ 'direct' ];
+				connectionLabelSize: 10 ].
+	((nodes at: 3) connectTo: (nodes at: 6)) styleSheet
 		color: Color red;
 		width: 3.
 	^ visualization
