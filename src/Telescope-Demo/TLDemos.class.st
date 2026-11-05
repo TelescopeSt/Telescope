@@ -815,6 +815,10 @@ TLDemos class >> exampleSimpleConnections [
 	((nodes at: 3) connectTo: (nodes at: 6)) styleSheet
 		color: Color red;
 		width: 3.
+	"A node connected to itself has a loop, whatever the curve style"
+	((nodes at: 1) connectTo: (nodes at: 1)) styleSheet
+		connectionLabel: [ 'self' ];
+		connectionLabelSize: 10.
 	^ visualization
 ]
 
