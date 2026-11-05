@@ -37,10 +37,11 @@ TLButterfly class >> mainEntity: anEntity [
 
 { #category : 'building' }
 TLButterfly >> buildVisualization [
+
 	| leftEntitiesValues rightEntitiesValues |
 	self styleSheet nodeLabel: #asString.
-	leftEntitiesValues := (self obtain: self leftEntities on: self mainEntity) asOrderedCollection.
-	rightEntitiesValues := (self obtain: self rightEntities on: self mainEntity) asOrderedCollection.
+	leftEntitiesValues := self entitiesFrom: self leftEntities.
+	rightEntitiesValues := self entitiesFrom: self rightEntities.
 	self > #left addNodesFromEntities: leftEntitiesValues.
 	self > #central addNodeFromEntity: self mainEntity.
 	self > #right addNodesFromEntities: rightEntitiesValues.
@@ -67,6 +68,17 @@ TLButterfly >> configLayout [
 { #category : 'default' }
 TLButterfly >> defaultTitle [
 	^ 'Butterfly'
+]
+
+{ #category : 'building' }
+TLButterfly >> entitiesFrom: aValuableOrCollection [
+	"The entities the valuable gives for the main entity, as a collection: a property such as #superclass answers one entity"
+
+	| entities |
+	entities := self obtain: aValuableOrCollection on: self mainEntity.
+	^ entities isCollection
+		  ifTrue: [ entities asOrderedCollection ]
+		  ifFalse: [ OrderedCollection with: entities ]
 ]
 
 { #category : 'accessing' }
