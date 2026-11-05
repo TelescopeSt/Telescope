@@ -21,6 +21,18 @@ TLDemos class >> allDemoVisualizations [
 		thenCollect: [ :m | TLDemos perform: m selector ]
 ]
 
+{ #category : 'demos support' }
+TLDemos class >> connectionArrowsIn: aVisualization from: aSourceEntity to: aTargetEntity label: aString [
+	"A connection between new nodes, with a label"
+
+	| connection |
+	connection := (aVisualization addNodeFromEntity: aSourceEntity) connectTo: (aVisualization addNodeFromEntity: aTargetEntity).
+	connection styleSheet
+		connectionLabel: [ aString ];
+		connectionLabelSize: 10.
+	^ connection
+]
+
 { #category : 'demos' }
 TLDemos class >> exampleAdaptNodeWidthFromLabel [
 	<script: 'self exampleAdaptNodeWidthFromLabel open'>
@@ -167,6 +179,55 @@ TLDemos class >> exampleConnectAction [
 				connectionStyle: #connectDemo;
 				yourself) onMouseOver.
 	^ visu
+]
+
+{ #category : 'demos' }
+TLDemos class >> exampleConnectionArrows [
+
+	<script: 'self exampleConnectionArrows open'>
+	<tlFilter: #style>
+	| visualization segments |
+	visualization := TLVisualization new.
+	visualization styleSheet
+		width: 40;
+		height: 40;
+		nodeLabel: #yourself;
+		layout: ((TLLinearLayout perLine: 2)
+				 horizontalGap: 160;
+				 verticalGap: 40;
+				 yourself).
+	"The head is at the end of a connection. The arrows at its start (base) and at its middle are drawn when their substyle has a shape"
+	(self
+		 connectionArrowsIn: visualization
+		 from: 1
+		 to: 2
+		 label: 'base') styleSheet > #base shape: TLTriangle.
+	(self
+		 connectionArrowsIn: visualization
+		 from: 3
+		 to: 4
+		 label: 'middle') styleSheet > #middle shape: TLTriangle.
+	(self
+		 connectionArrowsIn: visualization
+		 from: 5
+		 to: 6
+		 label: 'middleReversed') styleSheet > #middleReversed shape: TLTriangle.
+	"They can have another shape and color, and follow the curves"
+	segments := self
+		            connectionArrowsIn: visualization
+		            from: 7
+		            to: 8
+		            label: 'segments'.
+	segments styleSheet
+		curveStyle: TLSegmentsCurve;
+		color: Color darkGray.
+	(segments styleSheet > #middle)
+		shape: TLCircle;
+		color: Color red.
+	(segments styleSheet > #base)
+		shape: TLDiamond;
+		color: Color blue.
+	^ visualization
 ]
 
 { #category : 'demos' }
