@@ -104,7 +104,7 @@ TLDemos class >> exampleChangingLayout [
 			TLCircularLayout new};
 		addInteraction: (TLCustomAction block: [ :aNode | visu > #group2 layout: aNode entity ]) onClick.
 	(visu > #group2)
-		addNodesFromEntities: Collection withAllSubclasses;
+		addNodesFromEntities: SequenceableCollection withAllSubclasses;
 		connectFollowingProperty: #superclass;
 		addInteraction: TLPopUpAction onMouseOver;
 		layout: TLCircularLayout.
