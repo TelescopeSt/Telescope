@@ -499,13 +499,49 @@ TLDemos class >> exampleLayoutsAngle [
 
 { #category : 'demos' }
 TLDemos class >> exampleLegend [
+	"The legend describes how the nodes look: their height and width, a gradient of colors, the colors, the borders and the shapes which depend on the number of the node, and the color of the node under the mouse"
+
 	<script: 'self exampleLegend open'>
 	<tlFilter: #legend>
-	| visualization |
+	| visualization gradient |
 	visualization := TLVisualization fromEntities: (1 to: 100).
+	gradient := (MDLColor yellow property: #yourself gradientAt: 1)
+		            to: MDLColor red at: 100;
+		            yourself.
+	visualization styleSheet
+		backgroundColor: [ :number |
+				number \\ 10 = 0
+					ifTrue: [ MDLColor teal ]
+					ifFalse: [ gradient value: number ] ];
+		borderColor: [ :number |
+				number isPrime
+					ifTrue: [ Color blue ]
+					ifFalse: [ Color black ] ];
+		shape: [ :number |
+				number even
+					ifTrue: [ TLRectangle ]
+					ifFalse: [ TLEllipse ] ].
+	visualization addInteraction: (TLStyleCustomizationAction custom: [ :style | style backgroundColor: Color orange ]) onMouseOver.
 	visualization legend
 		descriptionForHeight: 'Text explaining height';
-		descriptionForWidth: 'Text explaining width'.
+		descriptionForWidth: 'Text explaining width';
+		description: 'Value' forGradient: gradient;
+		backgroundDescription: [ :number |
+				number \\ 10 = 0
+					ifTrue: [ 'Multiple of 10' ]
+					ifFalse: [ 'Other' ] ]
+		forNodes: [ visualization allNodes ];
+		borderColorDescription: [ :number |
+				number isPrime
+					ifTrue: [ 'Prime' ]
+					ifFalse: [ 'Not prime' ] ]
+		forNodes: [ visualization allNodes ];
+		nodeShapeDescription: [ :number |
+				number even
+					ifTrue: [ 'Even' ]
+					ifFalse: [ 'Odd' ] ]
+		forNodes: [ visualization allNodes ];
+		description: 'Under the mouse' forColor: Color orange.
 	^ visualization
 ]
 
@@ -612,7 +648,7 @@ TLDemos class >> exampleNodeLabelPosition [
 	^ visu
 ]
 
-{ #category : 'examples' }
+{ #category : 'demos' }
 TLDemos class >> exampleNodeSizeFromEntity [
 
 	<script: 'self exampleNodeSizeFromEntity open'>
@@ -667,21 +703,29 @@ TLDemos class >> examplePathBuilder [
 
 { #category : 'demos' }
 TLDemos class >> examplePopUp [
+	"The nodes of the first group show their pop up while the mouse is over them, the nodes of the second one when they are clicked, and hide it with another click. The position of the pop up is the position of the node in its group"
+
 	<script: 'self examplePopUp open'>
 	<tlFilter: #interaction>
-	| visu |
+	| visu position |
 	visu := TLVisualization new.
-	#(top center bottom) do: [ :vert | #(left center right) do: [ :hor | visu addNodeFromEntity: vert -> hor ] ].
-	visu layout: (TLLinearLayout perLine: 3).
-	visu
-		addInteraction:
-			(TLPopUpAction
-				text: #asString
-				position: [ :each | 
-					TLPosition new
-						horizontal: each value;
-						vertical: each key;
-						yourself ]) onMouseOver.
+	visu layout: (TLLinearLayout leftToRight
+			 gap: 150;
+			 yourself).
+	#( top center bottom ) do: [ :vert |
+			#( left center right ) do: [ :hor |
+					visu > #mouseOver addNodeFromEntity: vert -> hor.
+					visu > #click addNodeFromEntity: vert -> hor ] ].
+	visu > #mouseOver layout: (TLLinearLayout perLine: 3).
+	visu > #click layout: (TLLinearLayout perLine: 3).
+	(visu > #click) styleSheet backgroundColor: MDLColor lightBlue.
+	position := [ :each |
+		            TLPosition new
+			            horizontal: each value;
+			            vertical: each key;
+			            yourself ].
+	visu > #mouseOver addInteraction: (TLPopUpAction text: #asString position: position) onMouseOver.
+	visu > #click addInteraction: (TLPopUpAction text: #asString position: position) onClick.
 	^ visu
 ]
 
