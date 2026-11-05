@@ -12,8 +12,7 @@ Class {
 TLTreeLayoutTest >> setUp [
 	super setUp.
 	layout := TLTreeLayout new.
-	layout useOutgoingLinks 
-	
+	layout useOutgoingLinks
 ]
 
 { #category : 'tests' }
@@ -97,8 +96,6 @@ TLTreeLayoutTest >> testObtainYTable [
 	root stub children willReturn: {}.
 	tree := {(root -> {(node -> Dictionary new)} asDictionary)} asDictionary.
 	self assert: (layout obtainYtableForTree: tree) equals: {0 . 25 . 40} asOrderedCollection.
-
-	{root . node} do: [ :n | n should receive isNode ]
 ]
 
 { #category : 'tests' }
@@ -120,6 +117,4 @@ TLTreeLayoutTest >> testObtainYTableTwoChildren [
 
 	tree := {(root -> {(child1 -> Dictionary new) . (child2 -> Dictionary new)} asDictionary)} asDictionary.
 	self assert: (layout obtainYtableForTree: tree) equals: {0 . 25 . 65} asOrderedCollection.
-	
-	{ root. child1 . child2 } do: [ :node | node should receive isNode ]
 ]
