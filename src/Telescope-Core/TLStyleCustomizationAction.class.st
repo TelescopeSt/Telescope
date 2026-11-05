@@ -77,9 +77,16 @@ TLStyleCustomizationAction >> initialize [
 	self previousStyleDictionary: Dictionary new
 ]
 
-{ #category : 'private' }
+{ #category : 'action' }
 TLStyleCustomizationAction >> obtainTargetDrawablesFrom: aTLDrawable [
-	^ (self target ifNotNil: [ :t | t value: aTLDrawable ] ifNil: [ aTLDrawable ]) asOrderedCollection
+
+	| targets |
+	targets := self target
+		           ifNotNil: [ :t | t value: aTLDrawable ]
+		           ifNil: [ aTLDrawable ].
+	^ targets isCollection
+		  ifTrue: [ targets asOrderedCollection ]
+		  ifFalse: [ OrderedCollection with: targets ]
 ]
 
 { #category : 'accessing' }

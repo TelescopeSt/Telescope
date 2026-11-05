@@ -54,9 +54,11 @@ TLShowAction >> initialize [
 
 { #category : 'action' }
 TLShowAction >> regularActionOn: aTLDrawable [
-	(self shownDrawables
-		at: aTLDrawable
-		put: (self obtain: self showingValuableOrEntity on: aTLDrawable) asOrderedCollection) do: #show
+
+	| drawables |
+	drawables := self obtain: self showingValuableOrEntity on: aTLDrawable.
+	drawables isCollection ifFalse: [ drawables := OrderedCollection with: drawables ].
+	(self shownDrawables at: aTLDrawable put: drawables asOrderedCollection) do: #show
 ]
 
 { #category : 'action' }
