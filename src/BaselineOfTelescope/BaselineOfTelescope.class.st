@@ -17,7 +17,6 @@ BaselineOfTelescope >> baseline: spec [
 			self
 				deepTraverser: spec;
 				mocketry: spec;
-				mooseAlgo: spec;
 				pharoBackwardCompatibility: spec;
 				styleSheet: spec;
 				materialColors: spec.
@@ -25,7 +24,7 @@ BaselineOfTelescope >> baseline: spec [
 			"Packages"
 			spec
 				package: 'Telescope-Core' with: [ spec requires: #('Stylesheet' 'Telescope-Layouts' 'MaterialColors' 'PharoBackwardCompatibility') ];
-				package: 'Telescope-VisualizationTemplates' with: [ spec requires: #('Telescope-Core' 'MooseAlgos' 'DeepTraverser') ];
+				package: 'Telescope-VisualizationTemplates' with: [ spec requires: #('Telescope-Core' 'DeepTraverser') ];
 				package: 'Telescope-Demo' with: [ spec requires: #('Telescope-Core' 'Telescope-VisualizationTemplates') ];
 				package: 'Telescope-Layouts';
 				package: 'Telescope-Core-Tests' with: [ spec requires: #('Telescope-Core' 'Telescope-Demo' 'Mocketry') ];
@@ -65,15 +64,6 @@ BaselineOfTelescope >> mocketry: spec [
 		with: [ spec
 				loads: #('Core');
 				repository: 'github://dionisiydk/Mocketry:v6.0.x' ]
-]
-
-{ #category : 'dependencies' }
-BaselineOfTelescope >> mooseAlgo: spec [
-	spec
-		baseline: 'MooseAlgos'
-		with: [ spec
-				loads: 'Core';
-				repository: 'github://moosetechnology/MooseAlgos:v1.x.x/src' ]
 ]
 
 { #category : 'dependencies' }
