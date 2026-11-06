@@ -127,8 +127,8 @@ TLTreeLayout >> obtainTreesFromNodes: aGroup [
 	remainingNodes := aGroup asOrderedCollection.
 	remainingNodes == aGroup
 		ifTrue: [ remainingNodes := remainingNodes copy ].
-	trees := Dictionary new.
-	[ remainingNodes notEmpty ]
+	trees := OrderedDictionary new.
+	[ remainingNodes isNotEmpty ]
 		whileTrue: [ 
 			| root |
 			root := remainingNodes first.

@@ -83,6 +83,19 @@ TLTreeLayoutTest >> testObtainTreeFromNodesWithTwoNodesWithChildBeforeParent [
 ]
 
 { #category : 'tests' }
+TLTreeLayoutTest >> testObtainTreesKeepsTheOrderOfTheRoots [
+	"The trees are placed from left to right in the order of their roots"
+
+	| nodes trees |
+	nodes := (1 to: 20) collect: [ :index | | node |
+		node := Mock named: 'node' , index asString.
+		node stub outgoingAdjacentNodes willReturn: {}.
+		node ].
+	trees := layout obtainTreesFromNodes: nodes.
+	self assert: trees keys asArray equals: nodes asArray
+]
+
+{ #category : 'tests' }
 TLTreeLayoutTest >> testObtainYTable [
 	| node root tree |
 	layout levelGap: 5.
