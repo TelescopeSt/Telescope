@@ -88,6 +88,13 @@ TLNameCloud >> sortedSymbolsToDisplay [
 	^ objects
 ]
 
+{ #category : 'private' }
+TLNameCloud >> stemOf: aWord [
+	"A simple stem: the word in lowercase without its plural, its -ing or its -ed"
+
+	^ self withoutVerbSuffix: (self withoutPlural: aWord asLowercase)
+]
+
 { #category : 'utilities' }
 TLNameCloud >> symbolsUsedInNames [
 	| symbols nospace |
@@ -97,6 +104,35 @@ TLNameCloud >> symbolsUsedInNames [
 				piecesCutWhere: [ :a :b | 
 					{Character space.
 					$_} includes: a ]) collect: [ :token | (token replaceAll: $_ with: Character space) trim ].
-			nospace flatCollect: [ :x | x piecesCutWhereCamelCase collect: [ :y | each -> (MalStemmer English stem: y) ] ] ].
+			nospace flatCollect: [ :x | x piecesCutWhereCamelCase collect: [ :y | each -> (self stemOf: y) ] ] ].
 	^ (symbols reject: [ :each | self class stopWordList includes: each value ]) asOrderedCollection groupedBy: #value affect: #size
+]
+
+{ #category : 'private' }
+TLNameCloud >> withoutDoubledConsonant: aRoot [
+	| last |
+	last := aRoot last.
+	^ (last isVowel not and: [ (aRoot at: aRoot size - 1) = last and: [ ('lsz' includes: last) not ] ])
+		ifTrue: [ aRoot allButLast ]
+		ifFalse: [ aRoot ]
+]
+
+{ #category : 'private' }
+TLNameCloud >> withoutPlural: aWord [
+	(aWord endsWith: 'ies') ifTrue: [ ^ (aWord allButLast: 3) , 'y' ].
+	(#( 'sses' 'xes' 'zes' 'ches' 'shes' ) anySatisfy: [ :suffix | aWord endsWith: suffix ]) ifTrue: [ ^ aWord allButLast: 2 ].
+	(aWord endsWith: 's') ifFalse: [ ^ aWord ].
+	(#( 'ss' 'us' 'is' ) anySatisfy: [ :suffix | aWord endsWith: suffix ]) ifTrue: [ ^ aWord ].
+	^ aWord allButLast
+]
+
+{ #category : 'private' }
+TLNameCloud >> withoutVerbSuffix: aWord [
+	"A word that would be left with less than three letters, or with no vowel, is kept as it is. A doubled consonant at the end is removed: running gives run"
+
+	#( 'ing' 'ed' ) do: [ :suffix | | root |
+		(aWord endsWith: suffix) ifTrue: [
+			root := aWord allButLast: suffix size.
+			(root size >= 3 and: [ root anySatisfy: #isVowel ]) ifTrue: [ ^ self withoutDoubledConsonant: root ] ] ].
+	^ aWord
 ]

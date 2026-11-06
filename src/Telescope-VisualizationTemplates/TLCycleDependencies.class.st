@@ -22,11 +22,11 @@ Class {
 { #category : 'building' }
 TLCycleDependencies >> buildVisualization [
 
-	| cycleCalculator |
-	cycleCalculator := self cycleCalculator.
+	| cycleDetector |
+	cycleDetector := self cycleDetector.
 
 	(self > #packages) styleSheet backgroundColor: [ :namespace | 
-		(cycleCalculator findNode: namespace) isInCycle
+		(cycleDetector isInCycle: namespace)
 			ifTrue: [ self highlightColorForNode: namespace ]
 			ifFalse: [ self defaultColorForNode: namespace ] ].
 
@@ -45,17 +45,8 @@ TLCycleDependencies >> buildVisualization [
 ]
 
 { #category : 'building' }
-TLCycleDependencies >> cycleCalculator [
-
-	| cycleCalculator |
-	cycleCalculator := MalTarjan new.
-	cycleCalculator nodes: self entities.
-	cycleCalculator
-		edges: self entities
-		from: #yourself
-		toAll: self property.
-	cycleCalculator run.
-	^ cycleCalculator
+TLCycleDependencies >> cycleDetector [
+	^ TLCycleDetector nodes: self entities successors: self property
 ]
 
 { #category : 'configuration' }

@@ -1,8 +1,8 @@
 "
 Sorting strategy used for the containers in a distribution map.
 For each entity, it computes its representation as a vector.
-From the vectors a cosine distance can be computed betwen any two containers
-From  these distance, the containers are ordered  by serialisation of a dendrogram
+From the vectors a cosine distance can be computed between any two containers.
+From these distances, the containers are ordered by serialisation of a dendrogram (TLDendrogram).
 "
 Class {
 	#name : 'TLDistributionMapContainerSortingStrategy',
@@ -41,22 +41,19 @@ TLDistributionMapContainerSortingStrategy >> innerEntitiesBlock: aBlock [
 
 { #category : 'sorting' }
 TLDistributionMapContainerSortingStrategy >> sortNodes: aCollectionOfTLNodes [
-	| dims vectors clust dendrogram |
-	dims := self getVectorsDimensions: aCollectionOfTLNodes.
-	vectors := aCollectionOfTLNodes collect: [ :node | self vectorDescription: node forDimensions: dims ].
-	"clustering expects a distance metric and #cosine: is a similarity in [0,1]"
-	clust := MalClusterEngine with: vectors using: [ :v1 :v2 | 1 - (v1 cosine: v2)].
-	dendrogram := clust singleLinkage orderLeafs.
-
+	| dimensions leaves |
+	aCollectionOfTLNodes size < 2 ifTrue: [ ^ self ].
+	dimensions := self getVectorsDimensions: aCollectionOfTLNodes.
+	leaves := aCollectionOfTLNodes collect: [ :node | TLDendrogram item: node vector: (self vectorDescription: node forDimensions: dimensions) ].
 	"now re-order elements WITHIN aCollectionOfTLNodes"
-	aCollectionOfTLNodes removeAll.
-	aCollectionOfTLNodes addAll: (dendrogram elements collect: #item)
-
+	aCollectionOfTLNodes removeAll; addAll: (TLDendrogram singleLinkageOf: leaves) orderLeaves items
 ]
 
 { #category : 'private utilities' }
-TLDistributionMapContainerSortingStrategy >> vectorDescription: aTLNode forDimensions: dims [
+TLDistributionMapContainerSortingStrategy >> vectorDescription: aTLNode forDimensions: dimensions [
+	"The number of inner entities of the node for each dimension"
+
 	| entityProps |
-	entityProps  := (self innerEntitiesBlock value: aTLNode entity) collect: [:inner | self property value: inner].
-	^ MalVectorItem with: aTLNode and: (dims collect: [ :d | (entityProps select: [ :p | p = d ]) size ])
+	entityProps := (self innerEntitiesBlock value: aTLNode entity) collect: [ :inner | self property value: inner ].
+	^ dimensions collect: [ :dimension | (entityProps select: [ :property | property = dimension ]) size ]
 ]
