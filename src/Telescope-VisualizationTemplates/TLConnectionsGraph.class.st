@@ -26,19 +26,18 @@ TLConnectionsGraph class >> root: aRootElement elements: aCollection flowDirecti
 
 { #category : 'private' }
 TLConnectionsGraph >> addConnectionForGroupAt: aLevel [
-	(self > aLevel) nodes
-		do: [ :aNode | 
-			(levelsCollection flatten select: [ :each | (aNode entity perform: self connectionProperty) includes: each ])
-				do: [ :anEntity | 
+
+	(self > aLevel) nodes do: [ :aNode |
+			((levelsCollection gather: [ :level | level ]) select: [ :each | (aNode entity perform: self connectionProperty) includes: each ]) do: [ :anEntity |
 					self edgeDirection = #incoming
-						ifTrue: [ 
-							[ aNode connectTo: (self nodeForEntity: anEntity) ]
-								on: NotFound
-								do: [  ] ]
-						ifFalse: [ 
-							[ (self nodeForEntity: anEntity) connectTo: aNode ]
-								on: NotFound
-								do: [  ] ] ] ]
+						ifTrue: [
+								[ aNode connectTo: (self nodeForEntity: anEntity) ]
+									on: NotFound
+									do: [ ] ]
+						ifFalse: [
+								[ (self nodeForEntity: anEntity) connectTo: aNode ]
+									on: NotFound
+									do: [ ] ] ] ]
 ]
 
 { #category : 'building' }
