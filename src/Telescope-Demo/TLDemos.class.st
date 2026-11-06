@@ -980,27 +980,18 @@ TLDemos class >> exampleSystemComplexityInContainer [
 
 { #category : 'demos' }
 TLDemos class >> exampleSystemComplexityMultipleRoots [
+
 	<script: 'self exampleSystemComplexityMultipleRoots open'>
-	<tlDescription: 'The system complexity view for several roots at once: Collection and all its subclasses.'>
+	<tlDescription: 'The system complexity view for several roots at once: SequenceableCollection and all its subclasses.'>
 	<tlFilter: #visuTemplate>
-	
-	"for FAMIXTypeGroup:
-	 TLSystemComplexityMultipleRoots new
-		roots: self asCollection;
-		widthBlock: [ :each | each numberOfAttributes max: 5 ];
-		heightBlock: [ :each | each numberOfMethods max: 5 ];
-		backgroundColorBlock: #numberOfLinesOfCode;
-		property: #directSubclasses;
-		open."
-	
 	| visualization |
 	visualization := TLSystemComplexityMultipleRoots new
-		roots: Collection withAllSubclasses;
-		widthBlock: [ :each | (each instanceVariables size) * 10 ];
-		heightBlock: [ :each | each numberOfMethods * 3 ];
-		backgroundColorBlock: #linesOfCode;
-		property: #subclasses;
-		scopeBlock: #yourself.
+		                 roots: SequenceableCollection withAllSubclasses;
+		                 widthBlock: [ :each | each instanceVariables size * 10 + 5 ];
+		                 heightBlock: [ :each | each numberOfMethods * 3 + 5 ];
+		                 backgroundColorBlock: #linesOfCode;
+		                 property: #subclasses;
+		                 scopeBlock: #yourself.
 	visualization addInteraction: TLPopUpAction onMouseOver.
 	^ visualization
 ]
