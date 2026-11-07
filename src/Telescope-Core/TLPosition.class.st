@@ -102,18 +102,25 @@ TLPosition >> left [
 		horizontal: #left
 ]
 
+{ #category : 'private' }
+TLPosition >> oppositeOf: aDirection [
+	"The direction on the other side: left and right, top and bottom, and the center for the center"
+
+	aDirection = #left ifTrue: [ ^ #right ].
+	aDirection = #right ifTrue: [ ^ #left ].
+	aDirection = #top ifTrue: [ ^ #bottom ].
+	aDirection = #bottom ifTrue: [ ^ #top ].
+	^ aDirection
+]
+
 { #category : 'helper' }
 TLPosition >> reversed [
-	| opposed |
-	self flag: 'Optimisation: do not create this dictionary each time'.
-	opposed := {(#left -> #right).
-	(#center -> #center).
-	(#top -> #bottom)} asDictionary.
-	opposed keysAndValuesDo: [ :key :value | opposed at: value put: key ].
+	"The position on the other side of the node, on both axes: the bottom right for the top left. The center stays the center"
+
 	^ self class new
-		horizontal: (opposed at: self horizontal);
-		vertical: (opposed at: self vertical);
-		yourself
+		  horizontal: (self oppositeOf: horizontal);
+		  vertical: (self oppositeOf: vertical);
+		  yourself
 ]
 
 { #category : 'positions' }
