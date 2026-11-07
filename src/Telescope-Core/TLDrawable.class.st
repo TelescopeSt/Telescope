@@ -90,13 +90,6 @@ TLDrawable >> defaultStyle [
 	^ #drawable
 ]
 
-{ #category : 'style' }
-TLDrawable >> effectiveStyleSheet [
-	^ self
-		buildCompositeStyleSheetFrom:
-			(self parent ifNil: [ self styleSheetClass new ] ifNotNil: [ self parent effectiveStyleSheet ])
-]
-
 { #category : 'private-connector' }
 TLDrawable >> generate [
 	| result |

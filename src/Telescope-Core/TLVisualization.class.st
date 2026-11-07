@@ -88,9 +88,11 @@ TLVisualization >> fullScreenOpening [
 
 { #category : 'private-connector' }
 TLVisualization >> generateWith: aTLConnector [
+	"The styles do not change while the connector generates the elements, so the effective style sheets of the drawables are kept meanwhile: the nodes share the ones of their parents"
+
 	| generated |
 	self buildVisualization.
-	generated := aTLConnector generateVisualization: self.
+	generated := EffectiveStyleSheetCache during: [ aTLConnector generateVisualization: self ].
 	self hierarchyChangeManaged.
 	self hasBeenGenerated: true.
 	^ generated
@@ -201,7 +203,9 @@ TLVisualization >> title: anObject [
 
 { #category : 'private-connector' }
 TLVisualization >> updateWith: aTLGenerator [
-	aTLGenerator updateVisualization: self
+	"As for the generation, the effective style sheets of the drawables are kept while the connector updates the elements"
+
+	EffectiveStyleSheetCache during: [ aTLGenerator updateVisualization: self ]
 ]
 
 { #category : 'accessing' }
