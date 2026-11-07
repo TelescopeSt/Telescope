@@ -758,11 +758,11 @@ TLConnector >> updateElementNodeOf: aDrawable [
 
 { #category : 'updating - group' }
 TLConnector >> updateGroup: aTLGroup [
-	"The elements of the group are matched with their drawables, and sorted in the order of the drawables, with dictionaries made once: going through all of them for each element made the update quadratic"
+	"The elements of the group are matched with their drawables, and sorted in the order of the drawables, with dictionaries made once: going through all of them for each element made the update quadratic. For the same reason, only the elements which are not in the graphic group yet are given to it to be added"
 
 	aTLGroup isUpdateRequired
 		ifTrue: [
-				| graphicGroup drawablesInGroup order positions |
+				| graphicGroup drawablesInGroup present elements order positions |
 				graphicGroup := self elementFromTLDrawable: aTLGroup.
 				drawablesInGroup := IdentityDictionary new.
 				aTLGroup do: [ :aTLDrawable | self elementFromTLDrawable: aTLDrawable ifPresent: [ :element | drawablesInGroup at: element put: aTLDrawable ] ifNone: [ ] ].
@@ -776,15 +776,17 @@ TLConnector >> updateGroup: aTLGroup [
 									(tlDrawable parent isNil or: [ tlDrawable isVisible not ]) ifTrue: [ tlDrawable removeWith: self ]. "element does not exist anymore so should be removed"
 									true ] ].
 				"adding phase"
-				graphicGroup addAllFirstUnlessAlreadyPresent: (aTLGroup
-						 select: #isVisible
-						 thenCollect: [ :aTLDrawable |
-								 self
-									 elementFromTLDrawable: aTLDrawable
-									 ifPresent: [ :element |
-											 aTLDrawable updateWith: self.
-											 element ]
-									 ifNone: [ aTLDrawable generate ] ]).
+				present := graphicGroup asIdentitySet.
+				elements := aTLGroup
+					            select: #isVisible
+					            thenCollect: [ :aTLDrawable |
+							            self
+								            elementFromTLDrawable: aTLDrawable
+								            ifPresent: [ :element |
+										            aTLDrawable updateWith: self.
+										            element ]
+								            ifNone: [ aTLDrawable generate ] ].
+				graphicGroup addAllFirstUnlessAlreadyPresent: (elements reject: [ :element | present includes: element ]).
 				"sorting phase"
 				order := aTLGroup
 					         select: #isVisible

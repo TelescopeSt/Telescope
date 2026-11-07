@@ -25,7 +25,7 @@ TLNodesByEntityTest >> setUp [
 
 { #category : 'tests' }
 TLNodesByEntityTest >> testConnectFollowingPropertyIndexesTheNodesOnce [
-	"Looking for the targets of each node among all the nodes made the connections quadratic"
+	"Looking for the targets of each node among all the nodes made the connections quadratic: it took more than a second, and takes about a tenth of it with the index. The limit leaves room for a slow machine"
 
 	| visualizationOfManyNodes time |
 	visualizationOfManyNodes := TLVisualization fromEntities: (1 to: 3000).
@@ -34,7 +34,7 @@ TLNodesByEntityTest >> testConnectFollowingPropertyIndexesTheNodesOnce [
 				        {
 					        (number + 1).
 					        (number + 2) } ] ] timeToRun.
-	self assert: time < 300 milliSeconds
+	self assert: time < 600 milliSeconds
 ]
 
 { #category : 'tests' }
