@@ -63,6 +63,46 @@ TLConnectorTest >> testGroupUpdatingKeepOrder [
 ]
 
 { #category : 'tests' }
+TLConnectorTest >> testGroupUpdatingRemovesTheElementOfAHiddenNode [
+
+	| group cNode aNode bNode |
+	group := TLEntitiesGroup new.
+	group generator: connector.
+	group
+		nodeCreationStrategy: TLNodeCreationStrategy default;
+		layout: nil.
+	aNode := group addNodeFromEntity: $a.
+	bNode := group addNodeFromEntity: $b.
+	cNode := group addNodeFromEntity: $c.
+	group generate.
+	bNode hide.
+	group update.
+	self assert: (connector elementFromTLDrawable: group) equals: {
+			(aNode -> #element).
+			(cNode -> #element) } asOrderedCollection
+]
+
+{ #category : 'tests' }
+TLConnectorTest >> testGroupUpdatingRemovesTheElementOfARemovedNode [
+
+	| group cNode aNode bNode |
+	group := TLEntitiesGroup new.
+	group generator: connector.
+	group
+		nodeCreationStrategy: TLNodeCreationStrategy default;
+		layout: nil.
+	aNode := group addNodeFromEntity: $a.
+	bNode := group addNodeFromEntity: $b.
+	cNode := group addNodeFromEntity: $c.
+	group generate.
+	bNode remove.
+	group update.
+	self assert: (connector elementFromTLDrawable: group) equals: {
+			(aNode -> #element).
+			(cNode -> #element) } asOrderedCollection
+]
+
+{ #category : 'tests' }
 TLConnectorTest >> testNodeWithShapeInteractionCorrectlyGenerated [
 	| node interaction |
 	node := TLSimpleNode new.
