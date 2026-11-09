@@ -758,36 +758,47 @@ TLConnector >> updateElementNodeOf: aDrawable [
 
 { #category : 'updating - group' }
 TLConnector >> updateGroup: aTLGroup [
+	"The elements of the group are matched with their drawables, and sorted in the order of the drawables, with dictionaries made once: going through all of them for each element made the update quadratic. For the same reason, only the elements which are not in the graphic group yet are given to it to be added"
+
 	aTLGroup isUpdateRequired
-		ifTrue: [ 
-			| graphicGroup order |
-			graphicGroup := self elementFromTLDrawable: aTLGroup.	
-			"cleaning phase"
-			graphicGroup
-				removeAllSuchThat: [ :aDrawableGraphic | 
-					| tlDrawable |
-					tlDrawable := self tlDrawableFromElement: aDrawableGraphic.
-					((aTLGroup includes: tlDrawable) and: [tlDrawable isVisible])
-						ifTrue: [ 
-							"element is still existing so should not be removed"
-							false ]
-						ifFalse: [ 
-							"If the drawable has no parent anymore or is hyde it should be removed from visualization"
-							(tlDrawable parent isNil or: [tlDrawable isVisible not]) ifTrue: [ tlDrawable removeWith: self ].	"element does not exist anymore so should be removed"
-							true ] ].	
-			"adding phase"
-			graphicGroup
-				addAllFirstUnlessAlreadyPresent:
-					(aTLGroup select: #isVisible thenCollect: [ :aTLDrawable |  self elementFromTLDrawable: aTLDrawable ifPresent: [ :element | aTLDrawable updateWith: self. element ] ifNone: [ aTLDrawable generate ] ]).	
-			"sorting phase"
-			order := aTLGroup select: #isVisible
-						thenCollect: [ :aTLDrawable | self elementFromTLDrawable: aTLDrawable ].
-			graphicGroup sort: [ :a :b | (order indexOf: a) < (order indexOf: b) ].
-			aTLGroup updateDone ]
-		ifFalse:
-			[aTLGroup isLayoutApplicationRequired ifTrue: ["In that case, layout application is required but not updating so we iterate over subelements" aTLGroup do: [ :aTLDrawable | aTLDrawable updateWith: self ] ]].
-	aTLGroup isLayoutApplicationRequired
-		ifFalse: [ ^ self ].
+		ifTrue: [
+				| graphicGroup drawablesInGroup present elements order positions |
+				graphicGroup := self elementFromTLDrawable: aTLGroup.
+				drawablesInGroup := IdentityDictionary new.
+				aTLGroup do: [ :aTLDrawable | self elementFromTLDrawable: aTLDrawable ifPresent: [ :element | drawablesInGroup at: element put: aTLDrawable ] ifNone: [ ] ].
+				"cleaning phase"
+				graphicGroup removeAllSuchThat: [ :aDrawableGraphic |
+						| tlDrawable |
+						tlDrawable := drawablesInGroup at: aDrawableGraphic ifAbsent: [ self tlDrawableFromElement: aDrawableGraphic ].
+						((drawablesInGroup includesKey: aDrawableGraphic) and: [ tlDrawable isVisible ])
+							ifTrue: [ "element is still existing so should not be removed" false ]
+							ifFalse: [ "If the drawable has no parent anymore or is hyde it should be removed from visualization"
+									(tlDrawable parent isNil or: [ tlDrawable isVisible not ]) ifTrue: [ tlDrawable removeWith: self ]. "element does not exist anymore so should be removed"
+									true ] ].
+				"adding phase"
+				present := graphicGroup asIdentitySet.
+				elements := aTLGroup
+					            select: #isVisible
+					            thenCollect: [ :aTLDrawable |
+							            self
+								            elementFromTLDrawable: aTLDrawable
+								            ifPresent: [ :element |
+										            aTLDrawable updateWith: self.
+										            element ]
+								            ifNone: [ aTLDrawable generate ] ].
+				graphicGroup addAllFirstUnlessAlreadyPresent: (elements reject: [ :element | present includes: element ]).
+				"sorting phase"
+				order := aTLGroup
+					         select: #isVisible
+					         thenCollect: [ :aTLDrawable | self elementFromTLDrawable: aTLDrawable ].
+				positions := IdentityDictionary new.
+				order doWithIndex: [ :element :index | positions at: element ifAbsentPut: [ index ] ].
+				graphicGroup sort: [ :a :b | (positions at: a ifAbsent: [ 0 ]) < (positions at: b ifAbsent: [ 0 ]) ].
+				aTLGroup updateDone ]
+		ifFalse: [
+				aTLGroup isLayoutApplicationRequired ifTrue: [ "In that case, layout application is required but not updating so we iterate over subelements"
+					aTLGroup do: [ :aTLDrawable | aTLDrawable updateWith: self ] ] ].
+	aTLGroup isLayoutApplicationRequired ifFalse: [ ^ self ].
 	aTLGroup layout ifNotNil: [ self applyLayoutOf: aTLGroup on: (self elementFromTLDrawable: aTLGroup) ].
 	aTLGroup layoutApplicationDone
 ]

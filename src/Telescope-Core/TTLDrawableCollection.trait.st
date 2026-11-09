@@ -54,6 +54,13 @@ TTLDrawableCollection >> allNodesRecursivelyDo: aBlock [
 	self collection allNodesRecursivelyDo: aBlock
 ]
 
+{ #category : 'converting' }
+TTLDrawableCollection >> asNodesByEntity [
+	"An index of my nodes by their entity, to find the targets of many connections at once"
+
+	^ TLNodesByEntity on: self
+]
+
 { #category : 'requirements' }
 TTLDrawableCollection >> collection [
 	self explicitRequirement

@@ -16,7 +16,11 @@ TTLConnectable >> connectFollowingProperty: aBlockOrSymbol [
 
 { #category : 'connect' }
 TTLConnectable >> connectFollowingProperty: aBlockOrSymbol context: aTLEntitiesGroup [
-	^ self flatCollect: [ :tlEntity | tlEntity connectFollowingProperty: aBlockOrSymbol context: aTLEntitiesGroup ]
+	"The targets are looked for in an index of the nodes of the context, made once for all the nodes"
+
+	| nodesByEntity |
+	nodesByEntity := aTLEntitiesGroup asNodesByEntity.
+	^ self flatCollect: [ :tlEntity | tlEntity connectFollowingProperty: aBlockOrSymbol context: nodesByEntity ]
 ]
 
 { #category : 'connect' }
