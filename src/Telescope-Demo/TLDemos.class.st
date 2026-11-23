@@ -288,6 +288,52 @@ TLDemos class >> exampleConnectionsCustomization [
 ]
 
 { #category : 'demos' }
+TLDemos class >> exampleCustomAndReversibleCustomActions [
+	"A custom action is done each time its interaction occurs. A custom action with a reverse block is also reversed: on a mouse over, the block is evaluated when the mouse enters the node and the reverse block when the mouse leaves it"
+
+	<script: 'self exampleCustomAndReversibleCustomActions open'>
+	<tlDescription:
+	'Click a node to select it or to unselect it with a red border (custom action). Move the mouse over a node to color it in yellow until the mouse leaves it (custom action with a reverse block).'>
+	<tlFilter: #interaction>
+	<tlFilter: #style>
+	| visualization selected |
+	selected := Set new.
+	visualization := TLVisualization fromEntities: #( 'Alice' 'Bob' 'Carol' ).
+	visualization layout: (TLLinearLayout leftToRight
+		 gap: 100;
+		 yourself).
+	visualization styleSheet
+		shape: TLEllipse;
+		width: 60;
+		height: 60;
+		backgroundColor: Color lightBlue;
+		borderColor: Color black;
+		nodeLabel: #asString position: #top.
+	visualization addInteractions: {
+		(TLCustomAction block: [ :node |
+			 (selected includes: node entity)
+				 ifTrue: [
+					 selected remove: node entity.
+					 node styleSheet
+						 borderColor: Color black;
+						 borderWidth: 1 ]
+				 ifFalse: [
+					 selected add: node entity.
+					 node styleSheet
+						 borderColor: Color red;
+						 borderWidth: 4 ].
+			 node requireUpdate ]) onClick.
+		(TLCustomAction
+			 block: [ :node |
+				 node backgroundColor: Color yellow.
+				 node requireUpdate ]
+			 reverseBlock: [ :node |
+				 node backgroundColor: Color lightBlue.
+				 node requireUpdate ]) onMouseOver }.
+	^ visualization
+]
+
+{ #category : 'demos' }
 TLDemos class >> exampleCustomMultiChoiceAction [
 	<script: 'self exampleCustomMultiChoiceAction open'>
 	<tlDescription: 'Right click a node and choose an item in the submenu of the menu: the node and the choice are written on the Transcript.'>

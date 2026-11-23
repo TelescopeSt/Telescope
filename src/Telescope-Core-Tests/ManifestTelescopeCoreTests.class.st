@@ -8,3 +8,10 @@ Class {
 	#package : 'Telescope-Core-Tests',
 	#tag : 'Manifest'
 }
+
+{ #category : 'code-critics' }
+ManifestTelescopeCoreTests class >> ruleTempsReadBeforeWrittenRuleV1FalsePositive [
+
+	<ignoreForCoverage>
+	^ #(#(#(#RGPackageDefinition #(#'Telescope-Core-Tests')) #'2026-11-23T18:56:52.706506+01:00') )
+]
