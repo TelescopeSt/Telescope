@@ -107,6 +107,13 @@ TLDrawableAction >> regularActionIfNecessaryOn: aTLDrawable [
 	self actionOn: aTLDrawable
 ]
 
+{ #category : 'action' }
+TLDrawableAction >> reverseActionIfNecessaryOn: aTLDrawable [
+	"The default behavior is to have nothing to reverse: only the reversible actions undo what they did, for example when the mouse leaves the drawable"
+
+	
+]
+
 { #category : 'multi-visus' }
 TLDrawableAction >> updateAlso: aDrawable [
 	^ TLUpdateAction drawable: aDrawable action: self 
