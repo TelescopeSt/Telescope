@@ -1,0 +1,19 @@
+name: Floating tags
+
+on:
+  release:
+    types: [ published ]
+
+permissions:
+  contents: write
+
+jobs:
+  move:
+    if: ${{ !github.event.release.prerelease }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+      - uses: jecisc/floating-tags@v1
